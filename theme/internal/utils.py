@@ -4,7 +4,7 @@ SMART Sphinx Theme Utilities
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, February 21 2025
-Last updated on: Saturday, February 25 2025
+Last updated on: Monday, February 24 2025
 
 This module defines a collection of utility functions used for
 customizing the SMART Sphinx Theme. These utilities focus on enhancing
@@ -219,21 +219,16 @@ def add_copy_to_headerlinks(tree: bs4.BeautifulSoup) -> None:
 
     This function enhances all anchor tags with the `headerlink` class
     by binding a JavaScript event handler that copies the link's URL to
-    the clipboard when clicked. Additionally, it shows a temporary
-    tooltip that reads "Copied!" before reverting back to "Copy link",
-    providing visual feedback to users.
+    the clipboard when clicked.
 
     :param tree: Parsed HTML tree representing the document structure.
     """
     for link in tree.select("a.headerlink"):
         link["@click.prevent"] = (
-            "window.navigator.clipboard.writeText($el.href); $el.setAttribute"
-            "('data-tooltip', 'Copied!'); setTimeout(() => $el.setAttribute"
-            "('data-tooltip', 'Copy link to this element'), 2000)"
+            "window.navigator.clipboard.writeText($el.href);"
         )
         del link["title"]
         link["aria-label"] = "Copy link"
-        link["data-tooltip"] = "Copy link"
 
 
 def open_links_in_new_tab(tree: bs4.BeautifulSoup) -> None:

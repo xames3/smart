@@ -119,6 +119,35 @@ samp {
     color: hsl(var(--muted-foreground))
 }
 
+h2:hover>a.headerlink:before,
+h3:hover>a.headerlink:before,
+h4:hover>a.headerlink:before,
+h5:hover>a.headerlink:before,
+h6:hover>a.headerlink:before {
+    visibility: visible;
+    color: hsl(var(--foreground));
+    content: "\e1cd";
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px !important;
+    font: var(--fa-font-regular);
+    margin-right: 0;
+    rotate: 135deg;
+    margin-left: 8px
+}
+
+.headerlink:after {
+    display: none !important
+}
+
+.headerlink:focus:after,
+.headerlink:focus:before,
+.headerlink:hover:after,
+.headerlink:hover:before {
+    animation: none
+}
+
 code {
     background-color: hsl(var(--code-background));
     font-size: 14px;
