@@ -25,8 +25,7 @@ from theme import version
 project: t.Final[str] = "Home"
 author: t.Final[str] = "Akshay Mestry"
 author_email: t.Final[str] = "xa@mes3.dev"
-baseurl: t.Final[str] = "https://xames3.github.io/"
-homepage: str = f"{baseurl}/smart/"
+baseurl: t.Final[str] = "https://smart.mes3.dev/"
 source: t.Final[str] = "https://github.com/xames3/smart"
 
 extensions: list[str] = [
@@ -45,21 +44,21 @@ try:
         "--date=format:%B %d, %Y",
         "-n1",
     )
-    last_updated = subprocess.check_output(last_updated_cmd).decode()
+    last_updated = f"on {subprocess.check_output(last_updated_cmd).decode()}"
 except Exception:
-    last_updated = "Today"
+    last_updated = "today"
 
 website_author: t.Final[str] = author
 website_copyright: t.Final[str] = f"{dt.now().year}, {website_author}."
 website_email: t.Final[str] = author_email
 website_github: str = source
+website_homepage: str = baseurl
 website_license: str = f"{source}/blob/main/LICENSE"
 website_repository: str = source
 website_title: t.Final[str] = project
 website_version: t.Final[str] = version
 website_hide_index_toctree: bool = True
-website_homepage: str = homepage
-website_documentation: str = website_homepage
+website_documentation: str = source
 website_options: dict[str, t.Any] = {
     "last_updated": last_updated,
     "add_copy_to_headerlinks": True,
