@@ -122,9 +122,8 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
         "website_options": (config.html_theme_options, dict),
         "website_permalinks_icon": ("", str),
         "website_repository": ("", str),
-        "website_socials": ({}, dict),
         "website_title": (config.html_title or config.project, tuple),
-        "website_url": ("", str),
+        "website_url": (config.html_baseurl, str),
         "website_version": (config.release, str),
     }
     for configuration, (default, dtype) in configurations.items():
