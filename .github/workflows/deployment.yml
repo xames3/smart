@@ -64,7 +64,7 @@ jobs:
       - name: Build pages with Sphinx
         id: build
         run: |
-          python -m pip install -Uq pip -rrequirements.txt
+          python -m pip install -Uq -e .
           echo "Building documentation pages..."
           cd docs && make html
       - name: Upload artifact
