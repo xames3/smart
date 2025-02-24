@@ -1,0 +1,14 @@
+[theme]
+inherit = "basic"
+stylesheets = [ "smart.css" ]
+pygments_style = { default = "default" }
+sidebars = [ "sidebar_main_nav_links.html.jinja", "sidebar_toc.html.jinja" ]
+
+[options]
+show_breadcrumbs = true
+show_previous_next_pages = true
+show_scrolltop = true
+globaltoc_includehidden = true
+breadcrumbs_separator = "/"
+dark_logo = ""
+light_logo = ""

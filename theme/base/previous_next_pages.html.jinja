@@ -1,0 +1,32 @@
+<!--
+SMART Sphinx Theme Previous and Next Page Buttons Template
+==========================================================
+
+Author: Akshay Mestry <xa@mes3.dev>
+Created on: Friday, February 21 2025
+Last updated on: Saturday, February 22 2025
+-->
+<div class="flex items-center pt-6 mt-12 gap-2 justify-end">
+  {%- if prev %}
+  <div>
+    <a href="{{ prev.link|e }}"
+      class="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-2 prev-next">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-40 w-40">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </a>
+  </div>
+  {%- endif %}
+  {%- if next %}
+  <div>
+    <a href="{{ next.link|e }}"
+      class="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-2 prev-next">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-40 w-40">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </a>
+  </div>
+  {%- endif %}
+</div>
