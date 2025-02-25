@@ -1,11 +1,12 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Monday, February 24 2025
+.. Last updated on: Tuesday, February 25 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
 :og:description: Harnessing Studying, Mentorship, And Resourceful Teaching to
     drive innovation!
+:og:type: website
 
 .. _home-page:
 
@@ -134,8 +135,8 @@ tools, sharing ideas, and helping others grow alongside me.
 .. _Subject-matter expert: https://en.wikipedia.org/wiki/Subject-matter_expert
 
 .. toctree::
-    :caption: Miscellaneous
+    :caption: Miscellany
     :glob:
     :hidden:
 
-    _miscellaneous/*
+    miscellany/*
