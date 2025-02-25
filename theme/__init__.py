@@ -4,7 +4,7 @@ SMART Sphinx Theme
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, February 21 2025
-Last updated on: Monday, February 24 2025
+Last updated on: Tuesday, February 25 2025
 
 This module serves as the primary entry point for the SMART Sphinx
 Theme. It is responsible for initializing the theme, configuring its
@@ -23,6 +23,10 @@ between theme components and the final HTML output.
 The SMART Sphinx Theme is registered through the `setup()` function,
 which configures the theme, maps user-configurable options, and binds
 event hooks for post-processing and dynamic content handling.
+
+.. versionadded:: 21.2.2025
+
+    [1] Added native support for `sphinx.ext-opengraph` extension.
 """
 
 from __future__ import annotations
@@ -54,6 +58,7 @@ theme_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "base")
 supported_extensions: t.Sequence[str] = (
     "sphinx_carousel.carousel",
     "sphinx_design",
+    "sphinxext.opengraph",
 )
 theme_mapping: dict[str, str] = {
     "html_baseurl": "website_url",
