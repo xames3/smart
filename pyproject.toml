@@ -44,6 +44,9 @@ version = { attr = "theme.version" }
 [tool.black]
 line-length = 80
 
+[tool.djlint]
+indent = 2
+
 [tool.isort]
 profile = "black"
 line_length = 80
@@ -77,6 +80,7 @@ envlist = [ "py313" ]
 description = "Linting code and running static type checking on {base_python}"
 deps = [
     "black",
+    "djlint",
     "docutils-stubs",
     "flake8",
     "isort",
@@ -91,6 +95,7 @@ commands = [
     [ "isort", "--sl", { replace = "posargs", default = [ "docs/", "scripts/", "theme/" ], extend = true } ],
     [ "mypy", { replace = "posargs", default = [ "docs/", "scripts/", "theme/" ], extend = true } ],
     [ "flake8", { replace = "posargs", default = [ "docs/", "scripts/", "theme/" ], extend = true } ],
+    [ "djlint", { replace = "posargs", default = [ "theme/base/" ], extend = true }, "--profile=jinja", "--reformat" ],
 ]
 
 [tool.tox.gh.python]
