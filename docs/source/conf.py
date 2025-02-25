@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, February 22 2025
-Last updated on: Monday, February 24 2025
+Last updated on: Tuesday, February 25 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -79,3 +79,9 @@ intersphinx_mapping: dict[str, tuple[str, t.Any]] = {
     "python": ("https://docs.python.org/3/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
 }
+
+ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
+ogp_site_url: t.Final[str] = website_homepage
+ogp_social_cards: dict[str, str] = {"site_url": website_homepage}
+ogp_type: t.Final[str] = "website"
+ogp_enable_meta_description: bool = True
