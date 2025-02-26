@@ -92,7 +92,7 @@ intersphinx_mapping: dict[str, tuple[str, t.Any]] = {
 
 ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
 ogp_site_url: t.Final[str] = website_homepage
-ogp_social_cards: dict[str, str] = {
+ogp_social_cards: dict[str, str | bool] = {
     "site_url": website_homepage,
     "enable": False,
 }
