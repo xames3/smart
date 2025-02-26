@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, February 22 2025
-Last updated on: Tuesday, February 25 2025
+Last updated on: Wednesday, February 26 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -12,10 +12,17 @@ popular Python documentation tool. Sphinx is a powerful documentation
 generator that makes it easy to create high quality technical
 documentation for technical projects. I, however will be using it as
 teaching and learning platform.
+
+.. versionadded:: 22.2.2025
+
+    [1] Added support for Algolia DocSearch instead of using standard
+        Sphinx search. This support is added through the
+        `sphinx_docsearch` extension.
 """
 
 from __future__ import annotations
 
+import os
 import subprocess
 import typing as t
 from datetime import datetime as dt
@@ -30,9 +37,10 @@ source: t.Final[str] = "https://github.com/xames3/smart"
 
 extensions: list[str] = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.intersphinx",
     "sphinx.ext.extlinks",
+    "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
+    "sphinx_docsearch",
 ]
 nitpicky: bool = True
 
@@ -71,7 +79,9 @@ exclude_patterns: list[str] = ["_build"]
 templates_path: list[str] = ["_templates"]
 locale_dirs: list[str] = ["../locale/"]
 gettext_compact: bool = False
-html_context: dict[str, str] = {}
+html_context: dict[str, t.Any] = {
+    "docsearch": True,
+}
 rst_epilog = ""
 with open("_static/extra/epilog.rst") as f:
     rst_epilog += f.read()
@@ -82,6 +92,16 @@ intersphinx_mapping: dict[str, tuple[str, t.Any]] = {
 
 ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
 ogp_site_url: t.Final[str] = website_homepage
-ogp_social_cards: dict[str, str] = {"site_url": website_homepage}
+ogp_social_cards: dict[str, str] = {
+    "site_url": website_homepage,
+    "enable": False,
+}
 ogp_type: t.Final[str] = "website"
 ogp_enable_meta_description: bool = True
+
+docsearch_app_id = os.getenv("DOCSEARCH_APP_ID", "")
+docsearch_api_key = os.getenv("DOCSEARCH_API_KEY", "")
+docsearch_index_name = os.getenv("DOCSEARCH_INDEX_NAME", "")
+docsearch_container = "#smart-search"
+docsearch_placeholder = "SMART Search"
+docsearch_missing_results_url = source + "/issues/new?title=${query}"
