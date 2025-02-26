@@ -3,7 +3,7 @@
 #
 # Author: Akshay Mestry <xa@mes3.dev>
 # Created on: Monday, February 24 2025
-# Last updated on: Monday, February 24 2025
+# Last updated on: Wednesday, February 26 2025
 
 name: deployment
 run-name: Started website ${{ github.workflow }}
@@ -41,11 +41,9 @@ jobs:
       - name: Analyze
         id: linting
         run: |
-          python -m pip install -Uq pip black flake8 isort
+          python -m pip install -Uq pip tox
           echo "Checking code for issues..."
-          black --line-length 79 -q ${{ env.SOURCEDIR }}
-          isort --sl ${{ env.SOURCEDIR }}
-          flake8 ${{ env.SOURCEDIR }}
+          tox -p
   build:
     name: build
     needs: lint
@@ -67,6 +65,10 @@ jobs:
           python -m pip install -Uq -e .
           echo "Building documentation pages..."
           cd docs && make html
+        env:
+          DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
+          DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
+          DOCSEARCH_INDEX_NAME: ${{ secrets.DOCSEARCH_INDEX_NAME }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
