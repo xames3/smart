@@ -5,6 +5,7 @@
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
     path in AI, Learning, and Beyond
+:og:type: article
 
 .. _guiding-stars:
 
@@ -140,8 +141,7 @@ unlike any I had experienced before. I do remember you telling me, "*It's never
 about doing things perfectly; it is about learning and evolving along the
 way.*"
 
-.. figure:: ../assets/krishna-and-arjuna.jpeg
-    :class: border-offset outline-offset
+.. figure:: ../assets/krishna-and-arjuna.png
 
     Image generated with `Flux-Animex-v2-LoRA
     <https://huggingface.co/spaces/Neaty/anime>`_ model
