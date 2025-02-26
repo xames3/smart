@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, February 24, 2025
-.. Last updated on: Tuesday, February 25 2025
+.. Last updated on: Wednesday, February 26 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -141,7 +141,8 @@ unlike any I had experienced before. I do remember you telling me, "*It's never
 about doing things perfectly; it is about learning and evolving along the
 way.*"
 
-.. figure:: ../assets/krishna-and-arjuna.png
+.. figure:: ../assets/krishna-and-arjuna.jpeg
+    :class: border-offset outline-offset
 
     Image generated with `Flux-Animex-v2-LoRA
     <https://huggingface.co/spaces/Neaty/anime>`_ model
