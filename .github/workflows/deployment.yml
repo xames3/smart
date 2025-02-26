@@ -16,10 +16,12 @@ permissions:
   contents: write
 
 env:
-  ARTIFACTNAME: smart-pages
-  BUILDDIR: docs/build/
-  SOURCEDIR: docs/source
-  PYTHONVERSION: 3.13.2
+  ARTIFACT_NAME: smart-pages
+  BUILD_DIR: docs/build/
+  PYTHON_VERSION: 3.13.2
+  DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
+  DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
+  DOCSEARCH_INDEX_NAME: ${{ secrets.DOCSEARCH_INDEX_NAME }}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -37,7 +39,7 @@ jobs:
       - name: Setup
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ env.PYTHONVERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Analyze
         id: linting
         run: |
@@ -58,22 +60,18 @@ jobs:
       - name: Setup
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ env.PYTHONVERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Build pages with Sphinx
         id: build
         run: |
           python -m pip install -Uq -e .
           echo "Building documentation pages..."
           cd docs && make html
-        env:
-          DOCSEARCH_APP_ID: ${{ vars.DOCSEARCH_APP_ID }}
-          DOCSEARCH_API_KEY: ${{ vars.DOCSEARCH_API_KEY }}
-          DOCSEARCH_INDEX_NAME: ${{ vars.DOCSEARCH_INDEX_NAME }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: ${{ env.ARTIFACTNAME }}
-          path: ${{ env.BUILDDIR }}
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.BUILD_DIR }}
   deploy:
     name: deploy
     needs: [lint, build]
@@ -90,4 +88,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: ${{ env.ARTIFACTNAME }}
+          artifact_name: ${{ env.ARTIFACT_NAME }}
