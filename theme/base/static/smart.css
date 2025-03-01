@@ -13,7 +13,7 @@
     --input: 0 0% 92%;
     --light-accent: 0, 0%, 96%;
     --link: 216.35, 100%, 47%;
-    --radius: 6px;
+    --radius: 12px;
     --code-background: 0, 0%, 100%;
     --pre-shadow: 0, 0%, 83.92%;
     --highlight: 209.55 100% 94%;
@@ -496,4 +496,21 @@ i {
 
 .DocSearch-Commands {
     display: none
+}
+
+.scbs-carousel-indicators [data-bs-target] {
+    box-sizing: border-box !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: auto 8px !important;
+    background-color: hsl(var(--accent-foreground)) !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    transition: none !important;
+    border-radius: 100% !important
+}
+
+.scbs-carousel-caption {
+    display: none !important;
+    font-size: 0 !important;
 }
