@@ -225,7 +225,7 @@ on me as an educator has been very profound and I'm super grateful for all
 your suggestions and advice, knowing that your guidance and insights are
 always one message away.
 
-.. _john-komarnicki:
+.. _cast-john-komarnicki:
 
 John Komarnicki
 ===============================================================================
@@ -269,6 +269,8 @@ It's easy to underestimate the power of such gatherings, but John's work
 speaks volumes. Therefore, on behalf of everyone who has ever found comfort,
 camaraderie, or a new opportunity through Chicago Code and Coffee, I want to
 extend a heartfelt thank you to you, John!
+
+Join `Chicago Code and Coffee's Discord`_.
 
 .. _cast-madhavi-rege:
 
@@ -362,4 +364,5 @@ I'm grateful that I found a mentor like you.
 .. _Edward Tufte: https://www.edwardtufte.com
 .. _Open Science Trainings: https://www.opensciencetraining.org
 .. _Chicago Code and Coffee: https://www.meetup.com/code-and-coffee-chicago/
+.. _Chicago Code and Coffee's Discord: https://discord.gg/NNYtWNFByN
 .. _Git: https://git-scm.com
