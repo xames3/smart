@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, February 24, 2025
-.. Last updated on: Thursday, February 27 2025
+.. Last updated on: Friday, February 28 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -20,7 +20,7 @@ Guiding Stars
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: Feb 27, 2025
+    :timestamp: Feb 24, 2025
 
 .. rst-class:: lead
 
@@ -198,10 +198,36 @@ names to my cinematic universe.
 .. note::
 
     The below list is in alphabetical order solely for my OCD. It doesn't
-    imply any other significance. Each individual on this list holds equal
-    importance for me and has had a huge influence on my life.
+    imply anything else. Each person on this list holds equal importance for
+    me and has had massive influence on my life.
 
-.. _madhavi-rege:
+.. _cast-cameron-riddell:
+
+Cameron Riddell
+===============================================================================
+
+Cameron, my open science guru and data visualization **maestro**! Although
+we've never met in person, our virtual interactions have been nothing less
+than transformative. I consider myself to be exceptionally lucky to have you
+as my mentor at the early stages of my open science journey. Though we live in
+different time zones and states apart, I've never felt that our conversations
+are affected by our geographical differences. Despite my experiences working
+with data for a few years now, your insights, particularly in the domain of
+visualizations, have not only inspired me but also made me critically think
+about presenting it effectively. You introduced me to `Edward Tufte`_'s
+phenomenal work, a revelation that has since changed the way I approach visual
+analysis.
+
+But that's not all I admire about you, Cameron. For me, personally, of all
+your skills, your teaching style stands out as the most admirable quality. I
+do remember attending one of the `Open Science Trainings`_ and re-learning
+`Git`_, of all things! That moment, I learned that no matter how experienced
+one might be, there's always room for growth and improvement. Your influence
+on me as an educator has been very profound and I'm super grateful for all
+your suggestions and advice, knowing that your guidance and insights are
+always one message away.
+
+.. _cast-madhavi-rege:
 
 Madhavi Rege
 ===============================================================================
@@ -218,7 +244,30 @@ You nurtured my ability to think critically (take everything on email!), plan
 through my schedule meticulously, and execute precisely, qualities which even
 today I implement in every project and professional endeavor.
 
-.. _shailesh-kewat:
+.. _cast-sameer-mathad:
+
+Sameer Mathad
+===============================================================================
+
+A pursuer of excellence! Like :ref:`Shilpa <cast-shilpa-musale>`, I met Sameer
+while my time at DePaul. Being from the same program, we often shared a lot of
+classes together. As of writing this article, our friendship, though
+relatively new, has certainly grown into something I truly value. I know
+Sameer, I often pull your leg and give you a hard time, often teasing about
+your **"goody-two-shoes"** attitude when the whole damn class is struggling to
+keep up the pace. But beneath all this teasing, I feel this dynamic blend of
+playful banter and mutual respect is what keeps us together.
+
+I never speak of this, but what I really appreciate about you is your quiet
+yet firm way of reminding me about the importance of hardwork and discipline.
+While I super duper pride myself on being a mentor or perhaps a teacher in
+some instances, there were a lot of moments where I felt more like a student,
+learning lessons from you. Though our friendship has just begun, there's a lot
+more to come, more meaningful conversations to take place, and even more leg
+pulling to happen! But behind that chatty humor is a bond built on trust,
+respect, and a shared pursuit of growth.
+
+.. _cast-shailesh-kewat:
 
 Shailesh Kewat
 ===============================================================================
@@ -235,17 +284,16 @@ who constantly insisted that I teach and provided me with everything I needed
 to break through my self-doubts. Your guidance on public speaking and community
 engagement helped me build this platform and the confidence I have today.
 
-.. _shilpa-musale:
+.. _cast-shilpa-musale:
 
 Shilpa Musale
 ===============================================================================
 
 My beacon of survival and wisdom in the United States! As of writing this
-article, `Shilpa <https://www.researchgate.net/profile/Shilpa-Musale>`_ and I
-have known each other for a little over a year now. But honestly, it doesn't
-feel like that. We met during my first year of school in the US, where I
-really felt overwhelmed, lost, and sometimes even isolated. But you made me
-feel safe and welcomed.
+article, `Shilpa`_ and I have known each other for a little over a year now.
+But honestly, it doesn't feel like that. We met during my first year of school
+in the US, where I really felt overwhelmed, lost, and sometimes even isolated.
+But you made me feel safe and welcomed.
 
 Shilpa, you've definitely evolved from a confidante to a mentor-like figure in
 my life. I still remember you sharing your stories, recounting your
@@ -267,3 +315,7 @@ I'm grateful that I found a mentor like you.
 .. _Shankar: https://en.wikipedia.org/wiki/Shiva
 .. _Accenture: https://www.accenture.com/us-en
 .. _Krishna: https://en.wikipedia.org/wiki/Krishna
+.. _Shilpa: https://www.researchgate.net/profile/Shilpa-Musale
+.. _Edward Tufte: https://www.edwardtufte.com
+.. _Open Science Trainings: https://www.opensciencetraining.org
+.. _Git: https://git-scm.com

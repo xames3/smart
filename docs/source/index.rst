@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Tuesday, February 25 2025
+.. Last updated on: Thursday, February 27 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -28,21 +28,21 @@ My Studying, Mentorship, And Resourceful Teaching Journey
    Harnessing Studying, Mentorship, And Resourceful Teaching to drive
    innovation |dash| now that's SMART!
 
-Hello hello! I'm **Akshay** |dash| an AI Engineer, student researcher, and an
-educator dedicated to the intersection of technology and learning. This corner
-of the internet primarily serves both as a digital portfolio, showcasing my
-work and a space where I share my learning and teaching experiences in the
-fields of **Artificial Intelligence**, **Software Development**, **Scientific
-Computing**, and **Open Science**.
+Hello hello! I'm **Akshay** (/uh-k-ʃ-æ/), an AI Engineer, student researcher,
+and an educator dedicated to the intersection of technology and learning. This
+corner of the internet primarily serves both as a digital portfolio,
+showcasing my work and a space where I share my learning and teaching
+experiences in the fields of **Artificial Intelligence**, **Software
+Development**, **Scientific Computing**, and **Open Science**.
 
-Most of my work revolves around building tools that push the boundaries of
-technology while keeping accessibility and efficiency in mind. I have a
-particular interest in reinforcement learning, numerical computing, and natural
-language processing, which I've explored through my personal projects. I'm also
-committed to contributing to the `NASA Open Science`_ mission, promoting
-transparent, reproducible, and inclusive research.
+While most of my work revolves around building tools that push the boundaries
+of technology while keeping accessibility in mind, I've a special interest in
+reinforcement learning, numerical computing, and natural language processing,
+which I've explored through my personal projects. I'm also committed to
+contributing to the `NASA Open Science`_ mission, promoting transparent,
+reproducible, and inclusive research.
 
-Along with Open science, I also do Open source which to me, is more than a
+With Open science, I often do Open source which to me, is more than a
 philosophy. It's my personal reminder to make my learnings, experiences and
 knowledge free and accessible, overcoming the cultural and digital barriers
 and inviting collaboration across disciplines and borders.
@@ -79,10 +79,10 @@ others through education.
 Passion for teaching
 -------------------------------------------------------------------------------
 
-Teaching is not just something I do |dash| it's a fundamental part of how I
-approach technology. I wholeheartedly believe that true mastery of something
-comes from sharing knowledge. Whether it's breaking down complex AI algorithms
-or explaining the nuances of machine learning, I find joy in making technical
+Teaching is not just something I do, it's a fundamental part of how I approach
+technology. I wholeheartedly believe that true mastery of something comes from
+sharing knowledge. Whether it's breaking down complex AI algorithms or
+explaining the nuances of machine learning, I find joy in making technical
 concepts accessible and easy to understand. I believe that technology gains
 its true power when its understanding is shared. Early in my Software
 Engineering career, I heard a quote...
@@ -115,10 +115,10 @@ in three core principles:
 Why this website?
 -------------------------------------------------------------------------------
 
-This website is more than just a portfolio |dash| it's a dynamic little space
-where I blend my passion for technology and education. Through this website,
-I hope to build a community where technology meets education, and where we
-learn, teach, and grow together. I'm hoping to achieve the following:
+This website is more than just a portfolio, it's a dynamic little space where
+I blend my passion for technology and education. Through this website, I hope
+to build a community where technology meets education, and where we learn,
+teach, and grow together. I'm hoping to achieve the following:
 
 - **Showcasing projects.** Highlighting my work in AI, scientific computing,
   and software development.
@@ -128,8 +128,8 @@ learn, teach, and grow together. I'm hoping to achieve the following:
   share a curiosity for pushing the frontiers of tech.
 
 Ultimately, my goal is to use this personal corner or rather this online
-platform to bridge the gap between collaboration and education |dash| building
-tools, sharing ideas, and helping others grow alongside me.
+platform to bridge the gap between collaboration and education, building tools,
+sharing ideas, and helping others grow alongside me.
 
 .. _NASA Open Science: https://science.nasa.gov/open-science/
 .. _Subject-matter expert: https://en.wikipedia.org/wiki/Subject-matter_expert
