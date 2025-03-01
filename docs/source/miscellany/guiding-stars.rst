@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, February 24, 2025
-.. Last updated on: Friday, February 28 2025
+.. Last updated on: Saturday, March 01 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -63,7 +63,6 @@ persistence, the inevitability of hard choices in life, and the importance of
 embracing my past.
 
 .. figure:: ../assets/me-and-mum.jpg
-    :class: border-offset outline-offset
     :alt: Me and Mum celebrating my admission into DePaul University
 
     My mum and I, back in September of 2022, right after my admission into
@@ -154,7 +153,6 @@ never about doing things perfectly; it is about learning and evolving along
 the way."*
 
 .. figure:: ../assets/krishna-and-arjuna.jpeg
-    :class: border-offset outline-offset
     :alt: An AI generated image of Krishna and Arjuna in anime style
 
     Image generated with `Flux-Animex-v2-LoRA
@@ -226,6 +224,51 @@ one might be, there's always room for growth and improvement. Your influence
 on me as an educator has been very profound and I'm super grateful for all
 your suggestions and advice, knowing that your guidance and insights are
 always one message away.
+
+.. _john-komarnicki:
+
+John Komarnicki
+===============================================================================
+
+A **gracious host**! John is the host of `Chicago Code and Coffee`_, a monthly
+networking event that has become a beacon for students, job seekers, and
+professionals alike in Chicago. Personally, I feel it is a space where people
+from all walks of life gather not just to exchange their LinkedIn profiles but
+to share stories, build relationships, and to find a sense of friendship.
+
+.. carousel::
+    :data-bs-interval: 5
+    :data-bs-keyboard: false
+    :data-bs-pause: false
+    :data-bs-ride: false
+    :data-bs-touch: false
+    :show_controls:
+    :show_fade:
+    :show_indicators:
+
+    .. image:: ../assets/chicago-code-coffee-1.jpg
+        :alt: Chicago Code and Coffee Event (February 2025)
+
+    .. image:: ../assets/chicago-code-coffee-2.jpg
+        :alt: Chicago Code and Coffee Event (January 2025)
+
+    .. image:: ../assets/chicago-code-coffee-3.jpg
+        :alt: Chicago Code and Coffee Event (December 2024)
+
+    .. image:: ../assets/chicago-code-coffee-4.jpg
+        :alt: Chicago Code and Coffee Event Welcoming Banner (February 2025)
+
+I met John at one of these events, during what was possibly one of the most
+trying times in my life and relationships. I was searching for something,
+perhaps a distraction of some sort, and Chicago Code and Coffee became exactly
+what I needed. It's been quite a few months since attending the first one now,
+but I remember it wasn't just an event; it was a welcoming open space that you
+and your team had carefully fostered for a while. As the months go by, the
+community has grown significantly, and more people are making it to the event.
+It's easy to underestimate the power of such gatherings, but John's work
+speaks volumes. Therefore, on behalf of everyone who has ever found comfort,
+camaraderie, or a new opportunity through Chicago Code and Coffee, I want to
+extend a heartfelt thank you to you, John!
 
 .. _cast-madhavi-rege:
 
@@ -318,4 +361,5 @@ I'm grateful that I found a mentor like you.
 .. _Shilpa: https://www.researchgate.net/profile/Shilpa-Musale
 .. _Edward Tufte: https://www.edwardtufte.com
 .. _Open Science Trainings: https://www.opensciencetraining.org
+.. _Chicago Code and Coffee: https://www.meetup.com/code-and-coffee-chicago/
 .. _Git: https://git-scm.com
