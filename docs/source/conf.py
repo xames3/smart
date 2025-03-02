@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, February 22 2025
-Last updated on: Wednesday, February 26 2025
+Last updated on: Saturday, March 01 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -18,6 +18,13 @@ teaching and learning platform.
     [1] Added support for Algolia DocSearch instead of using standard
         Sphinx search. This support is added through the
         `sphinx_docsearch` extension.
+
+.. versionadded:: 1.3.2025
+
+    [1] Added support for copy button. For some reason, the default copy
+        button doesn't seem to work. Hence, relying on external sphinx
+        extension. This support is added through the `sphinx_copybutton`
+        extension.
 """
 
 from __future__ import annotations
@@ -40,6 +47,7 @@ extensions: list[str] = [
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
+    "sphinx_copybutton",
     "sphinx_docsearch",
 ]
 nitpicky: bool = True
@@ -88,6 +96,7 @@ with open("_static/extra/epilog.rst") as f:
 intersphinx_mapping: dict[str, tuple[str, t.Any]] = {
     "python": ("https://docs.python.org/3/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
 }
 
 ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
