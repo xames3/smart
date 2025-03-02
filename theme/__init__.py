@@ -32,6 +32,8 @@ event hooks for post-processing and dynamic content handling.
 
     [1] Override styles for `sphinx_design` extension by using a
         custom CSS.
+    [2] Override styles for `sphinx_docsearch` extension by using a
+        custom CSS.
 """
 
 from __future__ import annotations
@@ -142,6 +144,7 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
         setattr(config, default_name, getattr(config, new_name))
     app.add_html_theme(theme_name, theme_path)
     app.add_css_file("sphinx-design.css", priority=900)
+    app.add_css_file("doc-search.css", priority=900)
     app.add_js_file("theme.js", loading_method="defer")
     app.add_js_file("smart.js", loading_method="defer")
     for role in inspect.getmembers(roles, inspect.isfunction):
