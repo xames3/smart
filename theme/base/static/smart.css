@@ -1,5 +1,6 @@
-@import url("geist.css");
 @import url("theme.css");
+@import url("geist.css");
+@import url("github.css");
 
 :root {
     --background: 0 0% 98%;
@@ -12,7 +13,7 @@
     --accent: 0 0% 82%;
     --border: 0 0% 92%;
     --input: 0 0% 92%;
-    --light-accent: 0, 0%, 96%;
+    --light-accent: 0, 0%, 93%;
     --link: 216.35, 100%, 47%;
     --radius: 12px;
     --code-background: 0, 0%, 100%;
@@ -54,8 +55,8 @@ code,
 kbd,
 pre,
 samp {
-    font-family: "Geist Mono", ui-monospace, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-    padding-left: 1rem
+    font-family: "Geist Mono", monospace;
+    padding-left: 20px
 }
 
 b,
@@ -155,6 +156,7 @@ h6:hover>a.headerlink:before {
     margin-left: 8px
 }
 
+.copy,
 .headerlink:after {
     display: none !important
 }
@@ -179,7 +181,7 @@ code {
     margin: 0;
     background-clip: padding-box;
     border: 1px solid hsl(var(--border));
-    border-radius: var(--radius)
+    border-radius: 8px
 }
 
 .literal-block-wrapper .code-block-caption {
@@ -214,6 +216,13 @@ pre {
 .literal-block-wrapper pre {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
     border-radius: 0 0 var(--radius) var(--radius) !important
+}
+
+button.copybtn {
+    border-width: 1px !important;
+    border-color: hsl(var(--border)) !important;
+    border-radius: 8px !important;
+    background-color: hsl(var(--background)) !important;
 }
 
 pre span.linenos {
