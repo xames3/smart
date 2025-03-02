@@ -1,0 +1,91 @@
+:root {
+    --sd-color-tabs-label-active: hsl(var(--foreground));
+    --sd-color-tabs-underline-active: hsl(var(--accent-foreground));
+    --sd-color-tabs-label-hover: hsl(var(--accent-foreground));
+    --sd-color-tabs-overline: hsl(var(--border));
+    --sd-color-tabs-underline: hsl(var(--border))
+}
+
+.sd-card {
+    background-color: hsl(var(--card));
+    border-color: hsl(var(--border));
+    border-radius: var(--radius);
+    border-width: 1px;
+    color: hsl(var(--foreground));
+    margin-top: 1.5rem
+}
+
+.sd-sphinx-override p {
+    margin-top: 1.5rem
+}
+
+.sd-container-fluid {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem
+}
+
+.sd-card-title {
+    font-weight: 600 !important
+}
+
+.sd-summary-title {
+    color: hsl(var(--muted-foreground));
+    font-weight: 500 !important
+}
+
+.sd-card-footer,
+.sd-card-header {
+    font-size: .875rem;
+    line-height: 1.25rem
+}
+
+.sd-tab-set {
+    margin-top: 1.5rem
+}
+
+.sd-tab-content>p {
+    margin-bottom: 1.5rem
+}
+
+.sd-tab-content pre:first-of-type {
+    margin-top: 0
+}
+
+.sd-tab-set>label {
+    font-weight: 500;
+    letter-spacing: .05em
+}
+
+details.sd-dropdown,
+details.sd-dropdown:not([open])>.sd-card-header {
+    border: none;
+    background-color: transparent
+}
+
+details .sd-card-header {
+    border: none
+}
+
+details.sd-dropdown summary.sd-summary-title {
+    padding: 0;
+    text-transform: none;
+    color: hsl(var(--foreground));
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+    letter-spacing: -0.4px
+}
+
+details.sd-dropdown summary:focus {
+    outline-style: none
+}
+
+div.sd-summary-content.sd-card-body {
+    padding: 1rem 0
+}
+
+.sd-shadow-sm {
+    --tw-shadow: 0 0 #0000 !important;
+    --tw-shadow-colored: 0 0 #0000 !important;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important
+}

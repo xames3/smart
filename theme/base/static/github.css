@@ -4,6 +4,7 @@
     --obj-foreground: 214.62, 78%, 39.22%;
     --var-foreground: 260.93, 53.09%, 47.65%;
     --import-foreground: 355.52, 72.5%, 47.06%;
+    --comment-foreground: 215.63, 84.21%, 22.35%;
     --highlight: 209.55 100% 94%
 }
 
@@ -14,6 +15,7 @@
         --obj-foreground: 208.4 100.8% 73.79%;
         --var-foreground: 268.97, 100%, 82.94%;
         --import-foreground: 3.83, 100%, 72.35%;
+        --comment-foreground: 207.33, 100%, 82.35%;
         --highlight: 211.25, 97.96%, 19.22%
     }
 }
@@ -200,12 +202,12 @@ span.linenos.special {
 }
 
 .highlight .nc {
-    color: #953800;
+    color: hsl(var(--foreground));
     font-weight: 400
 }
 
 .highlight .no {
-    color: #953800;
+    color: hsl(var(--foreground));
 }
 
 .highlight .nd {
@@ -218,7 +220,7 @@ span.linenos.special {
 }
 
 .highlight .ne {
-    color: #990000;
+    color: hsl(var(--var-foreground));
     font-weight: 400
 }
 
@@ -226,8 +228,9 @@ span.linenos.special {
     color: hsl(var(--obj-foreground))
 }
 
+.highlight .fm,
 .highlight .nl {
-    color: #990000;
+    color: hsl(var(--var-foreground));
 }
 
 .highlight .nn {
@@ -253,6 +256,7 @@ span.linenos.special {
     color: #bbbbbb;
 }
 
+.highlight .vm,
 .highlight .mb {
     color: hsl(var(--obj-foreground))
 }
@@ -278,33 +282,34 @@ span.linenos.special {
 }
 
 .highlight .sc {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
 }
 
 .highlight .sd {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
+    font-style: normal
 }
 
 .highlight .s2 {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
 }
 
 .highlight .se {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
     font-weight: 400
 }
 
 .highlight .sh {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
 }
 
 .highlight .si {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
     font-weight: 400
 }
 
 .highlight .sx {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
 }
 
 .highlight .sr {
@@ -312,13 +317,14 @@ span.linenos.special {
 }
 
 .highlight .s1 {
-    color: #0a3069;
+    color: hsl(var(--comment-foreground));
 }
 
 .highlight .ss {
     color: #990073;
 }
 
+.n,
 .highlight .bp {
     color: hsl(var(--foreground))
 }

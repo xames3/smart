@@ -4,7 +4,7 @@ SMART Sphinx Theme
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, February 21 2025
-Last updated on: Tuesday, February 25 2025
+Last updated on: Sunday, March 02 2025
 
 This module serves as the primary entry point for the SMART Sphinx
 Theme. It is responsible for initializing the theme, configuring its
@@ -27,6 +27,11 @@ event hooks for post-processing and dynamic content handling.
 .. versionadded:: 21.2.2025
 
     [1] Added native support for `sphinx.ext-opengraph` extension.
+
+.. versionadded:: 2.3.2025
+
+    [1] Override styles for `sphinx_design` extension by using a
+        custom CSS.
 """
 
 from __future__ import annotations
@@ -136,6 +141,7 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
     for default_name, new_name in theme_mapping.items():
         setattr(config, default_name, getattr(config, new_name))
     app.add_html_theme(theme_name, theme_path)
+    app.add_css_file("sphinx-design.css", priority=900)
     app.add_js_file("theme.js", loading_method="defer")
     app.add_js_file("smart.js", loading_method="defer")
     for role in inspect.getmembers(roles, inspect.isfunction):

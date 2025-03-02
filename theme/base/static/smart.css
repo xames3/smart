@@ -524,6 +524,7 @@ i {
     display: none
 }
 
+/* --- Sphinx Carousel --- */
 .scbs-carousel-indicators [data-bs-target] {
     box-sizing: border-box !important;
     width: 10px !important;
