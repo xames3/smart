@@ -7,7 +7,7 @@
     path in AI, Learning, and Beyond
 :og:type: article
 
-.. _guiding-stars:
+.. _miscellany-guiding-stars:
 
 ===============================================================================
 Guiding Stars
@@ -237,7 +237,7 @@ from all walks of life gather not just to exchange their LinkedIn profiles but
 to share stories, build relationships, and to find a sense of friendship.
 
 .. carousel::
-    :data-bs-interval: 5
+    :data-bs-interval: false
     :data-bs-keyboard: false
     :data-bs-pause: false
     :data-bs-ride: false
