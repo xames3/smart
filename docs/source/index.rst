@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Thursday, February 27 2025
+.. Last updated on: Saturday, March 01 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -28,12 +28,14 @@ My Studying, Mentorship, And Resourceful Teaching Journey
    Harnessing Studying, Mentorship, And Resourceful Teaching to drive
    innovation |dash| now that's SMART!
 
-Hello hello! I'm **Akshay** (/uh-k-ʃ-æ/), an AI Engineer, student researcher,
-and an educator dedicated to the intersection of technology and learning. This
-corner of the internet primarily serves both as a digital portfolio,
-showcasing my work and a space where I share my learning and teaching
-experiences in the fields of **Artificial Intelligence**, **Software
-Development**, **Scientific Computing**, and **Open Science**.
+Hello hello!
+
+I'm **Akshay** (/uh-k-ʃ-æ/), an AI Engineer, student researcher, and an
+educator dedicated to the intersection of technology and learning. This corner
+of the internet primarily serves both as a digital portfolio, showcasing my
+work and a space where I share my learning and teaching experiences in the
+fields of Artificial Intelligence, Software Development, Scientific Computing,
+and Open Science.
 
 While most of my work revolves around building tools that push the boundaries
 of technology while keeping accessibility in mind, I've a special interest in
@@ -59,13 +61,13 @@ libraries. My projects do reflect both technical expertise and my passion for
 education. Some key highlights of my projects include:
 
 - **xsNumpy & SlowTorch.** Lightweight educational libraries inspired by
-  `NumPy <https://numpy.org>`_ and `PyTorch <https://pytorch.org>`_, built to
-  simplify complex concepts for learners and researchers alike. These were
-  created as educational tools for scientific computing.
+  `NumPy`_ and `PyTorch`_, built to simplify complex concepts for learners and
+  researchers alike. These were created as educational tools for scientific
+  computing.
 
 - **Reinforcement Learning.** An AI-driven Snake game including the environment
-  built in `Pygame <https://pygame.org>`_, featuring a modular agent and
-  optimized reinforcement learning strategies.
+  built in `Pygame`_, featuring a modular agent and optimized reinforcement
+  learning strategies.
 
 Beyond these, I've had the opportunity to speak at tech meetups and
 conferences, sharing insights on my projects, AI, open science, and the inner
@@ -132,7 +134,17 @@ platform to bridge the gap between collaboration and education, building tools,
 sharing ideas, and helping others grow alongside me.
 
 .. _NASA Open Science: https://science.nasa.gov/open-science/
+.. _NumPy: https://numpy.org/
+.. _PyTorch: https://pytorch.org/
+.. _Pygame: https://pygame.org/
 .. _Subject-matter expert: https://en.wikipedia.org/wiki/Subject-matter_expert
+
+.. toctree::
+    :caption: Projects
+    :glob:
+    :hidden:
+
+    projects/*
 
 .. toctree::
     :caption: Miscellany
