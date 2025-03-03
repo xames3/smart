@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Saturday, March 01 2025
+.. Last updated on: Monday, March 03 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -32,21 +32,21 @@ Hello hello!
 
 I'm **Akshay** (/uh-k-ʃ-æ/), an AI Engineer, student researcher, and an
 educator dedicated to the intersection of technology and learning. This corner
-of the internet primarily serves both as a digital portfolio, showcasing my
-work and a space where I share my learning and teaching experiences in the
-fields of Artificial Intelligence, Software Development, Scientific Computing,
-and Open Science.
+of the internet serves both as a digital portfolio, showcasing my work, and a
+space where I share my learning and teaching experiences in the fields of
+Artificial Intelligence, Software Development, Scientific Computing, and Open
+Science.
 
-While most of my work revolves around building tools that push the boundaries
+Whilst most of my work revolves around building tools that push the boundaries
 of technology while keeping accessibility in mind, I've a special interest in
 reinforcement learning, numerical computing, and natural language processing,
 which I've explored through my personal projects. I'm also committed to
 contributing to the `NASA Open Science`_ mission, promoting transparent,
 reproducible, and inclusive research.
 
-With Open science, I often do Open source which to me, is more than a
-philosophy. It's my personal reminder to make my learnings, experiences and
-knowledge free and accessible, overcoming the cultural and digital barriers
+With Open science, I often do Open Source |dash| which to me, is more than a
+philosophy. It's my personal reminder to make my learnings, experiences, and
+knowledge free and accessible, breaking down the cultural and digital barriers
 and inviting collaboration across disciplines and borders.
 
 .. _personal-projects:
@@ -66,7 +66,7 @@ education. Some key highlights of my projects include:
   computing.
 
 - **Reinforcement Learning.** An AI-driven Snake game including the environment
-  built in `Pygame`_, featuring a modular agent and optimized reinforcement
+  built in `Pygame`_, featuring a modular agent and optimised reinforcement
   learning strategies.
 
 Beyond these, I've had the opportunity to speak at tech meetups and
@@ -85,9 +85,9 @@ Teaching is not just something I do, it's a fundamental part of how I approach
 technology. I wholeheartedly believe that true mastery of something comes from
 sharing knowledge. Whether it's breaking down complex AI algorithms or
 explaining the nuances of machine learning, I find joy in making technical
-concepts accessible and easy to understand. I believe that technology gains
-its true power when its understanding is shared. Early in my Software
-Engineering career, I heard a quote...
+concepts accessible and easy to grasp. I believe that technology gains its
+true power when its understanding is shared. Early in my Software Engineering
+career, I heard a quote...
 
 .. epigraph::
 
@@ -95,11 +95,11 @@ Engineering career, I heard a quote...
 
     -- Richard Feynman
 
-And I absolutely fell in love with this idea. Soon I realized you really
+And I absolutely fell in love with this idea. Soon I realised you really
 can't call yourself an SME (`Subject-matter expert`_) until you can teach it
 who likely know nothing about it (or very little), and are willing to entertain
 the questions from people learning at that initial frame of reference. Thus
-became my journey into teaching. Although my approach when it comes to teaching
+began my journey into teaching. Although my approach when it comes to teaching
 or my teaching philosophy to put it simply, has evolved over the past few
 years, adapting to the needs of my environment, students and time. It is rooted
 in three core principles:
