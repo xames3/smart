@@ -230,10 +230,6 @@ pre span.linenos {
     padding-right: 20px
 }
 
-.highlight .hll {
-    background-color: hsl(var(--highlight))
-}
-
 blockquote {
     border: none;
     font-style: normal;
