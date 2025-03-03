@@ -337,7 +337,7 @@ shared pursuit of growth.
 Shailesh Kewat
 ===============================================================================
 
-A true gent, an absolute madlad, and my rock-solid pillar of support! Looking
+A true gent, an absolute mad lad, and my rock-solid pillar of support! Looking
 back, it's a bit of a laugh how our friendship kicked off during the "drop"
 phase of our lives. All those late nights slogging away revising for tests,
 even if the results didn't quite match the work we put in, gave me something
