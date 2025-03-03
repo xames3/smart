@@ -1,12 +1,12 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, February 21 2025
-.. Last updated on: Thursday, February 27 2025
+.. Last updated on: Sunday, March 02 2025
 
 Studying, Mentorship, And Resourceful Teaching
 ===============================================================================
 
-**S**tudying, **M**entorship, **A**nd **R**esourceful **T**eaching, SMART for
-short is my personal portfolio website which I intend to use as my primary
+**S**\tudying, **M**\entorship, **A**\nd **R**\esourceful **T**\eaching, SMART
+for short is my personal portfolio website which I intend to use as my primary
 source of teaching and sharing thoughts and experiments.
 
 The website and this complementary repository serves as:
@@ -16,7 +16,8 @@ The website and this complementary repository serves as:
 - **Pedagogy.** Mostly with blogs, references, and tutorial posts sharing
   insights into AI and Open Science.
 
-To learn more about this, visit `smart <https://smart.mes3.dev>`.
+To learn more about this, visit the `smart <https://smart.mes3.dev>`_
+website.
 
 Contributions
 -------------------------------------------------------------------------------
