@@ -4,10 +4,10 @@ SMART Sphinx Theme Utilities
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, February 21 2025
-Last updated on: Monday, February 24 2025
+Last updated on: Monday, March 03 2025
 
 This module defines a collection of utility functions used for
-customizing the SMART Sphinx Theme. These utilities focus on enhancing
+customising the SMART Sphinx Theme. These utilities focus on enhancing
 the post-processing of the generated HTML output, as well as providing
 additional support for interactive elements, theme options, and other
 dynamic behaviors. The functionality provided includes handling
@@ -170,7 +170,7 @@ def remove_empty_toctree_divs(tree: bs4.BeautifulSoup) -> None:
 
     This function scans the HTML tree, identifies empty toctree divs
     (those containing only whitespace or line breaks), and removes them
-    to maintain a clean and optimized document structure.
+    to maintain a clean and optimised document structure.
 
     :param tree: Parsed HTML tree representing the document structure.
     """
@@ -259,7 +259,7 @@ def postprocess(html: str, app: Sphinx) -> None:
     the file.
 
     Post-processing ensures that the generated HTML is not only
-    functional but also clean, optimized, and dynamic according to the
+    functional but also clean, optimised, and dynamic according to the
     user's configuration options.
 
     :param html: Path to the HTML file to be post-processed.
@@ -286,7 +286,7 @@ def env_before_read_docs(
     This function captures the list of document names that have been
     added, updated, or deleted, and stores them in the Sphinx
     environment for later use. This ensures that post-processing only
-    affects pages that have actually changed, optimizing the build
+    affects pages that have actually changed, optimising the build
     process by avoiding unnecessary rework.
 
     :param app: The Sphinx application instance.

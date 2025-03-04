@@ -7,7 +7,7 @@ Created on: Friday, February 21 2025
 Last updated on: Sunday, March 02 2025
 
 This module serves as the primary entry point for the SMART Sphinx
-Theme. It is responsible for initializing the theme, configuring its
+Theme. It is responsible for initialising the theme, configuring its
 extensions, and integrating with Sphinx's build process. The SMART
 Sphinx Theme extends the default Sphinx capabilities by adding::
 
@@ -98,7 +98,7 @@ def fix(module: types.ModuleType) -> type[nodes.Element]:
 
 
 def setup(app: Sphinx) -> dict[str, str | bool]:
-    """Initialize and configure the SMART Sphinx Theme.
+    """Initialise and configure the SMART Sphinx Theme.
 
     This function serves as the main entry point for integrating the
     SMART Sphinx Theme with the Sphinx application. It performs the

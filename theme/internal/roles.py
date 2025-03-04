@@ -4,7 +4,7 @@ SMART Sphinx Theme Custom Roles
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, February 21 2025
-Last updated on: Friday, February 21 2025
+Last updated on: Monday, March 03 2025
 
 This module provides custom roles for the SMART Sphinx Theme, that
 allows me, the author to add features to the documentation.
@@ -27,7 +27,7 @@ import docutils.nodes as nodes
 # TODO (xames3): Add example usage of the role. Explain how this role
 # will be used in a reStructuredText document with some suitable
 # examples.
-def stylize(
+def stylise(
     role: str,
     rawtext: str,
     text: str,
