@@ -226,7 +226,22 @@ button.copybtn {
     border-width: 1px !important;
     border-color: hsl(var(--border)) !important;
     border-radius: 8px !important;
-    background-color: hsl(var(--background)) !important;
+    background-color: hsl(var(--background)) !important
+}
+
+button.copybtn svg {
+    padding-left: 0.15em
+}
+
+.o-tooltip--left:after {
+    transform: translateX(-102%) translateY(0);
+    transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
+    background-color: hsl(var(--code-background)) !important;
+    color: hsl(0, 0%, 63%) !important;
+    padding: 4px 5px !important;
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: 8px !important
+    
 }
 
 pre span.linenos {

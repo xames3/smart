@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, February 22 2025
-Last updated on: Saturday, March 01 2025
+Last updated on: Wednesday, March 05 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -25,6 +25,11 @@ teaching and learning platform.
         button doesn't seem to work. Hence, relying on external sphinx
         extension. This support is added through the `sphinx_copybutton`
         extension.
+
+.. versionchanged:: 5.3.2025
+
+    [1] Customized the CSS of the copy button extension and fixed a bug
+        caused by default copy button element.
 """
 
 from __future__ import annotations
@@ -108,9 +113,27 @@ ogp_social_cards: dict[str, str | bool] = {
 ogp_type: t.Final[str] = "website"
 ogp_enable_meta_description: bool = True
 
-docsearch_app_id = os.getenv("DOCSEARCH_APP_ID", "")
-docsearch_api_key = os.getenv("DOCSEARCH_API_KEY", "")
-docsearch_index_name = os.getenv("DOCSEARCH_INDEX_NAME", "")
-docsearch_container = "#smart-search"
-docsearch_placeholder = "SMART Search"
-docsearch_missing_results_url = source + "/issues/new?title=${query}"
+docsearch_app_id: str = os.getenv("DOCSEARCH_APP_ID", "")
+docsearch_api_key: str = os.getenv("DOCSEARCH_API_KEY", "")
+docsearch_index_name: str = os.getenv("DOCSEARCH_INDEX_NAME", "")
+docsearch_container: t.Final[str] = "#smart-search"
+docsearch_placeholder: t.Final[str] = "SMART Search"
+docsearch_missing_results_url: str = source + "/issues/new?title=${query}"
+
+copybutton_exclude: str = ".linenos, .gp, .go"
+copybutton_line_continuation_character: str = "\\"
+copybutton_selector: str = "div:not(.no-copybutton) > div.highlight > pre"
+copybutton_image_svg: str = """\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+width="24" height="24" stroke-width="2">
+  <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0
+  0 0 -2 -2h-2"></path>
+  <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0
+  1 -2 -2z"></path>
+  <path d="M9 12l.01 0"></path>
+  <path d="M13 12l2 0"></path>
+  <path d="M9 16l.01 0"></path>
+  <path d="M13 16l2 0"></path>
+</svg>
+"""
