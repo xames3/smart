@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, March 01 2025
-.. Last updated on: Monday, March 03 2025
+.. Last updated on: Wednesday, March 05 2025
 
 :og:title: Building xsNumpy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -416,10 +416,144 @@ assumed this would be easy too, and it worked... partly.
 
 When I tried a slice like ``array[:, 1]``, it broke. When I tried with
 higher-dimensional arrays, it fell apart! With each new test case, it became
-pretty obvious that there were some significant flaws in my logic.
+pretty obvious that there were some significant flaws in my logic. I wasn't
+just building some way to access data, I was constructing a flexible system
+needed to mirror NumPy's powerful, intuitive `indexing`_.
 
 .. image:: ../assets/sigh-meme.jpg
     :alt: Deep sigh meme
+
+After days of trial and error, I finally realised, these so-called **"easy
+peasy"** methods were actually sly little gateways into NumPy's deeper design
+philosophies:
+
+- **Consistency.** Whether you're tinkering with 1D, 2D, or N-D arrays, the
+  operations should behave like clockwork, no surprises, Sherlock!
+- **Efficiency.** Slices and views shouldn't faff about copying data
+  willy-nilly, they ought to create references, keeping things lean and mean.
+- **Extensibility.** Indexing had to be nimble enough to handle both the
+  simple stuff (``array[1, 2]``) and the proper head-scratchers (
+  ``array[1:3, ...]``).
+
+What kicked off as a laid-back attempt to rework :py:func:`repr` and
+other important methods ended up being a right masterclass in designing for
+generality. I wasn't just sorting out the easy bits, I had to step back and
+think like a "library designer", anticipating edge cases and making sure the
+whole thing didn't crumble the moment someone tried something a tad clever.
+As of writing about xsNumPy, a couple of months later, this struggle taught me
+something profound, what seems super duper simple on the surface often hides
+massive complexity underneath.
+
+And that's exactly why building xsNumpy has been so powerful for my learning.
+
+.. _illusion-of-simplicity:
+
+Illusion of simplicity
+===============================================================================
+
+Well, after wrestling with the **"simple"** things, I naively thought the
+hardest and in all honesty, the boring part of xsNumPy was behind me. I was
+chuffed and excited than ever before for the **"fun"** stuff |dash|
+element-wise arithmetics, broadcasting, and other random functions. What I
+didn't realise was that my journey was about to get even more mental. If
+implementing the ``ndarray`` class was untangling a knot, matrix operations
+felt like trying to weave my own thread from scratch. Not sure, if that makes
+sense.
+
+But the point was, it was hard!
+
+If you've read it till this point, you might've noticed a trend in my thought
+process. I assume things to be quite simple, which they bloody aren't and I
+start small. This was nothing different. I started simple, at least that's what
+I thought. Basic arithmetic operations like addition, subtraction, and scalar
+multiplication seemed relatively straight. I figured I could just iterate
+through my flattened data and perform operations element-wise. And it worked...
+for the first few test cases.
+
+.. code-block:: python
+    :linenos:
+    :emphasize-lines: 20,27
+
+    def __add__(self, other: ndarray | int | builtins.float) -> ndarray:
+        """Perform element-wise addition of the ndarray with a scalar or
+        another ndarray.
+
+        This method supports addition with scalars (int or float) and
+        other ndarrays of the same shape. The resulting array is of the
+        same shape and dtype as the input.
+
+        :param other: The operand for addition. Can be a scalar or an
+            ndarray of the same shape.
+        :return: A new ndarray containing the result of the element-wise
+            addition.
+        :raises TypeError: If `other` is neither a scalar nor an
+            ndarray.
+        :raises ValueError: If `other` is an ndarray but its shape
+            doesn't match `self.shape`.
+        """
+        arr = ndarray(self.shape, self.dtype)
+        if isinstance(other, (int, builtins.float)):
+            arr[:] = [x + other for x in self._data]
+        elif isinstance(other, ndarray):
+            if self.shape != other.shape:
+                raise ValueError(
+                    "Operands couldn't broadcast together with shapes "
+                    f"{self.shape} {other.shape}"
+                )
+            arr[:] = [x + y for x, y in zip(self.flat, other.flat)]
+        else:
+            raise TypeError(
+                f"Unsupported operand type(s) for +: {type(self).__name__!r} "
+                f"and {type(other).__name__!r}"
+            )
+        return arr
+
+But, as always, the system collapsed almost immediately for higher-dimensional
+vectors. What if I added a scalar to a matrix? Or a ``(3,)`` array to a
+``(3, 3)`` matrix? Could I add floats to ints? I mean this lot works in normal
+math, right? Each new **"simple"** operation posed a challenge in itself. I
+realised I wasn't just adding or multiplying numbers but recreating NumPy's
+`broadcasting`_ rules.
+
+Trust me lads, nothing compared to the chaos caused by the matrix
+multiplication. Whilst coding the initial draft of the ``__matmul__``, I
+remember discussing this with my friend, :ref:`cast-sameer-mathad`. I thought
+it'd be just a matter of looping through rows and columns, summing them
+element-wise. Classic high school math, if you ask me. And it worked as well...
+until I tried with higher-dimensional arrays. This is where I realised that
+matrix multiplication isn't just about rows and columns but about correctly
+handling **batch dimensions** for higher-order tensors. I found myself diving
+into NumPy's documentation, reading about the **Generalised Matrix
+Multiplication (GEMM)** routines and how broadcasting affects the output
+shapes.
+
+.. note::
+
+    You can check out the complete implementation of arithmetic operations on
+    GitHub.
+
+    `Learn more
+    <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_ |right|
+
+.. _aha-moment:
+
+"Aha!" moment
+===============================================================================
+
+This happened during the winter break. I didn't have to attend my uni and was
+working full-time on this project. After days of debugging, I realised that
+all of my vector operations weren't about **"getting the math right"**, but
+they were about thinking like NumPy:
+
+- **Shape manipulation.** How do I infer the correct output shape?
+- **Broadcasting.** How can I extend the smaller arrays to fit the larger ones?
+- **Efficiency.** How can I minimise unnecessary data duplication?
+
+At this stage, I wasn't just rebuilding some scrappy numerical computing
+doppleganger but rather a flexible and extensible system that could handle both
+the intuitive use cases and the weird edge cases. As I started more along the
+lines of NumPy developers, I started coming up with more broader and general
+solutions.
 
 .. _NumPy: https://numpy.org/
 .. _multiplying matrices: https://www.mathsisfun.com/algebra/
@@ -432,3 +566,4 @@ pretty obvious that there were some significant flaws in my logic.
 .. _strides: https://numpy.org/doc/stable/reference/generated/numpy.ndarray.
     strides.html
 .. _broadcasting: https://numpy.org/doc/stable/user/basics.broadcasting.html
+.. _indexing: https://numpy.org/doc/stable/user/basics.indexing.html
