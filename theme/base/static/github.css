@@ -140,7 +140,7 @@ span.linenos.special {
 
 .highlight .gp {
     font-weight: 400;
-    color: hsl(var(--foreground))
+    color: hsl(var(--comment-foreground))
 }
 
 .highlight .gs {

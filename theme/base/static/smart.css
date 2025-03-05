@@ -88,6 +88,10 @@ strong,
     letter-spacing: -0.4px
 }
 
+#content ul:not(.search) {
+    margin-bottom: 1.5rem
+}
+
 .highlighted,
 #content a:not(.toc-backref) {
     text-decoration-line: none;
@@ -196,7 +200,7 @@ code {
 
 pre {
     background-color: hsl(var(--code-background));
-    margin-top: 32px;
+    margin: 32px auto;
     overflow-x: auto;
     padding-bottom: 20px;
     padding-top: 20px;
