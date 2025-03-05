@@ -117,7 +117,7 @@ what made them tick. It didn't take long to twig that most of NumPy's APIs
 lean heavily on one core construct, the :func:`numpy.array` function. But
 here's the kicker, it's just a cheeky little wrapper for the mighty
 :class:`numpy.ndarray`. Aha! That's where I decided to start, implementing my
-primary ``xsnumpy.ndarray`` data structure.
+primary |xp.ndarray|_ data structure.
 
 Now, I'll be straight with you, it all seemed dead simple in my head at first.
 I mean, what's an array, really? A bunch of numbers neatly arranged in some
@@ -223,7 +223,7 @@ version using :py:mod:`ctypes`.
 
     This isn't the full-fat version of the implementation. I've skimmed over a
     lot of the gory details for brevity. If you want to get into the weeds,
-    check out the full ``xsnumpy.ndarray`` class on GitHub.
+    check out the full |xp.ndarray|_ class on GitHub.
 
     `See here <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_
     |right|
@@ -270,7 +270,7 @@ Once resolved, the data type was assigned to ``self._dtype``.
         self._dtype = dtype
 
 Now, the size of each element in the array. I wrote a neat little function
-called ``_convert_dtype``. Its job? To fetch the size of the given data type
+called |xp._convert_dtype|_. Its job? To fetch the size of the given data type
 in its shortest format. This is super important for calculating memory layout
 and strides.
 
@@ -303,12 +303,11 @@ the number of bytes between consecutive elements in memory.
 But what if a buffer was provided?
 
 Well, then it got a bit trickier. The constructor checked if the buffer was
-another ``ndarray``. If it was, it nabbed the base buffer. The buffer was
+another |xp.ndarray|_. If it was, it nabbed the base buffer. The buffer was
 assigned to ``self._base``, and the strides were either given directly or
 calculated. Before moving on, the constructor did a bit of housekeeping:
 
-- Offset had to be non-negative (you can't have a negative starting point in
-  memory!)
+- Offset (starting point in the memory) had to be non-negative
 - Strides had to be a tuple of integers matching the shape's dimensions
   otherwise, the whole thing would fall apart
 
@@ -366,8 +365,8 @@ I remember talking to myself one morning, *"let's start with something dead
 easy, perhaps just display the array."* That couldn't be hard, right? All I
 need to do is print the content of my array in a readable format how NumPy
 does. Little did I know I was shooting myself in the foot. At its core, a
-``repr`` is just an object's internal data representation. I started with
-something like this...
+:py:func:`repr` is just an object's internal data representation. I started
+with something like this...
 
 .. code-block:: python
     :linenos:
@@ -396,11 +395,7 @@ But finally, I cracked it!
 
 .. note::
 
-    You can read about the complete implementation of the
-    ``xsnumpy.ndarray.__repr__`` on GitHub.
-
-    `See this <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_
-    |right|
+    See |xp.ndarray.repr|_ for complete implementation details.
 
 Just when I thought the hard part was done and dusted, I moved on to array
 indexing which is perhaps one of the biggest superpowers of NumPy. At first, I
@@ -451,24 +446,24 @@ And that's exactly why building xsNumpy has been so powerful for my learning.
 Illusion of simplicity
 ===============================================================================
 
-Well, after wrestling with the **"simple"** things, I naively thought the
-hardest and in all honesty, the boring part of xsNumPy was behind me. I was
-chuffed and excited than ever before for the **"fun"** stuff |dash|
+Well, after wrestling with the **"simple"** things, I naively thought th
+hardest and, in all honesty, the boring part of xsNumPy was behind me. I was
+chuffed and more excited than ever before for the "fun" stuff |dash|
 element-wise arithmetics, broadcasting, and other random functions. What I
 didn't realise was that my journey was about to get even more mental. If
-implementing the ``ndarray`` class was untangling a knot, matrix operations
-felt like trying to weave my own thread from scratch. Not sure, if that makes
+implementing the |xp.ndarray|_ class was untangling a knot, matrix operations
+felt like trying to weave my own thread from scratch. Not sure if that makes
 sense.
 
 But the point was, it was hard!
 
 If you've read it till this point, you might've noticed a trend in my thought
-process. I assume things to be quite simple, which they bloody aren't and I
-start small. This was nothing different. I started simple, at least that's what
-I thought. Basic arithmetic operations like addition, subtraction, and scalar
-multiplication seemed relatively straight. I figured I could just iterate
-through my flattened data and perform operations element-wise. And it worked...
-for the first few test cases.
+process. I assume things to be quite simple, which they bloody aren't, and I
+start small. This was nothing different. I started simple, at least that's
+what I thought. Basic arithmetic operations like addition, subtraction, and
+scalar multiplication seemed relatively straight. I figured I could just
+iterate through my flattened data and perform operations element-wise. And it
+worked... for the first few test cases.
 
 .. code-block:: python
     :linenos:
@@ -510,22 +505,22 @@ for the first few test cases.
 
 But, as always, the system collapsed almost immediately for higher-dimensional
 vectors. What if I added a scalar to a matrix? Or a ``(3,)`` array to a
-``(3, 3)`` matrix? Could I add floats to ints? I mean this lot works in normal
-math, right? Each new **"simple"** operation posed a challenge in itself. I
-realised I wasn't just adding or multiplying numbers but recreating NumPy's
-`broadcasting`_ rules.
+``(3, 3)`` matrix? Could I add floats to ints? I mean, this lot works in
+normal maths, right? Each new **"simple"** operation posed a challenge in
+itself. I realised I wasn't just adding or multiplying numbers but recreating
+NumPy's `broadcasting`_ rules.
 
-Trust me lads, nothing compared to the chaos caused by the matrix
-multiplication. Whilst coding the initial draft of the ``__matmul__``, I
-remember discussing this with my friend, :ref:`cast-sameer-mathad`. I thought
-it'd be just a matter of looping through rows and columns, summing them
-element-wise. Classic high school math, if you ask me. And it worked as well...
-until I tried with higher-dimensional arrays. This is where I realised that
-matrix multiplication isn't just about rows and columns but about correctly
-handling **batch dimensions** for higher-order tensors. I found myself diving
-into NumPy's documentation, reading about the **Generalised Matrix
-Multiplication (GEMM)** routines and how broadcasting affects the output
-shapes.
+Trust me, lads, nothing compared to the chaos caused by the matrix
+multiplication. Whilst coding the initial draft of the |xp.ndarray.matmul|_, I
+remember discussing this with my mate, :ref:`Sameer <cast-sameer-mathad>`. I
+thought it'd be just a matter of looping through rows and columns, summing
+them element-wise. Classic high school maths, if you ask me. And it worked as
+well... until I tried with higher-dimensional arrays. This is where I realised
+that matrix multiplication isn't just about rows and columns but about
+correctly handling **batch dimensions** for higher-order tensors. I found
+myself diving into NumPy's documentation, reading about the **Generalised
+Matrix Multiplication (GEMM)** routines and how broadcasting affects the
+output shapes.
 
 .. note::
 
@@ -535,12 +530,13 @@ shapes.
     `Learn more
     <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_ |right|
 
-.. _aha-moment:
+.. _more-than-just-code:
 
-"Aha!" moment
-===============================================================================
+-------------------------------------------------------------------------------
+More than just code
+-------------------------------------------------------------------------------
 
-This happened during the winter break. I didn't have to attend my uni and was
+This happened during the winter break. I didn't have to attend uni and was
 working full-time on this project. After days of debugging, I realised that
 all of my vector operations weren't about **"getting the math right"**, but
 they were about thinking like NumPy:
@@ -550,10 +546,511 @@ they were about thinking like NumPy:
 - **Efficiency.** How can I minimise unnecessary data duplication?
 
 At this stage, I wasn't just rebuilding some scrappy numerical computing
-doppleganger but rather a flexible and extensible system that could handle both
-the intuitive use cases and the weird edge cases. As I started more along the
-lines of NumPy developers, I started coming up with more broader and general
-solutions.
+doppelgänger but rather a flexible and extensible system that could handle both
+the intuitive use cases and the weird edge cases. As I started thinking more
+along the lines of NumPy developers, I began coming up with broader and more
+general solutions. I realised for knotty problems, xsNumPy was slow |dash|
+perhaps painfully slow. But it was mine. Unlike NumPy, which runs like
+`The Flash`_ which I can't bloody see or understand, I **understood** every
+line of code. And with each iteration, every commit I made, I explored even
+more ways to optimise it |dash| reducing redundant calculations, improving
+*"pseudo-cache"* locality.
+
+Every bug, every unexpected result, and every small achievement taught me
+something new about NumPy and how it might be doing its magic behind the
+scenes. As time went by, xsNumPy became more than a project and a scrappy
+experiment. It became a mindset. It taught me to stop treating libraries as
+mysterious tools and start seeing them as collections of smartly packed
+algorithms and data structures waiting to be explored. Now, after countless
+late nights and endless debugging sessions, I finally reached a point where
+xsNumPy wasn't just a dinky implementation but it had proper shape, form, and
+most importantly, it worked! What kicked off as a way to demystify NumPy had
+grown into something far bigger. A project that taught me more than I could've
+ever imagined about numerical computing.
+
+So, what can xsNumPy actually do?
+
+.. tab-set::
+
+    .. tab-item:: Creations
+
+        When I first started adding array creation methods to xsNumPy, I
+        thought, how hard could it be? Just slap together a few initialisers,
+        right? But, as always, reality gave me a proper wake-up call. It
+        wasn't just about making arrays appear; it was about ensuring they
+        worked seamlessly with the whole system |dash| shapes, data types, and
+        all.
+
+        In xsNumPy, array creation is the first step in any numerical
+        computation. Let's break down the main methods I implemented and how
+        they work.
+
+        - **array()**
+
+          The |xp.array|_ function is the bread and butter of xsNumPy, the most
+          flexible way to create arrays from Python lists or tuples.
+
+          .. code-block:: python
+
+              >>> import xsnumpy as xp
+              >>>
+              >>> xp.array([1, 2, 3])
+              array([1, 2, 3])
+              >>> xp.array([[1, 2, 3], [4, 5, 6]])
+              array([[1, 2, 3],
+                     [4, 5, 6]])
+              >>> xp.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+              array([[[1, 2],
+                      [3, 4]],
+
+                     [[5, 6],
+                      [7, 8]]])
+              >>> xp.array([1, 2, 3.0])
+              array([1. , 2. , 3. ])
+              >>> xp.array([1, 0, 2], dtype=xp.bool)
+              array([True, False, True])
+
+        - **zeros()** and **ones()**
+
+          I added |xp.zeros|_ and |xp.ones|_ as the go-to methods for
+          initialising arrays filled with, well, zeros and ones. Simple, yet
+          essential.
+
+          .. code-block:: python
+
+              >>> xp.zeros(3)
+              array([0. , 0. , 0. ])
+              >>> xp.zeros([2, 2])
+              array([[0. , 0. ],
+                     [0. , 0. ]])
+              >>> xp.ones([3, 2], dtype=xp.int32)
+              array([[1, 1],
+                     [1, 1],
+                     [1, 1]])
+
+        - **full()**
+
+          For custom initialisation, |xp.full|_ lets you fill an array with any
+          value you want.
+
+          .. code-block:: python
+
+              >>> xp.full(2, 3, fill_value=3.14)
+              array([[3.14, 3.14, 3.14],
+                     [3.14, 3.14, 3.14]])
+
+          Here, I had to be mindful about handling scalars vs arrays, ensuring
+          the ``fill_value`` was broadcastable when needed.
+
+        - **arange()**
+
+          Inspired by Python's :py:class:`range`, |xp.arange|_ generates arrays
+          with evenly spaced values.
+
+          .. code-block:: python
+
+              >>> xp.arange(3)
+              array([0, 1, 2])
+              >>> xp.arange(3.0)
+              array([0. , 1. , 2. ])
+              >>> xp.arange(3, 7)
+              array([3, 4, 5, 6])
+              >>> xp.arange(3, 7, 2)
+              array([3, 5])
+              >>> xp.arange(0, 5, 0.5)
+              array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5])
+
+          The tricky part here? Making sure it worked with both integers and
+          floats without rounding errors creeping in.
+
+        .. seealso::
+
+            Check out the complete list of
+            `array creation <https://github.com/xames3/xsnumpy?
+            tab=readme-ov-file#array-creation-routines>`_ methods which are
+            supported by xsNumPy on GitHub.
+
+    .. tab-item:: Operations
+
+        Once I had array creation sorted, I quickly realised that the real
+        meat of xsNumPy lay in the operations, the arithmetic, element-wise
+        manipulations, and the fundamental maths that give NumPy its power. It
+        wasn't just about adding two numbers or multiplying matrices; it was
+        about making these operations flexible, intuitive, and most of all,
+        consistent with how NumPy does it.
+
+        In xsNumPy, I implemented a range of arithmetic operations, carefully
+        adhering to NumPy's rules for broadcasting and type coercion.
+
+        - **Basic arithmetic**
+
+          You can perform element-wise addition, subtraction, multiplication,
+          and division directly using xsNumPy arrays. Just like NumPy, these
+          operations are broadcasted, so you can mix scalars, vectors, and
+          matrices freely.
+
+          .. code-block:: python
+
+              >>> import xsnumpy as xp
+              >>>
+              >>> a = xp.array([[1, 0], [0, 1]])
+              >>> b = xp.array([[4, 1], [2, 2]])
+              >>>
+              >>> a + b
+              array([[5, 1],
+                     [2, 3]])
+              >>> a - b
+              array([[-3, -1],
+                     [-2, -1]])
+              >>> a * b
+              array([[4, 0],
+                     [0, 2]])
+              >>> a / b
+              array([[0.25, 0.  ],
+                     [0.  ,  0.5]])
+              >>> a // b
+              array([[0, 0],
+                     [0, 0]])
+              >>> a ** b
+              array([[1, 0],
+                     [0, 1]])
+              >>> a % b
+              array([[1, 0],
+                     [0, 1]])
+              >>> a @ b
+              array([[4, 1],
+                     [2, 2]])
+              >>> a < b
+              array([[True, True],
+                     [True, True]])
+              >>> a >= b
+              array([[False, False],
+                     [False, False]])
+
+          The challenge here wasn't the simple cases, it was ensuring that
+          these operations worked for higher-dimensional arrays, and correctly
+          handled broadcasting.
+
+        - **Broadcasting and arithmetic**
+
+          I had to dive deep into the logic of broadcasting. If you've ever
+          wondered why adding a ``(3, 1)`` array to a ``(3, 3)`` matrix just
+          works in NumPy, it's all thanks to broadcasting rules. Implementing
+          those rules was tricky, matching shapes, stretching smaller arrays,
+          and making sure the output shape followed NumPy's exact logic.
+
+          .. code-block:: python
+
+              >>> matrix = xp.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+              >>> column_vector = xp.array([[1], [2], [3]])
+              >>> matrix + column_vector
+              array([[ 2,  4,  6],
+                     [ 5,  7,  9],
+                     [ 8, 10, 12]])
+
+        - **Linear algebraic helper functions**
+
+          To mirror NumPy's API, I also implemented explicit arithmetic
+          functions. These are useful when you want to be very clear about the
+          operation being performed or when you need more control over the
+          parameters.
+
+          .. code-block:: python
+
+              >>> xp.dot(3, 4)
+              12
+              >>> a = xp.array([[1, 0], [0, 1]])
+              >>> b = xp.array([[4, 1], [2, 2]])
+              >>> xp.dot(a, b)
+              array([[4, 1],
+                     [2, 2]])
+              >>> xp.add(a, b)
+              array([[5. , 1. ],
+                     [2. , 3. ]])
+              >>> xp.divide(a, b)
+              array([[0.25, 0.  ],
+                     [0.  ,  0.5]])
+              >>> xp.power(3, 4)
+              81
+
+        - **Scalar operations**
+
+          You're not just limited to array-to-array operations, scalars work
+          too, just as you'd expect.
+
+          .. code-block:: python
+
+              >>> xp.array([3, 4]) + 10
+              array([13, 14])
+
+        .. seealso::
+
+            Check out more examples of the
+            `arithmetic operations <https://github.com/xames3/xsnumpy?
+            tab=readme-ov-file#linear-algebra>`_ supported by xsNumPy on
+            GitHub.
+
+    .. tab-item:: Indexing
+
+        Indexing and slicing were, without a doubt, one of the most
+        head-scratching features to implement in xsNumPy. What seemed like a
+        simple task of grabbing an element or a subset of an array turned into
+        a proper rabbit hole of possibilities, single-element access, slice
+        objects, fancy indexing, boolean masks, the lot.
+
+        - **Basic indexing**
+
+          At its core, basic indexing in xsNumPy works similarly to NumPy,
+          using zero-based indices to access elements. You can fetch single
+          elements or entire subarrays.
+
+          .. code-block:: python
+
+              >>> import xsnumpy as xp
+              >>>
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+              >>> a[0, 1]
+              2
+              >>> a[1, 2]
+              6
+
+          You can also use negative indices to count from the end of an array.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+              >>> a[-1, -2]
+              8
+
+        - **Slicing**
+
+          Slicing allows you to extract subarrays using a ``start:stop:step``
+          format. Just like NumPy, xsNumPy supports all the classic slicing
+          mechanics.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+              >>> a[1:2]
+              array([[4, 5, 6]])
+              >>> a[:2]
+              array([[1, 2, 3],
+                     [4, 5, 6]])
+              >>> a[::2]
+              array([[1, 2, 3],
+                     [7, 8, 9]])
+              >>> a[:2, 1:]
+              array([[2, 3],
+                     [5, 6]])
+              >>> a[::2, ::2]
+              array([[1, 3],
+                     [7, 9]])
+
+        - **Boolean masking**
+
+          This was a added surprise. I honestly, didn't engineer this one but
+          since, xsNumPy now functions more generally, it allows features like
+          Boolean masking. Boolean masking lets you select elements based on a
+          condition.
+
+          .. code-block:: python
+
+              >>> a[a % 2 == 0]
+              array([1, 2, 3])
+
+        Implementing indexing and slicing wasn't just about grabbing elements,
+        it was about ensuring the shapes stayed correct, broadcasting rules
+        were respected, and that corner cases (like empty slices or
+        out-of-bounds indices) didn't cause the whole system to collapse. It
+        took a lot of late nights and a fair bit of trial and error to make
+        sure xsNumPy worked as closely as possible to NumPy.
+
+        .. seealso::
+
+            Indexing and slicing were implemented by overridding the standard
+            ``__getitem__`` and ``__setitem__`` protocols. To see the complete
+            implementation and other complementary methods, visit
+            `here <https://github.com/xames3/xsnumpy/blob/
+            69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L368>`_.
+
+    .. tab-item:: Shape manipulations
+
+        Once I had nailed down array creation and operations, the next beast
+        to tackle was shape manipulation. If there's one thing I learned
+        quickly, it's that reshaping arrays isn't just a matter of rearranging
+        elements, it's about understanding how data is stored and accessed
+        under the hood.
+
+        In xsNumPy, I wanted to mirror NumPy's intuitive and flexible shape
+        manipulation methods, while also reinforcing my grasp of concepts like
+        views, strides, and contiguous arrays.
+
+        - **reshape()**
+
+          Reshaping an array allows you to change its shape without altering
+          its data. The key was ensuring the total number of elements remained
+          consistent, a simple yet crucial check.
+
+          .. code-block:: python
+
+              >>> import xsnumpy as xp
+              >>>
+              >>> a = xp.array([1, 2, 3, 4, 5, 6])
+              >>> a.reshape((2, 3))
+              array([[1, 2, 3],
+                     [4, 5, 6]])
+              >>> a.reshape((2, 4))
+              Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+              ...
+              ValueError: New shape is incompatible with the current size
+
+          The tricky bit was handling corner cases, reshaping empty arrays,
+          adding singleton dimensions, and ensuring reshaped arrays remain
+          views (not copies) where possible.
+
+        - **transpose()**
+
+          Transposing is more than just flipping rows and columns; for
+          higher-dimensional arrays, it's about permuting the axes.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.transpose()
+              array([[1, 4],
+                     [2, 5],
+                     [3, 6]])
+
+        - **flatten()**
+
+          Flatten returns a copy. Implementing this pushed me to understand
+          memory layouts and stride tricks.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.flatten()
+              array([1, 2, 3, 4, 5, 6])
+
+        These methods taught me the importance of shape manipulation, it's not
+        just about rearranging numbers but respecting how arrays interact with
+        memory and computation. Each feature made me peel back yet another
+        layer of NumPy's magic, reinforcing my understanding while building
+        xsNumPy piece by piece.
+
+    .. tab-item:: Reductions
+
+        After wrangling with array creation, operations, indexing, and shape
+        manipulation, I found myself standing at the gates of reductions, those
+        neat little methods that take an array and distil it down to a single
+        value or a smaller array. Sounds straightforward, right? Well, not
+        quite.
+
+        Reductions in xsNumPy were a real eye-opener. They forced me to think
+        deeply about axes, and handling empty arrays, all while ensuring my
+        logic matched the intuitive elegance of NumPy.
+
+        - **sum()**
+
+          The |xp.sum|_ method computed the sum of elements along a given
+          axis. The tricky part? Handling multi-dimensional arrays.
+
+          .. code-block:: python
+
+              >>> import xsnumpy as xp
+              >>>
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.sum()
+              21
+              >>> a.sum(axis=0)
+              array([5, 7, 9])
+
+        - **min()** and **max()**
+
+          Finding minimum and maximum values sounds simple, but reducing along
+          the axes with proper shape handling kept me busy for a while.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.min()
+              1
+              >>> a.max(axis=1)
+              array([3, 6])
+
+        - **mean()**
+
+          Calculating the mean was more than just summing and dividing, I
+          needed to ensure type consistency and careful shape adjustments.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.mean()
+              3.5
+              >>> a.mean(axis=1)
+              array([2. , 5. ])
+
+        - **prod()**
+
+          The |xp.prod|_ (product) method computed the multiplication of
+          elements along a given axis. Multiplying elements together was the
+          final boss of reductions. As simple as it may sound, I had to think
+          through the overflow errors and correct data types.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.prod()
+              720
+              >>> a.prod(axis=0)
+              array([ 4, 10, 18])
+
+        - **any()** and **all()**
+
+          Logical reductions were their own beast. The |xp.all|_ method checks
+          if all elements are ``True``, while |xp.any|_ checks if at least one
+          is.
+
+          .. code-block:: python
+
+              >>> b = xp.array([[True, False, True], [True, True, False]])
+              >>> b.all()
+              False
+              >>> b.any(axis=1)
+              array([True, True])
+
+        Building reductions in xsNumPy pushed me to think harder about how
+        arrays collapse along dimensions and how NumPy seamlessly handles type
+        promotion and shape consistency. It's not just about computing a value,
+        it's about ensuring the result fits neatly into the broader array
+        ecosystem.
+
+        With reductions wrapped up, xsNumPy finally started to feel like a
+        **real** numerical computing library. Every sum, min, and mean wasn't
+        just a calculation, it was a carefully crafted operation built on a
+        solid foundation.
+
+
+.. _concluding-xsnumpy:
+
+-------------------------------------------------------------------------------
+Concluding xsNumPy
+-------------------------------------------------------------------------------
+
+Now, I won't pull the wool over your eyes, xsNumPy isn't a blazing-fast,
+industrial-strength library, nor was it ever meant to be. But every line of
+code carries the weight of a battle fought, a bug squashed, a concept
+unravelled, a little victory earned. It's a project born out of pure curiosity
+and a stubborn desire to lift the bonnet on a tool I use daily. More than just
+its features, xsNumPy reflects a mindset, the belief that the best way to
+learn is by rolling up your sleeves, building something from scratch, breaking
+it, then putting it back together, piece by piece.
+
+This experience taught me to stop seeing libraries as mystical black boxes and
+start recognising them for what they are. And for me, that's the real win of
+demystifying complex libraries one line at a time!
 
 .. _NumPy: https://numpy.org/
 .. _multiplying matrices: https://www.mathsisfun.com/algebra/
@@ -567,3 +1064,44 @@ solutions.
     strides.html
 .. _broadcasting: https://numpy.org/doc/stable/user/basics.broadcasting.html
 .. _indexing: https://numpy.org/doc/stable/user/basics.indexing.html
+.. _The Flash: https://www.dc.com/characters/the-flash
+
+.. |xp.ndarray| replace:: ``xsnumpy.ndarray``
+.. _xp.ndarray: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L183
+.. |xp._convert_dtype| replace:: ``_convert_dtype``
+.. _xp._convert_dtype: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L150
+.. |xp.ndarray.repr| replace:: ``__repr__``
+.. _xp.ndarray.repr: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L275C1-L327C27
+.. |xp.ndarray.matmul| replace:: ``__matmul__``
+.. _xp.ndarray.matmul: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L831
+.. |xp.array| replace:: ``array()``
+.. _xp.array: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L75
+.. |xp.zeros| replace:: ``zeros()``
+.. _xp.zeros: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L171
+.. |xp.ones| replace:: ``ones()``
+.. _xp.ones: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L229
+.. |xp.full| replace:: ``full()``
+.. _xp.full: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L289
+.. |xp.arange| replace:: ``arange()``
+.. _xp.arange: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L437
+.. |xp.sum| replace:: ``sum()``
+.. _xp.sum: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1518
+.. |xp.prod| replace:: ``prod()``
+.. _xp.prod: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1536
+.. |xp.all| replace:: ``all()``
+.. _xp.all: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1237
+.. |xp.any| replace:: ``any()``
+.. _xp.any: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1254
