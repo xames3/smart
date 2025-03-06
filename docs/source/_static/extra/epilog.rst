@@ -17,4 +17,4 @@
 .. |beta| replace:: :raw-html:`<span class="badge beta">Experimental</span>`
 .. |new| replace:: :raw-html:`<span class="badge new">New</span>`
 
-.. |right| replace:: :raw-html:`<i class="fa-solid fa-chevron-right fa-s"></i>`
+.. |chvrn| replace:: :raw-html:`<i class="fa-solid fa-chevron-right fa-s"></i>`

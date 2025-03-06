@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Monday, March 03 2025
+.. Last updated on: Wednesday, March 05 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -64,6 +64,8 @@ education. Some key highlights of my projects include:
   `NumPy`_ and `PyTorch`_, built to simplify complex concepts for learners and
   researchers alike. These were created as educational tools for scientific
   computing.
+
+  Read more about my journey of :doc:`building xsNumPy <projects/xsnumpy>`.
 
 - **Reinforcement Learning.** An AI-driven Snake game including the environment
   built in `Pygame`_, featuring a modular agent and optimised reinforcement

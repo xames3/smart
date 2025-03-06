@@ -83,8 +83,8 @@ all sorts of matrix wizardry. But every time I used something like
 feeling: I was just trusting the library to do its thing, without knowing why
 it worked.
 
-This realisation hit me so hard, I challenged myself, *Could I build a dinky
-version of NumPy from scratch?* Again, not to replace it, that'd be barking
+This realisation hit me so hard, I challenged myself, "Could I build a dinky
+version of NumPy from scratch?" Again, not to replace it, that'd be barking
 mad, but to learn from it. If I really want to ace at teaching these stuff to
 my students, I had to go deeper.
 
@@ -93,15 +93,15 @@ my students, I had to go deeper.
 
 There were a few other reasons for writing xsNumPy besides my lack of
 understanding about the NumPy internals. I essentially wanted to break free
-from the *"Oh, Neural Networks are like black box"* rubbish. When I'm teaching
-Machine Learning and Neural Networks, I often compare these scientific
+from the **"Oh, Neural Networks are like black box"** rubbish. When I'm
+teaching Machine Learning and Neural Networks, I often compare these scientific
 computing libraries to a car. You can go places, sure, but what happens when
 something breaks? What do you do then? So to get around this situation, I
 thought of actually learning it by building.
 
 xsNumPy isn't just for me. It's for anyone and everyone who's ever stared at a
-piece of Machine Learning code and asked, *"How in God's name does this bloody
-thing works?"*
+piece of Machine Learning code and asked, "How in God's name does this bloody
+thing works?"
 
 .. _building-process:
 
@@ -225,9 +225,6 @@ version using :py:mod:`ctypes`.
     lot of the gory details for brevity. If you want to get into the weeds,
     check out the full |xp.ndarray|_ class on GitHub.
 
-    `See here <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_
-    |right|
-
 .. _deconstructing-ndarray:
 
 Deconstructing ndarray
@@ -343,7 +340,7 @@ or not, the constructor handled it like so:
   is used to initialise the data. Basically, we use its address like a map
 - If it's any other type of buffer, the buffer is used directly
 
-Phew |dash| that was a fair bit, wasn't it?
+Phew 😮‍💨 |dash| that was a fair bit, wasn't it?
 
 But now you can see how all the pieces fit together. From handling shapes and
 data types to calculating strides and buffers. It's all a bit mad when you
@@ -448,7 +445,7 @@ Illusion of simplicity
 
 Well, after wrestling with the **"simple"** things, I naively thought th
 hardest and, in all honesty, the boring part of xsNumPy was behind me. I was
-chuffed and more excited than ever before for the "fun" stuff |dash|
+chuffed and more excited than ever before for the **"fun"** stuff |dash|
 element-wise arithmetics, broadcasting, and other random functions. What I
 didn't realise was that my journey was about to get even more mental. If
 implementing the |xp.ndarray|_ class was untangling a knot, matrix operations
@@ -517,7 +514,7 @@ thought it'd be just a matter of looping through rows and columns, summing
 them element-wise. Classic high school maths, if you ask me. And it worked as
 well... until I tried with higher-dimensional arrays. This is where I realised
 that matrix multiplication isn't just about rows and columns but about
-correctly handling **batch dimensions** for higher-order tensors. I found
+correctly handling **batch** dimensions for higher-order tensors. I found
 myself diving into NumPy's documentation, reading about the **Generalised
 Matrix Multiplication (GEMM)** routines and how broadcasting affects the
 output shapes.
@@ -528,7 +525,7 @@ output shapes.
     GitHub.
 
     `Learn more
-    <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_ |right|
+    <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_ |chvrn|
 
 .. _more-than-just-code:
 
@@ -549,12 +546,12 @@ At this stage, I wasn't just rebuilding some scrappy numerical computing
 doppelgänger but rather a flexible and extensible system that could handle both
 the intuitive use cases and the weird edge cases. As I started thinking more
 along the lines of NumPy developers, I began coming up with broader and more
-general solutions. I realised for knotty problems, xsNumPy was slow |dash|
-perhaps painfully slow. But it was mine. Unlike NumPy, which runs like
-`The Flash`_ which I can't bloody see or understand, I **understood** every
-line of code. And with each iteration, every commit I made, I explored even
-more ways to optimise it |dash| reducing redundant calculations, improving
-*"pseudo-cache"* locality.
+general solutions. I realised for knotty problems, xsNumPy was slow... perhaps
+painfully slow. But it was mine. Unlike NumPy, which runs like `The Flash`_
+which I can't bloody see or understand, I **understood** every line of code.
+And with each iteration, every commit I made, I explored even more ways to
+optimise it, reducing redundant calculations, improving *"pseudo-cache"*
+locality.
 
 Every bug, every unexpected result, and every small achievement taught me
 something new about NumPy and how it might be doing its magic behind the
@@ -580,10 +577,6 @@ So, what can xsNumPy actually do?
         wasn't just about making arrays appear; it was about ensuring they
         worked seamlessly with the whole system |dash| shapes, data types, and
         all.
-
-        In xsNumPy, array creation is the first step in any numerical
-        computation. Let's break down the main methods I implemented and how
-        they work.
 
         - **array()**
 
@@ -790,6 +783,77 @@ So, what can xsNumPy actually do?
             tab=readme-ov-file#linear-algebra>`_ supported by xsNumPy on
             GitHub.
 
+    .. tab-item:: Shape manipulations
+
+        Once I had nailed down array creation and operations, the next beast
+        to tackle was shape manipulation. If there's one thing I learned
+        quickly, it's that reshaping arrays isn't just a matter of rearranging
+        elements, it's about understanding how data is stored and accessed
+        under the hood.
+
+        In xsNumPy, I wanted to mirror NumPy's intuitive and flexible shape
+        manipulation methods, while also reinforcing my grasp of concepts like
+        `views`_, `strides`_, and contiguous arrays.
+
+        .. tip::
+
+            Read more about `NumPy internals`_ here.
+
+        - **reshape()**
+
+          The |xp.ndarray.reshape|_ method allows you to change an array's
+          shape without altering its data. The key was ensuring the total
+          number of elements remained consistent, a simple yet crucial check.
+
+          .. code-block:: python
+
+              >>> import xsnumpy as xp
+              >>>
+              >>> a = xp.array([1, 2, 3, 4, 5, 6])
+              >>> a.reshape((2, 3))
+              array([[1, 2, 3],
+                     [4, 5, 6]])
+              >>> a.reshape((2, 4))
+              Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+              ...
+              ValueError: New shape is incompatible with the current size
+
+          The tricky bit was handling corner cases, reshaping empty arrays,
+          adding singleton dimensions, and ensuring reshaped arrays remain
+          views (not copies) where possible.
+
+        - **transpose()**
+
+          Transposing is more than just flipping rows and columns; for
+          higher-dimensional arrays, it's about permuting the axes. The
+          |xp.ndarray.transpose|_ method does just that.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.transpose()
+              array([[1, 4],
+                     [2, 5],
+                     [3, 6]])
+
+        - **flatten()**
+
+          The |xp.ndarray.flatten|_ method returns a copy. Implementing this
+          pushed me to understand `memory alignment`_ and stride tricks.
+
+          .. code-block:: python
+
+              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
+              >>> a.flatten()
+              array([1, 2, 3, 4, 5, 6])
+
+        These methods taught me the importance of shape manipulation, it's not
+        just about rearranging numbers but respecting how arrays interact with
+        memory and computation. Each feature made me peel back yet another
+        layer of NumPy's magic, reinforcing my understanding while building
+        xsNumPy piece by piece.
+
     .. tab-item:: Indexing
 
         Indexing and slicing were, without a doubt, one of the most
@@ -873,76 +937,10 @@ So, what can xsNumPy actually do?
             `here <https://github.com/xames3/xsnumpy/blob/
             69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L368>`_.
 
-    .. tab-item:: Shape manipulations
-
-        Once I had nailed down array creation and operations, the next beast
-        to tackle was shape manipulation. If there's one thing I learned
-        quickly, it's that reshaping arrays isn't just a matter of rearranging
-        elements, it's about understanding how data is stored and accessed
-        under the hood.
-
-        In xsNumPy, I wanted to mirror NumPy's intuitive and flexible shape
-        manipulation methods, while also reinforcing my grasp of concepts like
-        views, strides, and contiguous arrays.
-
-        - **reshape()**
-
-          Reshaping an array allows you to change its shape without altering
-          its data. The key was ensuring the total number of elements remained
-          consistent, a simple yet crucial check.
-
-          .. code-block:: python
-
-              >>> import xsnumpy as xp
-              >>>
-              >>> a = xp.array([1, 2, 3, 4, 5, 6])
-              >>> a.reshape((2, 3))
-              array([[1, 2, 3],
-                     [4, 5, 6]])
-              >>> a.reshape((2, 4))
-              Traceback (most recent call last):
-              File "<stdin>", line 1, in <module>
-              ...
-              ValueError: New shape is incompatible with the current size
-
-          The tricky bit was handling corner cases, reshaping empty arrays,
-          adding singleton dimensions, and ensuring reshaped arrays remain
-          views (not copies) where possible.
-
-        - **transpose()**
-
-          Transposing is more than just flipping rows and columns; for
-          higher-dimensional arrays, it's about permuting the axes.
-
-          .. code-block:: python
-
-              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
-              >>> a.transpose()
-              array([[1, 4],
-                     [2, 5],
-                     [3, 6]])
-
-        - **flatten()**
-
-          Flatten returns a copy. Implementing this pushed me to understand
-          memory layouts and stride tricks.
-
-          .. code-block:: python
-
-              >>> a = xp.array([[1, 2, 3], [4, 5, 6]])
-              >>> a.flatten()
-              array([1, 2, 3, 4, 5, 6])
-
-        These methods taught me the importance of shape manipulation, it's not
-        just about rearranging numbers but respecting how arrays interact with
-        memory and computation. Each feature made me peel back yet another
-        layer of NumPy's magic, reinforcing my understanding while building
-        xsNumPy piece by piece.
-
     .. tab-item:: Reductions
 
-        After wrangling with array creation, operations, indexing, and shape
-        manipulation, I found myself standing at the gates of reductions, those
+        After wrangling with array creation, operations, shape manipulation,
+        and indexing, I found myself standing at the gates of reductions, those
         neat little methods that take an array and distil it down to a single
         value or a smaller array. Sounds straightforward, right? Well, not
         quite.
@@ -1032,7 +1030,6 @@ So, what can xsNumPy actually do?
         just a calculation, it was a carefully crafted operation built on a
         solid foundation.
 
-
 .. _concluding-xsnumpy:
 
 -------------------------------------------------------------------------------
@@ -1047,6 +1044,9 @@ and a stubborn desire to lift the bonnet on a tool I use daily. More than just
 its features, xsNumPy reflects a mindset, the belief that the best way to
 learn is by rolling up your sleeves, building something from scratch, breaking
 it, then putting it back together, piece by piece.
+
+.. image:: ../assets/victory-shall-be-mine-meme.gif
+    :alt: Victory shall be mine meme from Family Guy
 
 This experience taught me to stop seeing libraries as mystical black boxes and
 start recognising them for what they are. And for me, that's the real win of
@@ -1065,6 +1065,9 @@ demystifying complex libraries one line at a time!
 .. _broadcasting: https://numpy.org/doc/stable/user/basics.broadcasting.html
 .. _indexing: https://numpy.org/doc/stable/user/basics.indexing.html
 .. _The Flash: https://www.dc.com/characters/the-flash
+.. _views: https://numpy.org/doc/stable/user/basics.copies.html
+.. _NumPy internals: https://numpy.org/doc/stable/dev/internals.html
+.. _memory alignment: https://numpy.org/doc/stable/dev/alignment.html
 
 .. |xp.ndarray| replace:: ``xsnumpy.ndarray``
 .. _xp.ndarray: https://github.com/xames3/xsnumpy/blob/
@@ -1078,30 +1081,39 @@ demystifying complex libraries one line at a time!
 .. |xp.ndarray.matmul| replace:: ``__matmul__``
 .. _xp.ndarray.matmul: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L831
-.. |xp.array| replace:: ``array()``
+.. |xp.array| replace:: ``xsnumpy.array()``
 .. _xp.array: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L75
-.. |xp.zeros| replace:: ``zeros()``
+.. |xp.zeros| replace:: ``xsnumpy.zeros()``
 .. _xp.zeros: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L171
-.. |xp.ones| replace:: ``ones()``
+.. |xp.ones| replace:: ``xsnumpy.ones()``
 .. _xp.ones: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L229
-.. |xp.full| replace:: ``full()``
+.. |xp.full| replace:: ``xsnumpy.full()``
 .. _xp.full: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L289
-.. |xp.arange| replace:: ``arange()``
+.. |xp.arange| replace:: ``xsnumpy.arange()``
 .. _xp.arange: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L437
-.. |xp.sum| replace:: ``sum()``
+.. |xp.ndarray.reshape| replace:: ``xsnumpy.ndarray.reshape()``
+.. _xp.ndarray.reshape: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L1571
+.. |xp.ndarray.transpose| replace:: ``xsnumpy.ndarray.transpose()``
+.. _xp.ndarray.transpose: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L1609
+.. |xp.ndarray.flatten| replace:: ``xsnumpy.ndarray.flatten()``
+.. _xp.ndarray.flatten: https://github.com/xames3/xsnumpy/blob/
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L1386
+.. |xp.sum| replace:: ``xsnumpy.sum()``
 .. _xp.sum: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1518
-.. |xp.prod| replace:: ``prod()``
+.. |xp.prod| replace:: ``xsnumpy.prod()``
 .. _xp.prod: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1536
-.. |xp.all| replace:: ``all()``
+.. |xp.all| replace:: ``xsnumpy.all()``
 .. _xp.all: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1237
-.. |xp.any| replace:: ``any()``
+.. |xp.any| replace:: ``xsnumpy.any()``
 .. _xp.any: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1254

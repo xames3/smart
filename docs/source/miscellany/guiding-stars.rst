@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, February 24, 2025
-.. Last updated on: Monday, March 03 2025
+.. Last updated on: Wednesday, March 05 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -108,10 +108,10 @@ technologies or tools, always asking the right questions that made me think
 harder and probe deeper. Your encouragement pushed me to think about how
 technology could transform lives, and more importantly, how I could share that
 knowledge with others. It was your faith in my ability as a teacher that made
-me realise the joy of sharing knowledge. You often said, *"Akshay, the best
-way to learn is to teach."* Those words still echo in my heart every time I
-stand before a classroom or mentor someone. In every student I guide, I see
-you, reminding me of our last chat...
+me realise the joy of sharing knowledge. You often said, "Akshay, the best way
+to learn is to teach." Those words still echo in my heart every time I stand
+before a classroom or mentor someone. In every student I guide, I see you,
+reminding me of our last chat...
 
 .. epigraph::
 
@@ -150,8 +150,8 @@ leave me to flounder. You stood by me, not with empty reassurances, but with a
 steady push to grow in ways I hadn't even imagined. Although you were my
 manager, much senior in the career level, you never treated me any
 differently. Your approach was unlike any I had experienced before. I do
-remember you telling me, *"It's never about doing things perfectly, it is
-about learning and evolving along the way."*
+remember you telling me, "It's never about doing things perfectly, it is about
+learning and evolving along the way."
 
 .. figure:: ../assets/krishna-and-arjuna.jpeg
     :alt: An AI generated image of Krishna and Arjuna in anime style
