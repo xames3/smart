@@ -4,7 +4,7 @@ SMART Sphinx Theme Utilities
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, February 21 2025
-Last updated on: Monday, March 03 2025
+Last updated on: Saturday, March 08 2025
 
 This module defines a collection of utility functions used for
 customising the SMART Sphinx Theme. These utilities focus on enhancing
@@ -89,8 +89,18 @@ def make_toc_collapsible(tree: bs4.BeautifulSoup) -> None:
                 type="button",
                 **{"@click.prevent.stop": "expanded = !expanded"},
             )
-            i = tree.new_tag("i", attrs={"class": "fa-solid fa-circle-plus"})
-            button.append(i)
+            label = tree.new_tag("span", attrs={"class": "sr-only"})
+            button.append(label)
+            svg = bs4.BeautifulSoup(
+                (
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 '
+                    '24" width="18px" height="18px" stroke="none" '
+                    'fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.'
+                    '58 4.59L10 18l6-6z"/></svg>'
+                ),
+                "html.parser",
+            ).svg
+            button.append(svg)  # type:ignore[arg-type]
             link.append(button)
 
 
