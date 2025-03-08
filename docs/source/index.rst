@@ -148,8 +148,13 @@ sharing ideas, and helping others grow alongside me.
     projects/xsnumpy
 
 .. toctree::
+    :caption: Teaching
+    :hidden:
+
+    course-codex/index
+
+.. toctree::
     :caption: Miscellany
     :hidden:
 
     miscellany/guiding-stars
-    miscellany/course-codex
