@@ -358,8 +358,8 @@ by surprise was the fact that how challenging things were, which I thought to
 be **"easy peasy"**. Things like writing a :py:func:`repr` or overriding the
 built-in methods.
 
-I remember talking to myself one morning, *"let's start with something dead
-easy, perhaps just display the array."* That couldn't be hard, right? All I
+I remember talking to myself one morning, "let's start with something dead
+easy, perhaps just display the array." That couldn't be hard, right? All I
 need to do is print the content of my array in a readable format how NumPy
 does. Little did I know I was shooting myself in the foot. At its core, a
 :py:func:`repr` is just an object's internal data representation. I started
@@ -550,7 +550,7 @@ general solutions. I realised for knotty problems, xsNumPy was slow... perhaps
 painfully slow. But it was mine. Unlike NumPy, which runs like `The Flash`_
 which I can't bloody see or understand, I **understood** every line of code.
 And with each iteration, every commit I made, I explored even more ways to
-optimise it, reducing redundant calculations, improving *"pseudo-cache"*
+optimise it, reducing redundant calculations, improving "pseudo-cache"
 locality.
 
 Every bug, every unexpected result, and every small achievement taught me
