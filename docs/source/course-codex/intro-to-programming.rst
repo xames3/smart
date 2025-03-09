@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, March 08 2025
-.. Last updated on: Saturday, March 08 2025
+.. Last updated on: Sunday, March 09 2025
 
 :og:title: Introduction to Programming
 :og:description: A comprehensive guide to my "ideal" courses to equip students
@@ -75,7 +75,7 @@ By the end of this course, you will:
 - solve problems by applying programming to small, personal tasks like
   automating a daily chore, parsing a text file, or building a basic to-do app.
 - prepare yourself for future courses and industry workloads by building a
-  strong foundation that will make advanced topics like algorithms, data
+  strong foundation that will make advanced topics like `algorithms`_, data
   structures, AI, and cloud computing far less intimidating.
 - learn to Google your way through any debugging session!!!
 
@@ -89,11 +89,10 @@ Structure
 Below is the week-by-week breakdown of how we will proceed through our
 curriculum:
 
-Week 01
-===============================================================================
+.. _developing-a-programming-mindset:
 
-.. rubric:: Programming Mindset or Thinking in Code
-    :heading-level: 3
+Developing a Programming Mindset
+===============================================================================
 
 Since it's the first week, we won't dive headfirst into coding but rather
 cheekily rewire ourselves to think like a programmer. Before writing fancy
@@ -110,7 +109,7 @@ This week is all about developing a programming mentality.
 
    - Understanding programming as a problem-solving tool.
    - How computers **"think"**? Basics of how code gets executed
-     (interpreted vs. compiled languages).
+     (`interpreted vs. compiled languages`_).
    - Why programming is more about logic than language?
 
 #. **Thinking like a machine**
@@ -120,7 +119,7 @@ This week is all about developing a programming mentality.
 
 #. **Your first program**
 
-   - Writing a hello world program in multiple languages (primarily Python).
+   - Writing a `hello world`_ program in multiple languages (primarily Python).
    - Understanding similarities and differences in semantics and syntaxes
      across multiple languages.
    - Interpreting error messages and searching for solutions on the
@@ -148,11 +147,10 @@ This week is all about developing a programming mentality.
    least one example to share next week (it can be anything from a simple
    algorithm or someone's personal project you found online).
 
-Week 02
-===============================================================================
+.. _data-types-the-art-of-naming:
 
-.. rubric:: Variables, Data Types, and The Art of Naming
-    :heading-level: 3
+Data Types & The Art of Naming
+===============================================================================
 
 This week, we'll dive deeper into one of the most essential concepts in
 programming |dash| variables |dash| and uncover the art and science behind how
@@ -235,11 +233,10 @@ meaningful code.
     importance of meaningful variable names. The memes should be different from
     what we've seen during the class.
 
-Week 03
-===============================================================================
+.. _mastering-control-flows-loops:
 
-.. rubric:: Mastering Control Flows and Loops
-    :heading-level: 3
+Mastering Control Flows & Loops
+===============================================================================
 
 Last week, we explored variables and data types, building a foundation for how
 we store and manage data. Now, it's time to breathe life into our programs by
@@ -320,11 +317,10 @@ meaningful conditional logic that mirrors real-world thought processes.
    - Introduce a loop so that the user can keep adding expenses without
      restarting the program.
 
-Week 04
-===============================================================================
+.. _dont-repeat-yourself-with-functions:
 
-.. rubric:: Crafting reusable and purposeful code using Functions
-    :heading-level: 3
+Don't Repeat Yourself with Functions
+===============================================================================
 
 By now, we've laid some serious groundwork. We've explored how data is stored
 (Week 2) and how programs make decisions and repeat tasks (Week 3). But what
@@ -346,6 +342,9 @@ small, focused, and meaningful functions will set us apart as a programmer.
 By the end of this week, we'll not only be able to write basic functions but
 also grasp parameters, return values, and scope |dash| the hidden rules that
 control what variables live where in your program.
+
+.. image:: ../assets/functions-functions-functions-meme.webp
+    :alt: Buzz lightyear and Woody meme
 
 .. rubric:: What we'll cover
     :heading-level: 3
@@ -412,4 +411,7 @@ control what variables live where in your program.
 .. _Java: https://www.java.com/en/download/help/whatis_java.html
 .. _Javascript: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 .. _Rust: https://www.rust-lang.org
+.. _algorithms: https://www.geeksforgeeks.org/fundamentals-of-algorithms/
+.. _interpreted vs. compiled languages: https://stackoverflow.com/a/69371092
+.. _hello world: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
 .. _GitHub: https://www.github.com
