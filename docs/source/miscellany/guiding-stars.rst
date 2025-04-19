@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, February 24, 2025
-.. Last updated on: Wednesday, March 05 2025
+.. Last updated on: Friday, April 18 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -16,7 +16,7 @@ Guiding Stars
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: DePaul University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3

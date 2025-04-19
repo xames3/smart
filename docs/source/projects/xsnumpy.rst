@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, March 01 2025
-.. Last updated on: Wednesday, March 05 2025
+.. Last updated on: Friday, April 18 2025
 
 :og:title: Building xsNumpy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -16,7 +16,7 @@ Building xsNumpy
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: DePaul University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3

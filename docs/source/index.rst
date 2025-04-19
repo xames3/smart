@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Thursday, March 07 2025
+.. Last updated on: Friday, April 18 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -17,7 +17,7 @@ My Studying, Mentorship, And Resourceful Teaching Journey
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: DePaul University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3

@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, March 08 2025
-.. Last updated on: Saturday, March 08 2025
+.. Last updated on: Friday, April 18 2025
 
 :og:title: Course Codex
 :og:description: A comprehensive guide to my "ideal" courses to equip students
@@ -16,7 +16,7 @@ Course Codex
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: DePaul University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
