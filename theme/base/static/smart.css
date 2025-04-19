@@ -23,22 +23,20 @@
     --accent-foreground: 0 0% 9%
 }
 
-@media (prefers-color-scheme:dark) {
-    :root {
-        --background: 0 0% 0%;
-        --foreground: 0 0% 93%;
-        --muted-foreground: 0 0% 63%;
-        --accent-foreground: 0 0% 93%;
-        --muted: 0 0% 12%;
-        --border: 0 0% 12%;
-        --input: 0 0% 12%;
-        --light-accent: 0, 0%, 8%;
-        --code-background: 0, 0%, 4%;
-        --pre-shadow: 0 0% 12%;
-        --highlight: 211.25, 97.96%, 19.22%;
-        --box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0px 2px 2px rgba(255, 255, 255, 0.04), 0px 8px 8px -8px rgba(255, 255, 255, 0.04);
-        --card: 0 0% 0%
-    }
+html[data-theme="dark"] {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 93%;
+    --muted-foreground: 0 0% 63%;
+    --accent-foreground: 0 0% 93%;
+    --muted: 0 0% 12%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --light-accent: 0, 0%, 8%;
+    --code-background: 0, 0%, 4%;
+    --pre-shadow: 0 0% 12%;
+    --highlight: 211.25, 97.96%, 19.22%;
+    --box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0px 2px 2px rgba(255, 255, 255, 0.04), 0px 8px 8px -8px rgba(255, 255, 255, 0.04);
+    --card: 0 0% 0%
 }
 
 html {
@@ -70,6 +68,7 @@ strong,
     font-weight: 600;
     line-height: 3.5rem;
     text-align: center;
+    color: hsl(var(--temp));
     letter-spacing: -3.36px;
     margin-bottom: 32px
 }
@@ -241,7 +240,6 @@ button.copybtn svg {
     padding: 4px 5px !important;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 8px !important
-    
 }
 
 pre span.linenos {
@@ -385,6 +383,11 @@ i {
     color: hsl(var(--accent-foreground));
     line-height: 1.5rem;
     padding: 1rem 1.5rem
+}
+
+.note:is(.dark *) {
+    background-color: rgba(87, 87, 87, .15);
+    color: hsl(var(--accent-foreground))
 }
 
 .badge {

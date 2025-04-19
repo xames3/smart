@@ -8,16 +8,14 @@
     --highlight: 209.55 100% 94%
 }
 
-@media (prefers-color-scheme:dark) {
-    :root {
-        --foreground: 0 0% 93%;
-        --background: 0, 0%, 4%;
-        --obj-foreground: 208.4 100.8% 73.79%;
-        --var-foreground: 268.97, 100%, 82.94%;
-        --import-foreground: 3.83, 100%, 72.35%;
-        --comment-foreground: 207.33, 100%, 82.35%;
-        --highlight: 211.25, 97.96%, 19.22%
-    }
+html[data-theme="dark"] {
+    --foreground: 0 0% 93%;
+    --background: 0, 0%, 4%;
+    --obj-foreground: 208.4 100.8% 73.79%;
+    --var-foreground: 268.97, 100%, 82.94%;
+    --import-foreground: 3.83, 100%, 72.35%;
+    --comment-foreground: 207.33, 100%, 82.35%;
+    --highlight: 211.25, 97.96%, 19.22%
 }
 
 pre {
