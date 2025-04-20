@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, February 22 2025
-Last updated on: Wednesday, March 05 2025
+Last updated on: Saturday, April 19 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -30,6 +30,10 @@ teaching and learning platform.
 
     [1] Customized the CSS of the copy button extension and fixed a bug
         caused by default copy button element.
+
+.. versionchanged:: 19.4.2025
+
+    [1] Added support for PyTorch docs via InterSphinx mappings.
 """
 
 from __future__ import annotations
@@ -102,6 +106,7 @@ intersphinx_mapping: dict[str, tuple[str, t.Any]] = {
     "python": ("https://docs.python.org/3/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
+    "torch": ("https://pytorch.org/docs/stable/", None),
 }
 
 ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
