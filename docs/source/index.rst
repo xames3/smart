@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Friday, April 18 2025
+.. Last updated on: Sunday, April 20 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -26,16 +26,16 @@ My Studying, Mentorship, And Resourceful Teaching Journey
 .. rst-class:: lead
 
    Harnessing Studying, Mentorship, And Resourceful Teaching to drive
-   innovation |dash| now that's SMART!
+   innovation. Okay... now that's SMART!
 
 Hello hello!
 
-I'm **Akshay** (/uh-k-ʃ-æ/), an AI Engineer, student researcher, and an
-educator dedicated to the intersection of technology and learning. This corner
-of the internet serves both as a digital portfolio, showcasing my work, and a
-space where I share my learning and teaching experiences in the fields of
-Artificial Intelligence, Software Development, Scientific Computing, and Open
-Science.
+I'm **Akshay** (/uh-k-ʃ-æ/), an Adjunct Professor at National Louis University,
+AI Engineer, and open-source contributor dedicated to the intersection of
+technology and learning. This corner of the internet serves both as a digital
+portfolio, showcasing my work, and a space where I share my learning and
+teaching experiences in the fields of Artificial Intelligence, Software
+Development, Scientific Computing, and Open Science.
 
 Whilst most of my work revolves around building tools that push the boundaries
 of technology while keeping accessibility in mind, I've a special interest in
@@ -44,7 +44,7 @@ which I've explored through my personal projects. I'm also committed to
 contributing to the `NASA Open Science`_ mission, promoting transparent,
 reproducible, and inclusive research.
 
-With Open science, I often do Open Source |dash| which to me, is more than a
+With Open science, I often do Open Source. For me, it is more than a
 philosophy. It's my personal reminder to make my learnings, experiences, and
 knowledge free and accessible, breaking down the cultural and digital barriers
 and inviting collaboration across disciplines and borders.
@@ -65,7 +65,8 @@ education. Some key highlights of my projects include:
   researchers alike. These were created as educational tools for scientific
   computing.
 
-  Read more about my journey of :doc:`building xsNumPy <projects/xsnumpy>`.
+  Read more about my journey of :doc:`building xsNumPy <projects/xsnumpy>` and
+  :doc:`SlowTorch <projects/slowtorch>` |chvrn|
 
 - **Reinforcement Learning.** An AI-driven Snake game including the environment
   built in `Pygame`_, featuring a modular agent and optimised reinforcement
@@ -146,6 +147,7 @@ sharing ideas, and helping others grow alongside me.
     :hidden:
 
     projects/xsnumpy
+    projects/slowtorch
 
 .. toctree::
     :caption: Teaching
