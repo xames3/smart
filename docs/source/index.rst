@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, February 22, 2025
-.. Last updated on: Sunday, April 20 2025
+.. Last updated on: Saturday, May 03 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -21,7 +21,7 @@ My Studying, Mentorship, And Resourceful Teaching Journey
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: Feb 23, 2025
+    :timestamp: May 03, 2025
 
 .. rst-class:: lead
 
@@ -153,6 +153,7 @@ sharing ideas, and helping others grow alongside me.
     :caption: Teaching
     :hidden:
 
+    learning-out-loud/index
     course-codex/index
 
 .. toctree::
