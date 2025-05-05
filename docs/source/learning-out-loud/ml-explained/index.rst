@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 25 2025
-.. Last updated on: Saturday, May 03 2025
+.. Last updated on: Sunday, May 04 2025
 
 :og:title: ML Explained
 :og:description: A narrative series that walks through the foundations of
@@ -20,7 +20,7 @@ ML Explained
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: May 03, 2025
+    :timestamp: May 04, 2025
 
 This corner of the internet is the place where I attempt to teach Machine
 Learning the way I wish I'd first encountered it... slowly, clearly, and with
@@ -38,9 +38,13 @@ papers out there. Like I said earlier, I'd like to keep things short but, not
 incomplete. Each article will be hopefully short, focused, and designed to
 build up your intuition over time.
 
-This is not about "Mastering ML in X days". It's about learning out loud and
-learning well.
+This is **not** about "Mastering ML in X days". It's about learning out loud
+and learning well.
+
+.. image:: ../../assets/mastering-ml-in-x-days-meme.jpg
+    :alt: Mastering ML in X days meme
 
 .. toctree::
+    :hidden:
 
     ml101

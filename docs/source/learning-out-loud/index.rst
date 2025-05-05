@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 25 2025
-.. Last updated on: Saturday, May 03 2025
+.. Last updated on: Sunday, May 04 2025
 
 :og:title: Learning Out Loud
 :og:description: When one teaches, two learn...
@@ -30,6 +30,9 @@ share of mistakes, read the same paper five times just to make sense of one
 paragraph, and written buggy models that taught me more than any lecture
 could. But somewhere in all that trial and error, I also found clarity |dash|
 the kind that sticks when you try to teach something to someone else.
+
+.. image:: ../assets/passive-learning-from-lectures-meme.jpg
+    :alt: Passive learning from lectures meme
 
 This section, Learning Out Loud (LOL), is my humble attempt to do just that.
 It's not a course. It's not a tutorial series in the traditional sense. It's

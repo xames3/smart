@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 25 2025
-.. Last updated on: Saturday, May 03 2025
+.. Last updated on: Sunday, May 04 2025
 
 :og:title: ML101
 :og:description: Understanding learning as function approximation, not magic.
@@ -39,7 +39,7 @@ data, feed it into a model, twiddle a few parameters, and voilà, it learns.
 Except it doesn't, not in the way you might think. The word "learning" here is
 doing rather a lot of heavy lifting.
 
-.. image:: ../../assets/it-works-why.jpg
+.. image:: ../../assets/it-works-why-meme.jpg
     :alt: It works... why meme
 
 The issue isn't that people are unaware of Machine Learning, it's that we
