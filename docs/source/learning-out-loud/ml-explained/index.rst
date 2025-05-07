@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 25 2025
-.. Last updated on: Sunday, May 04 2025
+.. Last updated on: Monday, May 05 2025
 
 :og:title: ML Explained
 :og:description: A narrative series that walks through the foundations of
@@ -21,6 +21,11 @@ ML Explained
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
     :timestamp: May 04, 2025
+
+.. rst-class:: lead
+
+   This isn't a crash course. There's no "ultimate guide" here, no promise to
+   make you an expert over a weekend
 
 This corner of the internet is the place where I attempt to teach Machine
 Learning the way I wish I'd first encountered it... slowly, clearly, and with

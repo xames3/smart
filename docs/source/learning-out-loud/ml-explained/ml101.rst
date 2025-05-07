@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 25 2025
-.. Last updated on: Sunday, May 04 2025
+.. Last updated on: Tuesday, May 06 2025
 
 :og:title: ML101
 :og:description: Understanding learning as function approximation, not magic.
@@ -19,12 +19,7 @@ ML101
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: May 03, 2025
-
-.. rst-class:: lead
-
-   This isn't a crash course. There's no "ultimate guide" here, no promise to
-   make you an expert over a weekend
+    :timestamp: May 04, 2025
 
 To be fair, this doesn't really need explaining. If you're here, chances are
 you already have some sense of what Machine Learning is, or at least you feel
@@ -76,7 +71,7 @@ In the classical approach, we often write explicit instructions, handcrafted
 rules, conditional logic, or, to keep it precise, programs. The machine doesn't
 think. It simply obeys or follows those rules or instructions.
 
-Machine Learning flips this paradigm.
+Machine Learning flips this paradigm...
 
 Instead of coding or programming the logic ourselves, we supply the machine
 (computer) with examples. And I mean a lot of them. By the way, these examples
@@ -92,3 +87,49 @@ teaching a child to ride a bicycle. You don't explain Newtonian mechanics or
 angular momentum. You run alongside them, steady the seat, and let them wobble.
 The learning comes along through doing. Like I said, its a process. The rules
 emerge from experience.
+
+.. _learning-has-three-flavours:
+
+-------------------------------------------------------------------------------
+Learning has Three Flavours
+-------------------------------------------------------------------------------
+
+This is back in 2018 when I started delving deeper and deeper into
+understanding Machine Learning concepts. I noticed the same three paradigms
+cropping up repeatedly: supervised, unsupervised, and reinforcement learning.
+They sound like taxonomies from textbooks, but they're really just different
+approaches to learning, not unlike the ones we use ourselves.
+
+Supervised learning is by far the most common and intuitive. Think of it as
+"learning by example with feedback." You supply the algorithm with labelled
+data, say, images of cats and dogs, each tagged accordingly, and it learns to
+map inputs to outputs. It's akin to a student learning from an answer key.
+Spam detection, fraud recognition, voice transcription, these are its bread and
+butter.
+
+Unsupervised learning is a wee bit murkier. Here, the data comes unlabelled.
+The machine's task is to organise it, to find structure, clusters, or
+compressed representations. It's like giving someone a pile of puzzle pieces
+from various sets and asking them to sort them without knowing what the final
+pictures look like. We use it for market segmentation, topic modelling, and
+anomaly detection.
+
+Reinforcement learning, though, is where things get truly interesting. Inspired
+by how animals (and babies) learn, Reinforcement Learning (RL) involves an
+agent interacting with an environment, making choices, and receiving feedback,
+rewards or penalties. Over time, the agent learns a policy that maximises the
+cumulative reward. This is the technique behind DeepMind's AlphaGo, robotic
+locomotion, and even certain kinds of recommendation engines.
+
+In my last quarter of the uni, I wrote and trained a reinforcement learning
+`Snake game`_ as part of my assignment. The game was quite simple, where the
+agent had to find its way to a goal (fruit) while avoiding eating itself and
+hitting the walls. For hours, it kept spinning like a bloody Beyblade! Turns
+out my reward function was misaligned; I'd inadvertently taught the agent that
+if it is about to collide with the wall, it should take a left or right turn
+and in doing so, it will not die. That was a profitable proposition, right?
+But no... that's the thing with Reinforcement Learning, you're not merely
+teaching what to do, but what to value. And that distinction changes
+everything!
+
+.. _Snake game: https://gist.github.com/xames3/563c99598c2aa1dd84e3c9494b648063
