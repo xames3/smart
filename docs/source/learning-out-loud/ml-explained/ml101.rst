@@ -132,4 +132,44 @@ But no... that's the thing with Reinforcement Learning, you're not merely
 teaching what to do, but what to value. And that distinction changes
 everything!
 
+.. _why-now:
+
+-------------------------------------------------------------------------------
+Why Now?
+-------------------------------------------------------------------------------
+
+If you read that above quote, it is pretty evident that Machine Learning,
+conceptually, isn't new. Arthur Samuel coined the term in 1959, describing it
+as the field that gives "computers the ability to learn without being
+explicitly programmed."
+
+So why has it flourished now, decades later?
+
+Three converging forces. First, the explosion of data, from smartphones,
+sensors, web activity, and beyond. Second, the rise of affordable computational
+power, particularly via GPUs (and more recently, TPUs). And third, substantial
+algorithmic innovation, most notably the resurgence of deep learning,
+championed by LeCun, Bengio, and Hinton (The Holy Trinity of Deep Learning),
+among others.
+
+In essence, we now possess the raw ingredients, data, compute, and mathematical
+rigour, that pioneers of the field could only dream of.
+
+.. _what-machine-learning-isnt:
+
+-------------------------------------------------------------------------------
+What Machine Learning Isn't?
+-------------------------------------------------------------------------------
+
+Before we get too swept up in the enthusiasm, a caveat.
+
+Machine Learning is not magic.
+
+It is **not** intelligence, at least not in the human sense. It does not
+understand. It discerns patterns, not meaning. To be absolutely blunt, Machine
+Learning is basically your highschool mathematics on steroids. I've built
+models that seemed astonishingly accurate at diagosing medical conditions,
+until I realised they were picking up on scanner artefacts or institutional
+quirks.
+
 .. _Snake game: https://gist.github.com/xames3/563c99598c2aa1dd84e3c9494b648063
