@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, March 01 2025
-.. Last updated on: Friday, April 18 2025
+.. Last updated on: Monday, August 04 2025
 
 :og:title: Building xsNumpy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -106,7 +106,7 @@ thing works?"
 .. _building-process:
 
 -------------------------------------------------------------------------------
-Building Process
+Building process
 -------------------------------------------------------------------------------
 
 So with the "whys" being explained, I'll explain the "hows". I was ready to
