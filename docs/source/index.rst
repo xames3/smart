@@ -21,12 +21,12 @@ My Studying, Mentorship, And Resourceful Teaching Journey
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: May 03, 2025
+    :timestamp: August 07, 2025
 
 .. rst-class:: lead
 
-   Harnessing Studying, Mentorship, And Resourceful Teaching to drive
-   innovation. Okay... now that's SMART!
+   Studying, Mentorship, And Resourceful Teaching to drive innovation, okay...
+   now that's SMART!
 
 Hello hello!
 
@@ -44,15 +44,22 @@ which I've explored through my personal projects. I'm also committed to
 contributing to the `NASA Open Science`_ mission, promoting transparent,
 reproducible, and inclusive research.
 
+.. figure:: ./assets/me-at-nasa-open-science.jpg
+    :alt: Me at NASA Open Science 2024
+
+    Me at NASA Open Science 2024 at National Louis University, Chicago
+    alongside Dr. Ian Moncrief (left), Gianna Dubinski (center), and Brian
+    Palafox (right)
+
 With Open science, I often do Open Source. For me, it is more than a
 philosophy. It's my personal reminder to make my learnings, experiences, and
 knowledge free and accessible, breaking down the cultural and digital barriers
 and inviting collaboration across disciplines and borders.
 
-.. _personal-projects:
+.. _personal-favourites:
 
 -------------------------------------------------------------------------------
-Personal projects
+Personal favourites
 -------------------------------------------------------------------------------
 
 Over the years, I've worked on a diverse range of personal projects, from
@@ -135,6 +142,21 @@ teach, and grow together. I'm hoping to achieve the following:
 Ultimately, my goal is to use this personal corner or rather this online
 platform to bridge the gap between collaboration and education, building tools,
 sharing ideas, and helping others grow alongside me.
+
+.. _get-in-touch:
+
+-------------------------------------------------------------------------------
+Get in touch
+-------------------------------------------------------------------------------
+
+I'm always open to conversations about AI, teaching, open source, or just a
+casual chat about life, I'd love to hear from you. And it doesn't need to be
+just about the tech though, I'm a huge movie buff. If you're also passionate
+about films, feel free to reach out or give movie recommendations or two.
+
+You can reach me via `Email <mailto:xa@mes3.dev>`_,
+`LinkedIn <https://www.linkedin.com/in/xames3>`_, or
+`GitHub <https://github.com/xames3>`_.
 
 .. _NASA Open Science: https://science.nasa.gov/open-science/
 .. _NumPy: https://numpy.org/
