@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, March 01 2025
-.. Last updated on: Monday, August 04 2025
+.. Last updated on: Thursday, August 07 2025
 
 :og:title: Building xsNumpy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -93,8 +93,8 @@ my students, I had to go deeper.
 
 There were a few other reasons for writing xsNumPy besides my lack of
 understanding about the NumPy internals. I essentially wanted to break free
-from the **"Oh, Neural Networks are like black box"** rubbish. When I'm
-teaching Machine Learning and Neural Networks, I often compare these scientific
+from the **"Neural Networks are like black box"** rubbish. When I'm teaching
+Machine Learning and Neural Networks, I often compare these scientific
 computing libraries to a car. You can go places, sure, but what happens when
 something breaks? What do you do then? So to get around this situation, I
 thought of actually learning it by building.
@@ -111,7 +111,7 @@ Building process
 
 So with the "whys" being explained, I'll explain the "hows". I was ready to
 build my scrappy little version of NumPy, but I didn't know where to start. So,
-like any sensible person, I did what we all do when we're lost |dash| I started
+like any sensible person, I did what we all do when we're lost, I started
 poking and prodding at various NumPy functions and methods, trying to suss out
 what made them tick. It didn't take long to twig that most of NumPy's APIs
 lean heavily on one core construct, the :func:`numpy.array` function. But
@@ -340,7 +340,7 @@ or not, the constructor handled it like so:
   is used to initialise the data. Basically, we use its address like a map
 - If it's any other type of buffer, the buffer is used directly
 
-Phew 😮‍💨 |dash| that was a fair bit, wasn't it?
+Phew... that was a fair bit, wasn't it?
 
 But now you can see how all the pieces fit together. From handling shapes and
 data types to calculating strides and buffers. It's all a bit mad when you
@@ -412,9 +412,6 @@ pretty obvious that there were some significant flaws in my logic. I wasn't
 just building some way to access data, I was constructing a flexible system
 needed to mirror NumPy's powerful, intuitive `indexing`_.
 
-.. image:: ../assets/sigh-meme.jpg
-    :alt: Deep sigh meme
-
 After days of trial and error, I finally realised, these so-called **"easy
 peasy"** methods were actually sly little gateways into NumPy's deeper design
 philosophies:
@@ -445,12 +442,11 @@ Illusion of simplicity
 
 Well, after wrestling with the **"simple"** things, I naively thought th
 hardest and, in all honesty, the boring part of xsNumPy was behind me. I was
-chuffed and more excited than ever before for the **"fun"** stuff |dash|
-element-wise arithmetics, broadcasting, and other random functions. What I
-didn't realise was that my journey was about to get even more mental. If
-implementing the |xp.ndarray|_ class was untangling a knot, matrix operations
-felt like trying to weave my own thread from scratch. Not sure if that makes
-sense.
+chuffed and more excited than ever before for the **"fun"** stuff, element-wise
+arithmetics, broadcasting, and other random functions. What I didn't realise
+was that my journey was about to get even more mental. If implementing the
+|xp.ndarray|_ class was untangling a knot, matrix operations felt like trying
+to weave my own thread from scratch. Not sure if that makes sense.
 
 But the point was, it was hard!
 
@@ -575,7 +571,7 @@ So, what can xsNumPy actually do?
         thought, how hard could it be? Just slap together a few initialisers,
         right? But, as always, reality gave me a proper wake-up call. It
         wasn't just about making arrays appear; it was about ensuring they
-        worked seamlessly with the whole system |dash| shapes, data types, and
+        worked seamlessly with the whole system; shapes, data types, and
         all.
 
         - **array()**
@@ -1030,6 +1026,23 @@ So, what can xsNumPy actually do?
         just a calculation, it was a carefully crafted operation built on a
         solid foundation.
 
+.. _sharing-my-journey-at-chipy:
+
+-------------------------------------------------------------------------------
+Sharing my journey at ChiPy
+-------------------------------------------------------------------------------
+
+The experience of building xsNumPy became so enlightening that I was invited
+to share it with the `ChiPy`_ where I gave a talk, titled **"xsNumPy:
+Curiosity to Code"**, walking through the entire journey of building xsNumPy.
+
+.. youtube:: https://www.youtube.com/watch?v=QIhyix3oEns
+
+The presentation covers the technical challenges, the mathematical discoveries,
+and most importantly, the mindset shift from seeing libraries as black boxes
+to understanding them as collections of elegant algorithms waiting to be
+explored.
+
 .. _concluding-xsnumpy:
 
 -------------------------------------------------------------------------------
@@ -1047,6 +1060,7 @@ it, then putting it back together, piece by piece.
 
 .. image:: ../assets/victory-shall-be-mine-meme.gif
     :alt: Victory shall be mine meme from Family Guy
+    :width: 100%
 
 This experience taught me to stop seeing libraries as mystical black boxes and
 start recognising them for what they are. And for me, that's the real win of
@@ -1068,6 +1082,7 @@ demystifying complex libraries one line at a time!
 .. _views: https://numpy.org/doc/stable/user/basics.copies.html
 .. _NumPy internals: https://numpy.org/doc/stable/dev/internals.html
 .. _memory alignment: https://numpy.org/doc/stable/dev/alignment.html
+.. _ChiPy: https://chipy.org/
 
 .. |xp.ndarray| replace:: ``xsnumpy.ndarray``
 .. _xp.ndarray: https://github.com/xames3/xsnumpy/blob/
