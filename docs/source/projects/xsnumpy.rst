@@ -1,8 +1,8 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Saturday, March 01 2025
-.. Last updated on: Thursday, August 07 2025
+.. Created on: Saturday, 1 March 2025
+.. Last updated on: Friday, 8 August 2025
 
-:og:title: Building xsNumpy
+:og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
     of NumPy's core features
 :og:type: article
@@ -10,7 +10,7 @@
 .. _project-building-xsnumpy:
 
 ===============================================================================
-Building xsNumpy
+Building xsNumPy
 ===============================================================================
 
 .. author::
@@ -421,8 +421,8 @@ philosophies:
 - **Efficiency.** Slices and views shouldn't faff about copying data
   willy-nilly, they ought to create references, keeping things lean and mean.
 - **Extensibility.** Indexing had to be nimble enough to handle both the
-  simple stuff (``array[1, 2]``) and the proper head-scratchers (
-  ``array[1:3, ...]``).
+  simple stuff (``array[1, 2]``) and the proper
+  head-scratchers (``array[1:3, ...]``).
 
 What kicked off as a laid-back attempt to rework :py:func:`repr` and
 other important methods ended up being a right masterclass in designing for
@@ -433,7 +433,7 @@ As of writing about xsNumPy, a couple of months later, this struggle taught me
 something profound, what seems super duper simple on the surface often hides
 massive complexity underneath.
 
-And that's exactly why building xsNumpy has been so powerful for my learning.
+And that's exactly why building xsNumPy has been so powerful for my learning.
 
 .. _illusion-of-simplicity:
 

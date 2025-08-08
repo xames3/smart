@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Saturday, March 08 2025
-.. Last updated on: Friday, April 18 2025
+.. Created on: Saturday, 8 March 2025
+.. Last updated on: Friday, 8 August 2025
 
 :og:title: Introduction to Programming
 :og:description: A comprehensive guide to my "ideal" courses to equip students

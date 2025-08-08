@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Friday, April 25 2025
-.. Last updated on: Monday, May 05 2025
+.. Created on: Friday, 25 April 2025
+.. Last updated on: Friday, 8 August 2025
 
 :og:title: ML Explained
 :og:description: A narrative series that walks through the foundations of

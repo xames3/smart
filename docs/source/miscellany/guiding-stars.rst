@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Monday, February 24, 2025
-.. Last updated on: Friday, April 18 2025
+.. Created on: Monday, 24 February 2025
+.. Last updated on: Friday, 8 August 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -64,6 +64,7 @@ embracing my past.
 
 .. figure:: ../assets/me-and-mum.jpg
     :alt: Me and Mum celebrating my admission into DePaul University
+    :figclass: zoom
 
     My mum and I, back in September of 2022, right after my admission into
     DePaul University at our family home in Enfield
@@ -115,11 +116,11 @@ reminding me of our last chat...
 
 .. epigraph::
 
-    If you loved me like a child, then live your life like a child. Walk this
-    rock like a child. Keep moving forward through calm and storm, I'll always
-    be with you Akshay, but in a different form.
+    If you loved me like a man, then live your life like a man. Walk this rock
+    like a man. Keep moving forward through calm and storm, I'll always be with
+    you Akshay, but in a different form.
 
-    -- Charlotte Parks
+    -- Charlotte Parks ❤️
 
 Like I said, as Uma's love shaped and transformed Shankar, your love shaped and
 transformed me, guiding me into my truest form. It was your belief in me as a
@@ -152,12 +153,6 @@ manager, much senior in the career level, you never treated me any
 differently. Your approach was unlike any I had experienced before. I do
 remember you telling me, "It's never about doing things perfectly, it is about
 learning and evolving along the way."
-
-.. figure:: ../assets/krishna-and-arjuna.jpeg
-    :alt: An AI generated image of Krishna and Arjuna in anime style
-
-    Image generated with `Flux-Animex-v2-LoRA
-    <https://huggingface.co/spaces/Neaty/anime>`_ model
 
 Those simple words stayed with me ever since. You always encouraged me to dive
 into the deep end, to question things, to understand the **"why"** behind
