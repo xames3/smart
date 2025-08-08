@@ -142,3 +142,4 @@ archive/*
 linting.html
 *.bak
 Icon
+docs/source/projects/slowtorch.rst
