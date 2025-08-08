@@ -94,14 +94,13 @@ $(window).scroll(function () {
     }
 })();
 
-// Sidebar hierarchical navigation toggles
 (function () {
     const sidebar = document.getElementById('left-sidebar');
     if (!sidebar) return;
     const listItems = sidebar.querySelectorAll('li');
     let uid = 0;
     for (const li of listItems) {
-        if (li.classList.contains('has-children')) continue; // already processed
+        if (li.classList.contains('has-children')) continue;
         const childList = li.querySelector(':scope > ul');
         if (!childList) continue;
         const anchor = li.querySelector(':scope > a');
