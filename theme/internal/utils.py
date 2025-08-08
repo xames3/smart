@@ -3,8 +3,8 @@ SMART Sphinx Theme Utilities
 ============================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, February 21 2025
-Last updated on: Saturday, March 08 2025
+Created on: Friday, 21 February 2025
+Last updated on: Friday, 8 August 2025
 
 This module defines a collection of utility functions used for
 customising the SMART Sphinx Theme. These utilities focus on enhancing

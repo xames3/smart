@@ -26,6 +26,7 @@
     --duration-fast: 150ms;
     --duration-normal: 300ms;
     --duration-slow: 1.2s;
+    --sidebar-width: 250px
 }
 
 html[data-theme="dark"] {
@@ -66,8 +67,55 @@ code,
 kbd,
 pre,
 samp {
-    font-family: "Geist Mono", monospace;
-    padding-left: 20px
+    font-family: "Geist Mono", monospace
+}
+
+@media (max-width:640px) {
+    .container {
+        padding-inline: 1.3rem
+    }
+}
+
+@media (min-width: 768px) {
+    .layout-grid {
+        display: grid;
+        align-items: start;
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .layout-grid.has-right-sidebar {
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width);
+    }
+}
+
+.layout-grid>#left-sidebar {
+    display: none
+}
+
+@media (min-width: 768px) {
+    .layout-grid>#left-sidebar {
+        display: block;
+    }
+}
+
+.layout-grid>#right-sidebar {
+    display: none
+}
+
+@media (min-width: 1280px) {
+    .layout-grid.has-right-sidebar>#right-sidebar {
+        display: block;
+    }
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 3.5rem;
+    align-self: start;
+    max-height: calc(100vh - 3.5rem);
+    overflow-y: auto
 }
 
 #content h1 {
@@ -212,12 +260,16 @@ h6:hover>a.headerlink:before {
     transform: translateY(1px)
 }
 
+#left-sidebar a.expandable {
+    padding-right: 0
+}
+
 header {
     transition: background-color var(--duration-fast) var(--ease-in-out), box-shadow var(--duration-fast) var(--ease-in-out)
 }
 
 .border-b {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
 }
 
 .focus\:bg-accent:focus,
@@ -230,19 +282,17 @@ header {
 }
 
 code {
-    background-color: hsl(var(--code-background));
-    font-size: 14px;
-    font-weight: 500;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 400;
     line-height: inherit;
-    padding: 4px 5px;
     position: relative;
     white-space: pre-wrap;
     display: inline;
     word-break: break-word;
     margin: 0;
     background-clip: padding-box;
-    border: 1px solid hsl(var(--border));
-    border-radius: 8px;
+    border: none;
     transition: transform var(--duration-fast) var(--ease-in-out)
 }
 
@@ -266,13 +316,8 @@ pre {
     transition: transform var(--duration-fast) var(--ease-in-out)
 }
 
-pre:hover {
-    transform: translateY(-1px)
-}
-
 pre span.linenos {
-    color: hsl(0, 0%, 63%) !important;
-    padding-right: 20px
+    color: hsl(0, 0%, 63%) !important
 }
 
 .literal-block-wrapper .code-block-caption {
@@ -291,14 +336,31 @@ pre span.linenos {
 }
 
 button.copybtn {
-    border-width: 1px !important;
-    border-color: hsl(var(--border)) !important;
-    border-radius: 8px !important;
-    background-color: hsl(var(--background)) !important
+    border: none !important;
+    background-color: transparent !important;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px
 }
 
+#left-sidebar .caption button svg,
+#left-sidebar a>button svg,
 button.copybtn svg {
-    padding-left: 0.15em
+    display: none !important
+}
+
+button.copybtn::before {
+    font-weight: 900;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem !important;
+    line-height: 1;
+    display: inline-block;
+    visibility: visible;
+    content: "\f328";
+    font: var(--fa-font-regular)
 }
 
 .o-tooltip--left:after {
@@ -314,10 +376,12 @@ button.copybtn svg {
 blockquote {
     border: none;
     font-style: normal;
-    padding: 82px 0;
+    padding-bottom: 82px;
+    padding-top: 82px;
     margin: 0;
     font-size: 24px;
     line-height: 36px;
+    padding-left: 0;
     text-align: center
 }
 
@@ -327,8 +391,7 @@ blockquote p:first-child::before {
     font-weight: 400;
     line-height: 36px;
     font-family: Georgia, Times New Roman, Times, serif;
-    content: "" ";
-
+    content: "“"
 }
 
 blockquote p:first-child::after {
@@ -337,8 +400,7 @@ blockquote p:first-child::after {
     font-weight: 400;
     line-height: 36px;
     font-family: Georgia, Times New Roman, Times, serif;
-    content: "" ";
-
+    content: "”"
 }
 
 blockquote p.attribution {
@@ -346,7 +408,7 @@ blockquote p.attribution {
     font-size: 1rem;
     line-height: 1.25rem;
     font-weight: 500;
-    letter-spacing: 0;
+    letter-spacing: 0px;
     margin-top: 1.5rem
 }
 
@@ -368,6 +430,10 @@ i {
 
 .gap-2 {
     gap: 0.5rem
+}
+
+.bottom-22 {
+    bottom: 4.8rem
 }
 
 .justify-end {
@@ -433,6 +499,55 @@ i {
     color: hsl(var(--accent-foreground))
 }
 
+#left-sidebar ul ul:is(.dark *):before {
+    content: var(--tw-content);
+    --tw-bg-opacity: 0.5;
+    background-color: rgba(113, 113, 113, 0.15);
+}
+
+#left-sidebar li.has-children {
+    position: relative;
+}
+
+#left-sidebar li.has-children>a {
+    display: inline-block;
+    width: auto;
+}
+
+#left-sidebar li.has-children>button.nav-toggle {
+    position: absolute;
+    top: 0.15rem;
+    right: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: hsl(var(--muted-foreground));
+    transition: color var(--duration-fast) var(--ease-in-out);
+}
+
+#left-sidebar li.has-children>button.nav-toggle::before {
+    content: "\f054";
+    font: var(--fa-font-regular);
+    font-weight: 900;
+    font-size: 0.75rem;
+    line-height: 1;
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform var(--duration-fast) var(--ease-in-out);
+    transform-origin: 50% 50%;
+}
+
+#left-sidebar li.has-children[aria-expanded="true"]>button.nav-toggle::before {
+    transform: rotate(90deg);
+}
+
 .badge {
     display: inline-flex;
     align-items: center;
@@ -446,6 +561,10 @@ i {
     padding: 0 10px;
     letter-spacing: 0;
     vertical-align: middle
+}
+
+li .badge {
+    display: none
 }
 
 .beta {

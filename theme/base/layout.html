@@ -3,69 +3,60 @@ SMART Sphinx Theme ToC Template
 ===============================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, February 21 2025
-Last updated on: Friday, April 18 2025
+Created on: Friday, 21 February 2025
+Last updated on: Friday, 8 August 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
-<html lang="{{ lang_attr }}"
-      {% if sphinx_version_tuple >= (7, 2) %}data-content_root="{{ content_root }}"{% endif %}
-      :data-theme="darkMode"
-      x-data="{darkMode: localStorage.getItem('darkMode') ?? 'light'}"
-      x-init="if (!localStorage.getItem('darkMode')) localStorage.setItem('darkMode', darkMode); $watch('darkMode', val => localStorage.setItem('darkMode', val))"
-      class="scroll-smooth"
-      :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta name="theme-color"
-          media="(prefers-color-scheme: light)"
-          content="white" />
-    <meta name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="black" />
-    {{ metatags }}
-    {%- block htmltitle %}
-      <title>{{ title|striptags|e if title else docstitle }}</title>
-      <meta property="og:title"
-            content="{{ title|striptags|e if title else docstitle }}" />
-      <script src="https://kit.fontawesome.com/8bcdaaff4d.js"
-              crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-              integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-              crossorigin="anonymous"></script>
-    {%- endblock htmltitle %}
-    {%- for css in css_files %}
-      {%- if css|attr("filename") %}
-        {{ css_tag(css) }}
-      {%- else -%}
-        <link rel="stylesheet" href="{{ pathto(css, 1) |e }}" />
-      {%- endif %}
-    {%- endfor %}
-    {%- if docsearch %}
-      <link rel="preconnect"
-            href="https://{{ docsearch_app_id }}-dsn.algolia.net"
-            crossorigin="anonymous" />
-    {% endif %}
-    {%- set _favicon_url = favicon_url | default(pathto('_static/' + (favicon or ""), 1)) %}
-    {%- if favicon_url or favicon %}<link rel="icon" href="{{ _favicon_url }}" />{%- endif %}
-    {%- block linktags %}
-      {%- if hasdoc('search') and not docsearch %}
-        <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
-      {%- endif %}
-      {%- if hasdoc('genindex') %}<link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />{%- endif %}
-      {%- if next %}
-        <link rel="next"
-              title="{{ next.title|striptags|e }}"
-              href="{{ next.link|e }}" />
-      {%- endif %}
-      {%- if prev %}
-        <link rel="prev"
-              title="{{ prev.title|striptags|e }}"
-              href="{{ prev.link|e }}" />
-      {%- endif %}
-    {%- endblock linktags %}
-    <script>
+<html lang="{{ lang_attr }}" {% if sphinx_version_tuple>= (7, 2) %}data-content_root="{{ content_root }}"{% endif %}
+:data-theme="darkMode"
+x-data="{darkMode: localStorage.getItem('darkMode') ?? 'light'}"
+x-init="if (!localStorage.getItem('darkMode')) localStorage.setItem('darkMode', darkMode); $watch('darkMode', val =>
+localStorage.setItem('darkMode', val))"
+class="scroll-smooth"
+:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme:
+dark)').matches)}">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+  {{ metatags }}
+  {%- block htmltitle %}
+  <title>{{ title|striptags|e if title else docstitle }}</title>
+  <meta property="og:title" content="{{ title|striptags|e if title else docstitle }}" />
+  <script src="https://kit.fontawesome.com/8bcdaaff4d.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  {%- endblock htmltitle %}
+  {%- for css in css_files %}
+  {%- if css|attr("filename") %}
+  {{ css_tag(css) }}
+  {%- else -%}
+  <link rel="stylesheet" href="{{ pathto(css, 1) |e }}" />
+  {%- endif %}
+  {%- endfor %}
+  {%- if docsearch %}
+  <link rel="preconnect" href="https://{{ docsearch_app_id }}-dsn.algolia.net" crossorigin="anonymous" />
+  {% endif %}
+  {%- set _favicon_url = favicon_url | default(pathto('_static/' + (favicon or ""), 1)) %}
+  {%- if favicon_url or favicon %}
+  <link rel="icon" href="{{ _favicon_url }}" />{%- endif %}
+  {%- block linktags %}
+  {%- if hasdoc('search') and not docsearch %}
+  <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+  {%- endif %}
+  {%- if hasdoc('genindex') %}
+  <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />{%- endif %}
+  {%- if next %}
+  <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+  {%- endif %}
+  {%- if prev %}
+  <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+  {%- endif %}
+  {%- endblock linktags %}
+  <script>
     const userPreference = localStorage.getItem('darkMode');
     let mode;
     if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -75,57 +66,51 @@ Last updated on: Friday, April 18 2025
       mode = 'light';
     }
     if (!userPreference) { localStorage.setItem('darkMode', mode) }
-    </script>
-    {%- block extrahead %}{%- endblock extrahead %}
-    </head>
-    <body x-data="{ showSidebar: false, showScrollTop: false }"
-          class="min-h-screen font-sans antialiased bg-background text-foreground"
-          :class="{ 'overflow-hidden': showSidebar }"
-          {%- if theme_show_scrolltop|tobool -%}
-          @scroll.window="showScrollTop = pageYOffset > 100"
-          {%- endif -%}>
-      {%- if sidebars|length > 0 %}
-        <div x-cloak
-             x-show="showSidebar"
-             class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden"
-             @click.self="showSidebar = false"></div>
-      {%- endif %}
-      <div id="page" class="relative flex flex-col min-h-screen">
-        <a href="#content"
-           class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100">
-          Skip to content
-        </a>
-        {%- block header %}
-          {%- include "header.html.jinja" %}
-        {%- endblock header %}
-        <div class="flex-1">
-          {%- set only_main_nav = sidebars == ["sidebar_main_nav_links.html.jinja"] %}
-          {%- if not only_main_nav and sidebars|length > 0 -%}
-            <div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
-            {%- else -%}
-              <div class="container items-start flex-1">
-              {%- endif -%}
-              {%- block sidebar %}
-                {%- if sidebars|length > 0 %}
-                  {%- include "sidebar.html.jinja" %}
-                {%- endif %}
-              {%- endblock sidebar %}
-              {%- block main %}
-                <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-                  {%- block body %}{%- endblock %}
-                  </main>
-                {%- endblock main %}
-              </div>
-            </div>
-            {%- block footer %}
-              {%- include "footer.html.jinja" %}
-            {%- endblock footer %}
-          </div>
-          {%- if theme_show_scrolltop|tobool %}
-            {%- include "scrolltop.html.jinja" %}
-          {%- endif %}
-          {% block scripts %}
-            {%- for js in script_files %}{{ js_tag(js) }}{%- endfor %}
-            {% endblock scripts %}
-          </body>
-        </html>
+  </script>
+  {%- block extrahead %}{%- endblock extrahead %}
+</head>
+
+<body x-data="{ showSidebar: false, showScrollTop: false, lastScroll: 0 }"
+  class="min-h-screen font-sans antialiased bg-background text-foreground" :class="{ 'overflow-hidden': showSidebar }"
+  @scroll.window="const y=pageYOffset; const docH=document.documentElement.scrollHeight; const nearBottom=(y+innerHeight)>= (docH-200); const down=y>lastScroll; showScrollTop = down && (y>200 || nearBottom); lastScroll = y < 0 ? 0 : y;">
+  {%- if sidebars|length > 0 %}
+  <div x-cloak x-show="showSidebar"
+    class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden"
+    @click.self="showSidebar = false"></div>
+  {%- endif %}
+  <div id="page" class="relative flex flex-col min-h-screen">
+    <a href="#content"
+      class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100">
+      Skip to content
+    </a>
+    {%- block header %}
+    {%- include "header.html.jinja" %}
+    {%- endblock header %}
+    <div class="flex-1">
+      <div class="container flex-1 layout-grid md:gap-6 lg:gap-10 has-right-sidebar">
+        {%- block sidebar %}
+        {%- if sidebars|length > 0 %}
+        {%- include "sidebar.html.jinja" %}
+        {%- endif %}
+        {%- endblock sidebar %}
+        {%- block main %}
+        <main class="relative py-6 lg:gap-10 lg:py-8">
+          {%- block body %}{%- endblock %}
+        </main>
+        {%- endblock main %}
+        {%- block right_sidebar %}
+        {%- include "toc.html.jinja" %}
+        {%- endblock right_sidebar %}
+      </div>
+    </div>
+    {%- block footer %}
+    {%- include "footer.html.jinja" %}
+    {%- endblock footer %}
+  </div>
+  {% block scripts %}
+  {%- for js in script_files %}{{ js_tag(js) }}{%- endfor %}
+  <script src="{{ pathto('_static/smart.js', 1) }}" defer></script>
+  {% endblock scripts %}
+</body>
+
+</html>

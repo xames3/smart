@@ -3,8 +3,8 @@ SMART Sphinx Theme YouTube Directive
 ====================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Saturday, February 22 2025
-Last updated on: Saturday, February 22 2025
+Created on: Saturday, 22 February 2025
+Last updated on: Friday, 8 August 2025
 
 This module defines a custom `youtube` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a YouTube video—directly

@@ -3,14 +3,14 @@ SMART Sphinx Theme Scrollspy ToC Template
 =========================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, February 21 2025
-Last updated on: Saturday, February 22 2025
+Created on: Friday, 21 February 2025
+Last updated on: Friday, 8 August 2025
 -->
-<aside id="right-sidebar" class="hidden text-sm xl:block">
-  <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] h-full overflow-y-auto pt-6 space-y-2">
-    {%- block toc_before %}{%- endblock -%}
-    <p class="font-medium">On this page</p>
-    {{ toc }}
-    {%- block toc_after %}{%- endblock -%}
-  </div>
+<aside id="right-sidebar" class="text-sm sidebar-sticky overflow-y-auto pt-6 space-y-2">
+  {%- block toc_before %}{%- endblock -%}
+  {% if toc.strip() %}
+  <p class="font-medium">On this page</p>
+  {{ toc }}
+  {% endif %}
+  {%- block toc_after %}{%- endblock -%}
 </aside>

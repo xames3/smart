@@ -3,8 +3,8 @@ SMART Sphinx Theme
 ==================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, February 21 2025
-Last updated on: Sunday, March 02 2025
+Created on: Friday, 21 February 2025
+Last updated on: Friday, 8 August 2025
 
 This module serves as the primary entry point for the SMART Sphinx
 Theme. It is responsible for initialising the theme, configuring its

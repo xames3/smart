@@ -3,30 +3,21 @@ SMART Sphinx Theme Page Template
 ================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, February 21 2025
-Last updated on: Tuesday, February 25 2025
+Created on: Friday, 21 February 2025
+Last updated on: Friday, 8 August 2025
 -->
 {%- extends "layout.html" -%}
 {%- block body %}
-  {%- set only_main_nav = sidebars == ["sidebar_main_nav_links.html.jinja"] %}
-  {%- if not only_main_nav and sidebars|length > 0 %}
-    <div class="w-full min-w-0 mx-auto">
-    {%- else %}
-      <div class="w-full min-w-0 mx-auto max-w-prose">
+  <div class="w-full min-w-0 mx-auto max-w-prose">
+    {%- block body_before %}{%- endblock body_before -%}
+      {%- if theme_show_breadcrumbs|tobool %}
+        {%- include "breadcrumbs.html.jinja" %}
       {%- endif %}
-      {%- block body_before %}{%- endblock body_before -%}
-        {%- if theme_show_breadcrumbs|tobool %}
-          {%- include "breadcrumbs.html.jinja" %}
-        {%- endif %}
-        <div id="content" role="main">{{ body }}</div>
-        {%- if theme_show_previous_next_pages|tobool %}
-          {%- include "previous_next_pages.html.jinja" %}
-        {%- endif %}
-        {%- block body_after %}{%- endblock body_after -%}
-        </div>
-        {%- block on_page_toc %}
-          {%- if display_toc %}
-            {%- include "toc.html.jinja" %}
-          {%- endif %}
-        {%- endblock on_page_toc %}
-      {%- endblock body %}
+      <div id="content" role="main">{{ body }}</div>
+      {%- if theme_show_previous_next_pages|tobool %}
+        {%- include "previous_next_pages.html.jinja" %}
+      {%- endif %}
+      {%- block body_after %}{%- endblock body_after -%}
+  </div>
+  {%- block on_page_toc %}{%- endblock on_page_toc %}
+{%- endblock body %}

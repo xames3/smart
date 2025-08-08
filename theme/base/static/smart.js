@@ -93,3 +93,55 @@ $(window).scroll(function () {
         img.dataset.zoomReady = 'true';
     }
 })();
+
+// Sidebar hierarchical navigation toggles
+(function () {
+    const sidebar = document.getElementById('left-sidebar');
+    if (!sidebar) return;
+    const listItems = sidebar.querySelectorAll('li');
+    let uid = 0;
+    for (const li of listItems) {
+        if (li.classList.contains('has-children')) continue; // already processed
+        const childList = li.querySelector(':scope > ul');
+        if (!childList) continue;
+        const anchor = li.querySelector(':scope > a');
+        if (!anchor) continue;
+        li.classList.add('has-children');
+        const controlId = childList.id || `nav-branch-${++uid}`;
+        childList.id = controlId;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'nav-toggle';
+        btn.setAttribute('aria-label', 'Toggle section');
+        btn.setAttribute('aria-controls', controlId);
+        const branchIsCurrent = li.classList.contains('current') || anchor.classList.contains('current') || !!li.querySelector(':scope > ul .current');
+        if (branchIsCurrent) {
+            li.setAttribute('aria-expanded', 'true');
+        } else {
+            li.setAttribute('aria-expanded', 'false');
+            childList.hidden = true;
+        }
+        anchor.insertAdjacentElement('afterend', btn);
+        btn.addEventListener('click', () => {
+            const expanded = li.getAttribute('aria-expanded') === 'true';
+            const nextState = !expanded;
+            li.setAttribute('aria-expanded', String(nextState));
+            btn.setAttribute('aria-expanded', String(nextState));
+            if (expanded) {
+                childList.hidden = true;
+                childList.style.display = 'none';
+            } else {
+                childList.hidden = false;
+                childList.style.display = '';
+            }
+        }, { passive: true });
+        // Keyboard support on anchor for convenience (Left/Right arrows)
+        anchor.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                if (li.getAttribute('aria-expanded') === 'false') btn.click();
+            } else if (e.key === 'ArrowLeft') {
+                if (li.getAttribute('aria-expanded') === 'true') btn.click();
+            }
+        });
+    }
+})();
