@@ -22,9 +22,10 @@
     --pre-shadow: 0, 0%, 83.92%;
     --highlight: 209.55 100% 94%;
     --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0, 0, 0.2, 1);
     --duration-fast: 150ms;
-    --duration-normal: 250ms
+    --duration-normal: 300ms;
+    --duration-slow: 1.2s;
 }
 
 html[data-theme="dark"] {
@@ -116,14 +117,35 @@ samp {
     margin-top: 0.75rem
 }
 
-#content img {
+#content img:not(figure img) {
     margin: 60px auto;
-    border-radius: var(--radius)
+    border-radius: var(--radius);
+    transition: transform var(--duration-normal) var(--ease-in-out);
+    display: block
+}
+
+#content img.zoom:not(figure img):hover {
+    transform: scale(1.05)
+}
+
+#content figure {
+    margin: 60px auto 0 auto;
+    width: fit-content;
+    position: relative
 }
 
 #content figure img {
-    margin: 60px auto 20px auto;
-    display: inline-block
+    margin: 0;
+    display: block !important;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    transition: transform var(--duration-normal) var(--ease-in-out);
+    transform-origin: center
+}
+
+#content figure.zoom:hover img {
+    transform: scale(1.05)
 }
 
 #content figcaption {
@@ -330,16 +352,6 @@ blockquote p.attribution {
 
 i {
     line-height: 1.5 !important
-}
-
-img,
-figure {
-    transition: transform var(--duration-normal) var(--ease-in-out)
-}
-
-img:hover,
-figure:hover {
-    transform: scale(1.02)
 }
 
 .rounded-lg {
