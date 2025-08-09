@@ -15,11 +15,17 @@
     margin-top: 1.5rem
 }
 
+.sd-card-body:hover {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--radius)
+}
+
 .sd-sphinx-override p {
     margin-top: 1.5rem
 }
 
 .sd-container-fluid {
+    padding-inline: 0;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem
 }
@@ -94,4 +100,8 @@ div.sd-summary-content.sd-card-body {
     --tw-shadow: 0 0 #0000 !important;
     --tw-shadow-colored: 0 0 #0000 !important;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important
+}
+
+.sd-card-title {
+    margin-bottom: 0
 }

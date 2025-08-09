@@ -134,7 +134,6 @@ $(window).scroll(function () {
                 childList.style.display = '';
             }
         }, { passive: true });
-        // Keyboard support on anchor for convenience (Left/Right arrows)
         anchor.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') {
                 if (li.getAttribute('aria-expanded') === 'false') btn.click();

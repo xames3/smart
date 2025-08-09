@@ -502,16 +502,16 @@ i {
 #left-sidebar ul ul:is(.dark *):before {
     content: var(--tw-content);
     --tw-bg-opacity: 0.5;
-    background-color: rgba(113, 113, 113, 0.15);
+    background-color: rgba(113, 113, 113, 0.15)
 }
 
 #left-sidebar li.has-children {
-    position: relative;
+    position: relative
 }
 
 #left-sidebar li.has-children>a {
     display: inline-block;
-    width: auto;
+    width: auto
 }
 
 #left-sidebar li.has-children>button.nav-toggle {
@@ -529,7 +529,7 @@ i {
     margin: 0;
     cursor: pointer;
     color: hsl(var(--muted-foreground));
-    transition: color var(--duration-fast) var(--ease-in-out);
+    transition: color var(--duration-fast) var(--ease-in-out)
 }
 
 #left-sidebar li.has-children>button.nav-toggle::before {
@@ -541,11 +541,11 @@ i {
     display: inline-block;
     transform: rotate(0deg);
     transition: transform var(--duration-fast) var(--ease-in-out);
-    transform-origin: 50% 50%;
+    transform-origin: 50% 50%
 }
 
 #left-sidebar li.has-children[aria-expanded="true"]>button.nav-toggle::before {
-    transform: rotate(90deg);
+    transform: rotate(90deg)
 }
 
 .badge {
@@ -577,7 +577,8 @@ li .badge {
     color: hsl(142, 76%, 36%)
 }
 
-.scbs-carousel-control-next, .scbs-carousel-control-prev {
+.scbs-carousel-control-next,
+.scbs-carousel-control-prev {
     width: auto !important;
     top: 90% !important
 }
@@ -590,8 +591,16 @@ li .badge {
     background-color: hsl(var(--accent-foreground)) !important;
     border-top: none !important;
     border-bottom: none !important;
-    transition: none !important;
-    border-radius: 100% !important
+    border-radius: 100% !important;
+    transition: opacity var(--duration-fast) var(--ease-in-out), background-color var(--duration-fast) var(--ease-in-out) !important;
+    will-change: opacity, background-color;
+    cursor: pointer
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scbs-carousel-indicators [data-bs-target] {
+        transition: none !important;
+    }
 }
 
 .scbs-carousel-caption {
@@ -611,4 +620,55 @@ li .badge {
     margin-inline: auto;
     max-width: 80%;
     line-height: 1.25rem
+}
+
+.scbs-carousel .scbs-carousel-indicators .scbs-active {
+    transition-delay: .6s
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scbs-carousel .scbs-carousel-indicators .scbs-active {
+        transition-delay: 0s
+    }
+}
+
+@supports selector(:has(*)) {
+    .scbs-carousel:has(.scbs-carousel-item.scbs-carousel-item-start, .scbs-carousel-item.scbs-carousel-item-end) .scbs-carousel-indicators [data-bs-target] {
+        pointer-events: none;
+        cursor: default
+    }
+
+    .scbs-carousel:has(.scbs-carousel-item.scbs-carousel-item-start, .scbs-carousel-item.scbs-carousel-item-end) .scbs-carousel-control-next,
+    .scbs-carousel:has(.scbs-carousel-item.scbs-carousel-item-start, .scbs-carousel-item.scbs-carousel-item-end) .scbs-carousel-control-prev {
+        pointer-events: none
+    }
+}
+
+.scbs-carousel .scbs-carousel-caption,
+.scbs-carousel .scbs-carousel-item figure figcaption,
+.scbs-carousel .carousel-item figure figcaption {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity var(--duration-normal) var(--ease-in-out), transform var(--duration-normal) var(--ease-in-out);
+    pointer-events: none
+}
+
+.scbs-carousel .scbs-carousel-item.scbs-active .scbs-carousel-caption,
+.scbs-carousel .scbs-carousel-item.active .scbs-carousel-caption,
+.scbs-carousel .carousel-item.active .scbs-carousel-caption,
+.scbs-carousel .scbs-carousel-item.scbs-active figure figcaption,
+.scbs-carousel .scbs-carousel-item.active figure figcaption,
+.scbs-carousel .carousel-item.active figure figcaption {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scbs-carousel .scbs-carousel-caption,
+    .scbs-carousel .scbs-carousel-item figure figcaption,
+    .scbs-carousel .carousel-item figure figcaption {
+        transition: none
+    }
 }
