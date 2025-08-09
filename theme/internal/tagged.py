@@ -177,7 +177,7 @@ class directive(Figure):
             )
             if href:
                 anchors.append(
-                    f'<a class="face-tag" href="{href}" '
+                    f'<a class="face-tag" href="{href}" target="_blank" '
                     f'title="{label}" aria-label="{label}" '
                     f'style="{style}"></a>'
                 )
