@@ -4,7 +4,7 @@ SMART Sphinx Theme YouTube Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Saturday, 9 August 2025
 
 This module defines a custom `youtube` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a YouTube video—directly
@@ -58,7 +58,7 @@ class node(nodes.Element):
     """Class to represent a custom node in the document tree.
 
     This class extends the `nodes.Element` from `docutils`, serving as
-    the container for the parsed author information. The node will
+    the container for the parsed information. The node will
     ultimately be transformed into HTML or other output formats by the
     relevant Sphinx translators.
     """
