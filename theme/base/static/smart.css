@@ -192,8 +192,50 @@ samp {
     transform-origin: center
 }
 
-#content figure.zoom:hover img {
+#content figure.zoom .zoom-inner {
+    overflow: hidden
+}
+
+#content figure.zoom:hover .zoom-scale {
     transform: scale(1.05)
+}
+
+#content .face-tag-wrap .face-tag {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-fast, .2s) var(--ease-in-out)
+}
+
+#content figure:hover .face-tag-wrap .face-tag,
+#content .zoom-inner:hover .face-tag-wrap .face-tag,
+#content .face-tag-wrap .face-tag:focus-visible {
+    opacity: .5;
+    pointer-events: auto
+}
+
+#content .face-tag-wrap .face-tag::after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translateY(4px);
+    white-space: nowrap;
+    font-size: .65em;
+    line-height: 1.2;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: white;
+    background: hsl(var(--background));
+    box-shadow: 0 1px 2px hsl(var(--muted-foreground) / .15);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--duration-fast, .2s) var(--ease-in-out)
+}
+
+#content figure:hover .face-tag-wrap .face-tag::after,
+#content .zoom-inner:hover .face-tag-wrap .face-tag::after,
+#content .face-tag-wrap .face-tag:focus-visible::after {
+    opacity: 1
 }
 
 #content figcaption {
@@ -580,6 +622,7 @@ li .badge {
 .scbs-carousel-control-next,
 .scbs-carousel-control-prev {
     width: auto !important;
+    opacity: 1 !important;
     top: 90% !important
 }
 
@@ -592,9 +635,9 @@ li .badge {
     border-top: none !important;
     border-bottom: none !important;
     border-radius: 100% !important;
+    background-clip: border-box !important;
     transition: opacity var(--duration-fast) var(--ease-in-out), background-color var(--duration-fast) var(--ease-in-out) !important;
-    will-change: opacity, background-color;
-    cursor: pointer
+    will-change: opacity, background-color
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -648,8 +691,8 @@ li .badge {
 .scbs-carousel .scbs-carousel-item figure figcaption,
 .scbs-carousel .carousel-item figure figcaption {
     opacity: 0;
-    transform: translateY(4px);
-    transition: opacity var(--duration-normal) var(--ease-in-out), transform var(--duration-normal) var(--ease-in-out);
+    transform: translateY(0);
+    transition: opacity 1.5s, transform var(--duration-normal) var(--ease-out);
     pointer-events: none
 }
 
@@ -671,4 +714,39 @@ li .badge {
     .scbs-carousel .carousel-item figure figcaption {
         transition: none
     }
+}
+
+.scbs-carousel-control-prev-icon,
+.scbs-carousel-control-next-icon {
+    background-image: none !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    opacity: 1;
+    background-color: hsl(var(--muted))
+}
+
+.scbs-carousel-control-prev-icon::before,
+.scbs-carousel-control-next-icon::before {
+    font-weight: 900 !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    visibility: visible;
+    opacity: 1;
+    color: hsl(var(--accent-foreground));
+    font: var(--fa-font-regular)
+}
+
+.scbs-carousel-control-prev-icon::before {
+    content: "\f060"
+}
+
+.scbs-carousel-control-next-icon::before {
+    content: "\f061"
 }
