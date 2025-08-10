@@ -4,7 +4,7 @@ SMART Sphinx Theme YouTube Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Saturday, 9 August 2025
+Last updated on: Sunday, 10 August 2025
 
 This module defines a custom `youtube` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a YouTube video—directly
@@ -37,6 +37,7 @@ from __future__ import annotations
 
 import os.path as p
 import typing as t
+import urllib.parse as urlparse
 
 import docutils.nodes as nodes
 import docutils.parsers.rst as rst
@@ -89,6 +90,10 @@ class directive(rst.Directive):
         "showtitle": rst.directives.flag,
         "caption": rst.directives.unchanged,
         "startfrom": rst.directives.positive_int,
+        "privacy": rst.directives.flag,
+        "modestbranding": rst.directives.flag,
+        "controls": rst.directives.nonnegative_int,
+        "playsinline": rst.directives.flag,
     }
 
     def run(self) -> list[nodes.Node]:
@@ -105,15 +110,28 @@ class directive(rst.Directive):
         :return: A list containing a single `node` element.
         """
         self.assert_has_content()
-        url = rst.directives.uri(self.content.pop())
-        self.options["url"] = (
-            f"https://youtube.com/embed/{url.split('v=')[-1].split('&')[0]}"
-            f"?start={self.options.get('startfrom', 0)}"
-            f"&autoplay={self.options.get('autoplayer', 1)}"
-            f"&cc_load_policy={self.options.get('showcaptions', 1)}&rel=0"
-        )
+        raw = self.content.pop()
+        src = rst.directives.uri(raw)
+        vid = src
+        if "youtu.be/" in src:
+            vid = src.rsplit("/", 1)[-1].split("?", 1)[0]
+        elif "watch?v=" in src:
+            vid = src.split("v=", 1)[-1].split("&", 1)[0]
+        domain = "https://www.youtube-nocookie.com" if "privacy" in self.options else "https://www.youtube.com"
+        params = {
+            "start": self.options.get("startfrom", 0),
+            "autoplay": 1 if "autoplay" in self.options else 0,
+            "cc_load_policy": 1 if "showcaptions" in self.options else 0,
+            "modestbranding": 1,
+            "rel": 0,
+            "playsinline": 1,
+        }
+        if "controls" in self.options:
+            params["controls"] = int(self.options["controls"])
+        url = f"{domain}/embed/{vid}?{urlparse.urlencode(params)}"
+        self.options["url"] = url
         if "showtitle" in self.options:
-            self.options["caption"] = pytube.YouTube(url).title
+            self.options["caption"] = pytube.YouTube(src).title
         attributes: dict[str, str] = {}
         attributes["text"] = template.render(**self.options)
         attributes["format"] = "html"
