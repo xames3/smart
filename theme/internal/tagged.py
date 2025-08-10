@@ -4,7 +4,7 @@ SMART Sphinx Theme Tagged Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 9 August 2025
-Last updated on: Saturday, 9 August 2025
+Last updated on: Sunday, 10 August 2025
 
 This module defines a custom `tagged` directive for the SMART Sphinx
 Theme. The directive extends the standard `figure` so it retains all of
@@ -146,7 +146,7 @@ class directive(Figure):
         image = images[0]
         node = image
         if isinstance(image.parent, nodes.reference):
-            node = image.parent
+            node = image.parent  # type: ignore[assignment]
         parent = node.parent
         try:
             index = parent.children.index(node)
