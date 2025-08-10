@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Friday, 8 August 2025
+.. Last updated on: Saturday, 9 August 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -20,12 +20,11 @@ Guiding Stars
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: Feb 24, 2025
+    :timestamp: 31 Jul, 2025
 
 .. rst-class:: lead
 
-   Heartfelt gratitude to the people who shaped my path in AI, Learning, and
-   Beyond
+   Heartfelt gratitude to the stars who illuminated my path
 
 There are moments in life when one pauses to look back, not merely at
 achievements, but at the constellation of individuals who've shaped the path.
@@ -42,10 +41,10 @@ inspire.
     equally to my journey. I'm profoundly grateful for your presence, guidance,
     and support.
 
-.. _like-gaia-you-ground-me:
+.. _my-gaia:
 
 -------------------------------------------------------------------------------
-Like Gaia, you ground me
+My Gaia
 -------------------------------------------------------------------------------
 
 At the very heart of my journey stands my mum, **Sunita**. Like `Gaia`_, the
@@ -58,8 +57,8 @@ resilience, and acceptance.
     :alt: Me and Mum celebrating my admission into DePaul University
     :figclass: zoom
 
-    My mum and I, September 2022, celebrating my admission into DePaul
-    University at our family home in Enfield
+    Mum and I, September 2022, celebrating my admission into DePaul University
+    while in Enfield
 
 From comforting me in moments of doubt to celebrating my successes, she has
 always been present, gently guiding me and keeping me grounded. I recall
@@ -71,23 +70,23 @@ These simple acts of care are cherished far beyond words.
 Since my father's passing, her love has been the very ground upon which I
 stand. Mum, you're my Gaia, and I'm eternally grateful for your strength.
 
-.. _charlotte-my-uma:
+.. _lessons-in-love:
 
 -------------------------------------------------------------------------------
-Charlotte, my Uma
+Lessons in love
 -------------------------------------------------------------------------------
 
-Charlotte, though you're no longer with us, your influence remains woven into
-the very fabric of my life. Much like `Uma`_'s transformative love for
+**Charlotte**, though you're no longer with us, your influence remains woven
+into the very fabric of my life. Much like `Uma`_'s transformative love for
 `Shankar`_, your presence sparked a profound change in me. You encouraged me to
 question deeply and to pursue understanding beyond the surface.
 
 Your patient listening and insightful questions challenged me to think
 critically and to share knowledge generously. Your belief in my ability to
-teach planted the seed for this very platform. You often said, "Akshay, the
-best way to learn is to teach." These words echo in my heart each time I stand
-before a class or mentor someone. In every student I guide, I see your spirit
-reminding me of our last chat...
+teach planted the seed for this very platform. You always said, "Akshay, you
+should teach!" These words echo in my heart each time I stand before a class
+or mentor someone. In every student I guide, I see your spirit reminding me of
+our last chat...
 
 .. epigraph::
 
@@ -99,10 +98,10 @@ reminding me of our last chat...
 
 Thank you, Charlotte, for being my Uma.
 
-.. _sajith-my-krishna:
+.. _zooming-out:
 
 -------------------------------------------------------------------------------
-Sajith, my Krishna
+Zooming out
 -------------------------------------------------------------------------------
 
 My professional journey began at `Accenture`_ in 2017, where I had the
@@ -121,7 +120,7 @@ to question, to seek understanding, and to learn from every experience.
     -- Saj
 
 These words have still stayed with me, shaping my approach to both work and
-life. Saj, you've been more than a mentor; you've been my guide, my Krishna.
+life. Saj, you've been more than a mentor; you've been my guide, my `Mimir`_.
 
 .. _end-credits:
 
@@ -150,6 +149,60 @@ souls yet to cross my path.
     The following list is in alphabetical order soley for clarity. Every person
     holds equal importance and has had a significant influence on my life.
 
+.. _cast-antonio-tovar:
+
+Antonio Tovar |new|
+===============================================================================
+
+`Dr. Tovar <https://www.linkedin.com/in/antoniotovar>`_, I first met you at
+NLU during the NASA Open Science workshop in 2024, where you were co-leading
+and generously offered me the opportunity to intern under your guidance at
+NASA. You've always been a kind, supportive mentor, a father figure, and a
+teacher ready with valuable advice and encouragement.
+
+.. tagged:: ../assets/dr-tovar-and-my-students.jpg
+    :alt: Dr. Tovar and Prof. Lucas with my students at NASA Open Science 2025
+        Workshop on the final day
+    :figclass: zoom
+    :faces: [
+            [
+                :face: Sezim Mamatova
+                :coords: [108, 112, 57, 57]
+            ],
+            [
+                :face: Dr. Antonio Tovar
+                :link: https://www.linkedin.com/in/antoniotovar
+                :coords: [205, 99, 47, 51]
+            ],
+            [
+                :face: Orkhan Guliyev
+                :coords: [271, 73, 52, 55]
+            ],
+            [
+                :face: Huzaifa Quaid Johar
+                :coords: [348, 99, 45, 55]
+            ],
+            [
+                :face: Ishrak Rahman
+                :coords: [417, 74, 50, 60]
+            ],
+            [
+                :face: Prof. Lucas Yong
+                :coords: [505, 51, 51, 63]
+            ],
+        ]
+
+    Dr. Tovar and Prof. Lucas with my students at NASA Open Science 2025 on the
+    final day of the workshop after project presentations
+
+You were the one who helped my dream of becoming a professor come true, and for
+that, I'm deeply grateful. Our countless discussions about teaching and life
+have been a source of inspiration, and your stories (rich with wisdom and
+experience) are ones I absolutely cherish! You've opened doors for me, provided
+opportunities to grow, and have always encouraged me to pursue excellence.
+
+Thank you, for believing in me, Dr. Tovar and for that, I salute you!
+
 .. _cast-cameron-riddell:
 
 Cameron Riddell
@@ -173,23 +226,30 @@ Cheers for being such a "legend", mate!
 
 .. _cast-fatemeh-taghvaei:
 
-Fatemeh Taghvaei
+Fatemeh Taghvaei |new|
 ===============================================================================
 
-**Fatemeh**, our paths crossed thanks to Dr. Tovar while I was still a student
-at DePaul and you were teaching at National Louis. He encouraged me to shadow
-and attend your AI/ML class, and that experience became a turning point in my
-academic career. You're more than a fellow professor; you're a mentor, a
-friend, and perhaps my greatest well-wisher.
+**Fatemeh**, our paths crossed thanks to :ref:`Dr. Tovar <cast-antonio-tovar>`
+while I was still a student at DePaul and you were teaching at National Louis.
+He encouraged me to shadow your AI/ML class, and that experience became a
+turning point in my academic career. You're more than a fellow professor;
+you're a mentor, a friend, and perhaps my greatest well-wisher.
+
+.. figure:: ../assets/young-at-our-graduation-1.jpg
+    :alt: Fatemeh attending my graduation ceremony, alongside Young
+    :figclass: zoom
+
+    Fatemeh attending my graduation ceremony alongside Young, June 2025
 
 I still remember my first day teaching... nervous, uncertain, and anxious. You
 were there, guiding me through the process, attending my classes, and reminding
-me of my responsibilities. Your support was unwavering, and your advice always
-timely. Our conversations about teaching, research, and life have been
-invaluable. Most importantly, you've always encouraged me to pursue my dream
-of earning a PhD from Stanford and for that, I'm deeply grateful.
+me of my responsibilities. Besides :ref:`Young <cast-young-song>`, you were
+the only other friend who came to my graduation. Your support was unwavering,
+and your advice always timely. Our conversations about teaching, research, and
+life have been invaluable. Most importantly, you've always encouraged me to
+pursue my dream of earning a PhD from Stanford and for that, I'm very grateful.
 
-Wowwwwwwwwwwww!
+Wowwwwwwwwwwww! 😂😭
 
 .. _cast-john-komarnicki:
 
@@ -205,35 +265,54 @@ wasn't just a meet-up, but an open, supportive community that you and your
 team had fostered with care.
 
 .. carousel::
-    :data-bs-interval: false
-    :data-bs-keyboard: false
-    :data-bs-pause: false
-    :data-bs-ride: false
-    :data-bs-touch: false
     :show_controls:
     :show_fade:
     :show_indicators:
 
-    .. image:: ../assets/chicago-code-coffee-1.jpg
-        :alt: Chicago Code and Coffee Event (February 2025)
-
-    .. image:: ../assets/chicago-code-coffee-2.jpg
-        :alt: Chicago Code and Coffee Event (January 2025)
-
-    .. image:: ../assets/chicago-code-coffee-3.jpg
+    .. figure:: ../assets/chicago-code-coffee-3.jpg
         :alt: Chicago Code and Coffee Event (December 2024)
 
-    .. image:: ../assets/chicago-code-coffee-4.jpg
+        In December 2024, we started having name tags for all the attendees
+        of the Chicago Code and Coffee
+
+    .. figure:: ../assets/chicago-code-coffee-2.jpg
+        :alt: Chicago Code and Coffee Event (January 2025)
+
+        January 2025 Chicago Code and Coffee, surprisingly had a lot of people
+        showing up, despite of the cold and windy weather
+
+    .. figure:: ../assets/chicago-code-coffee-4.jpg
         :alt: Chicago Code and Coffee Event Welcoming Banner (February 2025)
 
-    .. image:: ../assets/chicago-code-coffee-5.jpg
-        :alt: Chicago Code and Coffee Event (July 2025)
+        Chicago Code and Coffee meet-up welcoming Banner at the Capital One
+        cafe, Thanks for Angel and his team for making this happen
 
-    .. image:: ../assets/chicago-code-coffee-6.jpg
-        :alt: Chicago Code and Coffee Event (July 2025)
+    .. figure:: ../assets/chicago-code-coffee-1.jpg
+        :alt: Chicago Code and Coffee Event (February 2025)
 
-    .. image:: ../assets/chicago-code-coffee-team.jpg
+        Chicago Code and Coffee, February 2025 packed a lot of new faces and
+        familiar ones, all eager to learn and connect
+
+    .. figure:: ../assets/chicago-code-coffee-team.jpg
         :alt: Chicago Code and Coffee Team (June 2025)
+
+        Chicago Code and Coffee team, June 2025. Hyunsu Kim (left), Aarón
+        Ramírez Lezama (left centre), Sameer Mathad (right centre), and John
+        Komarnicki (right)
+
+    .. figure:: ../assets/chicago-code-coffee-5.jpg
+        :alt: Chicago Code and Coffee Event (July 2025)
+
+        July 2025 Chicago Code and Coffee started with a smaller audience than
+        usual, but it grew as the day progressed with people coming in from
+        all over the city
+
+    .. figure:: ../assets/chicago-code-coffee-6.jpg
+        :alt: Chicago Code and Coffee Event (July 2025)
+
+        Chicago Code and Coffee, July 2025 as the day progressed, more people
+        joined in, creating a vibrant atmosphere of learning and sharing
+        their experiences
 
 As the months have passed, our community has grown, I've become one of the
 volunteers here, and more people have found comfort and opportunity through
@@ -241,7 +320,28 @@ your work. On behalf of everyone who has ever found camaraderie or a new
 beginning at Chicago Code and Coffee, thank you, John. Your efforts have
 created a space where people truly belong.
 
-Join `Chicago Code and Coffee's Discord`_.
+Join Chicago Code and Coffee's `Discord`_.
+
+.. _cast-judy-cazares:
+
+Judy Cazares |new|
+===============================================================================
+
+`Judy <https://www.linkedin.com/in/judyc-data>`_, I first met you in 2024 at
+`ChiPy`_, and you were among the very first to welcome me into the fold. Our
+paths crossed again at another conference, and from there, a genuine friendship
+blossomed. You've always been kind, supportive, and remarkably generous with
+your time and wisdom, whether the topic is life, career, or something more
+personal.
+
+What I appreciate most is your willingness to listen (**truly**) and offer
+advice that is both thoughtful and grounded. I often find myself reflecting on
+your words profoundly than I've with anyone else. Our playful banter and jokes
+are a highlight, yet it is amusing how I always end up taking your advice to
+heart. You've never questioned my decisions nor tried to steer me forcefully;
+instead, you've been a gentle mentor, guiding me with patience and
+understanding and that's a reminder that mentorship isn't about following
+instruction, but about encouragement and trust.
 
 .. _cast-madhavi-rege:
 
@@ -262,9 +362,9 @@ hectic life becomes.
 
 For all coaching, I'm deeply grateful...
 
-.. _cast-sameer-mathad:
+.. _cast-sameer-g-mathad:
 
-Sameer Mathad
+Sameer Gururaj Mathad
 ===============================================================================
 
 `Sameer <https://www.linkedin.com/in/sameer-gururaj-mathad/>`_, our friendship
@@ -299,7 +399,7 @@ efforts, I gained and scored something far more valuable; a lifelong friend
 and cherished memories.
 
 You've stood by me through both triumphs and trials, especially after I lost
-my :ref:`Charlotte <charlotte-my-uma>`. You encouraged me to return to
+my :ref:`Charlotte <lessons-in-love>`. You encouraged me to return to
 teaching and ensured I had everything I needed to overcome self-doubt. Your
 wisdom on public speaking and community engagement gave me the courage to
 build this platform and the confidence I carry today.
@@ -324,7 +424,7 @@ found a mentor in you, and I know our bond will only grow stronger.
 
 .. _cast-young-song:
 
-Young Song
+Young Song |new|
 ===============================================================================
 
 `Young <https://www.linkedin.com/in/youngsong-us/>`_, our friendship began in
@@ -336,11 +436,11 @@ truly grateful for the friendship we've built.
     :alt: Young attending our graduation ceremony in June 2025
     :figclass: zoom
 
-    Young attending our graduation ceremony in June 2025
+    Young attending and celebrating our graduation ceremony, June 2025
 
 One memory that remains vivid is my graduation day. My mum wasn't able to
 attend nor anyone else, and it could've been a lonely milestone. Yet you were
-there for me and :ref:`Sameer <cast-sameer-mathad>`, arriving early and
+there for me and :ref:`Sameer <cast-sameer-g-mathad>`, arriving early and
 staying through the entire ceremony, from the first moments at seven in the
 morning until the celebrations ended late in the afternoon. You brought gifts
 and, more importantly, your unwavering presence. In a moment that could've
@@ -353,9 +453,8 @@ And for that... I'm very thankful, Young!
 .. _Uma: https://en.wikipedia.org/wiki/Parvati
 .. _Shankar: https://en.wikipedia.org/wiki/Shiva
 .. _Accenture: https://www.accenture.com/us-en
-.. _Krishna: https://en.wikipedia.org/wiki/Krishna
+.. _Mimir: https://en.wikipedia.org/wiki/Mímir
 .. _Edward Tufte: https://www.edwardtufte.com
-.. _Open Science Trainings: https://www.opensciencetraining.org
 .. _Chicago Code and Coffee: https://www.meetup.com/code-and-coffee-chicago/
-.. _Chicago Code and Coffee's Discord: https://discord.gg/NNYtWNFByN
-.. _Git: https://git-scm.com
+.. _Discord: https://discord.gg/NNYtWNFByN
+.. _ChiPy: https://chipy.org
