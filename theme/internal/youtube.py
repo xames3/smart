@@ -117,7 +117,11 @@ class directive(rst.Directive):
             vid = src.rsplit("/", 1)[-1].split("?", 1)[0]
         elif "watch?v=" in src:
             vid = src.split("v=", 1)[-1].split("&", 1)[0]
-        domain = "https://www.youtube-nocookie.com" if "privacy" in self.options else "https://www.youtube.com"
+        domain = (
+            "https://www.youtube-nocookie.com"
+            if "privacy" in self.options
+            else "https://www.youtube.com"
+        )
         params = {
             "start": self.options.get("startfrom", 0),
             "autoplay": 1 if "autoplay" in self.options else 0,
