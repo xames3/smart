@@ -270,7 +270,7 @@ columns. No problem, I updated the code and it worked!
             rows = ",\n       ".join(
                 [f"[{', '.join(map(str, row))}]" for row in self._data]
             )
-            return f"array([\n       {rows}\n], dtype={str(self.dtype)})"
+            return f"array([{rows}], dtype={str(self.dtype)})"
 
 Then the 3D arrays... and it broke again.
 
