@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 22 February 2025
-.. Last updated on: Friday, 8 August 2025
+.. Last updated on: Tuesday, 12 August 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -149,13 +149,6 @@ I'm reachable via `Email <mailto:xa@mes3.dev>`_,
 
     projects/xsnumpy
     projects/slowtorch
-
-.. toctree::
-    :caption: Teaching
-    :hidden:
-
-    learning-out-loud/index
-    course-codex/index
 
 .. toctree::
     :caption: Miscellany
