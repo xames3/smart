@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Saturday, 9 August 2025
+.. Last updated on: Tuesday, 12 August 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -161,39 +161,34 @@ NASA. You've always been a kind, supportive mentor, a father figure, and a
 teacher ready with valuable advice and encouragement.
 
 .. tagged:: ../assets/dr-tovar-and-my-students.jpg
-    :alt: Dr. Tovar and Prof. Lucas with my students at NASA Open Science 2025
-        Workshop on the final day
+    :alt: Dr. Tovar with my students at NASA Open Science 2025 Workshop on the
+        final day
     :figclass: zoom
     :faces: [
             [
-                :face: Sezim Mamatova
-                :coords: [108, 112, 57, 57]
-            ],
-            [
                 :face: Dr. Antonio Tovar
                 :link: https://www.linkedin.com/in/antoniotovar
-                :coords: [205, 99, 47, 51]
-            ],
-            [
-                :face: Orkhan Guliyev
-                :coords: [271, 73, 52, 55]
+                :coords: [65, 74, 56, 64]
             ],
             [
                 :face: Huzaifa Quaid Johar
-                :coords: [348, 99, 45, 55]
+                :coords: [184, 90, 46, 47]
             ],
             [
                 :face: Ishrak Rahman
-                :coords: [417, 74, 50, 60]
+                :coords: [306, 53, 52, 55]
             ],
             [
-                :face: Prof. Lucas Yong
-                :coords: [505, 51, 51, 63]
+                :face: Orkhan Guliyev
+                :coords: [451, 58, 47, 47]
             ],
+            [
+                :face: Sezim Mamatova
+                :coords: [576, 112, 57, 57]
+            ]
         ]
 
-    Dr. Tovar and Prof. Lucas with my students at NASA Open Science 2025 on the
-    final day of the workshop after project presentations
+    Dr. Tovar with my students at NASA Open Science 2025 after presentations
 
 You were the one who helped my dream of becoming a professor come true, and for
 that, I'm deeply grateful. Our countless discussions about teaching and life
