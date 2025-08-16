@@ -4,7 +4,7 @@ SMART Sphinx Theme Header Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Saturday, 16 August 2025
 -->
 <header
   class="sticky top-0 z-40 w-full border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur">
@@ -49,8 +49,8 @@ Last updated on: Friday, 8 August 2025
     {%- if sidebars|length >0 -%}
     <button
       class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden"
-      type="button" @click="showSidebar = true">
-      <i class="fa-regular fa-ellipsis-vertical"></i>
+      type="button" @click="showSidebar = true" data-sidebar-toggle>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M11.28 9.53 8.81 12l2.47 2.47a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-3-3a.75.75 0 0 1 0-1.06l3-3a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734Z"></path><path d="M3.75 2h16.5c.966 0 1.75.784 1.75 1.75v16.5A1.75 1.75 0 0 1 20.25 22H3.75A1.75 1.75 0 0 1 2 20.25V3.75C2 2.784 2.784 2 3.75 2ZM3.5 3.75v16.5c0 .138.112.25.25.25H15v-17H3.75a.25.25 0 0 0-.25.25Zm13 16.75h3.75a.25.25 0 0 0 .25-.25V3.75a.25.25 0 0 0-.25-.25H16.5Z"></path></svg>
       <span class="sr-only">Toggle navigation menu</span>
     </button>
     {%- endif -%}

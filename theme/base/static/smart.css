@@ -72,8 +72,9 @@ samp {
 
 @media (max-width:640px) {
     .container {
-        padding-inline: 1.3rem
+        padding-inline: 1.5rem
     }
+
     .container .literal-block-wrapper {
         padding-inline: 0 !important
     }
@@ -83,13 +84,13 @@ samp {
     .layout-grid {
         display: grid;
         align-items: start;
-        grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr)
     }
 }
 
 @media (min-width: 1280px) {
     .layout-grid.has-right-sidebar {
-        grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width);
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width)
     }
 }
 
@@ -99,7 +100,7 @@ samp {
 
 @media (min-width: 768px) {
     .layout-grid>#left-sidebar {
-        display: block;
+        display: block
     }
 }
 
@@ -109,7 +110,7 @@ samp {
 
 @media (min-width: 1280px) {
     .layout-grid.has-right-sidebar>#right-sidebar {
-        display: block;
+        display: block
     }
 }
 
@@ -122,48 +123,65 @@ samp {
 }
 
 @media (max-width: 1024px) {
+
+    .layout-grid>#left-sidebar {
+        display: block
+    }
+
     #left-sidebar,
     #sidebar,
     .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100svh;
-    width: var(--sidebar-width, 280px);
-    max-width: 85vw;
-    background: var(--color-surface, #fff);
-    box-shadow: 0 8px 24px rgba(0,0,0,.18);
-    transform: translateX(-100%);
-    transition: transform .3s ease;
-    z-index: 1001;
-    overscroll-behavior: contain;
-  }
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100svh;
+        width: var(--sidebar-width, 280px);
+        max-width: 85vw;
+        background: hsl(var(--background));
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+        z-index: 1001;
+        overscroll-behavior: contain
+    }
 
     body.sidebar-open #left-sidebar,
     body.sidebar-open #sidebar,
-  body.sidebar-open .sidebar {
-    transform: translateX(0);
-  }
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+        padding-inline: 1.5rem;
+        padding-top: 3.5rem
+    }
 
-  .sidebar-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.28);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .3s ease;
-    z-index: 1000;
-  }
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .28);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s ease;
+        z-index: 1000
+    }
 
-  body.sidebar-open .sidebar-backdrop {
-    opacity: 1;
-    pointer-events: auto;
-  }
+    body.sidebar-open .sidebar-backdrop {
+        opacity: 1;
+        pointer-events: auto
+    }
 
-  body.sidebar-open {
-    overflow: hidden;
-    touch-action: none;
-  }
+    body.sidebar-open {
+        overflow: hidden;
+        touch-action: none
+    }
+
+    #left-sidebar a {
+        color: hsl(var(--foreground));
+        padding-left: 0
+    }
+
+    #left-sidebar .caption {
+        color: hsl(var(--muted-foreground));
+        padding-left: 0
+    }
 }
 
 @media (max-width: 768px) {
@@ -173,14 +191,16 @@ samp {
         width: max-content;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        table-layout: auto;
+        table-layout: auto
     }
+
     #content table colgroup col {
-        width: auto !important;
+        width: auto !important
     }
+
     #content table th,
     #content table td {
-        white-space: nowrap;
+        white-space: nowrap
     }
 }
 
@@ -322,7 +342,7 @@ a.headerlink {
     color: hsl(var(--link))
 }
 
-.code-block-caption > span > a {
+.code-block-caption>span>a {
     color: hsl(var(--muted-foreground)) !important;
     text-decoration-line: none !important
 }
@@ -714,7 +734,7 @@ li .badge {
 
 @media (prefers-reduced-motion: reduce) {
     .scbs-carousel-indicators [data-bs-target] {
-        transition: none !important;
+        transition: none !important
     }
 }
 

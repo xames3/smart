@@ -4,7 +4,7 @@ SMART Sphinx Theme ToC Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Saturday, 16 August 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
@@ -85,7 +85,7 @@ Last updated on: Friday, 8 August 2025
       {%- if sidebars|length > 0 %}
         <div x-cloak
              x-show="showSidebar"
-             class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden"
+             class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden sidebar-backdrop"
              @click.self="showSidebar = false"></div>
       {%- endif %}
       <div id="page" class="relative flex flex-col min-h-screen">

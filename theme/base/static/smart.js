@@ -154,64 +154,70 @@ $(window).scroll(function () {
 })();
 
 (function () {
-  if (document.body.dataset.sidebarInit === '1') return;
-  document.body.dataset.sidebarInit = '1';
+    try {
+        document.querySelectorAll('[x-cloak]').forEach(el => { el.style.display = 'none'; });
+    } catch { }
 
-  function qsAll(sel, root = document) {
-    return Array.from(root.querySelectorAll(sel));
-  }
+    if (document.body.dataset.sidebarInit === '1') return;
+    document.body.dataset.sidebarInit = '1';
 
-  function initMobileSidebar() {
-    const sidebar = document.querySelector('#left-sidebar, #sidebar, .sidebar');
-    if (!sidebar) return;
-
-    let backdrop = document.querySelector('.sidebar-backdrop');
-    if (!backdrop) {
-      backdrop = document.createElement('div');
-      backdrop.className = 'sidebar-backdrop';
-      document.body.appendChild(backdrop);
+    function qsAll(sel, root = document) {
+        return Array.from(root.querySelectorAll(sel));
     }
 
-    const toggles = qsAll('[data-sidebar-toggle], .sidebar-toggle, #sidebar-toggle, [aria-controls="sidebar"]');
-    function open() {
-      document.body.classList.add('sidebar-open');
+    function initMobileSidebar() {
+        const sidebar = document.querySelector('#left-sidebar, #sidebar, .sidebar');
+        if (!sidebar) return;
+
+        let backdrop = document.querySelector('.sidebar-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'sidebar-backdrop';
+            document.body.appendChild(backdrop);
+        }
+
+        const toggles = qsAll('[data-sidebar-toggle], .sidebar-toggle, #sidebar-toggle, [aria-controls="sidebar"]');
+        const closers = qsAll('[data-sidebar-close]');
+        function open() {
+            document.body.classList.add('sidebar-open');
+        }
+        function close() {
+            document.body.classList.remove('sidebar-open');
+        }
+        function toggle(e) {
+            if (e) e.preventDefault();
+            document.body.classList.toggle('sidebar-open');
+        }
+
+        toggles.forEach(btn => btn.addEventListener('click', toggle, { passive: false }));
+        backdrop.addEventListener('click', close);
+        closers.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); close(); }));
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') close();
+        });
+
+        sidebar.addEventListener('click', e => {
+            const a = e.target.closest('a');
+            if (!a) return;
+            if (window.matchMedia('(max-width: 1024px)').matches) {
+                close();
+            }
+        });
+
+        let lastW = window.innerWidth;
+        window.addEventListener('resize', () => {
+            const w = window.innerWidth;
+            if (lastW <= 1024 && w > 1024) {
+                close();
+            }
+            lastW = w;
+        }, { passive: true });
     }
-    function close() {
-      document.body.classList.remove('sidebar-open');
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileSidebar, { once: true });
+    } else {
+        initMobileSidebar();
     }
-    function toggle(e) {
-      if (e) e.preventDefault();
-      document.body.classList.toggle('sidebar-open');
-    }
-
-    toggles.forEach(btn => btn.addEventListener('click', toggle, { passive: false }));
-    backdrop.addEventListener('click', close);
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') close();
-    });
-
-    sidebar.addEventListener('click', e => {
-      const a = e.target.closest('a');
-      if (!a) return;
-      if (window.matchMedia('(max-width: 1024px)').matches) {
-        close();
-      }
-    });
-
-    let lastW = window.innerWidth;
-    window.addEventListener('resize', () => {
-      const w = window.innerWidth;
-      if (lastW <= 1024 && w > 1024) {
-        close();
-      }
-      lastW = w;
-    }, { passive: true });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileSidebar, { once: true });
-  } else {
-    initMobileSidebar();
-  }
 })();
