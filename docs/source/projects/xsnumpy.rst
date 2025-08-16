@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Sunday, 10 August 2025
+.. Last updated on: Friday, 15 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -41,11 +41,12 @@ So, I found myself experimenting with a simple code, nothing fancy.
     np.dot(a, b)
 
 The result popped out instantly, with no errors. But this time, instead of
-accepting the answer, I found myself asking why I was using :func:`numpy.dot`
-when I could use :py:data:`numpy.matmul`, which feels more correct. And if
-:func:`numpy.dot` indeed performs matrix multiplication, then what does the
-``@`` operator do? Why are there two different ways to perform matrix
-multiplication, and which is the best?
+accepting the answer, I found myself asking why I was using
+:func:`np.dot <numpy.dot>` when I could use
+:py:data:`np.matmul <numpy.matmul>`, which feels more correct. And if
+:func:`np.dot <numpy.dot>` indeed performs matrix multiplication, then what
+does the :meth:`@ <object.__matmul__>` operator do? Why are there two
+different ways to perform matrix multiplication, and which is the best?
 
 .. _building-with-a-purpose:
 
@@ -55,12 +56,12 @@ Building with a purpose
 
 Once I was motivated enough to learn the implementation details of NumPy, I was
 ready to build my own scrappy version. I didn't set out to create something to
-rival NumPy... it's a bloody powerhouse, built over decades of work by
-incredible minds in maths and science, plus countless optimisations. I wanted
-to break free from treating these libraries as black boxes and truly understand
-the **whys** and **hows**.
+rival NumPy, it's a bloody powerhouse, built over decades of work by incredible
+minds in maths and science, plus countless optimisations. I wanted to break
+free from treating these libraries as black boxes and truly understand the
+**whys** and **hows**.
 
-This realisation hit me so hard that I challenged myself: could I build a dinky
+This realisation hit me so hard that I challenged myself. Could I build a dinky
 version of NumPy from scratch? If I really wanted to ace teaching these
 concepts, I had to go deeper...
 
@@ -88,18 +89,19 @@ Crafting my first array
 
 With my rules set, I started experimenting with NumPy's functions, trying to
 understand their functionality. It quickly became evident that most of NumPy's
-APIs heavily rely on a single core construct: the :func:`numpy.array`
-function. However, it's worth noting that this function is just a cheeky little
-wrapper for the main :class:`numpy.ndarray` class. That's where I decided to
-start, implementing my own |xp.ndarray|_ data structure.
+APIs heavily rely on a single core construct, the
+:func:`np.array <numpy.array>` function. However, it's worth noting that this
+function is a cheeky little wrapper for the
+:class:`np.ndarray <numpy.ndarray>` class. That's where I decided to start,
+implementing my own |xp.ndarray|_ data structure.
 
 I had a simple understanding of an array as a collection of numbers neatly
 organised in rows and columns. However, as I delved deeper, I discovered a
 complex web of concepts, including `memory allocation`_, `shape`_
-calculations, `strides`_, and optimisation techniques for data storage. It felt
-like opening Pandora's box!
+calculations, `strides`_, and various optimisation techniques for data storage.
+It felt like opening Pandora's box!
 
-.. tip::
+.. admonition:: :fas:`sparkles;sd-text-warning` Quick analogy
 
     If you're new to arrays, think of them as egg cartons, each slot holds an
     egg, and the shape of the carton tells you how many eggs you've got. Where
@@ -111,15 +113,14 @@ working version using Python's built-in :py:mod:`ctypes` module. It wasn't
 pretty, but it worked.
 
 .. code-block:: python
+    :caption: :octicon:`file-code` `xsnumpy/_core.py`_
     :linenos:
 
     class ndarray:
-        """Simplified implementation of a multi-dimensional array."""
 
         def __init__(
             self, shape, dtype=None, buffer=None, offset=0, strides=None
         ):
-            """Initialise an `ndarray` object from the provided shape."""
             if not isinstance(shape, Iterable):
                 shape = (shape,)
             self._shape = tuple(int(dim) for dim in shape)
@@ -173,9 +174,10 @@ pretty, but it worked.
 Making sense of shapes
 -------------------------------------------------------------------------------
 
-I started by checking if the provided shape can be iterated. If it wasn't, I
-wrapped it in a :py:class:`tuple`. Then, I converted the shape into a tuple of
-:py:class:`int` objects, because you can't have non-integer dimensions
+I started by checking if the provided shape can be
+:py:class:`iterated <collections.abc.Iterable>`. If it wasn't, I wrapped it in
+a :py:class:`tuple`. Then, I converted the shape into a tuple of
+:py:class:`integers <int>`, because you can't have non-integer dimensions
 knocking about in an array.
 
 .. code-block:: python
@@ -186,10 +188,10 @@ knocking about in an array.
         self._shape = tuple(int(dim) for dim in shape)
 
 Next up, the ``dtype`` (short for data type). If you didn't provide it, the
-constructor would default it to :py:obj:`None`. If a numeric :py:obj:`type` is
-provided, it dynamically retrieves the appropriate data type from the global
-namespace using :func:`globals`. This nifty trick meant I could dynamically
-fetch whatever data type you fancied.
+constructor would default it to :py:obj:`None`. If a :py:class:`float` or an
+:py:class:`int` is provided, it dynamically retrieves the appropriate data
+type from the global namespace using :func:`globals`. This nifty trick meant I
+could dynamically fetch whatever data type you fancied.
 
 Right, on to the ``buffer``. If no ``buffer`` was provided, the array was
 initialised without an external memory buffer. In this case the offset must be
@@ -247,8 +249,9 @@ the array." I thought, "That couldn't be hard, right? All I need to do is
 print the content of my array in a readable format, just like NumPy does."
 
 Little did I know, I was shooting myself in the foot. At its core,
-:py:func:`repr` is an object's internal data representation. I started with
-something simple, and it worked for scalars and 1D arrays.
+:meth:`__repr__ <object.__repr__>` is an object's internal data
+representation. I started with something simple, and it worked for scalars and
+1D arrays.
 
 .. code-block:: python
     :linenos:
@@ -270,19 +273,19 @@ columns. No problem, I updated the code and it worked!
             rows = ",\n       ".join(
                 [f"[{', '.join(map(str, row))}]" for row in self._data]
             )
-            return f"array([\n       {rows}\n], dtype={str(self.dtype)})"
+            return f"array([{rows}], dtype={str(self.dtype)})"
 
 Then the 3D arrays... and it broke again.
 
-That's when it hit me: this wasn't just about formatting strings. I needed a
+That's when it hit me, this wasn't just about formatting strings. I needed a
 proper solution that would work with any number of dimensions. A few days
 later, I found myself deep into recursive logic and multi-dimensional
 `indexing`_, all for what I believed was an "easy peasy" print function.
 
-What started as a laid-back attempt to rework :py:func:`repr` turned out to be
-a masterclass in designing for generality. This struggle taught me something
-profound: what seems super simple on the surface often hides massive complexity
-underneath.
+What started as a laid-back attempt to rework
+:meth:`__repr__ <object.__repr__>`  turned out to be a masterclass in designing
+for generality. This struggle taught me something profound, what seems super
+simple on the surface often hides massive complexity underneath.
 
 Printing a NumPy array from scratch was a rabbit hole!!!
 
@@ -311,10 +314,9 @@ higher-dimensional vectors.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 5,12
+    :emphasize-lines: 4,11
 
     def __add__(self, other):
-        """Perform addition of the ndarray with a scalar or another ndarray."""
         arr = ndarray(self.shape, self.dtype)
         if isinstance(other, (int, float)):
             arr[:] = [x + other for x in self._data]
@@ -333,9 +335,9 @@ higher-dimensional vectors.
         return arr
 
 What if I added a scalar to a matrix, or a ``(3,)`` array to a ``(3, 3)``
-matrix? Could I add :py:class:`float` to :py:class:`int`? Each new "simple"
-operation posed a challenge in itself. I realised I wasn't just adding or
-multiplying numbers, but learning and recreating NumPy's broadcasting rules.
+matrix? Could I add a :py:class:`float` to an :py:class:`int`? Each new
+"simple" operation posed a challenge in itself. I realised I wasn't just adding
+or multiplying numbers, but learning and recreating NumPy's broadcasting rules.
 
 Matrix multiplication was another beast entirely. I thought it would be just a
 matter of looping through rows and columns, summing them element-wise, classic
@@ -391,7 +393,7 @@ tour, without the scaffolding, to show what it already does well.
 
 .. tab-set::
 
-    .. tab-item:: Creations
+    .. tab-item:: :octicon:`duplicate;1em;sd-text-success` Creations
 
         xsNumPy provides familiar ways to create arrays. These creation
         routines are consistent, predictable, and designed to slot neatly into
@@ -451,7 +453,7 @@ tour, without the scaffolding, to show what it already does well.
             tab=readme-ov-file#array-creation-routines>`_ methods supported by
             xsNumPy on GitHub.
 
-    .. tab-item:: Operations
+    .. tab-item:: :octicon:`diff;1em;sd-text-warning` Operations
 
         xsNumPy provides a range of arithmetic operations, carefully adhering
         to NumPy's rules for broadcasting and type coercion. The emphasis is on
@@ -517,7 +519,7 @@ tour, without the scaffolding, to show what it already does well.
             tab=readme-ov-file#linear-algebra>`_ supported by xsNumPy on
             GitHub.
 
-    .. tab-item:: Shape manipulations
+    .. tab-item:: :octicon:`pivot-column;1em;sd-text-primary` Transforms
 
         xsNumPy provides essential shape manipulation APIs that are predictable
         and memory-aware. The emphasis is on clarity of intent and avoiding
@@ -564,7 +566,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> a.flatten()
               array([1, 2, 3, 4, 5, 6])
 
-    .. tab-item:: Indexing
+    .. tab-item:: :octicon:`multi-select;1em;sd-text-info` Indexing
 
         Indexing is expressive and disciplined in xsNumPy, just like NumPy. The
         goal is to provide intuitive access to elements and subarrays while
@@ -613,13 +615,14 @@ tour, without the scaffolding, to show what it already does well.
         .. seealso::
 
             Indexing and slicing were implemented by overridding the standard
-            ``__getitem__`` and ``__setitem__`` protocols. To see the complete
-            implementation and other complementary methods, see it
+            :meth:`__getitem__ <object.__getitem__>`  and
+            :meth:`__setitem__ <object.__setitem__>`  protocols. Check out the
+            complete implementation and other complementary methods
             `here <https://github.com/xames3/xsnumpy/blob/
             69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L368>`_
             on GitHub.
 
-    .. tab-item:: Reductions
+    .. tab-item:: :octicon:`sort-desc;1em;sd-text-danger` Reductions
 
         Reductions condense information carefully, preserving the essence of
         the data. xsNumPy provides a few key reduction operations that are
@@ -653,7 +656,7 @@ tour, without the scaffolding, to show what it already does well.
 
         - **any()** and **all()**
 
-          The |xp.all|_ method checks if all elements are ``True``, while
+          The |xp.all|_ method checks if all elements are :py:obj:`True`, while
           |xp.any|_ checks if at least one is.
 
           .. code-block:: python
@@ -695,7 +698,7 @@ When we step beyond the black box, the work slows down, and in the quiet,
 ideas speak more clearly.
 
 I will keep refining the library in small, respectful steps. However, the
-larger work is already done: I re-learnt the essentials by making them, and
+larger work is already done. I re-learnt the essentials by making them, and
 that learning will travel with me far beyond this code.
 
 .. _matrices multiplied: https://www.mathsisfun.com/algebra/
@@ -710,6 +713,9 @@ that learning will travel with me far beyond this code.
 .. _indexing: https://numpy.org/doc/stable/user/basics.indexing.html
 .. _NumPy internals: https://numpy.org/doc/stable/dev/internals.html
 .. _ChiPy: https://chipy.org/
+
+.. _xsnumpy/_core.py: https://github.com/xames3/xsnumpy/blob/main/xsnumpy/
+    _core.py
 
 .. |xp.ndarray| replace:: ``ndarray``
 .. _xp.ndarray: https://github.com/xames3/xsnumpy/blob/
