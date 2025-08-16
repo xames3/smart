@@ -74,6 +74,9 @@ samp {
     .container {
         padding-inline: 1.3rem
     }
+    .container .literal-block-wrapper {
+        padding-inline: 0 !important
+    }
 }
 
 @media (min-width: 768px) {
@@ -116,6 +119,69 @@ samp {
     align-self: start;
     max-height: calc(100vh - 3.5rem);
     overflow-y: auto
+}
+
+@media (max-width: 1024px) {
+    #left-sidebar,
+    #sidebar,
+    .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100svh;
+    width: var(--sidebar-width, 280px);
+    max-width: 85vw;
+    background: var(--color-surface, #fff);
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+    z-index: 1001;
+    overscroll-behavior: contain;
+  }
+
+    body.sidebar-open #left-sidebar,
+    body.sidebar-open #sidebar,
+  body.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.28);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 1000;
+  }
+
+  body.sidebar-open .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.sidebar-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+@media (max-width: 768px) {
+    #content table {
+        display: block;
+        max-width: 100%;
+        width: max-content;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        table-layout: auto;
+    }
+    #content table colgroup col {
+        width: auto !important;
+    }
+    #content table th,
+    #content table td {
+        white-space: nowrap;
+    }
 }
 
 #content h1 {
@@ -256,6 +322,11 @@ a.headerlink {
     color: hsl(var(--link))
 }
 
+.code-block-caption > span > a {
+    color: hsl(var(--muted-foreground)) !important;
+    text-decoration-line: none !important
+}
+
 h2:hover>a.headerlink:before,
 h3:hover>a.headerlink:before,
 h4:hover>a.headerlink:before,
@@ -334,13 +405,13 @@ code {
     word-break: break-word;
     margin: 0;
     background-clip: padding-box;
-    border: none;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
     transition: transform var(--duration-fast) var(--ease-in-out)
 }
 
 pre {
     background-color: hsl(var(--code-background));
-    margin: 32px auto;
     overflow-x: auto;
     padding-bottom: 20px;
     padding-top: 20px;
