@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Sunday, 10 August 2025
+.. Last updated on: Friday, 15 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -101,7 +101,7 @@ complex web of concepts, including `memory allocation`_, `shape`_
 calculations, `strides`_, and various optimisation techniques for data storage.
 It felt like opening Pandora's box!
 
-.. tip::
+.. admonition:: :fas:`sparkles;sd-text-warning` Quick analogy
 
     If you're new to arrays, think of them as egg cartons, each slot holds an
     egg, and the shape of the carton tells you how many eggs you've got. Where
@@ -113,15 +113,14 @@ working version using Python's built-in :py:mod:`ctypes` module. It wasn't
 pretty, but it worked.
 
 .. code-block:: python
+    :caption: :octicon:`file-code` `xsnumpy/_core.py`_
     :linenos:
 
     class ndarray:
-        """Simplified implementation of a multi-dimensional array."""
 
         def __init__(
             self, shape, dtype=None, buffer=None, offset=0, strides=None
         ):
-            """Initialise an `ndarray` object from the provided shape."""
             if not isinstance(shape, Iterable):
                 shape = (shape,)
             self._shape = tuple(int(dim) for dim in shape)
@@ -315,10 +314,9 @@ higher-dimensional vectors.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 5,12
+    :emphasize-lines: 4,11
 
     def __add__(self, other):
-        """Perform addition of the ndarray with a scalar or another ndarray."""
         arr = ndarray(self.shape, self.dtype)
         if isinstance(other, (int, float)):
             arr[:] = [x + other for x in self._data]
@@ -395,7 +393,7 @@ tour, without the scaffolding, to show what it already does well.
 
 .. tab-set::
 
-    .. tab-item:: Creations
+    .. tab-item:: :octicon:`duplicate;1em;sd-text-success` Creations
 
         xsNumPy provides familiar ways to create arrays. These creation
         routines are consistent, predictable, and designed to slot neatly into
@@ -455,7 +453,7 @@ tour, without the scaffolding, to show what it already does well.
             tab=readme-ov-file#array-creation-routines>`_ methods supported by
             xsNumPy on GitHub.
 
-    .. tab-item:: Operations
+    .. tab-item:: :octicon:`diff;1em;sd-text-warning` Operations
 
         xsNumPy provides a range of arithmetic operations, carefully adhering
         to NumPy's rules for broadcasting and type coercion. The emphasis is on
@@ -521,7 +519,7 @@ tour, without the scaffolding, to show what it already does well.
             tab=readme-ov-file#linear-algebra>`_ supported by xsNumPy on
             GitHub.
 
-    .. tab-item:: Shape manipulations
+    .. tab-item:: :octicon:`pivot-column;1em;sd-text-primary` Transforms
 
         xsNumPy provides essential shape manipulation APIs that are predictable
         and memory-aware. The emphasis is on clarity of intent and avoiding
@@ -568,7 +566,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> a.flatten()
               array([1, 2, 3, 4, 5, 6])
 
-    .. tab-item:: Indexing
+    .. tab-item:: :octicon:`multi-select;1em;sd-text-info` Indexing
 
         Indexing is expressive and disciplined in xsNumPy, just like NumPy. The
         goal is to provide intuitive access to elements and subarrays while
@@ -624,7 +622,7 @@ tour, without the scaffolding, to show what it already does well.
             69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L368>`_
             on GitHub.
 
-    .. tab-item:: Reductions
+    .. tab-item:: :octicon:`sort-desc;1em;sd-text-danger` Reductions
 
         Reductions condense information carefully, preserving the essence of
         the data. xsNumPy provides a few key reduction operations that are
@@ -715,6 +713,9 @@ that learning will travel with me far beyond this code.
 .. _indexing: https://numpy.org/doc/stable/user/basics.indexing.html
 .. _NumPy internals: https://numpy.org/doc/stable/dev/internals.html
 .. _ChiPy: https://chipy.org/
+
+.. _xsnumpy/_core.py: https://github.com/xames3/xsnumpy/blob/main/xsnumpy/
+    _core.py
 
 .. |xp.ndarray| replace:: ``ndarray``
 .. _xp.ndarray: https://github.com/xames3/xsnumpy/blob/
