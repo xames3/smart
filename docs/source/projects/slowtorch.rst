@@ -163,8 +163,12 @@ lineage, visiting every ancestor, and calls their gradient functions in reverse
 order. It is a bit like walking back through your own footsteps after a long
 hike, pausing at each fork to remember which way you came.
 
-.. image:: ../assets/shawshank-success-meme.gif
+.. figure:: ../assets/shawshank-success-meme.gif
     :alt: Shawshank Redemption escape scene meme
+
+    This was me when I finally got my backward pass working in SlowTorch and
+    could compute gradients for tensors. It's a subtle nod to the scene from
+    *The Shawshank Redemption*
 
 Long story short... I had built a simple autograd engine that could handle
 basic operations like addition, multiplication, and even more complex ones like
@@ -176,7 +180,7 @@ working!!
 .. _building-the-building-blocks:
 
 -------------------------------------------------------------------------------
-Building the building blocks
+Building the building blocks |new|
 -------------------------------------------------------------------------------
 
 Once my tensor with autodiff support was in place, I turned my attention to the
@@ -483,7 +487,7 @@ back on, I understood a little more.
 .. _joy-of-manual-optimisation:
 
 -------------------------------------------------------------------------------
-Joy of manual optimisation
+Joy of manual optimisation |new|
 -------------------------------------------------------------------------------
 
 With some of my neural network modules in place, I moved on to building my
@@ -527,7 +531,7 @@ parameters based on their gradients.
 .. _embracing-slowness-as-a-virtue:
 
 -------------------------------------------------------------------------------
-Embracing slowness as a virtue
+Embracing slowness as a virtue |new|
 -------------------------------------------------------------------------------
 
 As I built SlowTorch, I realised the hardest part wasn't the code or maths, but
@@ -543,8 +547,12 @@ interested in understanding the inner workings of deep learning. It can perform
 basic tasks like training a simple neural network, but it's not intended for
 production use... obviously!
 
-.. image:: ../assets/slowtorch-meme.jpg
+.. figure:: ../assets/slowtorch-meme.jpg
     :alt: SlowTorch, embrace the journey, not the race meme
+    :figclass: zoom
+
+    By the end of this journey, I realised the true meaning of "slow" in
+    SlowTorch and began embracing the slowness for understanding, over speed
 
 Ultimately, SlowTorch serves as a reminder that true understanding and mastery
 comes not from speed but from experience, attention, and care.
