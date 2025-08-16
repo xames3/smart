@@ -1,4 +1,5 @@
 :root {
+    --sd-color-warning: hsl(48.47, 100%, 50%) !important;
     --sd-color-tabs-label-active: hsl(var(--foreground));
     --sd-color-tabs-underline-active: hsl(var(--accent-foreground));
     --sd-color-tabs-label-hover: hsl(var(--accent-foreground));
@@ -41,7 +42,7 @@
 
 .sd-card-footer,
 .sd-card-header {
-    font-size: .875rem;
+    font-size: .9rem;
     line-height: 1.25rem
 }
 
@@ -58,13 +59,10 @@
     margin-bottom: 1.5rem
 }
 
-.sd-tab-content pre:first-of-type {
-    margin-top: 32px
-}
-
 .sd-tab-set>label {
     font-weight: 500;
     padding: 1em 1.25em .5em 0;
+    font-size: .9rem;
     letter-spacing: .05em
 }
 
@@ -104,4 +102,23 @@ div.sd-summary-content.sd-card-body {
 
 .sd-card-title {
     margin-bottom: 0
+}
+
+.fas,
+.sd-octicon,
+.sd-material-icon {
+    vertical-align: text-bottom;
+    height: .9rem;
+    margin-right: .25rem
+}
+
+.sd-tab-set>input:not(:checked)+label>svg,
+.sd-tab-set>input:not(:checked)+label>span {
+    opacity: 0.5;
+}
+
+
+.sd-tab-set>input:checked+label>svg,
+.sd-tab-set>input:checked+label>span {
+    opacity: 1;
 }
