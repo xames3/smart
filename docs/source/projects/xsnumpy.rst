@@ -66,7 +66,7 @@ This realisation hit me so hard that I challenged myself. Could I build a dinky
 version of NumPy from scratch? Because if I'm going to teach these concepts
 one day, I had to go deeper...
 
-.. image:: ../assets/need-to-go-deeper-meme.jpg
+.. image:: ../assets/media/need-to-go-deeper-meme.jpg
     :alt: We need to go deeper meme from Inception
 
 It felt a wee bit like baking a cake from scratch. Every ingredient, every
@@ -106,7 +106,7 @@ I had a basic understanding of an array. I always thought of it as a collection
 of numbers neatly organised in rows and columns. But, as I looked deeper and
 deeper, I discovered a whole lot of concepts, including `memory allocation`_,
 `shape`_ calculations, `strides`_, and various optimisation techniques for data
-storage. It felt like opening Pandora's box!!!
+storage. It felt like opening Pandora's box!!
 
 And I wasn't ready...
 
@@ -288,7 +288,7 @@ turned out to be a masterclass in designing for generality. This struggle
 taught me something profound... what seemingly appears simple on the surface
 often hides massive complexity underneath.
 
-And so, I realised, printing a NumPy array from scratch was a rabbit hole!!!
+And so, I realised, printing a NumPy array from scratch was a rabbit hole!!
 
 .. seealso::
 
@@ -338,7 +338,7 @@ matrix? Could I add a :py:class:`float` to an :py:class:`int`? Each new
 simple question posed a challenge in itself. I realised I wasn't just adding or
 multiplying numbers, but learning and recreating NumPy's broadcasting rules.
 
-.. image:: ../assets/batched-matrix-multiplication-meme.jpg
+.. image:: ../assets/media/batched-matrix-multiplication-meme.jpg
     :alt: Trying to do batched matrix multiplication meme
     :width: 100%
 
