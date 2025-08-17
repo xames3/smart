@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 22 February 2025
-.. Last updated on: Tuesday, 12 August 2025
+.. Last updated on: TSaturday, 16 August 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -41,7 +41,7 @@ learning, and numerical computing, which I've explored through my personal
 projects. I'm also committed to contributing to the `NASA Open Science`_
 mission, promoting transparent, reproducible, and inclusive research.
 
-.. figure:: ./assets/me-at-nasa-open-science.jpg
+.. figure:: ./assets/media/me-at-nasa-open-science.jpg
     :alt: Me at NASA Open Science 2024
     :figclass: zoom
 

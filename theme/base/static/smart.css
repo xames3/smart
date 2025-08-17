@@ -350,6 +350,9 @@ a.headerlink {
 
 .code-block-caption>span>a {
     color: hsl(var(--muted-foreground)) !important;
+    font-family: "Geist Mono", monospace;
+    font-size: small;
+    padding-left: 0.5rem;
     text-decoration-line: none !important
 }
 

@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Friday, 15 August 2025
+.. Last updated on: Saturday, 16 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -24,12 +24,12 @@ Building xsNumPy
 
 .. rst-class:: lead
 
-    Learning really begins when you build your own tools, one line at a time
+    Learning really begins when you build your tools... one line at a time
 
-It all started in mid-November 2024. I was working on a project where I had to
-use NumPy. Arrays were being indexed, `matrices multiplied`_, and NumPy
-effortlessly made complex tasks appear simple. However, beneath this
-simplicity, a few questions began to gnaw at me.
+It all started around mid-November 2024. I was working on something where I had
+to use NumPy. I was indexing arrays, `multiplying matrices`_, and NumPy did
+NumPy things, like it always does. It just made all the computations look
+simple. However, beneath this simplicity, a few questions began to gnaw at me.
 
 So, I found myself experimenting with a simple code, nothing fancy.
 
@@ -40,13 +40,14 @@ So, I found myself experimenting with a simple code, nothing fancy.
     b = np.array([[5, 6], [7, 8]])
     np.dot(a, b)
 
-The result popped out instantly, with no errors. But this time, instead of
-accepting the answer, I found myself asking why I was using
-:func:`np.dot <numpy.dot>` when I could use
-:py:data:`np.matmul <numpy.matmul>`, which feels more correct. And if
-:func:`np.dot <numpy.dot>` indeed performs matrix multiplication, then what
-does the :meth:`@ <object.__matmul__>` operator do? Why are there two
-different ways to perform matrix multiplication, and which is the best?
+The result popped out instantly. But this time, instead of accepting the
+answer, I asked myself a bunch of questions. Like why was I even using
+:func:`np.dot <numpy.dot>` when I could've used
+:py:data:`np.matmul <numpy.matmul>`, which feels more appropriate? And if
+:func:`np.dot <numpy.dot>` indeed performs matrix multiplication, then what's
+the deal with the :meth:`@ <object.__matmul__>` operator? Why are there three
+different ways to perform matrix multiplication, and if so, which one's the
+best?
 
 .. _building-with-a-purpose:
 
@@ -55,17 +56,17 @@ Building with a purpose
 -------------------------------------------------------------------------------
 
 Once I was motivated enough to learn the implementation details of NumPy, I was
-ready to build my own scrappy version. I didn't set out to create something to
-rival NumPy, it's a bloody powerhouse, built over decades of work by incredible
-minds in maths and science, plus countless optimisations. I wanted to break
-free from treating these libraries as black boxes and truly understand the
-**whys** and **hows**.
+ready to build my own scrappy version. I didn't set out to create something
+that'll rival NumPy; I mean, NumPy's a bloody powerhouse, built over decades of
+work by incredible minds in math and science, plus tons of optimisations. I
+couldn't possibly compete with that. I just wanted to break free from treating
+these libraries as black boxes and truly understand the *whys* and *hows*.
 
 This realisation hit me so hard that I challenged myself. Could I build a dinky
-version of NumPy from scratch? If I really wanted to ace teaching these
-concepts, I had to go deeper...
+version of NumPy from scratch? Because if I'm going to teach these concepts
+one day, I had to go deeper...
 
-.. image:: ../assets/need-to-go-deeper-meme.jpg
+.. image:: ../assets/media/need-to-go-deeper-meme.jpg
     :alt: We need to go deeper meme from Inception
 
 It felt a wee bit like baking a cake from scratch. Every ingredient, every
@@ -77,9 +78,8 @@ this properly, I needed discipline and some rules to follow.
     - No LLMs or AI assistance. Every line of code and every solution had to
       come from my own understanding and experimentation.
     - Pure Python only. No external dependencies, just the standard library.
-    - PEP8, mypy, and documentation. Clean, typed, well-documented code that
-      mirrored NumPy's public APIs, aiming to be a drop-in replacement where
-      sensible.
+    - Clean, statically typed, and well-documented code that mirrored NumPy's
+      public APIs, aiming to be a drop-in replacement where sensible.
 
 .. _crafting-my-first-array:
 
@@ -87,19 +87,13 @@ this properly, I needed discipline and some rules to follow.
 Crafting my first array
 -------------------------------------------------------------------------------
 
-With my rules set, I started experimenting with NumPy's functions, trying to
-understand their functionality. It quickly became evident that most of NumPy's
-APIs heavily rely on a single core construct, the
-:func:`np.array <numpy.array>` function. However, it's worth noting that this
-function is a cheeky little wrapper for the
-:class:`np.ndarray <numpy.ndarray>` class. That's where I decided to start,
-implementing my own |xp.ndarray|_ data structure.
-
-I had a simple understanding of an array as a collection of numbers neatly
-organised in rows and columns. However, as I delved deeper, I discovered a
-complex web of concepts, including `memory allocation`_, `shape`_
-calculations, `strides`_, and various optimisation techniques for data storage.
-It felt like opening Pandora's box!
+After setting rules for myself, I started experimenting with NumPy's core APIs,
+trying to understand their functionality. It quickly became evident that most
+of NumPy's APIs heavily rely on a single core construct, the
+:func:`np.array <numpy.array>` function. It's worth noting that this function
+is a cheeky little wrapper for the :class:`np.ndarray <numpy.ndarray>` class.
+That's where I decided to start, implementing my own |xp.ndarray|_ data
+structure.
 
 .. admonition:: :fas:`sparkles;sd-text-warning` Quick analogy
 
@@ -108,9 +102,17 @@ It felt like opening Pandora's box!
     your hand moves from one slot to the next are the strides; the type of
     eggs is the dtype; the carton itself is the buffer.
 
-After weeks of head-scratching, I managed to create a basic, albeit minimal,
-working version using Python's built-in :py:mod:`ctypes` module. It wasn't
-pretty, but it worked.
+I had a basic understanding of an array. I always thought of it as a collection
+of numbers neatly organised in rows and columns. But, as I looked deeper and
+deeper, I discovered a whole lot of concepts, including `memory allocation`_,
+`shape`_ calculations, `strides`_, and various optimisation techniques for data
+storage. It felt like opening Pandora's box!!
+
+And I wasn't ready...
+
+After a few days of head-scratching, I managed to create a basic, albeit
+minimal, working version using Python's built-in :py:mod:`ctypes` module. It
+wasn't pretty, but it worked.
 
 .. code-block:: python
     :caption: :octicon:`file-code` `xsnumpy/_core.py`_
@@ -165,8 +167,8 @@ pretty, but it worked.
 
 .. note::
 
-    This section intentionally has removed a lot of details to keep things
-    simple. Check out the complete implementation of |xp.ndarray|_ on GitHub.
+    I've intentionally removed a lot of details to keep things simple. Check
+    out the complete implementation of |xp.ndarray|_ on GitHub.
 
 .. _making-sense-of-shapes:
 
@@ -177,8 +179,8 @@ Making sense of shapes
 I started by checking if the provided shape can be
 :py:class:`iterated <collections.abc.Iterable>`. If it wasn't, I wrapped it in
 a :py:class:`tuple`. Then, I converted the shape into a tuple of
-:py:class:`integers <int>`, because you can't have non-integer dimensions
-knocking about in an array.
+:py:class:`integers <int>`, because you can't have non-integer dimensions in an
+array.
 
 .. code-block:: python
     :linenos:
@@ -194,10 +196,10 @@ type from the global namespace using :func:`globals`. This nifty trick meant I
 could dynamically fetch whatever data type you fancied.
 
 Right, on to the ``buffer``. If no ``buffer`` was provided, the array was
-initialised without an external memory buffer. In this case the offset must be
-zero and strides must be :py:obj:`None`. The constructor would then calculate
-the `strides`_, which, put simply, are just the number of bytes between
-consecutive elements in memory.
+initialised without an external memory buffer. In this case the ``offset`` must
+be zero and ``strides`` must be :py:obj:`None`. The constructor would then
+calculate the `strides`_, which, put simply, are just the number of bytes
+between consecutive elements in memory.
 
 .. code-block:: python
     :linenos:
@@ -229,13 +231,13 @@ either given directly or calculated.
                 strides = calc_strides(self._shape, self.itemsize)
             self._strides = tuple(strides)
 
-Finally, calculating the total buffer size. This was worked out using the
+Finally, calculating the total ``buffer`` size. This was worked out using the
 strides, shape, and item size. The ``buffer`` itself was a type derived from
 the data type and its size. Depending on whether a buffer was passed or not,
-the constructor handled it accordingly, either creating a new buffer or
-using the existing one.
+the constructor handled it accordingly, either creating a new buffer or using
+the existing one.
 
-Phew... that was a fair bit, wasn't it?
+Phew... that was a lot of work, wasn't it?
 
 .. _illusion-of-simplicity:
 
@@ -245,13 +247,12 @@ Illusion of simplicity
 
 After all that hard work, I thought of giving myself a break. I remembered
 telling myself, "Let's start with something dead easy... perhaps just display
-the array." I thought, "That couldn't be hard, right? All I need to do is
-print the content of my array in a readable format, just like NumPy does."
+the array." I thought, "That couldn't be hard, right? All I've to do is print
+the content of my array in a readable format, just like NumPy does."
 
-Little did I know, I was shooting myself in the foot. At its core,
-:meth:`__repr__ <object.__repr__>` is an object's internal data
-representation. I started with something simple, and it worked for scalars and
-1D arrays.
+Little did I know, I was shooting myself in the foot. At its core, a
+:meth:`__repr__ <object.__repr__>` is an object's internal data representation.
+I started with something simple, and it worked for scalars and 1D arrays.
 
 .. code-block:: python
     :linenos:
@@ -259,9 +260,9 @@ representation. I started with something simple, and it worked for scalars and
     def __repr__(self):
         return f"array({self._data}, dtype={str(self.dtype)})"
 
-Feeling quite pleased, I tried a 2D array, but it unexpectedly printed
-everything as a flat list. I realised I hadn't accounted for the rows and
-columns. No problem, I updated the code and it worked!
+Feeling quite pleased and a bit cocky, I tried a 2D array, but it unexpectedly
+printed everything as a flat list. I realised I hadn't accounted for the rows
+and columns. No problem, I updated the code and it worked!
 
 .. code-block:: python
     :linenos:
@@ -278,16 +279,16 @@ columns. No problem, I updated the code and it worked!
 Then the 3D arrays... and it broke again.
 
 That's when it hit me, this wasn't just about formatting strings. I needed a
-proper solution that would work with any number of dimensions. A few days
+general solution that would work with any number of dimensions. A few days
 later, I found myself deep into recursive logic and multi-dimensional
-`indexing`_, all for what I believed was an "easy peasy" print function.
+`indexing`_, all for what I believed was an *easy* print function.
 
-What started as a laid-back attempt to rework
-:meth:`__repr__ <object.__repr__>`  turned out to be a masterclass in designing
-for generality. This struggle taught me something profound, what seems super
-simple on the surface often hides massive complexity underneath.
+What started as a chilled attempt to rework :meth:`__repr__ <object.__repr__>`
+turned out to be a masterclass in designing for generality. This struggle
+taught me something profound... what seemingly appears simple on the surface
+often hides massive complexity underneath.
 
-Printing a NumPy array from scratch was a rabbit hole!!!
+And so, I realised, printing a NumPy array from scratch was a rabbit hole!!
 
 .. seealso::
 
@@ -299,18 +300,16 @@ Printing a NumPy array from scratch was a rabbit hole!!!
 More than meets the eye
 -------------------------------------------------------------------------------
 
-After wrestling with the "simple" things, I naively believed the hardest part
-was behind me. I was excited for the "fun" stuff, like element-wise arithmetic,
+After wrestling with the *simple* things, I naively believed the hardest part
+was behind me. I was excited for the fun stuff, like element-wise arithmetic,
 `broadcasting`_, and other random functions. However, I didn't realise my
 journey was about to get even more challenging.
 
-Implementing the |xp.ndarray|_ class felt like untangling a knot, while matrix
-operations were like trying to weave my own thread from scratch. Basic
-arithmetic operations like addition, subtraction, and scalar multiplication
-seemed straightforward. I figured I could just iterate through my flattened
-data and perform operations element-wise. And it worked... for the first few
-test cases. But, as always, the system collapsed almost immediately for
-higher-dimensional vectors.
+Basic arithmetic operations like addition, subtraction, and scalar
+multiplication seemed straightforward. I figured I could just iterate through
+my flattened data and perform operations element-wise. And it worked... for the
+first few test cases. But, as always, the system collapsed almost immediately
+for higher-dimensional vectors.
 
 .. code-block:: python
     :linenos:
@@ -336,17 +335,23 @@ higher-dimensional vectors.
 
 What if I added a scalar to a matrix, or a ``(3,)`` array to a ``(3, 3)``
 matrix? Could I add a :py:class:`float` to an :py:class:`int`? Each new
-"simple" operation posed a challenge in itself. I realised I wasn't just adding
-or multiplying numbers, but learning and recreating NumPy's broadcasting rules.
+simple question posed a challenge in itself. I realised I wasn't just adding or
+multiplying numbers, but learning and recreating NumPy's broadcasting rules.
+
+.. image:: ../assets/media/batched-matrix-multiplication-meme.jpg
+    :alt: Trying to do batched matrix multiplication meme
+    :width: 100%
 
 Matrix multiplication was another beast entirely. I thought it would be just a
 matter of looping through rows and columns, summing them element-wise, classic
 high school mathematics, if you ask me. And it worked as well... until I tried
 with higher-dimensional arrays. This is where I realised that matrix
 multiplication isn't just about rows and columns, but about correctly handling
-batch dimensions for higher-order tensors. I found myself diving into NumPy's
-documentation, reading about the **Generalised Matrix Multiplication (GEMM)**
-routines and how broadcasting affects the output shapes.
+batch dimensions for higher-order tensors. I found myself diving into NVIDIA's
+documentation, reading about the `Generalised Matrix Multiplication (GEMM)
+<https://docs.nvidia.com/deeplearning/performance/
+dl-performance-matrix-multiplication/index.html>`_ routines and how
+broadcasting affects the output shapes.
 
 .. seealso::
 
@@ -359,20 +364,21 @@ routines and how broadcasting affects the output shapes.
 Small victories, big lessons
 -------------------------------------------------------------------------------
 
-By this time, I was in my winter break. I was fully committed to this project
-because I didn't have to attend school. After days of debugging, I realised
-that my vector operations weren't just about getting the "maths" right. They
-were about thinking like NumPy:
+Here comes December. I was in my winter break. I was fully committed to this
+project because I didn't have to attend uni. After days of debugging, I
+realised that my vector operations weren't just about getting the math right.
 
-- **Shape manipulation.** How do I infer the correct output shape?
-- **Broadcasting.** How can I extend the smaller arrays to fit the larger ones?
-- **Efficiency.** How can I minimise unnecessary data duplication?
+They were about thinking like NumPy:
+
+- How can I infer the correct output shape?
+- How can I broadcast arrays?
+- How can I minimise unnecessary data duplication?
 
 At this stage, I wasn't just rebuilding a scrappy numerical computing
-doppelganger. I was creating a flexible and extensible system that could handle
-both intuitive and weird edge cases. With each iteration, every commit I made,
-I explored even more ways to optimise it, reducing redundant calculations and
-improving speed (not really).
+doppelganger like I thought of. I was creating a flexible and extensible system
+that could handle both intuitive and weird edge cases. With each iteration,
+every commit I made, I explored even more ways to optimise it, reducing
+redundant calculations.
 
 Every bug, every unexpected result, and every small achievement taught me
 something new about NumPy. I started speculating about the magic behind the
@@ -566,7 +572,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> a.flatten()
               array([1, 2, 3, 4, 5, 6])
 
-    .. tab-item:: :octicon:`multi-select;1em;sd-text-info` Indexing
+    .. tab-item:: :octicon:`list-ordered;1em;sd-text-info` Indexing
 
         Indexing is expressive and disciplined in xsNumPy, just like NumPy. The
         goal is to provide intuitive access to elements and subarrays while
@@ -630,7 +636,7 @@ tour, without the scaffolding, to show what it already does well.
 
         - **sum()**
 
-          The |xp.sum|_ method computed the sum of elements along a given
+          The |xp.sum|_ method computes the sum of elements along a given
           axis.
 
           .. code-block:: python
@@ -643,7 +649,7 @@ tour, without the scaffolding, to show what it already does well.
 
         - **prod()**
 
-          The |xp.prod|_ (product) method computed the multiplication of
+          The |xp.prod|_ (product) method computes the multiplication of
           elements along a given axis.
 
           .. code-block:: python
@@ -673,16 +679,17 @@ tour, without the scaffolding, to show what it already does well.
 From notes to community
 -------------------------------------------------------------------------------
 
-This project was as much a conversation as it was code. I shared the story at
-`ChiPy`_ in a talk titled **"xsNumPy: Curiosity to Code"**, walking through
-the decisions, the missteps, and the insights that stayed with me.
+Now, fast forward to March 2025, this project felt like more of a conversation
+than code. I shared my story at `ChiPy`_ in a talk titled **"xsNumPy: Curiosity
+to Code"**, walking through the decisions, the missteps, and the insights that
+stayed with me.
 
-The presentation covers the technical challenges, mathematical discoveries,
+.. youtube:: https://www.youtube.com/watch?v=QIhyix3oEns
+
+The presentation covered the technical challenges, mathematical discoveries,
 and most importantly, the mindset shift from viewing libraries as opaque
 entities to understanding them as collections of elegant algorithms waiting to
 be explored.
-
-.. youtube:: https://www.youtube.com/watch?v=QIhyix3oEns
 
 .. _looking-back-moving-forward:
 
@@ -690,18 +697,17 @@ be explored.
 Looking back, moving forward
 -------------------------------------------------------------------------------
 
-xsNumPy didn't aim for speed, that wasn't the plan anyway. It aimed for
-understanding. It taught me to replace awe with attention, trust libraries
-while still learn and understand their concepts with care. Most importantly,
-it reminded me that building is a generous teaching and learning experience.
-When we step beyond the black box, the work slows down, and in the quiet,
-ideas speak more clearly.
+xsNumPy didn't aim for performance, that wasn't the plan anyway. It aimed for
+understanding. It taught me to replace awe with attention, trusting libraries
+while still learning and understanding their core concepts with care. Most
+importantly, it reminded me that doing something by yourself is perhaps the
+best teaching and learning experience.
 
-I will keep refining the library in small, respectful steps. However, the
-larger work is already done. I re-learnt the essentials by making them, and
-that learning will travel with me far beyond this code.
+I intend to keep refining the library in small, respectful steps whenever I'll
+get time. However, the larger work is already done. I re-learnt the essentials
+by making them, and that learning will travel with me far beyond this code.
 
-.. _matrices multiplied: https://www.mathsisfun.com/algebra/
+.. _multiplying matrices: https://www.mathsisfun.com/algebra/
     matrix-multiplying.html
 .. _memory allocation: https://numpy.org/doc/stable/reference/
     c-api/data_memory.html
