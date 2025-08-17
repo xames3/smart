@@ -1,11 +1,13 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Saturday, 16 August 2025
+.. Last updated on: Sunday, 17 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
     of NumPy's core features
 :og:type: article
+:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+    assets/media/matmul-confusion-meme.jpg
 
 .. _project-building-xsnumpy:
 
