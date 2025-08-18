@@ -6,6 +6,8 @@
 :og:description: Journey of building a lightweight, pure-python implementation
     of NumPy's core features
 :og:type: article
+:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+    assets/media/matmul-confusion-meme.jpg
 
 .. _project-building-xsnumpy:
 

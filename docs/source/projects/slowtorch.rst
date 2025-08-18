@@ -2,10 +2,12 @@
 .. Created on: Friday, April 18 2025
 .. Last updated on: Monday, 18 August 2025
 
-:og:title: Slow Burning Torch
+:og:title: PyTorch... But Slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
     it's built!
 :og:type: article
+:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+    assets/media/slowtorch-meme.jpg
 
 .. _project-slow-burning-torch:
 

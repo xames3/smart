@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 22 February 2025
-.. Last updated on: TSaturday, 16 August 2025
+.. Last updated on: Sunday, 17 August 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
