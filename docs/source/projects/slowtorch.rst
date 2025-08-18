@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 18 2025
-.. Last updated on: Saturday, 16 August 2025
+.. Last updated on: Monday, 18 August 2025
 
 :og:title: Slow Burning Torch
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -207,9 +207,9 @@ working!!
 
     I want to give a special shoutout to my colleague,
     :ref:`Fatemeh Taghvaei <cast-fatemeh-taghvaei>` for her patience and late
-    night meetings. They helped me fix my broadcasting logic and brought a
-    fresh perspective to my understanding and implementation of broadcasting
-    in SlowTorch. I can't thank her enough for her support and guidance during
+    night meetings. She helped me fix my broadcasting logic and brought a fresh
+    perspective to my understanding and implementation of broadcasting in
+    SlowTorch. I can't thank her enough for her support and guidance during
     this phase of the project.
 
 .. _building-the-building-blocks:

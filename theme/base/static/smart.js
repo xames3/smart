@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-    const wordsPerMinute = 550;
+    const wordsPerMinute = 225;
     const section = document.querySelector('section');
     if (!section) return;
     const paragraphs = section.querySelectorAll('p');
