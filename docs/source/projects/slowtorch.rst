@@ -106,7 +106,7 @@ like :py:attr:`shape <torch.Tensor.shape>`,
 :py:attr:`device <torch.Tensor.device>`, :py:class:`dtype <torch.dtype>`, and
 whether it :py:attr:`requires gradients <torch.Tensor.requires_grad>` or not.
 
-.. seealso::
+.. note::
 
     Complete implementation of |storch.tensor.repr|_ with helper functions.
 
@@ -574,7 +574,7 @@ the training process. Finally, I implemented my own version of the
 optimiser, which was a simple yet effective way to update parameters based on
 their gradients.
 
-.. seealso::
+.. note::
 
     Check out SlowTorch's |storch.optim.Optimiser|_ and |storch.optim.SGD|_ for
     more thorough implementation details.

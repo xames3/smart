@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Saturday, 16 August 2025
+.. Last updated on: Monday, 18 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -290,7 +290,7 @@ often hides massive complexity underneath.
 
 And so, I realised, printing a NumPy array from scratch was a rabbit hole!!
 
-.. seealso::
+.. note::
 
     Complete implementation of |xp.ndarray.repr|_ with helper functions.
 
@@ -353,7 +353,7 @@ documentation, reading about the `Generalised Matrix Multiplication (GEMM)
 dl-performance-matrix-multiplication/index.html>`_ routines and how
 broadcasting affects the output shapes.
 
-.. seealso::
+.. note::
 
     Complete implementation of `arithmetic operations
     <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_ on GitHub.
@@ -452,7 +452,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> xp.arange(0, 5, 0.5)
               array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5])
 
-        .. seealso::
+        .. note::
 
             Check out the complete list of array
             `creation <https://github.com/xames3/xsnumpy?
@@ -518,7 +518,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> xp.array([3, 4]) + 10
               array([13, 14])
 
-        .. seealso::
+        .. note::
 
             Check out more examples of the arithmetic
             `operations <https://github.com/xames3/xsnumpy?
@@ -532,7 +532,7 @@ tour, without the scaffolding, to show what it already does well.
         unnecessary data duplication. Think of this as learning to fold and
         unfold the same fabric without tearing it.
 
-        .. tip::
+        .. note::
 
             Read more about `NumPy internals`_ here.
 
@@ -618,12 +618,12 @@ tour, without the scaffolding, to show what it already does well.
               >>> a[a % 2 == 0]
               array([1, 2, 3])
 
-        .. seealso::
+        .. note::
 
             Indexing and slicing were implemented by overridding the standard
             :meth:`__getitem__ <object.__getitem__>`  and
             :meth:`__setitem__ <object.__setitem__>`  protocols. Check out the
-            complete implementation and other complementary methods
+            complete implementation
             `here <https://github.com/xames3/xsnumpy/blob/
             69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L368>`_
             on GitHub.

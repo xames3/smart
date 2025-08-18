@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Sunday, 17 August 2025
+.. Last updated on: Monday, 18 August 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -20,7 +20,7 @@ Guiding Stars
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: 29 July, 2025
+    :timestamp: 18 Aug, 2025
 
 .. rst-class:: lead
 

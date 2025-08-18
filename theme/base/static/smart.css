@@ -641,6 +641,44 @@ i {
     color: hsl(var(--accent-foreground))
 }
 
+.admonition.note {
+    position: relative;
+    padding-left: 3rem
+}
+
+.admonition.note>.admonition-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0
+}
+
+.admonition.note::before {
+    content: "\f05a";
+    font: var(--fa-font-regular);
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    color: hsl(var(--accent-foreground));
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    pointer-events: none
+}
+
+.admonition.note p:not(.admonition-title) {
+    margin-top: 0
+}
+
 #left-sidebar ul ul:is(.dark *):before {
     content: var(--tw-content);
     --tw-bg-opacity: 0.5;
