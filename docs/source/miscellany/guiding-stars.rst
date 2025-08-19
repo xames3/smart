@@ -161,33 +161,10 @@ generously offered me the opportunity to intern under your guidance at NASA.
 You've always been kind, supportive, a father figure, and a teacher ready with
 valuable advice and encouragement.
 
-.. tagged:: ../assets/media/dr-tovar-and-my-students.jpg
+.. figure:: ../assets/media/dr-tovar-and-my-students.jpg
     :alt: Dr. Tovar with my students at NASA Open Science 2025 Workshop on the
         final day
     :figclass: zoom
-    :faces: [
-            [
-                :face: Dr. Antonio Tovar
-                :link: https://www.linkedin.com/in/antoniotovar
-                :coords: [65, 74, 56, 64]
-            ],
-            [
-                :face: Huzaifa Quaid Johar
-                :coords: [184, 90, 46, 47]
-            ],
-            [
-                :face: Ishrak Rahman
-                :coords: [306, 53, 52, 55]
-            ],
-            [
-                :face: Orkhan Guliyev
-                :coords: [451, 58, 47, 47]
-            ],
-            [
-                :face: Sezim Mamatova
-                :coords: [576, 112, 57, 57]
-            ]
-        ]
 
     Dr. Tovar with my students at NASA Open Science 2025 after presentations
 
