@@ -212,3 +212,76 @@ $(window).scroll(function () {
         initMobileSidebar();
     }
 })();
+
+(function () {
+    function initTOCScrollSpy() {
+        const tocSidebar = document.getElementById('right-sidebar');
+        if (!tocSidebar) return;
+        const tocLinks = tocSidebar.querySelectorAll('a[href^="#"]');
+        const headings = [];
+        tocLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const heading = document.getElementById(targetId);
+                if (heading) {
+                    headings.push({
+                        id: targetId,
+                        element: heading,
+                        link: link,
+                        offsetTop: heading.offsetTop
+                    });
+                }
+            }
+        });
+        if (headings.length === 0) return;
+        headings.sort((a, b) => a.offsetTop - b.offsetTop);
+        function updateActiveTOC() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const headerOffset = 80;
+            let currentHeading = null;
+            for (let i = headings.length - 2; i >= 0; i--) {
+                const heading = headings[i];
+                if (scrollTop + headerOffset >= heading.offsetTop) {
+                    currentHeading = heading;
+                    break;
+                }
+            }
+            if (scrollTop < 100) {
+                currentHeading = null;
+            }
+            tocLinks.forEach(link => {
+                link.classList.remove('toc-active');
+                link.style.color = '';
+            });
+            if (currentHeading) {
+                currentHeading.link.classList.add('toc-active');
+                currentHeading.link.style.color = 'hsl(var(--foreground))';
+            }
+        }
+        let ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateActiveTOC();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', () => {
+            headings.forEach(heading => {
+                heading.offsetTop = heading.element.offsetTop;
+            });
+            updateActiveTOC();
+        });
+        updateActiveTOC();
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTOCScrollSpy);
+    } else {
+        initTOCScrollSpy();
+    }
+})();
