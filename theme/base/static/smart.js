@@ -157,14 +157,11 @@ $(window).scroll(function () {
     try {
         document.querySelectorAll('[x-cloak]').forEach(el => { el.style.display = 'none'; });
     } catch { }
-
     if (document.body.dataset.sidebarInit === '1') return;
     document.body.dataset.sidebarInit = '1';
-
     function qsAll(sel, root = document) {
         return Array.from(root.querySelectorAll(sel));
     }
-
     function initMobileSidebar() {
         const sidebar = document.querySelector('#left-sidebar, #sidebar, .sidebar');
         if (!sidebar) return;
@@ -175,7 +172,6 @@ $(window).scroll(function () {
             backdrop.className = 'sidebar-backdrop';
             document.body.appendChild(backdrop);
         }
-
         const toggles = qsAll('[data-sidebar-toggle], .sidebar-toggle, #sidebar-toggle, [aria-controls="sidebar"]');
         const closers = qsAll('[data-sidebar-close]');
         function open() {
@@ -188,15 +184,12 @@ $(window).scroll(function () {
             if (e) e.preventDefault();
             document.body.classList.toggle('sidebar-open');
         }
-
         toggles.forEach(btn => btn.addEventListener('click', toggle, { passive: false }));
         backdrop.addEventListener('click', close);
         closers.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); close(); }));
-
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') close();
         });
-
         sidebar.addEventListener('click', e => {
             const a = e.target.closest('a');
             if (!a) return;
@@ -204,7 +197,6 @@ $(window).scroll(function () {
                 close();
             }
         });
-
         let lastW = window.innerWidth;
         window.addEventListener('resize', () => {
             const w = window.innerWidth;
@@ -214,7 +206,6 @@ $(window).scroll(function () {
             lastW = w;
         }, { passive: true });
     }
-
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initMobileSidebar, { once: true });
     } else {

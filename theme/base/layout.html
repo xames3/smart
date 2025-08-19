@@ -11,7 +11,7 @@ Last updated on: Monday, 18 August 2025
 <html lang="{{ lang_attr }}"
       {% if sphinx_version_tuple>= (7, 2) %}data-content_root="{{ content_root }}"{% endif %}
       :data-theme="darkMode"
-      x-data="{darkMode: localStorage.getItem('darkMode') ?? 'light'}"
+      x-data="{darkMode: localStorage.getItem('darkMode') ?? 'dark'}"
       x-init="if (!localStorage.getItem('darkMode')) localStorage.setItem('darkMode', darkMode); $watch('darkMode', val => localStorage.setItem('darkMode', val))"
       class="scroll-smooth"
       :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}">
@@ -70,12 +70,11 @@ Last updated on: Monday, 18 August 2025
     {%- endblock linktags %}
     <script>
     const userPreference = localStorage.getItem('darkMode');
-    let mode;
-    if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      mode = 'dark';
+    const mode = userPreference || 'dark';
+    if (mode === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
-      mode = 'light';
+      document.documentElement.classList.remove('dark');
     }
     if (!userPreference) { localStorage.setItem('darkMode', mode) }
     </script>
@@ -116,6 +115,9 @@ Last updated on: Monday, 18 August 2025
               {%- endblock right_sidebar %}
             </div>
           </div>
+          {%- if theme_show_previous_next_pages|tobool %}
+            {%- include "previous_next_pages.html.jinja" %}
+          {%- endif %}
           {%- block footer %}
             {%- include "footer.html.jinja" %}
           {%- endblock footer %}
