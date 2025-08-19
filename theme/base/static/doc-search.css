@@ -48,17 +48,26 @@
     display: none
 }
 
+.DocSearch-Button-Container::before {
+    content: "\f002";
+    font-weight: 900;
+    color: hsl(var(--foreground));
+    font: var(--fa-font-regular);
+    font-size: 1rem;
+    line-height: 1;
+    opacity: 1;
+    display: inline-block
+}
+
+.DocSearch-Button-Container::before:hover,
+.DocSearch-Button-Container::before:focus,
+.DocSearch-Button-Container::before:focus-visible {
+    opacity: .5
+}
 
 .DocSearch-MagnifierLabel,
 .DocSearch-Search-Icon {
-    stroke-width: 2;
-    opacity: 1
-}
-
-.DocSearch-Search-Icon:hover,
-.DocSearch-Search-Icon:focus,
-.DocSearch-Search-Icon:focus-visible {
-    opacity: .5
+    display: none
 }
 
 .DocSearch-Container {
@@ -103,20 +112,41 @@
     color: hsl(var(--muted-foreground))
 }
 
+.DocSearch-Hits {
+    padding-inline: 0.5rem
+}
+
 .DocSearch-Hit,
 .DocSearch-Hit a {
-    border-radius: calc(var(--radius) - 4px)
+    background-color: transparent;
+    border-radius: 0
 }
 
 .DocSearch-Hit a:focus-visible {
-    outline-offset: -2px
+    outline-offset: 0
 }
 
 .DocSearch-Hit[aria-selected=true] a {
-    background-color: gray;
-    color: hsl(var(--accent-foreground))
+    background-color: transparent;
+    color: hsla(var(--muted-foreground), 0.3)
 }
 
+.DocSearch-Hit-Container {
+    color: hsl(var(--muted-foreground))
+}
+
+.DocSearch-Hits mark,
+.DocSearch-Hit[aria-selected=true] mark {
+    font-weight: bold;
+    text-decoration: none;
+    color: red
+}
+
+.DocSearch-HitsFooter {
+    display: none
+}
+
+.DocSearch-Hit-Tree,
 .DocSearch-Commands {
     display: none
 }
