@@ -157,14 +157,11 @@ $(window).scroll(function () {
     try {
         document.querySelectorAll('[x-cloak]').forEach(el => { el.style.display = 'none'; });
     } catch { }
-
     if (document.body.dataset.sidebarInit === '1') return;
     document.body.dataset.sidebarInit = '1';
-
     function qsAll(sel, root = document) {
         return Array.from(root.querySelectorAll(sel));
     }
-
     function initMobileSidebar() {
         const sidebar = document.querySelector('#left-sidebar, #sidebar, .sidebar');
         if (!sidebar) return;
@@ -175,7 +172,6 @@ $(window).scroll(function () {
             backdrop.className = 'sidebar-backdrop';
             document.body.appendChild(backdrop);
         }
-
         const toggles = qsAll('[data-sidebar-toggle], .sidebar-toggle, #sidebar-toggle, [aria-controls="sidebar"]');
         const closers = qsAll('[data-sidebar-close]');
         function open() {
@@ -188,15 +184,12 @@ $(window).scroll(function () {
             if (e) e.preventDefault();
             document.body.classList.toggle('sidebar-open');
         }
-
         toggles.forEach(btn => btn.addEventListener('click', toggle, { passive: false }));
         backdrop.addEventListener('click', close);
         closers.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); close(); }));
-
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') close();
         });
-
         sidebar.addEventListener('click', e => {
             const a = e.target.closest('a');
             if (!a) return;
@@ -204,7 +197,6 @@ $(window).scroll(function () {
                 close();
             }
         });
-
         let lastW = window.innerWidth;
         window.addEventListener('resize', () => {
             const w = window.innerWidth;
@@ -214,10 +206,82 @@ $(window).scroll(function () {
             lastW = w;
         }, { passive: true });
     }
-
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initMobileSidebar, { once: true });
     } else {
         initMobileSidebar();
+    }
+})();
+
+(function () {
+    function initTOCScrollSpy() {
+        const tocSidebar = document.getElementById('right-sidebar');
+        if (!tocSidebar) return;
+        const tocLinks = tocSidebar.querySelectorAll('a[href^="#"]');
+        const headings = [];
+        tocLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const heading = document.getElementById(targetId);
+                if (heading) {
+                    headings.push({
+                        id: targetId,
+                        element: heading,
+                        link: link,
+                        offsetTop: heading.offsetTop
+                    });
+                }
+            }
+        });
+        if (headings.length === 0) return;
+        headings.sort((a, b) => a.offsetTop - b.offsetTop);
+        function updateActiveTOC() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const headerOffset = 80;
+            let currentHeading = null;
+            for (let i = headings.length - 2; i >= 0; i--) {
+                const heading = headings[i];
+                if (scrollTop + headerOffset >= heading.offsetTop) {
+                    currentHeading = heading;
+                    break;
+                }
+            }
+            if (scrollTop < 100) {
+                currentHeading = null;
+            }
+            tocLinks.forEach(link => {
+                link.classList.remove('toc-active');
+                link.style.color = '';
+            });
+            if (currentHeading) {
+                currentHeading.link.classList.add('toc-active');
+                currentHeading.link.style.color = 'hsl(var(--foreground))';
+            }
+        }
+        let ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateActiveTOC();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', () => {
+            headings.forEach(heading => {
+                heading.offsetTop = heading.element.offsetTop;
+            });
+            updateActiveTOC();
+        });
+        updateActiveTOC();
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTOCScrollSpy);
+    } else {
+        initTOCScrollSpy();
     }
 })();

@@ -26,7 +26,8 @@
     --duration-fast: 150ms;
     --duration-normal: 300ms;
     --duration-slow: 1.2s;
-    --sidebar-width: 250px
+    --sidebar-width: 250px;
+    --header-offset: 2.5rem
 }
 
 html[data-theme="dark"] {
@@ -50,7 +51,8 @@ html {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     font-size: 1.125rem;
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-offset)
 }
 
 .font-sans {
@@ -70,48 +72,12 @@ samp {
     font-family: "Geist Mono", monospace
 }
 
-@media (max-width:640px) {
-    .container {
-        padding-inline: 1.5rem
-    }
-
-    .container .literal-block-wrapper {
-        padding-inline: 0 !important
-    }
-}
-
-@media (min-width: 768px) {
-    .layout-grid {
-        display: grid;
-        align-items: start;
-        grid-template-columns: var(--sidebar-width) minmax(0, 1fr)
-    }
-}
-
-@media (min-width: 1280px) {
-    .layout-grid.has-right-sidebar {
-        grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width)
-    }
-}
-
 .layout-grid>#left-sidebar {
     display: none
 }
 
-@media (min-width: 768px) {
-    .layout-grid>#left-sidebar {
-        display: block
-    }
-}
-
 .layout-grid>#right-sidebar {
     display: none
-}
-
-@media (min-width: 1280px) {
-    .layout-grid.has-right-sidebar>#right-sidebar {
-        display: block
-    }
 }
 
 .sidebar-sticky {
@@ -122,7 +88,49 @@ samp {
     overflow-y: auto
 }
 
-@media (max-width: 1024px) {
+@media (prefers-reduced-motion: reduce) {
+    .scbs-carousel-indicators [data-bs-target] {
+        transition: none !important
+    }
+
+    .scbs-carousel .scbs-carousel-indicators .scbs-active {
+        transition-delay: 0s
+    }
+
+    .scbs-carousel .scbs-carousel-caption,
+    .scbs-carousel .scbs-carousel-item figure figcaption,
+    .scbs-carousel .carousel-item figure figcaption {
+        transition: none
+    }
+}
+
+/* iPhone view */
+@media (max-width: 768px) {
+    .container {
+        padding-inline: 2rem
+    }
+
+    .container .literal-block-wrapper {
+        padding-inline: 0 !important
+    }
+
+    #content table {
+        display: block;
+        max-width: 100%;
+        width: max-content;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        table-layout: auto
+    }
+
+    #content table colgroup col {
+        width: auto !important
+    }
+
+    #content table th,
+    #content table td {
+        white-space: nowrap
+    }
 
     .layout-grid>#left-sidebar {
         display: block
@@ -138,9 +146,9 @@ samp {
         width: var(--sidebar-width, 280px);
         max-width: 85vw;
         background: hsl(var(--background));
-        box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
         transform: translateX(-100%);
-        transition: transform .3s ease;
+        transition: transform 0.3s ease;
         z-index: 1001;
         overscroll-behavior: contain
     }
@@ -156,10 +164,10 @@ samp {
     .sidebar-backdrop {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, .28);
+        background: rgba(0, 0, 0, 0.28);
         opacity: 0;
         pointer-events: none;
-        transition: opacity .3s ease;
+        transition: opacity 0.3s ease;
         z-index: 1000
     }
 
@@ -183,30 +191,69 @@ samp {
         padding-left: 0
     }
 
+    #right-sidebar a.toc-active {
+        transition: all 0.2s ease;
+    }
+
     #content figure:hover .face-tag-wrap .face-tag,
     #content .zoom-inner:hover .face-tag-wrap .face-tag,
     #content .face-tag-wrap .face-tag:focus-visible {
         display: none
     }
+
+    .scrolltop-bottom {
+        bottom: 9rem !important
+    }
+
+    .search-w-full {
+        width: calc(100vw - 8rem);
+        margin-left: 1rem
+    }
 }
 
-@media (max-width: 768px) {
-    #content table {
-        display: block;
-        max-width: 100%;
-        width: max-content;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        table-layout: auto
+/* iPad view */
+@media (min-width: 768px) {
+    .layout-grid {
+        display: grid;
+        align-items: start;
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr)
     }
 
-    #content table colgroup col {
-        width: auto !important
+    .layout-grid>#left-sidebar {
+        display: block
     }
 
-    #content table th,
-    #content table td {
-        white-space: nowrap
+    .scrolltop-bottom {
+        bottom: 10rem !important
+    }
+
+    .search-w-full {
+        width: 640px
+    }
+}
+
+/* Desktop view */
+@media (min-width: 1280px) {
+    .layout-grid {
+        display: grid;
+        align-items: start;
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr)
+    }
+
+    .layout-grid>#left-sidebar {
+        display: block
+    }
+
+    .layout-grid.has-right-sidebar {
+        grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width)
+    }
+
+    .layout-grid.has-right-sidebar>#right-sidebar {
+        display: block
+    }
+
+    .search-w-full {
+        width: 768px
     }
 }
 
@@ -232,6 +279,13 @@ samp {
 #content h3 {
     line-height: 1.625rem;
     letter-spacing: -0.4px
+}
+
+#content :is(h1, h2, h3, h4, h5, h6)[id],
+#content section[id],
+#content .section[id],
+#content [id] {
+    scroll-margin-top: var(--header-offset)
 }
 
 #content section>p {
@@ -295,13 +349,13 @@ samp {
 #content .face-tag-wrap .face-tag {
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--duration-fast, .2s) var(--ease-in-out)
+    transition: opacity var(--duration-fast, 0.2s) var(--ease-in-out)
 }
 
 #content figure:hover .face-tag-wrap .face-tag,
 #content .zoom-inner:hover .face-tag-wrap .face-tag,
 #content .face-tag-wrap .face-tag:focus-visible {
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: auto
 }
 
@@ -312,16 +366,16 @@ samp {
     top: 100%;
     transform: translateY(4px);
     white-space: nowrap;
-    font-size: .65em;
+    font-size: 0.65em;
     line-height: 1.2;
     padding: 2px 6px;
     border-radius: 4px;
     color: hsl(var(--foreground));
     background: hsl(var(--background));
-    box-shadow: 0 1px 2px hsl(var(--muted-foreground) / .15);
+    box-shadow: 0 1px 2px hsl(var(--muted-foreground) / 0.15);
     pointer-events: none;
     opacity: 0;
-    transition: opacity var(--duration-fast, .2s) var(--ease-in-out)
+    transition: opacity var(--duration-fast, 0.2s) var(--ease-in-out)
 }
 
 #content figure:hover .face-tag-wrap .face-tag::after,
@@ -344,6 +398,7 @@ a.headerlink {
 .highlighted,
 #content a:not(.toc-backref) {
     text-decoration-line: underline;
+    text-decoration-color: hsl(var(--foreground) / 0.4);
     font-weight: inherit;
     color: hsl(var(--link))
 }
@@ -554,6 +609,12 @@ blockquote p.attribution {
     margin-top: 1.5rem
 }
 
+blockquote p.attribution em {
+    font-weight: 400;
+    font-style: normal;
+    color: hsl(var(--muted-foreground))
+}
+
 i {
     line-height: 1.5 !important
 }
@@ -572,10 +633,6 @@ i {
 
 .gap-2 {
     gap: 0.5rem
-}
-
-.bottom-22 {
-    bottom: 4.8rem
 }
 
 .justify-end {
@@ -622,7 +679,12 @@ i {
 
 .author-name {
     color: hsl(var(--accent-foreground)) !important;
+    text-decoration: none !important;
     font-weight: 500 !important
+}
+
+.scrolltop-bottom {
+    bottom: 13rem
 }
 
 .admonition {
@@ -637,7 +699,7 @@ i {
 
 .tip:is(.dark *),
 .note:is(.dark *) {
-    background-color: rgba(113, 113, 113, 0.15);
+    background-color: hsl(var(--light-accent));
     color: hsl(var(--accent-foreground))
 }
 
@@ -779,12 +841,6 @@ li .badge {
     will-change: opacity, background-color
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .scbs-carousel-indicators [data-bs-target] {
-        transition: none !important
-    }
-}
-
 .scbs-carousel-caption {
     bottom: 2.5rem !important;
     right: 0 !important;
@@ -798,20 +854,14 @@ li .badge {
     letter-spacing: initial;
     font-weight: 400 !important;
     color: hsl(var(--muted-foreground)) !important;
-    font-size: .875rem;
+    font-size: 0.875rem;
     margin-inline: auto;
     max-width: 80%;
     line-height: 1.25rem
 }
 
 .scbs-carousel .scbs-carousel-indicators .scbs-active {
-    transition-delay: .6s
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .scbs-carousel .scbs-carousel-indicators .scbs-active {
-        transition-delay: 0s
-    }
+    transition-delay: 0.6s
 }
 
 @supports selector(:has(*)) {
@@ -844,15 +894,6 @@ li .badge {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .scbs-carousel .scbs-carousel-caption,
-    .scbs-carousel .scbs-carousel-item figure figcaption,
-    .scbs-carousel .carousel-item figure figcaption {
-        transition: none
-    }
 }
 
 .scbs-carousel-control-prev-icon,

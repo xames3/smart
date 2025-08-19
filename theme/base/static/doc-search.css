@@ -19,11 +19,12 @@
 }
 
 .DocSearch-Button {
-    width: 0;
-    height: 0;
-    padding: 0;
-    border: none;
-    background: none;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    margin: 0;
+    margin-left: -0.5rem;
     cursor: pointer
 }
 
@@ -43,22 +44,37 @@
     color: hsl(var(--muted-foreground))
 }
 
-.DocSearch-Button-Key,
-.DocSearch-Button-Placeholder {
+.DocSearch-Button-Key {
     display: none
 }
 
+.DocSearch-Button-Placeholder {
+    color: hsl(var(--muted-foreground)) !important;
+    font-size: 0.875rem;
+    padding-left: 0.5rem;
+    text-decoration-line: none !important
+}
+
+.DocSearch-Button-Container::before {
+    content: "\f002";
+    font-weight: 900;
+    color: hsl(var(--foreground));
+    font: var(--fa-font-regular);
+    font-size: 0.8rem;
+    line-height: 1;
+    opacity: 1;
+    display: inline-block
+}
+
+.DocSearch-Button-Container::before:hover,
+.DocSearch-Button-Container::before:focus,
+.DocSearch-Button-Container::before:focus-visible {
+    opacity: .5
+}
 
 .DocSearch-MagnifierLabel,
 .DocSearch-Search-Icon {
-    stroke-width: 2;
-    opacity: 1
-}
-
-.DocSearch-Search-Icon:hover,
-.DocSearch-Search-Icon:focus,
-.DocSearch-Search-Icon:focus-visible {
-    opacity: .5
+    display: none
 }
 
 .DocSearch-Container {
@@ -103,20 +119,41 @@
     color: hsl(var(--muted-foreground))
 }
 
+.DocSearch-Hits {
+    padding-inline: 0.5rem
+}
+
 .DocSearch-Hit,
 .DocSearch-Hit a {
-    border-radius: calc(var(--radius) - 4px)
+    background-color: transparent;
+    border-radius: 0
 }
 
 .DocSearch-Hit a:focus-visible {
-    outline-offset: -2px
+    outline-offset: 0
 }
 
 .DocSearch-Hit[aria-selected=true] a {
-    background-color: gray;
-    color: hsl(var(--accent-foreground))
+    background-color: transparent;
+    color: hsla(var(--muted-foreground), 0.3)
 }
 
+.DocSearch-Hit-Container {
+    color: hsl(var(--muted-foreground))
+}
+
+.DocSearch-Hits mark,
+.DocSearch-Hit[aria-selected=true] mark {
+    font-weight: bold;
+    text-decoration: none;
+    color: red
+}
+
+.DocSearch-HitsFooter {
+    display: none
+}
+
+.DocSearch-Hit-Tree,
 .DocSearch-Commands {
     display: none
 }

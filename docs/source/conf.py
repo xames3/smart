@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Thursday, 7 August 2025
+Last updated on: Monday, 18 August 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -54,7 +54,7 @@ from datetime import datetime as dt
 
 from theme import version
 
-project: t.Final[str] = "Home"
+project: t.Final[str] = "~/"
 author: t.Final[str] = "Akshay Mestry"
 author_email: t.Final[str] = "xa@mes3.dev"
 baseurl: t.Final[str] = "https://smart.mes3.dev/"
@@ -134,7 +134,7 @@ docsearch_app_id: str = os.getenv("DOCSEARCH_APP_ID", "")
 docsearch_api_key: str = os.getenv("DOCSEARCH_API_KEY", "")
 docsearch_index_name: str = os.getenv("DOCSEARCH_INDEX_NAME", "")
 docsearch_container: t.Final[str] = "#smart-search"
-docsearch_placeholder: t.Final[str] = "SMART Search"
+docsearch_placeholder: t.Final[str] = "Search"
 docsearch_missing_results_url: str = source + "/issues/new?title=${query}"
 
 copybutton_exclude: str = ".linenos, .gp, .go"
