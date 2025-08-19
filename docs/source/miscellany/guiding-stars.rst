@@ -95,7 +95,7 @@ every student I guide, I see your spirit reminding me of our last chat...
     like a man. Keep moving forward through calm and storm, I'll always be with
     you Akshay, but in a different form.
 
-    -- Charlotte Parks, 14 Apr 2020
+    -- Charlotte Parks, *14 Apr 2020*
 
 Charlotte, thank you for being my Uma.
 

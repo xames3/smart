@@ -4,8 +4,8 @@ SMART Sphinx Theme Searchbox Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Tuesday, 19 August 2025
 -->
-<form id="smart-search" action="{{ pathto('search') }}" method="get" class="relative flex items-center group mr-6"
-  @keydown.k.window.meta="$refs.search.focus()">
+<form id="smart-search" action="{{ pathto('search') }}" method="get"
+  class="relative flex items-center search-w-full group" @keydown.k.window.meta="$refs.search.focus()">
 </form>

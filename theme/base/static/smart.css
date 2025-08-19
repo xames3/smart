@@ -26,7 +26,8 @@
     --duration-fast: 150ms;
     --duration-normal: 300ms;
     --duration-slow: 1.2s;
-    --sidebar-width: 250px
+    --sidebar-width: 250px;
+    --header-offset: 2.5rem
 }
 
 html[data-theme="dark"] {
@@ -50,7 +51,8 @@ html {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     font-size: 1.125rem;
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-offset)
 }
 
 .font-sans {
@@ -198,6 +200,10 @@ samp {
     .scrolltop-bottom {
         bottom: 9rem !important
     }
+
+    .search-w-full {
+        width: 320px
+    }
 }
 
 /* iPad view */
@@ -214,6 +220,10 @@ samp {
 
     .scrolltop-bottom {
         bottom: 10rem !important
+    }
+
+    .search-w-full {
+        width: 640px
     }
 }
 
@@ -236,7 +246,11 @@ samp {
     .layout-grid.has-right-sidebar>#right-sidebar {
         display: block
     }
+    .search-w-full {
+        width: 768px
+    }
 }
+
 
 #content h1 {
     font-size: 3rem;
@@ -260,6 +274,13 @@ samp {
 #content h3 {
     line-height: 1.625rem;
     letter-spacing: -0.4px
+}
+
+#content :is(h1, h2, h3, h4, h5, h6)[id],
+#content section[id],
+#content .section[id],
+#content [id] {
+    scroll-margin-top: var(--header-offset)
 }
 
 #content section>p {
@@ -582,6 +603,12 @@ blockquote p.attribution {
     margin-top: 1.5rem
 }
 
+blockquote p.attribution em {
+    font-weight: 400;
+    font-style: normal;
+    color: hsl(var(--muted-foreground))
+}
+
 i {
     line-height: 1.5 !important
 }
@@ -646,6 +673,7 @@ i {
 
 .author-name {
     color: hsl(var(--accent-foreground)) !important;
+    text-decoration: none !important;
     font-weight: 500 !important
 }
 
@@ -697,8 +725,7 @@ i {
     height: 28px;
     line-height: 28px;
     text-align: center;
-    color: hsl(var(--a
-    ccent-foreground));
+    color: hsl(var(--accent-foreground));
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     pointer-events: none
