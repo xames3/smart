@@ -40,7 +40,7 @@
 .DocSearch-Button:active,
 .DocSearch-Button:focus,
 .DocSearch-Button:hover {
-background-color: hsl(var(--light-accent));
+    background-color: hsl(var(--light-accent));
 }
 
 .DocSearch-Button:focus,
@@ -112,6 +112,25 @@ background-color: hsl(var(--light-accent));
     transform: translateY(-50%)
 }
 
+@media (max-width:768px) {
+    .DocSearch-Modal {
+        height: auto;
+        width: 90%;
+    }
+
+    .DocSearch-Footer {
+        bottom: auto
+    }
+
+    .DocSearch-Reset {
+        padding: 7px
+    }
+
+    .DocSearch-Cancel {
+        display: none
+    }
+}
+
 .DocSearch-SearchBar {
     border-bottom: 0;
     border-color: hsl(var(--input));
@@ -140,6 +159,7 @@ background-color: hsl(var(--light-accent));
 }
 
 .DocSearch-Cancel {
+    display: none;
     color: hsl(var(--muted-foreground));
     font-size: .875rem;
     line-height: 1.25rem;
