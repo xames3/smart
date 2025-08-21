@@ -1,6 +1,6 @@
 @import url("theme.css");
 @import url("geist.css");
-@import url("github.css");
+@import url("code.css");
 
 :root {
     --background: 0 0% 98%;
@@ -17,7 +17,7 @@
     --light-accent: 0, 0%, 94%;
     --link: 0 0% 9%;
     --radius: 12px;
-    --box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
+    --box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
     --code-background: 0, 0%, 100%;
     --pre-shadow: 0, 0%, 83.92%;
     --highlight: 209.55 100% 94%;
@@ -43,7 +43,7 @@ html[data-theme="dark"] {
     --code-background: 0, 0%, 4%;
     --pre-shadow: 0 0% 12%;
     --highlight: 211.25, 97.96%, 19.22%;
-    --box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0px 2px 2px rgba(255, 255, 255, 0.04), 0px 8px 8px -8px rgba(255, 255, 255, 0.04);
+    --box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0px 1px 1px rgba(255, 255, 255, 0.04), 0px 8px 8px -8px rgba(255, 255, 255, 0.04);
     --card: 0 0% 0%
 }
 
@@ -192,7 +192,7 @@ samp {
     }
 
     #right-sidebar a.toc-active {
-        transition: all 0.2s ease;
+        transition: all 0.2s ease
     }
 
     #content figure:hover .face-tag-wrap .face-tag,
@@ -302,13 +302,18 @@ samp {
     letter-spacing: -0.96px
 }
 
-#content ul:not(.search) {
-    margin-bottom: 1.5rem
-}
-
 #content ul:not(.search):not(:first-child) p,
 #content ul:not(.search)>li:not(:first-child) {
     margin-top: 0.75rem
+}
+
+#content .admonition>ul:not(.search):not(:first-child) p,
+#content .admonition>ul:not(.search)>li:not(:first-child) {
+    margin-top: 0.5rem
+}
+
+#content .admonition>ul {
+    margin-top: -1rem
 }
 
 #content img:not(figure img) {
@@ -694,6 +699,8 @@ i {
     border-width: 0;
     color: hsl(var(--accent-foreground));
     line-height: 1.5rem;
+    max-width: 90%;
+    margin-inline: auto;
     padding: 1rem 1.5rem
 }
 
@@ -818,6 +825,10 @@ li .badge {
 .new {
     background-color: hsl(141, 79%, 85%);
     color: hsl(142, 76%, 36%)
+}
+
+.highlight pre {
+    padding: 1rem
 }
 
 .scbs-carousel-control-next,
