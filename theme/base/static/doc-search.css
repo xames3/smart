@@ -37,6 +37,12 @@
     transition-timing-function: cubic-bezier(.4, 0, .2, 1)
 }
 
+.DocSearch-Button:active,
+.DocSearch-Button:focus,
+.DocSearch-Button:hover {
+background-color: hsl(var(--light-accent));
+}
+
 .DocSearch-Button:focus,
 .DocSearch-Button:hover,
 .DocSearch-Button:focus-visible {
@@ -50,9 +56,15 @@
 
 .DocSearch-Button-Placeholder {
     color: hsl(var(--muted-foreground)) !important;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
+    font-family: "Geist Mono", monospace;
     padding-left: 0.5rem;
     text-decoration-line: none !important
+}
+
+.DocSearch-Input {
+    font-family: "Geist Mono", monospace;
+    font-size: 0.9rem
 }
 
 .DocSearch-Button-Container::before {
@@ -72,6 +84,9 @@
     opacity: .5
 }
 
+.DocSearch-ErrorScreen,
+.DocSearch-NoResults,
+.DocSearch-StartScreen,
 .DocSearch-MagnifierLabel,
 .DocSearch-Search-Icon {
     display: none
@@ -87,7 +102,14 @@
     background: hsl(var(--background));
     border: 1px solid hsl(var(--border));
     box-shadow: none;
-    border-radius: var(--radius)
+    border-radius: var(--radius);
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
 }
 
 .DocSearch-SearchBar {
@@ -98,8 +120,19 @@
     padding: 0
 }
 
+.DocSearch-Dropdown {
+    min-height: 0
+}
+
+.DocSearch-Footer {
+    width: auto;
+    position: absolute;
+    right: 0
+}
+
 .DocSearch-Form {
     background-color: transparent;
+    height: 2.5rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border-top-left-radius: var(--radius);
@@ -139,6 +172,7 @@
 }
 
 .DocSearch-Hit-Container {
+    height: 2.3rem;
     color: hsl(var(--muted-foreground))
 }
 
