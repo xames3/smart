@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Monday, 18 August 2025
+Last updated on: Friday, 22 August 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -43,6 +43,12 @@ teaching and learning platform.
 .. versionchanged:: 8.8.2025
 
     [1] The website `copyright` is updated to enforce minimalism.
+
+.. versionadded:: 22.8.2025
+
+    [1] Added support for `sphinx-notfound-page` extension to handle the
+        404 pages. This extension is used to provide a better user
+        experience when a page is not found.
 """
 
 from __future__ import annotations
@@ -67,6 +73,7 @@ extensions: list[str] = [
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
     "sphinx_docsearch",
+    "notfound.extension",
 ]
 nitpicky: bool = True
 
