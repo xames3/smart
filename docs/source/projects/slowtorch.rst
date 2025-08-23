@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 18 2025
-.. Last updated on: Monday, 18 August 2025
+.. Last updated on: Saturday, 23 August 2025
 
 :og:title: PyTorch... But Slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -676,10 +676,10 @@ me that sometimes, the slowest path is the fastest way to learn.
 
 .. |storch.tensor| replace:: ``tensor``
 .. _storch.tensor: https://github.com/xames3/slowtorch/blob/main/slowtorch/
-    internal/tensor.py#L136
+    internal/tensor.py
 .. |storch.tensor.repr| replace:: ``tensor.__repr__``
 .. _storch.tensor.repr: https://github.com/xames3/slowtorch/blob/main/
-    slowtorch/internal/tensor.py#L136
+    slowtorch/internal/tensor.py
 .. |storch.optim.Optimiser| replace:: ``Optimiser``
 .. _storch.optim.Optimiser: https://github.com/xames3/slowtorch/blob/main/
     slowtorch/optim/optimiser.py
