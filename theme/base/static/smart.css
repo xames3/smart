@@ -104,6 +104,15 @@ samp {
     }
 }
 
+/* Small iPhone view */
+@media (max-width: 640px) {
+    #author {
+        flex-direction: column;
+        gap: 0.25rem;
+        text-align: center
+    }
+}
+
 /* iPhone view */
 @media (max-width: 768px) {
     .container {
@@ -208,6 +217,22 @@ samp {
     .search-w-full {
         width: calc(100vw - 8rem);
         margin-left: 1rem
+    }
+
+    .code-block-caption .caption-text {
+        align-items: center;
+        display: flex
+    }
+
+    .code-block-caption>span>a {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 30ch
+    }
+
+    .scbs-carousel-indicators {
+        margin-bottom: 0.3rem !important
     }
 }
 
