@@ -285,3 +285,83 @@ $(window).scroll(function () {
         initTOCScrollSpy();
     }
 })();
+(function () {
+    function initPlaceholderAnimation() {
+        const input = document.querySelector(".DocSearch-Button-Placeholder");
+        if (!input) {
+            setTimeout(initPlaceholderAnimation, 100);
+            return;
+        }
+        function generatePlaceholders() {
+            const navLinks = document.querySelectorAll('#left-sidebar a, nav a, .toctree a');
+            const pageNames = new Set();
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && !href.startsWith('#') && !href.startsWith('http')) {
+                    const text = link.textContent.trim();
+                    if (text && text.length > 2 &&
+                        !text.match(/^(home|index|back|next|previous|toc|contents)$/i)) {
+                        pageNames.add(text);
+                    }
+                }
+            });
+            if (pageNames.size < 3) {
+                const headings = document.querySelectorAll('h1, h2, .document-title, .page-title');
+                headings.forEach(heading => {
+                    const text = heading.textContent.trim();
+                    if (text && text.length > 2) {
+                        pageNames.add(text);
+                    }
+                });
+            }
+            const titles = Array.from(pageNames).slice(0, 6);
+            const prefixes = ['Search for', 'Read more about', 'Explore', 'Discover', 'Learn about'];
+            const placeholders = [];
+            titles.forEach((title, index) => {
+                const prefix = prefixes[index % prefixes.length];
+                placeholders.push(`${prefix} ${title}`);
+            });
+            if (placeholders.length === 0) {
+                return [
+                    "Search for content",
+                    "Find documentation",
+                    "Explore projects",
+                    "Discover guides"
+                ];
+            }
+            return placeholders;
+        }
+        const placeholders = generatePlaceholders();
+        let currentText = '';
+        let placeholderIndex = 0;
+        let charIndex = 0;
+        let typing = true;
+        function typePlaceholder() {
+            const fullText = placeholders[placeholderIndex];
+            if (typing) {
+                currentText = fullText.slice(0, charIndex++);
+                input.textContent = currentText;
+                if (charIndex > fullText.length) {
+                    typing = false;
+                    setTimeout(typePlaceholder, 2500);
+                    return;
+                }
+            } else {
+                currentText = fullText.slice(0, --charIndex);
+                input.textContent = currentText;
+                if (charIndex === 0) {
+                    typing = true;
+                    placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+                }
+            }
+            const delay = typing ? 100 : 50;
+            setTimeout(typePlaceholder, delay);
+        }
+        typePlaceholder();
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPlaceholderAnimation);
+    } else {
+        initPlaceholderAnimation();
+    }
+})();
