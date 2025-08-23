@@ -74,6 +74,7 @@
     font: var(--fa-font-regular);
     font-size: 0.8rem;
     line-height: 1;
+    padding-left: 0.15rem;
     opacity: 1;
     display: inline-block
 }
