@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Monday, 18 August 2025
+.. Last updated on: Saturday, 23 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -627,7 +627,7 @@ tour, without the scaffolding, to show what it already does well.
             :meth:`__setitem__ <object.__setitem__>`  protocols. Check out the
             complete implementation
             `here <https://github.com/xames3/xsnumpy/blob/
-            69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L368>`_
+            69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py>`_
             on GitHub.
 
     .. tab-item:: :octicon:`sort-desc;1em;sd-text-danger` Reductions
@@ -720,50 +720,50 @@ by making them, and that learning will travel with me far beyond this code.
 .. _broadcasting: https://numpy.org/doc/stable/user/basics.broadcasting.html
 .. _indexing: https://numpy.org/doc/stable/user/basics.indexing.html
 .. _NumPy internals: https://numpy.org/doc/stable/dev/internals.html
-.. _ChiPy: https://chipy.org/
+.. _ChiPy: https://www.chipy.org/
 
 .. _xsnumpy/_core.py: https://github.com/xames3/xsnumpy/blob/main/xsnumpy/
     _core.py
 
 .. |xp.ndarray| replace:: ``ndarray``
 .. _xp.ndarray: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L183
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
 .. |xp.ndarray.repr| replace:: ``ndarray.__repr__``
 .. _xp.ndarray.repr: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L275C1-L327C27
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
 .. |xp.array| replace:: ``array``
 .. _xp.array: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L75
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.zeros| replace:: ``zeros``
 .. _xp.zeros: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L171
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.ones| replace:: ``ones``
 .. _xp.ones: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L229
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.full| replace:: ``full``
 .. _xp.full: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L289
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.arange| replace:: ``arange``
 .. _xp.arange: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L437
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.ndarray.reshape| replace:: ``ndarray.reshape``
 .. _xp.ndarray.reshape: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L1571
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
 .. |xp.ndarray.transpose| replace:: ``ndarray.transpose``
 .. _xp.ndarray.transpose: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L1609
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
 .. |xp.ndarray.flatten| replace:: ``ndarray.flatten``
 .. _xp.ndarray.flatten: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py#L1386
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
 .. |xp.sum| replace:: ``sum``
 .. _xp.sum: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1518
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.prod| replace:: ``prod``
 .. _xp.prod: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1536
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.all| replace:: ``all``
 .. _xp.all: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1237
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
 .. |xp.any| replace:: ``any``
 .. _xp.any: https://github.com/xames3/xsnumpy/blob/
-    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py#L1254
+    69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py

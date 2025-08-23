@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Monday, 18 August 2025
+.. Last updated on: Saturday, 23 August 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -434,4 +434,4 @@ And for that... I'm very thankful, Young!
 .. _Edward Tufte: https://www.edwardtufte.com
 .. _Chicago Code and Coffee: https://www.meetup.com/code-and-coffee-chicago/
 .. _Discord: https://discord.gg/NNYtWNFByN
-.. _ChiPy: https://chipy.org
+.. _ChiPy: https://www.chipy.org/
