@@ -73,7 +73,7 @@ jobs:
 
   typecheck:
     name: Typecheck Python code
-    needs: [prepare, lint]
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -148,7 +148,7 @@ jobs:
 
   build:
     name: Build website pages
-    needs: [typecheck, linkcheck]
+    needs: [prepare, lint, typecheck, linkcheck]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
