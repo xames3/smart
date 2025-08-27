@@ -5,8 +5,8 @@
 # Created on: Tuesday, 26 August 2025
 # Last updated on: Tuesday, 26 August 2025
 
-name: integration
-run-name: Started continuous ${{ github.workflow }} (CD) workflow
+name: Continuous Integration
+run-name: Started ${{ github.workflow }} (CI) workflow
 
 on:
   workflow_dispatch:

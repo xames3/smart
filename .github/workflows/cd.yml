@@ -5,8 +5,8 @@
 # Created on: Tuesday, 26 August 2025
 # Last updated on: Tuesday, 26 August 2025
 
-name: deployment
-run-name: Started continuous ${{ github.workflow }} (CD) workflow
+name: Continuous Deployment
+run-name: Started ${{ github.workflow }} (CD) workflow
 
 on:
   workflow_dispatch:
@@ -17,6 +17,7 @@ on:
         default: "production"
 
 env:
+  ARTIFACT_NAME: docs-html
   BUILD_DIR: docs/build/
   PYTHON_VERSION: "3.13.2"
   DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
@@ -33,12 +34,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  rebuild-and-deploy:
-    name: Build and deploy website
+  build:
+    name: Build website pages
+    needs: lint
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: ${{ steps.deploy-to-pages.outputs.page_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -58,6 +57,14 @@ jobs:
           name: ${{ env.ARTIFACT_NAME }}
           path: ${{ env.BUILD_DIR }}
           retention-days: 14
+  deploy:
+    name: Deploy built website
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy-to-pages.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
