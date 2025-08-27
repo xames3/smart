@@ -73,7 +73,7 @@ jobs:
 
   typecheck:
     name: Typecheck Python code
-    needs: lint
+    needs: [prepare, lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -97,7 +97,7 @@ jobs:
         run: tox
 
   sphinxlint:
-    name: Lint Sphinx documentation
+    name: Lint rST files
     needs: prepare
     runs-on: ubuntu-latest
     steps:
@@ -123,7 +123,7 @@ jobs:
 
   linkcheck:
     name: Check for broken links
-    needs: sphinxlint
+    needs: [prepare, sphinxlint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
