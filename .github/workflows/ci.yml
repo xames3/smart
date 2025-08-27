@@ -93,7 +93,7 @@ jobs:
       - name: Install documentation dependencies
         run: python -m pip install -Uq -e .
       - name: Check external links
-        run: sphinx-build --builder linkcheck --conf-dir ${{ SOURCE_DIR }} --define suppress_warnings=toc.not_included --fresh-env ${{ SOURCE_DIR }} ${{ BUILD_DIR }}
+        run: sphinx-build --builder linkcheck --conf-dir $SOURCE_DIR --define suppress_warnings=toc.not_included --fresh-env $SOURCE_DIR $BUILD_DIR
 
   build:
     name: Build website pages
@@ -117,4 +117,4 @@ jobs:
       - name: Install documentation dependencies
         run: python -m pip install -Uq -e .
       - name: Build HTML pages with Sphinx
-        run: sphinx-build --builder html --fail-on-warning --fresh-env --write-all ${{ SOURCE_DIR }} ${{ BUILD_DIR }}
+        run: sphinx-build --builder html --fail-on-warning --fresh-env --write-all $SOURCE_DIR $BUILD_DIR
