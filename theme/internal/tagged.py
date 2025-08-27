@@ -4,7 +4,7 @@ SMART Sphinx Theme Tagged Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 9 August 2025
-Last updated on: Sunday, 10 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This module defines a custom `tagged` directive for the SMART Sphinx
 Theme. The directive extends the standard `figure` so it retains all of
@@ -54,6 +54,7 @@ import docutils.nodes as nodes
 import docutils.parsers.rst as rst
 from docutils.parsers.rst.directives.images import Figure
 
+
 if t.TYPE_CHECKING:
     from sphinx.writers.html import HTMLTranslator
 
@@ -73,8 +74,6 @@ class node(nodes.Element):
     Sphinx translators.
     """
 
-    pass
-
 
 def parse_faces(metadata: str) -> list[dict[str, t.Any]]:
     """Parse the `faces` metadata from the directive options.
@@ -92,7 +91,7 @@ def parse_faces(metadata: str) -> list[dict[str, t.Any]]:
         face = (person.group("face") or "").strip()
         group = person.groupdict().get("link")
         link = group.strip() if group else ""
-        coords = [coord for coord in person.group("coords").strip().split(",")]
+        coords = list(person.group("coords").strip().split(","))
         faces.append({"face": face, "link": link, "coords": coords})
     return faces
 
@@ -146,7 +145,7 @@ class directive(Figure):
         image = images[0]
         node = image
         if isinstance(image.parent, nodes.reference):
-            node = image.parent  # type: ignore[assignment]
+            node = image.parent
         parent = node.parent
         try:
             index = parent.children.index(node)
@@ -203,7 +202,6 @@ def visit(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance.
     :param node: The `tagged` node being processed.
     """
-    pass
 
 
 def depart(self: HTMLTranslator, node: node) -> None:
@@ -213,4 +211,3 @@ def depart(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance.
     :param node: The `tagged` node being processed.
     """
-    pass

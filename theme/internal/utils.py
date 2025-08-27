@@ -4,7 +4,7 @@ SMART Sphinx Theme Utilities
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This module defines a collection of utility functions used for
 customising the SMART Sphinx Theme. These utilities focus on enhancing
@@ -30,6 +30,7 @@ from sphinx.environment.adapters.toctree import TocTree
 from sphinx.util.display import status_iterator
 from sphinx.util.docutils import new_document
 
+
 if t.TYPE_CHECKING:
     from sphinx.application import Sphinx
     from sphinx.environment import BuildEnvironment
@@ -37,7 +38,7 @@ if t.TYPE_CHECKING:
 
 def findall(
     node: nodes.Node,
-    element: type[nodes.reference] | type[nodes.bullet_list],
+    element: type[nodes.reference | nodes.bullet_list],
 ) -> t.Any:
     """Recursively search through the given docutils node to find all
     instances of a specified element type.
@@ -77,13 +78,13 @@ def make_toc_collapsible(tree: bs4.BeautifulSoup) -> None:
     for link in tree.select("#left-sidebar a"):
         children = link.find_next_sibling("ul")
         if children:
-            link.parent["x-data"] = (
+            link.parent["x-data"] = (  # type: ignore[index]
                 "{ expanded: $el.classList.contains('current') }"
             )
             link["@click"] = "expanded = !expanded"
             link["class"].append("expandable")
             link[":class"] = "{ 'expanded': expanded }"
-            children["x-show"] = "expanded"
+            children["x-show"] = "expanded"  # type: ignore[index]
             button = tree.new_tag(
                 "button",
                 type="button",
@@ -150,7 +151,14 @@ def remove_title_from_scrollspy(
     :param templatename: The name of the HTML template used for
         rendering.
     :param context: Context variables passed to the template.
-    :param doctree: The document tree for the current page."""
+    :param doctree: The document tree for the current page.
+    """
+    # NOTE(xames3): The parameters `pagename`, `templatename`, and
+    # `doctree` are currently unused but are included to match the
+    # expected signature for a Sphinx event handler.
+    pagename = pagename or ""
+    templatename = templatename or ""
+    doctree = doctree or new_document("<partial node>")
     toc = TocTree(app.builder.env).get_toc_for(pagename, app.builder)
     for node in findall(toc, nodes.reference):
         if node["refuri"] == "#":
@@ -221,6 +229,13 @@ def register_website_options(
     aspects of the theme's dynamic behavior, like enabling scrollspy,
     collapsible toctrees, or copying header links.
     """
+    # NOTE(xames3): The parameters `pagename`, `templatename`,
+    # `context`, and `doctree` are currently unused but are included to
+    # match the expected signature for a Sphinx event handler.
+    pagename = pagename or ""
+    templatename = templatename or ""
+    context = context or {}
+    doctree = doctree or new_document("<partial node>")
     context.update(app.config.website_options)
 
 
@@ -276,6 +291,7 @@ def postprocess(html: str, app: Sphinx) -> None:
     :param app: The Sphinx application instance, used to access the
         current build's options and environment.
     """
+    app = app or None  # Just to satisfy type checkers
     with open(html, encoding="utf-8") as f:
         tree = bs4.BeautifulSoup(f, "html.parser")
     open_links_in_new_tab(tree)

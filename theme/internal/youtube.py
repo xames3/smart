@@ -4,7 +4,7 @@ SMART Sphinx Theme YouTube Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Sunday, 10 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This module defines a custom `youtube` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a YouTube video—directly
@@ -44,6 +44,7 @@ import docutils.parsers.rst as rst
 import jinja2
 import pytube
 
+
 if t.TYPE_CHECKING:
     from sphinx.writers.html import HTMLTranslator
 
@@ -64,8 +65,6 @@ class node(nodes.Element):
     relevant Sphinx translators.
     """
 
-    pass
-
 
 class directive(rst.Directive):
     """Custom `youtube` directive for reStructuredText.
@@ -84,7 +83,7 @@ class directive(rst.Directive):
     """
 
     has_content = True
-    option_spec = {
+    option_spec = {  # noqa: RUF012
         "autoplay": rst.directives.flag,
         "showcaptions": rst.directives.flag,
         "showtitle": rst.directives.flag,
@@ -156,7 +155,6 @@ def visit(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance.
     :param node: The `youtube` node being processed.
     """
-    pass
 
 
 def depart(self: HTMLTranslator, node: node) -> None:
@@ -171,4 +169,3 @@ def depart(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance.
     :param node: The `youtube` node being processed.
     """
-    pass

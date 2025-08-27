@@ -4,7 +4,7 @@ SMART Sphinx Theme Custom Roles
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This module provides custom roles for the SMART Sphinx Theme, that
 allows me, the author to add features to the documentation.
@@ -59,6 +59,12 @@ def stylise(
     :raises: None, but will report an error message if the input format
         is invalid.
     """
+    # NOTE(xames3): The parameters `role`, `options`, and `content` are
+    # currently unused but are included to match the expected signature
+    # for a Sphinx role function.
+    role = role or ""
+    options = options or {}
+    content = content or []
     try:
         element, style = map(str.strip, text.split("<", 1))
         style = style.rstrip(">")
