@@ -1,9 +1,9 @@
 # SMART Website Continuous Integration (CI) Workflow
-# =================================================
+# ==================================================
 #
 # Author: Akshay Mestry <xa@mes3.dev>
 # Created on: Tuesday, 26 August 2025
-# Last updated on: Tuesday, 26 August 2025
+# Last updated on: Wednesday, 27 August 2025
 
 name: Continuous Integration
 run-name: Started ${{ github.workflow }} (CI) workflow
@@ -12,9 +12,16 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths:
+      - "docs/**"
+      - "theme/**"
+      - "requirements.txt"
+      - "pyproject.toml"
   pull_request:
 
 env:
+  BUILD_DIR: docs/build/
+  SOURCE_DIR: docs/source/
   PYTHON_VERSION: "3.13.2"
   DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
   DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
@@ -25,8 +32,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  prepare:
+    name: Prepare Environment
+    runs-on: ubuntu-latest
+    outputs:
+      requirements-cache-key: ${{ steps.cache-key.outputs.key }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Compute requirements cache key
+        id: cache-key
+        run: echo "key=${{ runner.os }}-pip-$(sha256sum requirements.txt | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+
   lint:
     name: Lint Python code
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -37,14 +59,21 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - name: Install dependencies
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ needs.prepare.outputs.requirements-cache-key }}
+          restore-keys: ${{ runner.os }}-pip-
+      - name: Install project dependencies
         run: |
           python -m pip install -Uq pip tox
       - name: Run linting
-        run: tox -p -qq
-  build:
-    name: Build website pages
-    needs: lint
+        run: tox
+
+  linkcheck:
+    name: Check for broken links
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -55,7 +84,37 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - name: Install dependencies
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ needs.prepare.outputs.requirements-cache-key }}
+          restore-keys: ${{ runner.os }}-pip-
+      - name: Install documentation dependencies
+        run: python -m pip install -Uq -e .
+      - name: Check external links
+        run: sphinx-build --builder linkcheck --conf-dir ${{ SOURCE_DIR }} --define suppress_warnings=toc.not_included --fresh-env ${{ SOURCE_DIR }} ${{ BUILD_DIR }}
+
+  build:
+    name: Build website pages
+    needs: [lint, linkcheck]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ needs.prepare.outputs.requirements-cache-key }}
+          restore-keys: ${{ runner.os }}-pip-
+      - name: Install documentation dependencies
         run: python -m pip install -Uq -e .
       - name: Build HTML pages with Sphinx
-        run: cd docs && make html
+        run: sphinx-build --builder html --fail-on-warning --fresh-env --write-all ${{ SOURCE_DIR }} ${{ BUILD_DIR }}

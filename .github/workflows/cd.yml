@@ -3,7 +3,7 @@
 #
 # Author: Akshay Mestry <xa@mes3.dev>
 # Created on: Tuesday, 26 August 2025
-# Last updated on: Tuesday, 26 August 2025
+# Last updated on: Wednesday, 27 August 2025
 
 name: Continuous Deployment
 run-name: Started ${{ github.workflow }} (CD) workflow
@@ -19,6 +19,7 @@ on:
 env:
   ARTIFACT_NAME: docs-html
   BUILD_DIR: docs/build/
+  SOURCE_DIR: docs/source/
   PYTHON_VERSION: "3.13.2"
   DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
   DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
@@ -36,7 +37,6 @@ concurrency:
 jobs:
   build:
     name: Build website pages
-    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -47,16 +47,17 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - name: Install dependencies
+      - name: Install documentation dependencies
         run: python -m pip install -Uq -e .
       - name: Build HTML pages with Sphinx
-        run: cd docs && make html
+        run: sphinx-build --builder html --fail-on-warning --fresh-env --write-all ${{ SOURCE_DIR }} ${{ BUILD_DIR }}
       - name: Upload built documentation as artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: ${{ env.BUILD_DIR }}
           retention-days: 14
+
   deploy:
     name: Deploy built website
     needs: build
