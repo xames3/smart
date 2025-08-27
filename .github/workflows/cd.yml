@@ -1,0 +1,64 @@
+# SMART Website Continuous Deployment (CD) Workflow
+# ================================================
+#
+# Author: Akshay Mestry <xa@mes3.dev>
+# Created on: Tuesday, 26 August 2025
+# Last updated on: Tuesday, 26 August 2025
+
+name: deployment
+run-name: Started continuous ${{ github.workflow }} (CD) workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_target:
+        description: "Deployment environment"
+        required: false
+        default: "production"
+
+env:
+  BUILD_DIR: docs/build/
+  PYTHON_VERSION: "3.13.2"
+  DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
+  DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
+  DOCSEARCH_INDEX_NAME: ${{ secrets.DOCSEARCH_INDEX_NAME }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rebuild-and-deploy:
+    name: Build and deploy website
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy-to-pages.outputs.page_url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install dependencies
+        run: python -m pip install -Uq -e .
+      - name: Build HTML pages with Sphinx
+        run: cd docs && make html
+      - name: Upload built documentation as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.BUILD_DIR }}
+          retention-days: 14
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ env.ARTIFACT_NAME }}
