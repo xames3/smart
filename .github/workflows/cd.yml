@@ -17,7 +17,7 @@ on:
         default: "production"
 
 env:
-  ARTIFACT_NAME: docs-html
+  ARTIFACT_NAME: smart-pages
   BUILD_DIR: docs/build/
   SOURCE_DIR: docs/source/
   PYTHON_VERSION: "3.13.2"
@@ -26,9 +26,7 @@ env:
   DOCSEARCH_INDEX_NAME: ${{ secrets.DOCSEARCH_INDEX_NAME }}
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -51,24 +49,26 @@ jobs:
         run: python -m pip install -Uq -e .
       - name: Build HTML pages with Sphinx
         run: sphinx-build --builder html --fail-on-warning --fresh-env --write-all $SOURCE_DIR $BUILD_DIR
-      - name: Remove symlinks from build output
-        run: find $BUILD_DIR -type l -delete
       - name: Upload built documentation as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: ${{ env.BUILD_DIR }}
-          retention-days: 14
 
   deploy:
     name: Deploy built website
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: production
-      url: ${{ steps.deploy-to-pages.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
         with:
           artifact_name: ${{ env.ARTIFACT_NAME }}
