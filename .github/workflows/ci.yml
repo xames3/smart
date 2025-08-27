@@ -144,7 +144,7 @@ jobs:
 
   build:
     name: Build website pages
-    needs: [prepare, lint, format, typecheck]
+    needs: [prepare, lint, format, typecheck, sphinxlint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
