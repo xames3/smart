@@ -4,7 +4,7 @@ SMART Sphinx Theme
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This module serves as the primary entry point for the SMART Sphinx
 Theme. It is responsible for initialising the theme, configuring its
@@ -34,13 +34,17 @@ event hooks for post-processing and dynamic content handling.
         custom CSS.
     [2] Override styles for `sphinx_docsearch` extension by using a
         custom CSS.
+
+.. versionchanged:: 27.8.2025
+
+    [1] Added support for `tagged` directive to overlay clickable
+        face tags on images.
 """
 
 from __future__ import annotations
 
 import inspect
 import os
-import types
 import typing as t
 
 import docutils.parsers.rst as rst
@@ -53,13 +57,16 @@ from theme.internal.utils import env_before_read_docs
 from theme.internal.utils import register_website_options
 from theme.internal.utils import remove_title_from_scrollspy
 
+
 if t.TYPE_CHECKING:
+    import types
+
     import docutils.nodes as nodes
     from sphinx.application import Sphinx
 
 logger = logging.getLogger(__name__)
 
-version: str = "21.2.2025"
+version: str = "27.8.2025"
 theme_name: t.Final[str] = "smart"
 theme_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "base")
 supported_extensions: t.Sequence[str] = (

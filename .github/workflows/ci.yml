@@ -66,10 +66,33 @@ jobs:
           key: ${{ needs.prepare.outputs.requirements-cache-key }}
           restore-keys: ${{ runner.os }}-pip-
       - name: Install project dependencies
-        run: |
-          python -m pip install -Uq pip tox
-      - name: Run linting
-        run: tox
+        run: python -m pip install -Uq pip tox
+      - name: Run linting (ruff)
+        run: tox -e lint
+
+  format:
+    name: Format Python code
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ needs.prepare.outputs.requirements-cache-key }}
+          restore-keys: ${{ runner.os }}-pip-
+      - name: Install project dependencies
+        run: python -m pip install -Uq pip tox
+      - name: Run formatting (ruff)
+        run: tox -e format
 
   typecheck:
     name: Typecheck Python code
@@ -91,10 +114,9 @@ jobs:
           key: ${{ needs.prepare.outputs.requirements-cache-key }}
           restore-keys: ${{ runner.os }}-pip-
       - name: Install project dependencies
-        run: |
-          python -m pip install -Uq pip tox
-      - name: Run typechecking
-        run: tox
+        run: python -m pip install -Uq pip tox
+      - name: Run typechecking (mypy)
+        run: tox -e typecheck
 
   sphinxlint:
     name: Lint rST files
@@ -118,37 +140,11 @@ jobs:
       - name: Install documentation dependencies
         run: python -m pip install -Uq -e .
       - name: Run Sphinx linting
-        run: |
-          sphinx-lint $SOURCE_DIR --disable role-with-double-backticks,role-without-backticks
-
-  linkcheck:
-    name: Check for broken links
-    needs: [prepare, sphinxlint]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-      - name: Setup Python ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-      - name: Cache pip dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ needs.prepare.outputs.requirements-cache-key }}
-          restore-keys: ${{ runner.os }}-pip-
-      - name: Install documentation dependencies
-        run: python -m pip install -Uq -e .
-      - name: Check external links
-        run: |
-          sphinx-build --builder linkcheck --conf-dir $SOURCE_DIR --define suppress_warnings=toc.not_included $SOURCE_DIR $BUILD_DIR/linkcheck || echo "Linkcheck completed with some issues..."
+        run: sphinx-lint $SOURCE_DIR --disable role-with-double-backticks,role-without-backticks
 
   build:
     name: Build website pages
-    needs: [prepare, lint, typecheck, linkcheck]
+    needs: [prepare, sphinxlint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

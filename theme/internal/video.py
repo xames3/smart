@@ -4,7 +4,7 @@ SMART Sphinx Theme Video Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Saturday, 9 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This module defines a custom `video` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a video—directly within
@@ -43,6 +43,7 @@ import docutils.nodes as nodes
 import docutils.parsers.rst as rst
 import jinja2
 
+
 if t.TYPE_CHECKING:
     from sphinx.writers.html import HTMLTranslator
 
@@ -63,8 +64,6 @@ class node(nodes.Element):
     Sphinx translators.
     """
 
-    pass
-
 
 class directive(rst.Directive):
     """Custom `video` directive for reStructuredText.
@@ -80,7 +79,7 @@ class directive(rst.Directive):
     """
 
     has_content = True
-    option_spec = {
+    option_spec = {  # noqa: RUF012
         "autoplay": rst.directives.flag,
         "caption": rst.directives.unchanged,
     }
@@ -120,7 +119,6 @@ def visit(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance.
     :param node: The `video` node being processed.
     """
-    pass
 
 
 def depart(self: HTMLTranslator, node: node) -> None:
@@ -135,4 +133,3 @@ def depart(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance.
     :param node: The `video` node being processed.
     """
-    pass

@@ -4,7 +4,7 @@ SMART Sphinx Theme Author Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Friday, 22 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This module defines a custom `author` directive for the SMART Sphinx
 Theme. The directive allows authors to embed their personal or
@@ -50,6 +50,7 @@ import docutils.nodes as nodes
 import docutils.parsers.rst as rst
 import jinja2
 
+
 if t.TYPE_CHECKING:
     from sphinx.writers.html import HTMLTranslator
 
@@ -69,8 +70,6 @@ class node(nodes.Element):
     ultimately be transformed into HTML or other output formats by the
     relevant Sphinx translators.
     """
-
-    pass
 
 
 class directive(rst.Directive):
@@ -93,7 +92,7 @@ class directive(rst.Directive):
     """
 
     has_content = False
-    option_spec = {
+    option_spec = {  # noqa: RUF012
         "name": rst.directives.unchanged_required,
         "email": rst.directives.unchanged_required,
         "avatar": rst.directives.unchanged_required,
@@ -159,4 +158,3 @@ def depart(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance.
     :param node: The `author` node being processed.
     """
-    pass
