@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Friday, 22 August 2025
+Last updated on: Wednesday, 27 August 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -49,6 +49,10 @@ teaching and learning platform.
     [1] Added support for `sphinx-notfound-page` extension to handle the
         404 pages. This extension is used to provide a better user
         experience when a page is not found.
+
+.. versionchanged:: 27.8.2025
+
+    [1] Configured `linkcheck` builder to ignore localhost links.
 """
 
 from __future__ import annotations
@@ -147,3 +151,7 @@ docsearch_missing_results_url: str = source + "/issues/new?title=${query}"
 copybutton_exclude: str = ".linenos, .gp, .go"
 copybutton_line_continuation_character: str = "\\"
 copybutton_selector: str = "div:not(.no-copybutton) > div.highlight > pre"
+
+linkcheck_ignore: list[str] = [r"https://localhost:\d+/"]
+linkcheck_timeout: int = 10
+linkcheck_retries: int = 2

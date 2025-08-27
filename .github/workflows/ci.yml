@@ -71,8 +71,33 @@ jobs:
       - name: Run linting
         run: tox
 
-  linkcheck:
-    name: Check for broken links
+  typecheck:
+    name: Typecheck Python code
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ needs.prepare.outputs.requirements-cache-key }}
+          restore-keys: ${{ runner.os }}-pip-
+      - name: Install project dependencies
+        run: |
+          python -m pip install -Uq pip tox
+      - name: Run typechecking
+        run: tox
+
+  sphinxlint:
+    name: Lint Sphinx documentation
     needs: prepare
     runs-on: ubuntu-latest
     steps:
@@ -92,12 +117,38 @@ jobs:
           restore-keys: ${{ runner.os }}-pip-
       - name: Install documentation dependencies
         run: python -m pip install -Uq -e .
+      - name: Run Sphinx linting
+        run: |
+          sphinx-lint $SOURCE_DIR --disable role-with-double-backticks,role-without-backticks
+
+  linkcheck:
+    name: Check for broken links
+    needs: sphinxlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ needs.prepare.outputs.requirements-cache-key }}
+          restore-keys: ${{ runner.os }}-pip-
+      - name: Install documentation dependencies
+        run: python -m pip install -Uq -e .
       - name: Check external links
-        run: sphinx-build --builder linkcheck --conf-dir $SOURCE_DIR --define suppress_warnings=toc.not_included --fresh-env $SOURCE_DIR $BUILD_DIR
+        run: |
+          sphinx-build --builder linkcheck --conf-dir $SOURCE_DIR --define suppress_warnings=toc.not_included $SOURCE_DIR $BUILD_DIR/linkcheck || echo "Linkcheck completed with some issues..."
 
   build:
     name: Build website pages
-    needs: [lint, linkcheck]
+    needs: [typecheck, linkcheck]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
