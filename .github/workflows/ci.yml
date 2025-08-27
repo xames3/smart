@@ -1,0 +1,61 @@
+# SMART Website Continuous Integration (CI) Workflow
+# =================================================
+#
+# Author: Akshay Mestry <xa@mes3.dev>
+# Created on: Tuesday, 26 August 2025
+# Last updated on: Tuesday, 26 August 2025
+
+name: integration
+run-name: Started continuous ${{ github.workflow }} (CD) workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  PYTHON_VERSION: "3.13.2"
+  DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
+  DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
+  DOCSEARCH_INDEX_NAME: ${{ secrets.DOCSEARCH_INDEX_NAME }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint Python code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install dependencies
+        run: |
+          python -m pip install -Uq pip tox
+      - name: Run linting
+        run: tox -p -qq
+  build:
+    name: Build website pages
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Setup Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install dependencies
+        run: python -m pip install -Uq -e .
+      - name: Build HTML pages with Sphinx
+        run: cd docs && make html
