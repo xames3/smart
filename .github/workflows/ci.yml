@@ -120,7 +120,7 @@ jobs:
 
   sphinxlint:
     name: Lint rST files
-    needs: [lint, format, typecheck]
+    needs: [lint, format, typecheck, prepare]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
