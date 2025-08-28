@@ -120,7 +120,7 @@ jobs:
 
   sphinxlint:
     name: Lint rST files
-    needs: [lint, format, typecheck, prepare]
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -144,7 +144,7 @@ jobs:
 
   build:
     name: Build website pages
-    needs: [sphinxlint, prepare]
+    needs: [prepare, sphinxlint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
