@@ -72,7 +72,7 @@ jobs:
 
   format:
     name: Format Python code
-    needs: [prepare, lint]
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -96,7 +96,7 @@ jobs:
 
   typecheck:
     name: Typecheck Python code
-    needs: [prepare, format]
+    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -120,7 +120,7 @@ jobs:
 
   sphinxlint:
     name: Lint rST files
-    needs: prepare
+    needs: [lint, format, typecheck]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -144,7 +144,7 @@ jobs:
 
   build:
     name: Build website pages
-    needs: [prepare, format, sphinxlint]
+    needs: [sphinxlint, prepare]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
