@@ -18,6 +18,11 @@ on:
       - "requirements.txt"
       - "pyproject.toml"
   pull_request:
+    paths:
+      - "docs/**"
+      - "theme/**"
+      - "requirements.txt"
+      - "pyproject.toml"
 
 env:
   BUILD_DIR: docs/build/
