@@ -47,11 +47,12 @@
 }
 
 .sd-tab-set {
+    justify-content: center;
     margin-top: 1.5rem
 }
 
 .sd-tab-content {
-    box-shadow: 0 -0.0625rem var(--sd-color-tabs-overline);
+    box-shadow: none;
     padding-top: 40px
 }
 
@@ -61,7 +62,7 @@
 
 .sd-tab-set>label {
     font-weight: 500;
-    padding: 1em 1.25em .5em 0;
+    color: hsl(var(--muted-foreground));
     font-size: .9rem;
     letter-spacing: .05em
 }
@@ -107,18 +108,57 @@ div.sd-summary-content.sd-card-body {
 .fas,
 .sd-octicon,
 .sd-material-icon {
-    vertical-align: text-bottom;
+    vertical-align: text-top;
     height: .9rem;
     margin-right: .25rem
 }
 
 .sd-tab-set>input:not(:checked)+label>svg,
 .sd-tab-set>input:not(:checked)+label>span {
-    opacity: 0.5;
+    opacity: 0.5
 }
 
 
 .sd-tab-set>input:checked+label>svg,
 .sd-tab-set>input:checked+label>span {
-    opacity: 1;
+    opacity: 1
+}
+
+.sd-tab-set input[type="radio"] {
+    display: none
+}
+
+.sd-tab-set input[type="radio"]:checked+.sd-tab-label {
+    color: hsl(var(--accent-foreground));
+    padding: 0.5rem 0.9rem
+}
+
+.sd-tab-label {
+    padding: 0.5rem 0.9rem !important;
+    background-color: hsl(var(--light-accent), 0.7);
+    cursor: pointer;
+    transition: all 0.5s var(--ease-in-out);
+    border-top: 4px solid hsl(var(--border)) !important;
+    border-bottom: 4px solid hsl(var(--border)) !important;
+    border-right: 0;
+    border-left: 0
+}
+
+.sd-tab-label:first-of-type {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-left: 4px solid hsl(var(--border)) !important;
+    border-right: 0
+}
+
+.sd-tab-label:last-of-type {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-right: 4px solid hsl(var(--border)) !important;
+    border-left: 0
+}
+
+.sd-tab-label:hover {
+    background-color: hsl(var(--light-accent));
+    color: hsl(var(--foreground));
 }

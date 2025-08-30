@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Saturday, 23 August 2025
+.. Last updated on: Friday, 29 August 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -152,7 +152,7 @@ yet to cross my path.
 
 .. _cast-antonio-tovar:
 
-Antonio Tovar |new|
+Antonio Tovar
 ===============================================================================
 
 `Dr. Tovar <https://www.linkedin.com/in/antoniotovar>`_, I first met you at NLU
@@ -200,7 +200,7 @@ Cheers for being such a "legend", mate!
 
 .. _cast-fatemeh-taghvaei:
 
-Fatemeh Taghvaei |new|
+Fatemeh Taghvaei
 ===============================================================================
 
 **Fatemeh**, our paths crossed thanks to :ref:`Dr. Tovar <cast-antonio-tovar>`
@@ -301,7 +301,7 @@ Join Chicago Code and Coffee's `Discord`_.
 
 .. _cast-judy-cazares:
 
-Judy Cazares |new|
+Judy Cazares
 ===============================================================================
 
 `Judy <https://www.linkedin.com/in/judyc-data>`_, I first met you in 2024 at
@@ -401,7 +401,7 @@ found a mentor in you, and I know our bond will only grow stronger.
 
 .. _cast-young-song:
 
-Young Song |new|
+Young Song
 ===============================================================================
 
 `Young <https://www.linkedin.com/in/youngsong-us/>`_, our friendship began in
