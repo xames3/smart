@@ -21,6 +21,14 @@
     --code-background: 0, 0%, 100%;
     --pre-shadow: 0, 0%, 83.92%;
     --highlight: 209.55 100% 94%;
+    --danger-admonition-background: 0, 62.48%, 80.01%;
+    --danger-admonition-foreground: 5.6, 69.49%, 45.14%;
+    --tip-admonition-background: 98.86, 39.38%, 66.18%;
+    --tip-admonition-foreground: 123.11, 91.39%, 29%;
+    --warning-admonition-background: 28.89, 92.66%, 86.38%;
+    --warning-admonition-foreground: 34.59, 100%, 43.75%;
+    --seealso-admonition-background: 204, 80.79%, 81.78%;
+    --seealso-admonition-foreground: 202.04, 80.33%, 23.92%;
     --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
     --ease-in-out: cubic-bezier(0, 0, 0.2, 1);
     --duration-fast: 150ms;
@@ -43,6 +51,14 @@ html[data-theme="dark"] {
     --code-background: 0, 0%, 4%;
     --pre-shadow: 0 0% 12%;
     --highlight: 211.25, 97.96%, 19.22%;
+    --danger-admonition-background: 0, 54.44%, 12.95%;
+    --danger-admonition-foreground: 5.6, 76.17%, 55.94%;
+    --tip-admonition-background: 98.86, 39.37%, 16.5%;
+    --tip-admonition-foreground: 123.11, 76.59%, 72.23%;
+    --warning-admonition-background: 28.89, 100%, 10.59%;
+    --warning-admonition-foreground: 34.59, 100%, 50%;
+    --seealso-admonition-background: 198.63, 88.66%, 48.43%;
+    --seealso-admonition-foreground: 200.6, 94.37%, 86.08%;
     --box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0px 1px 1px rgba(255, 255, 255, 0.04), 0px 8px 8px -8px rgba(255, 255, 255, 0.04);
     --card: 0 0% 0%
 }
@@ -283,9 +299,39 @@ samp {
         margin-bottom: 0.3rem !important
     }
 
-    .admonition.note::before {
+    .admonition.danger::before,
+    .admonition.attention::before,
+    .admonition.caution::before,
+    .admonition.error::before,
+    .admonition.hint::before,
+    .admonition.important::before,
+    .admonition.seealso::before,
+    .admonition.tip::before,
+    .admonition.warning::before,
+    .admonition.note::before,
+    .admonition.unusual-one::after {
         top: auto !important;
         transform: none !important
+    }
+
+    .sd-tab-set {
+        gap: 0.15rem
+    }
+
+    .sd-tab-label {
+        padding: 0.5rem 1rem !important;
+        border-radius: 0.5rem;
+        border: 4px solid hsl(var(--border)) !important
+    }
+
+    .sd-tab-label:first-of-type {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem
+    }
+
+    .sd-tab-label:last-of-type {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem
     }
 
 }
@@ -484,9 +530,10 @@ a.headerlink {
 .highlighted,
 #content a:not(.toc-backref) {
     text-decoration-line: underline;
-    text-decoration-color: hsl(var(--foreground) / 0.4);
+    text-decoration-color: hsl(var(--foreground) / 0.25);
+    text-underline-offset: 2px;
     font-weight: inherit;
-    color: hsl(var(--link))
+    color: inherit
 }
 
 .highlighted:hover,
@@ -547,6 +594,11 @@ h6:hover>a.headerlink:before {
     color: hsl(var(--accent-foreground))
 }
 
+#left-sidebar a,
+#right-sidebar ul li a {
+    transition-duration: .5s
+}
+
 #left-sidebar a.expandable {
     padding-right: 0
 }
@@ -569,7 +621,7 @@ header {
 }
 
 code {
-    background-color: hsl(var(--light-accent));
+    background-color: hsl(var(--muted));
     font-size: 0.9em;
     font-weight: 400;
     line-height: inherit;
@@ -579,7 +631,7 @@ code {
     word-break: break-word;
     margin: 0;
     background-clip: padding-box;
-    border: 1px solid hsl(var(--border));
+    border: 1px solid hsl(var(--muted-foreground)/0.3);
     padding: 2px 4px;
     border-radius: 0.25rem;
     transition: transform var(--duration-fast) var(--ease-in-out)
@@ -778,6 +830,10 @@ i {
     bottom: 13rem
 }
 
+.admonition p:not(.admonition-title) {
+    margin-top: 0
+}
+
 .admonition {
     background-color: hsl(var(--light-accent));
     border-color: transparent;
@@ -790,18 +846,89 @@ i {
     padding: 1rem 1.5rem
 }
 
-.tip:is(.dark *),
+.admonition-title {
+    margin-bottom: 0.5rem
+}
+
 .note:is(.dark *) {
     background-color: hsl(var(--light-accent));
     color: hsl(var(--accent-foreground))
 }
 
-.admonition.note {
+.seealso {
+    background-color: hsl(var(--seealso-admonition-background), 0.3);
+    color: hsl(var(--seealso-admonition-foreground))
+}
+
+.seealso:is(.dark *) {
+    background-color: hsl(var(--seealso-admonition-background), 0.1);
+    color: hsl(var(--seealso-admonition-foreground))
+}
+
+.tip,
+.hint {
+    background-color: hsl(var(--tip-admonition-background), 0.4);
+    color: hsl(var(--tip-admonition-foreground))
+}
+
+.tip:is(.dark *),
+.hint:is(.dark *) {
+    background-color: hsl(var(--tip-admonition-background), 0.35);
+    color: hsl(var(--tip-admonition-foreground))
+}
+
+.error,
+.danger {
+    background-color: hsl(var(--danger-admonition-background), 0.4);
+    color: hsl(var(--danger-admonition-foreground))
+}
+
+.error:is(.dark *),
+.danger:is(.dark *) {
+    background-color: hsl(var(--danger-admonition-background), 0.5);
+    color: hsl(var(--danger-admonition-foreground))
+}
+
+.warning,
+.caution,
+.important,
+.attention {
+    background-color: hsl(var(--warning-admonition-background), 0.5);
+    color: hsl(var(--warning-admonition-foreground))
+}
+
+.warning:is(.dark *),
+.caution:is(.dark *),
+.important:is(.dark *),
+.attention:is(.dark *) {
+    background-color: hsl(var(--warning-admonition-background), 0.6);
+    color: hsl(var(--warning-admonition-foreground))
+}
+
+.admonition.attention,
+.admonition.caution,
+.admonition.error,
+.admonition.hint,
+.admonition.important,
+.admonition.note,
+.admonition.seealso,
+.admonition.tip,
+.admonition.warning,
+.admonition.danger {
     position: relative;
     padding-left: 3rem
 }
 
-.admonition.note>.admonition-title {
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.hint>.admonition-title,
+.admonition.important>.admonition-title,
+.admonition.note>.admonition-title,
+.admonition.seealso>.admonition-title,
+.admonition.tip>.admonition-title,
+.admonition.warning>.admonition-title,
+.admonition.danger>.admonition-title {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -813,7 +940,16 @@ i {
     border: 0
 }
 
-.admonition.note::before {
+.admonition.attention::before,
+.admonition.caution::before,
+.admonition.error::before,
+.admonition.hint::before,
+.admonition.important::before,
+.admonition.note::before,
+.admonition.seealso::before,
+.admonition.tip::before,
+.admonition.warning::before,
+.admonition.danger::before {
     content: "\f05a";
     font: var(--fa-font-regular);
     position: absolute;
@@ -830,8 +966,66 @@ i {
     pointer-events: none
 }
 
-.admonition.note p:not(.admonition-title) {
+.admonition.attention p:not(.admonition-title),
+.admonition.caution p:not(.admonition-title),
+.admonition.error p:not(.admonition-title),
+.admonition.hint p:not(.admonition-title),
+.admonition.important p:not(.admonition-title),
+.admonition.note p:not(.admonition-title),
+.admonition.seealso p:not(.admonition-title),
+.admonition.tip p:not(.admonition-title),
+.admonition.warning p:not(.admonition-title),
+.admonition.danger p:not(.admonition-title) {
     margin-top: 0
+}
+
+.admonition.danger::before {
+    content: "\f714";
+    color: hsl(var(--danger-admonition-foreground))
+}
+
+.admonition.error::before {
+    content: "\f188";
+    color: hsl(var(--danger-admonition-foreground))
+}
+
+.admonition.warning::before,
+.admonition.caution::before,
+.admonition.important::before,
+.admonition.attention::before {
+    content: "\f071";
+    color: hsl(var(--warning-admonition-foreground))
+}
+
+.admonition.tip::before,
+.admonition.hint::before {
+    content: "\f0eb";
+    color: hsl(var(--tip-admonition-foreground))
+}
+
+.admonition.seealso::before {
+    content: "\f57d";
+    color: hsl(var(--seealso-admonition-foreground))
+}
+
+.admonition.unusual-one::before {
+    display: none
+}
+
+.admonition.unusual-one {
+    padding-left: 1.5rem
+}
+
+.admonition.unusual-one p:not(.admonition-title) {
+    margin-top: 2rem
+}
+
+.admonition.unusual-one>.admonition-title {
+    position: absolute;
+    width: auto !important;
+    height: auto !important;
+    clip: auto;
+    border: 0
 }
 
 #left-sidebar ul ul:is(.dark *):before {

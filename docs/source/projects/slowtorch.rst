@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 18 2025
-.. Last updated on: Saturday, 23 August 2025
+.. Last updated on: Saturday, 30 August 2025
 
 :og:title: PyTorch... But Slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -110,7 +110,8 @@ whether it :py:attr:`requires gradients <torch.Tensor.requires_grad>` or not.
 
 .. note::
 
-    Complete implementation of |storch.tensor.repr|_ with helper functions.
+    Complete implementation of SlowTorch's |storch.tensor|_ with helper
+    functions.
 
 .. _walking-backwards:
 
@@ -157,7 +158,6 @@ more structured way.
 
 .. code-block:: python
     :caption: :octicon:`file-code` `slowtorch/internal/tensor.py`_
-    :linenos:
     :emphasize-lines: 19-21
 
     class Tensor:
@@ -194,9 +194,8 @@ long hike, pausing at each fork to remember which way you came.
 .. figure:: ../assets/media/shawshank-success-meme.gif
     :alt: Shawshank Redemption escape scene meme
 
-    This was me when I finally got my backward pass working in SlowTorch and
-    could compute gradients for tensors. It's a subtle nod to the scene from
-    *The Shawshank Redemption*
+    This was me when I finally got my backward pass working and could compute
+    gradients for tensors
 
 Long story short... I had built a simple autograd engine that could handle
 basic operations like addition, multiplication, and even more complex ones like
@@ -217,7 +216,7 @@ working!!
 .. _building-the-building-blocks:
 
 -------------------------------------------------------------------------------
-Building the building blocks |new|
+Building the building blocks
 -------------------------------------------------------------------------------
 
 Once my tensor with autodiff support was in place, I turned my attention to
@@ -266,7 +265,6 @@ wrapped around classes much like PyTorch.
         .. code-block:: python
             :caption: :octicon:`file-code` `slowtorch/nn/functional/layer.py`_
             :emphasize-lines: 2,9-10
-            :linenos:
 
             def linear(input, weight, bias=None):
                 new_tensor = input @ weight.T
@@ -334,7 +332,6 @@ wrapped around classes much like PyTorch.
         .. code-block:: python
             :caption: :octicon:`file-code`
                 `slowtorch/nn/functional/pointwise.py`_
-            :linenos:
             :emphasize-lines: 10,13,19
 
             def sigmoid(input):
@@ -406,7 +403,6 @@ wrapped around classes much like PyTorch.
         .. code-block:: python
             :caption: :octicon:`file-code` `slowtorch/nn/functional/loss.py`_
             :emphasize-lines: 2,14-16
-            :linenos:
 
             def mse_loss(input, target, reduction="mean"):
                 loss = (input - target) ** 2
@@ -472,7 +468,6 @@ wrapped around classes much like PyTorch.
             :caption: :octicon:`file-code`
                 `slowtorch/nn/functional/mutation.py`_
             :emphasize-lines: 3,7
-            :linenos:
 
             def ravel(input):
                 new_tensor = Tensor(input.nelement(), input.dtype)
@@ -486,7 +481,7 @@ wrapped around classes much like PyTorch.
                 new_tensor.grad_fn.inputs = (input,)
                 return new_tensor
 
-    .. tab-item:: :octicon:`sliders;1em;sd-text-info` Parameter |new|
+    .. tab-item:: :octicon:`sliders;1em;sd-text-info` Parameter
 
         `Parameters`_ were just tensors with a flag indicating whether they
         required gradients. For example, below is a minimal implementation of a
@@ -494,7 +489,6 @@ wrapped around classes much like PyTorch.
 
         .. code-block:: python
             :caption: :octicon:`file-code` `slowtorch/nn/modules/parameter.py`_
-            :linenos:
 
             class Parameter(Tensor):
 
@@ -540,7 +534,7 @@ mistakes, learning from them, and adjusting my gradients...
 .. _joy-of-manual-optimisation:
 
 -------------------------------------------------------------------------------
-Joy of manual optimisation |new|
+Joy of manual optimisation
 -------------------------------------------------------------------------------
 
 With some of my neural network modules in place, I moved on to building my
@@ -548,12 +542,11 @@ optimiser, which presented another challenge. PyTorch's optimisers are elegant
 and efficient, but I wanted to understand their mechanics. I implemented a
 simple optimiser, manually updating its parameters step by step. Once I was
 happy with my optimiser, I wrote a basic |storch.optim.Optimiser|_ class that
-took a list of parameters and a learning rate, and it had an ``.step()``
+took a list of parameters and a learning rate, and it had an :python:`.step()`
 method that updated the parameters based on their gradients.
 
 .. code-block:: python
     :caption: :octicon:`file-code` `slowtorch/optim/optimiser.py`_
-    :linenos:
 
     class Optimiser:
 
@@ -579,12 +572,12 @@ their gradients.
 .. note::
 
     Check out SlowTorch's |storch.optim.Optimiser|_ and |storch.optim.SGD|_ for
-    more thorough implementation details.
+    proper implementation details.
 
 .. _embracing-slowness-as-a-virtue:
 
 -------------------------------------------------------------------------------
-Embracing slowness as a virtue |new|
+Embracing slowness as a virtue
 -------------------------------------------------------------------------------
 
 As more time passed while building SlowTorch, I realised the hardest part

@@ -361,7 +361,5 @@ $(window).scroll(function () {
     }
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initPlaceholderAnimation);
-    } else {
-        initPlaceholderAnimation();
     }
 })();

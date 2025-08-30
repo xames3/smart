@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Saturday, 23 August 2025
+.. Last updated on: Saturday, 30 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -36,7 +36,6 @@ simple. However, beneath this simplicity, a few questions began to gnaw at me.
 So, I found myself experimenting with a simple code, nothing fancy.
 
 .. code-block:: python
-    :linenos:
 
     a = np.array([[1, 2], [3, 4]])
     b = np.array([[5, 6], [7, 8]])
@@ -47,9 +46,9 @@ answer, I asked myself a bunch of questions. Like why was I even using
 :func:`np.dot <numpy.dot>` when I could've used
 :py:data:`np.matmul <numpy.matmul>`, which feels more appropriate? And if
 :func:`np.dot <numpy.dot>` indeed performs matrix multiplication, then what's
-the deal with the :meth:`@ <object.__matmul__>` operator? Why are there three
-different ways to perform matrix multiplication, and if so, which one's the
-best?
+the deal with the :python:`a @ b` (:meth:`@ <object.__matmul__>` operator)? Why
+are there three different ways to perform matrix multiplication, and if so,
+which one's the best?
 
 .. _building-with-a-purpose:
 
@@ -118,7 +117,6 @@ wasn't pretty, but it worked.
 
 .. code-block:: python
     :caption: :octicon:`file-code` `xsnumpy/_core.py`_
-    :linenos:
 
     class ndarray:
 
@@ -185,17 +183,22 @@ a :py:class:`tuple`. Then, I converted the shape into a tuple of
 array.
 
 .. code-block:: python
-    :linenos:
 
-        if not isinstance(shape, Iterable):
-            shape = (shape,)
-        self._shape = tuple(int(dim) for dim in shape)
+    if not isinstance(shape, Iterable):
+        shape = (shape,)
+    self._shape = tuple(int(dim) for dim in shape)
 
 Next up, the ``dtype`` (short for data type). If you didn't provide it, the
 constructor would default it to :py:obj:`None`. If a :py:class:`float` or an
 :py:class:`int` is provided, it dynamically retrieves the appropriate data
 type from the global namespace using :func:`globals`. This nifty trick meant I
 could dynamically fetch whatever data type you fancied.
+
+.. code-block:: python
+
+    if dtype is None:
+        dtype = globals()[dtype]
+    self._dtype = dtype
 
 Right, on to the ``buffer``. If no ``buffer`` was provided, the array was
 initialised without an external memory buffer. In this case the ``offset`` must
@@ -204,15 +207,14 @@ calculate the `strides`_, which, put simply, are just the number of bytes
 between consecutive elements in memory.
 
 .. code-block:: python
-    :linenos:
 
-        if buffer is None:
-            self._base = None
-            if self._offset != 0:
-                raise ValueError("Offset must be 0 when buffer is None")
-            if strides is not None:
-                raise ValueError("Buffer is None; strides must be None")
-            self._strides = calc_strides(self._shape, self.itemsize)
+    if buffer is None:
+        self._base = None
+        if self._offset != 0:
+            raise ValueError("Offset must be 0 when buffer is None")
+        if strides is not None:
+            raise ValueError("Buffer is None; strides must be None")
+        self._strides = calc_strides(self._shape, self.itemsize)
 
 But what if a buffer was provided?
 
@@ -220,18 +222,17 @@ Well, then it got a bit trickier. It used the base buffer and the strides were
 either given directly or calculated.
 
 .. code-block:: python
-    :linenos:
     :emphasize-lines: 8
 
-        else:
-            if isinstance(buffer, ndarray) and buffer.base is not None:
-                buffer = buffer.base
-            self._base = buffer
-            if isinstance(buffer, ndarray):
-                buffer = buffer.data
-            if strides is None:
-                strides = calc_strides(self._shape, self.itemsize)
-            self._strides = tuple(strides)
+    else:
+        if isinstance(buffer, ndarray) and buffer.base is not None:
+            buffer = buffer.base
+        self._base = buffer
+        if isinstance(buffer, ndarray):
+            buffer = buffer.data
+        if strides is None:
+            strides = calc_strides(self._shape, self.itemsize)
+        self._strides = tuple(strides)
 
 Finally, calculating the total ``buffer`` size. This was worked out using the
 strides, shape, and item size. The ``buffer`` itself was a type derived from
@@ -257,7 +258,6 @@ Little did I know, I was shooting myself in the foot. At its core, a
 I started with something simple, and it worked for scalars and 1D arrays.
 
 .. code-block:: python
-    :linenos:
 
     def __repr__(self):
         return f"array({self._data}, dtype={str(self.dtype)})"
@@ -267,7 +267,6 @@ printed everything as a flat list. I realised I hadn't accounted for the rows
 and columns. No problem, I updated the code and it worked!
 
 .. code-block:: python
-    :linenos:
 
     def __repr__(self):
         if self.ndim == 1:
@@ -314,7 +313,6 @@ first few test cases. But, as always, the system collapsed almost immediately
 for higher-dimensional vectors.
 
 .. code-block:: python
-    :linenos:
     :emphasize-lines: 4,11
 
     def __add__(self, other):
@@ -597,9 +595,9 @@ tour, without the scaffolding, to show what it already does well.
 
         - **Slicing**
 
-          Slicing allows you to extract subarrays using a ``start:stop:step``
-          format. Just like NumPy, xsNumPy supports all the classic slicing
-          mechanics.
+          Slicing allows you to extract subarrays using a
+          :python:`a[start:stop:step]` format. Just like NumPy, xsNumPy
+          supports almost all the classic slicing mechanics.
 
           .. code-block:: python
 
@@ -746,13 +744,13 @@ by making them, and that learning will travel with me far beyond this code.
 .. |xp.arange| replace:: ``arange``
 .. _xp.arange: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_numeric.py
-.. |xp.ndarray.reshape| replace:: ``ndarray.reshape``
+.. |xp.ndarray.reshape| replace:: ``reshape``
 .. _xp.ndarray.reshape: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
-.. |xp.ndarray.transpose| replace:: ``ndarray.transpose``
+.. |xp.ndarray.transpose| replace:: ``transpose``
 .. _xp.ndarray.transpose: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
-.. |xp.ndarray.flatten| replace:: ``ndarray.flatten``
+.. |xp.ndarray.flatten| replace:: ``flatten``
 .. _xp.ndarray.flatten: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
 .. |xp.sum| replace:: ``sum``
