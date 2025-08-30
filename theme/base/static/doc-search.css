@@ -28,6 +28,10 @@
     cursor: pointer
 }
 
+.DocSearch-Button-Container {
+    width: 83%
+}
+
 .DocSearch-Button svg {
     height: 1rem;
     width: 1rem;
@@ -50,8 +54,42 @@
     color: hsl(var(--muted-foreground))
 }
 
+.DocSearch-Button-Keys {
+    min-width: auto;
+}
+
 .DocSearch-Button-Key {
-    display: none
+    background: hsl(var(--light-accent));
+    border-radius: 0.25rem;
+    color: hsl(var(--accent-foreground));
+    margin-right: 0;
+    position: relative;
+    border: 1px solid hsl(var(--border));
+    width: 18px;
+    box-shadow: none;
+    padding: 0;
+    top: 0
+}
+
+.DocSearch-Button-Key:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    padding-top: 2px;
+    padding-left: 0.35rem
+}
+
+.DocSearch-Button-Key:last-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: none;
+    font-size: 0.7rem;
+    padding-right: 0.3rem
+}
+
+.cls-1,
+.cls-2 {
+    fill: hsl(var(--foreground)) !important
 }
 
 .DocSearch-Button-Placeholder {
@@ -59,6 +97,13 @@
     font-size: 0.85rem;
     font-family: "Geist Mono", monospace;
     padding-left: 0.5rem;
+    padding-top: 0.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.4;
+    width: 80%;
+    text-align: left;
     text-decoration-line: none !important
 }
 
