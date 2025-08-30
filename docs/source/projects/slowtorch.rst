@@ -85,7 +85,8 @@ It's basically the :class:`ndarray <numpy.ndarray>` equivalent of PyTorch. Much
 of the initial work in building the tensor class was similar to what I had done
 with xsNumPy, as :ref:`discussed here <crafting-my-first-array>`.
 
-.. admonition:: :fas:`sparkles;sd-text-warning` Quick analogy
+.. admonition:: :fas:`sparkles` Quick analogy
+    :class: unusual-one tip
 
     To put it simply, if arrays were like egg cartons, tensors were like egg
     trays. Stacked in a way that you could easily access any egg (element) in
@@ -108,7 +109,7 @@ like :py:attr:`shape <torch.Tensor.shape>`,
 :py:attr:`device <torch.Tensor.device>`, :py:class:`dtype <torch.dtype>`, and
 whether it :py:attr:`requires gradients <torch.Tensor.requires_grad>` or not.
 
-.. note::
+.. seealso::
 
     Complete implementation of SlowTorch's |storch.tensor|_ with helper
     functions.
@@ -135,7 +136,8 @@ meticulously track every operation, parent, and child tensor, resulting in a
 code resembling a family tree. But Andrej's video made me realise that I was
 overcomplicating things and I reworked on my implementation... slowly.
 
-.. admonition:: :fas:`sparkles;sd-text-warning` Inspiration
+.. admonition:: :fas:`sparkles` Inspiration
+    :class: unusual-one danger
 
     My guru, `Andrej Karpathy <https://karpathy.ai>`_, had explained this
     concept in much detail in his video where he builds
@@ -204,7 +206,8 @@ tensors with respect to a loss function, and it felt like I had finally
 understood the magic behind PyTorch's autodiff and my small autograd engine was
 working!!
 
-.. admonition:: :octicon:`heart-fill;1em;sd-text-danger` Special shoutout
+.. admonition:: :octicon:`heart-fill` Special shoutout
+    :class: unusual-one tip
 
     I want to give a special shoutout to my colleague,
     :ref:`Fatemeh Taghvaei <cast-fatemeh-taghvaei>` for her patience and late
@@ -234,7 +237,7 @@ wrapped around classes much like PyTorch.
 
 .. tab-set::
 
-    .. tab-item:: :octicon:`stack;1em;sd-text-primary` Layers
+    .. tab-item:: Layers
 
         `Layers`_ were implemented as functions that took tensors as ``input``
         and returned new tensors with the layer transformation applied (forward
@@ -283,7 +286,7 @@ wrapped around classes much like PyTorch.
                 new_tensor.grad_fn.inputs = (input, weight, bias)
                 return new_tensor
 
-    .. tab-item:: :octicon:`graph;1em;sd-text-warning` Activations
+    .. tab-item:: Activations
 
         `Activation functions`_ were implemented as simple functions that took
         a tensor as ``input`` and returned a new tensor with the activation
@@ -358,7 +361,7 @@ wrapped around classes much like PyTorch.
                 new_tensor.grad_fn.inputs = (input,)
                 return new_tensor
 
-    .. tab-item:: :octicon:`issue-reopened;1em;sd-text-danger` Losses
+    .. tab-item:: Losses
 
         `Loss functions`_ were implemented as functions that took two tensors,
         ``input`` and ``target``, and returned a new tensor representing the
@@ -425,7 +428,7 @@ wrapped around classes much like PyTorch.
                 new_tensor.grad_fn.inputs = (input, target)
                 return new_tensor
 
-    .. tab-item:: :octicon:`pivot-column;1em;sd-text-success` Transforms
+    .. tab-item:: Transforms
 
         `Transformations`_ were implemented as functions that took a tensor as
         ``input`` and returned a new tensor with the transformation applied
@@ -481,7 +484,7 @@ wrapped around classes much like PyTorch.
                 new_tensor.grad_fn.inputs = (input,)
                 return new_tensor
 
-    .. tab-item:: :octicon:`sliders;1em;sd-text-info` Parameter
+    .. tab-item:: Parameter
 
         `Parameters`_ were just tensors with a flag indicating whether they
         required gradients. For example, below is a minimal implementation of a
@@ -514,7 +517,8 @@ wrapped around classes much like PyTorch.
                         raise TypeError("Parameter data must be a tensor")
                     self.storage[:] = value.storage
 
-.. admonition:: :octicon:`heart-fill;1em;sd-text-danger` Massive thanks
+.. admonition:: :octicon:`heart-fill` Massive thanks
+    :class: unusual-one warning
 
     I want to thank my friends, :ref:`Sameer <cast-sameer-g-mathad>` and
     `Lucas Yong <https://www.linkedin.com/in/lucas-yong>`_ for their invaluable
@@ -569,7 +573,7 @@ the training process. Finally, I implemented my own version of the
 optimiser, which was a simple yet effective way to update parameters based on
 their gradients.
 
-.. note::
+.. seealso::
 
     Check out SlowTorch's |storch.optim.Optimiser|_ and |storch.optim.SGD|_ for
     proper implementation details.
