@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 22 February 2025
-.. Last updated on: Sunday, 17 August 2025
+.. Last updated on: Friday, 29 August 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -69,8 +69,8 @@ highlights include:
   `NumPy`_ and `PyTorch`_, built to simplify complex concepts for learners and
   researchers.
 
-  Read the journeys of building :doc:`xsNumPy <projects/xsnumpy>` and
-  :doc:`SlowTorch <projects/slowtorch>` |chvrn|
+  Read my stories of building :doc:`xsNumPy <projects/xsnumpy>` and
+  :doc:`SlowTorch <projects/slowtorch>` |>|
 
 - **Reinforcement Learning.** `Snake game <https://gist.github.com/xames3/
   563c99598c2aa1dd84e3c9494b648063>`_ including the environment built in

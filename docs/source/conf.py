@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Wednesday, 27 August 2025
+Last updated on: Friday, 29 August 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -53,6 +53,9 @@ teaching and learning platform.
 .. versionchanged:: 27.8.2025
 
     [1] Configured `linkcheck` builder to ignore localhost links.
+    [2] Added support for showing the last updated date just above the
+        footer. This is done using the `website_options` configuration
+        option `last_updated_body`.
 """
 
 from __future__ import annotations
@@ -109,6 +112,7 @@ website_documentation: str = source
 website_options: dict[str, t.Any] = {
     "add_copy_to_headerlinks": True,
     "last_updated": False,
+    "last_updated_body": last_updated,
     "open_links_in_new_tab": True,
     "show_sphinx": False,
 }
