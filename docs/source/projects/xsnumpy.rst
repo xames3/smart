@@ -96,7 +96,8 @@ is a cheeky little wrapper for the :class:`np.ndarray <numpy.ndarray>` class.
 That's where I decided to start, implementing my own |xp.ndarray|_ data
 structure.
 
-.. admonition:: :fas:`sparkles;sd-text-warning` Quick analogy
+.. admonition:: :fas:`sparkles` Quick analogy
+    :class: unusual-one tip
 
     If you're new to arrays, think of them as egg cartons, each slot holds an
     egg, and the shape of the carton tells you how many eggs you've got. Where
@@ -165,7 +166,7 @@ wasn't pretty, but it worked.
             else:
                 self._data = Buffer.from_buffer(buffer)
 
-.. note::
+.. attention::
 
     I've intentionally removed a lot of details to keep things simple. Check
     out the complete implementation of |xp.ndarray|_ on GitHub.
@@ -291,7 +292,7 @@ often hides massive complexity underneath.
 
 And so, I realised, printing a NumPy array from scratch was a rabbit hole!!
 
-.. note::
+.. seealso::
 
     Complete implementation of |xp.ndarray.repr|_ with helper functions.
 
@@ -353,7 +354,7 @@ documentation, reading about the `Generalised Matrix Multiplication (GEMM)
 dl-performance-matrix-multiplication/index.html>`_ routines and how
 broadcasting affects the output shapes.
 
-.. note::
+.. seealso::
 
     Complete implementation of `arithmetic operations
     <https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py>`_ on GitHub.
@@ -399,7 +400,7 @@ tour, without the scaffolding, to show what it already does well.
 
 .. tab-set::
 
-    .. tab-item:: :octicon:`duplicate;1em;sd-text-success` Creations
+    .. tab-item:: Creations
 
         xsNumPy provides familiar ways to create arrays. These creation
         routines are consistent, predictable, and designed to slot neatly into
@@ -452,14 +453,13 @@ tour, without the scaffolding, to show what it already does well.
               >>> xp.arange(0, 5, 0.5)
               array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5])
 
-        .. note::
+        .. seealso::
 
-            Check out the complete list of array
-            `creation <https://github.com/xames3/xsnumpy?
-            tab=readme-ov-file#array-creation-routines>`_ methods supported by
-            xsNumPy on GitHub.
+            Check out all of array `creation <https://github.com/xames3/
+            xsnumpy?tab=readme-ov-file#array-creation-routines>`_ methods
+            supported by xsNumPy on GitHub.
 
-    .. tab-item:: :octicon:`diff;1em;sd-text-warning` Operations
+    .. tab-item:: Operations
 
         xsNumPy provides a range of arithmetic operations, carefully adhering
         to NumPy's rules for broadcasting and type coercion. The emphasis is on
@@ -518,21 +518,21 @@ tour, without the scaffolding, to show what it already does well.
               >>> xp.array([3, 4]) + 10
               array([13, 14])
 
-        .. note::
+        .. seealso::
 
-            Check out more examples of the arithmetic
+            Check out examples of the arithmetic
             `operations <https://github.com/xames3/xsnumpy?
             tab=readme-ov-file#linear-algebra>`_ supported by xsNumPy on
             GitHub.
 
-    .. tab-item:: :octicon:`pivot-column;1em;sd-text-primary` Transforms
+    .. tab-item:: Transforms
 
         xsNumPy provides essential shape manipulation APIs that are predictable
         and memory-aware. The emphasis is on clarity of intent and avoiding
         unnecessary data duplication. Think of this as learning to fold and
         unfold the same fabric without tearing it.
 
-        .. note::
+        .. tip::
 
             Read more about `NumPy internals`_ here.
 
@@ -572,11 +572,17 @@ tour, without the scaffolding, to show what it already does well.
               >>> a.flatten()
               array([1, 2, 3, 4, 5, 6])
 
-    .. tab-item:: :octicon:`list-ordered;1em;sd-text-info` Indexing
+    .. tab-item:: Indexing
 
         Indexing is expressive and disciplined in xsNumPy, just like NumPy. The
         goal is to provide intuitive access to elements and subarrays while
         maintaining clarity about the underlying data structure.
+
+        .. attention::
+
+            Indexing and slicing were implemented by overridding the standard
+            :meth:`__getitem__ <object.__getitem__>`  and
+            :meth:`__setitem__ <object.__setitem__>`  protocols.
 
         - **Basic indexing**
 
@@ -618,17 +624,14 @@ tour, without the scaffolding, to show what it already does well.
               >>> a[a % 2 == 0]
               array([1, 2, 3])
 
-        .. note::
+        .. seealso::
 
-            Indexing and slicing were implemented by overridding the standard
-            :meth:`__getitem__ <object.__getitem__>`  and
-            :meth:`__setitem__ <object.__setitem__>`  protocols. Check out the
-            complete implementation
+            Check out the complete implementation
             `here <https://github.com/xames3/xsnumpy/blob/
             69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py>`_
             on GitHub.
 
-    .. tab-item:: :octicon:`sort-desc;1em;sd-text-danger` Reductions
+    .. tab-item:: Reductions
 
         Reductions condense information carefully, preserving the essence of
         the data. xsNumPy provides a few key reduction operations that are
@@ -726,7 +729,7 @@ by making them, and that learning will travel with me far beyond this code.
 .. |xp.ndarray| replace:: ``ndarray``
 .. _xp.ndarray: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
-.. |xp.ndarray.repr| replace:: ``ndarray.__repr__``
+.. |xp.ndarray.repr| replace:: ``__repr__``
 .. _xp.ndarray.repr: https://github.com/xames3/xsnumpy/blob/
     69c302ccdd594f1d8f0c51dbe16346232c39047f/xsnumpy/_core.py
 .. |xp.array| replace:: ``array``
