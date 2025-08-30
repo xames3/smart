@@ -343,7 +343,7 @@ $(window).scroll(function () {
                 input.textContent = currentText;
                 if (charIndex > fullText.length) {
                     typing = false;
-                    setTimeout(typePlaceholder, 2500);
+                    setTimeout(typePlaceholder, 5500);
                     return;
                 }
             } else {

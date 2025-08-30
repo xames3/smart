@@ -4,7 +4,7 @@ SMART Sphinx Theme ToC Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Monday, 18 August 2025
+Last updated on: Friday, 29 August 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
@@ -108,23 +108,27 @@ Last updated on: Monday, 18 August 2025
             {%- block main %}
               <main class="relative py-6 lg:gap-10 lg:py-8">
                 {%- block body %}{%- endblock %}
-                </main>
-              {%- endblock main %}
-              {%- block right_sidebar %}
-                {%- include "toc.html.jinja" %}
-              {%- endblock right_sidebar %}
-            </div>
+                  {%- trans last_updated_body=last_updated_body|e -%}
+                  <p class="text-sm text-muted-foreground mt-12"
+                     style="margin-left: 0.45rem">Last updated {{ last_updated_body }}</p>
+                {%- endtrans -%}
+              </main>
+            {%- endblock main %}
+            {%- block right_sidebar %}
+              {%- include "toc.html.jinja" %}
+            {%- endblock right_sidebar %}
           </div>
-          {%- if theme_show_previous_next_pages|tobool %}
-            {%- include "previous_next_pages.html.jinja" %}
-          {%- endif %}
-          {%- block footer %}
-            {%- include "footer.html.jinja" %}
-          {%- endblock footer %}
         </div>
-        {% block scripts %}
-          {%- for js in script_files %}{{ js_tag(js) }}{%- endfor %}
-            <script src="{{ pathto('_static/smart.js', 1) }}" defer></script>
-          {% endblock scripts %}
-        </body>
-      </html>
+        {%- if theme_show_previous_next_pages|tobool %}
+          {%- include "previous_next_pages.html.jinja" %}
+        {%- endif %}
+        {%- block footer %}
+          {%- include "footer.html.jinja" %}
+        {%- endblock footer %}
+      </div>
+      {% block scripts %}
+        {%- for js in script_files %}{{ js_tag(js) }}{%- endfor %}
+          <script src="{{ pathto('_static/smart.js', 1) }}" defer></script>
+        {% endblock scripts %}
+      </body>
+    </html>

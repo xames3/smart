@@ -50,7 +50,7 @@ html[data-theme="dark"] {
 html {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-offset)
 }
@@ -115,6 +115,18 @@ samp {
 
 /* iPhone view */
 @media (max-width: 768px) {
+
+    html {
+        font-size: 1rem;
+        line-height: 1.5rem !important
+    }
+
+    blockquote {
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+        padding: 32px 0 !important
+    }
+
     .container {
         padding-inline: 2rem
     }
@@ -136,6 +148,29 @@ samp {
         width: auto !important
     }
 
+    #content h1 {
+        font-size: 2rem !important;
+        letter-spacing: -1.56px !important;
+        line-height: 2rem !important
+    }
+
+    #content h2 {
+        font-size: 1.5rem !important;
+        letter-spacing: -0.36px !important;
+        line-height: 1.5rem !important
+    }
+
+    #content h2 {
+        margin-top: calc(92px / 2) !important
+    }
+
+    #content h3,
+    #content section>p.lead {
+        font-size: 1.25rem !important;
+        letter-spacing: -0.86px !important;
+        line-height: 1.5rem !important
+    }
+
     #content table th,
     #content table td {
         white-space: nowrap
@@ -143,6 +178,15 @@ samp {
 
     .layout-grid>#left-sidebar {
         display: block
+    }
+
+    .admonition {
+        max-width: 100% !important
+    }
+
+    .DocSearch-Button-Keys,
+    .DocSearch-Button-Placeholder {
+        display: flex !important
     }
 
     #left-sidebar,
@@ -204,6 +248,10 @@ samp {
         transition: all 0.2s ease
     }
 
+    .scbs-carousel-item .scbs-d-none {
+        display: block !important
+    }
+
     #content figure:hover .face-tag-wrap .face-tag,
     #content .zoom-inner:hover .face-tag-wrap .face-tag,
     #content .face-tag-wrap .face-tag:focus-visible {
@@ -234,6 +282,12 @@ samp {
     .scbs-carousel-indicators {
         margin-bottom: 0.3rem !important
     }
+
+    .admonition.note::before {
+        top: auto !important;
+        transform: none !important
+    }
+
 }
 
 /* iPad view */
@@ -327,6 +381,12 @@ samp {
     letter-spacing: -0.96px
 }
 
+#content ul:not(.search),
+#content ul:not(.search) p,
+#content ul:not(.search)>li {
+    margin-top: 0
+}
+
 #content ul:not(.search):not(:first-child) p,
 #content ul:not(.search)>li:not(:first-child) {
     margin-top: 0.75rem
@@ -335,10 +395,6 @@ samp {
 #content .admonition>ul:not(.search):not(:first-child) p,
 #content .admonition>ul:not(.search)>li:not(:first-child) {
     margin-top: 0.5rem
-}
-
-#content .admonition>ul {
-    margin-top: -1rem
 }
 
 #content img:not(figure img) {
@@ -433,6 +489,11 @@ a.headerlink {
     color: hsl(var(--link))
 }
 
+.highlighted:hover,
+#content a:not(.toc-backref):hover {
+    color: hsl(var(--foreground) / 0.6)
+}
+
 .code-block-caption>span>a {
     color: hsl(var(--muted-foreground)) !important;
     font-family: "Geist Mono", monospace;
@@ -452,7 +513,7 @@ h6:hover>a.headerlink:before {
     display: inline-block;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    font-size: 16px !important;
+    font-size: 1rem !important;
     font: var(--fa-font-regular);
     margin-right: 0;
     rotate: 135deg;
@@ -483,8 +544,7 @@ h6:hover>a.headerlink:before {
 #right-sidebar ul li a:hover,
 #left-sidebar a:hover {
     text-decoration-line: none;
-    color: hsl(var(--accent-foreground));
-    transform: translateY(1px)
+    color: hsl(var(--accent-foreground))
 }
 
 #left-sidebar a.expandable {
@@ -509,8 +569,8 @@ header {
 }
 
 code {
-    background-color: transparent;
-    font-size: 16px;
+    background-color: hsl(var(--light-accent));
+    font-size: 0.9em;
     font-weight: 400;
     line-height: inherit;
     position: relative;
@@ -520,7 +580,8 @@ code {
     margin: 0;
     background-clip: padding-box;
     border: 1px solid hsl(var(--border));
-    border-radius: 8px;
+    padding: 2px 4px;
+    border-radius: 0.25rem;
     transition: transform var(--duration-fast) var(--ease-in-out)
 }
 
@@ -602,12 +663,13 @@ button.copybtn::before {
 
 blockquote {
     border: none;
+    max-width: 90%;
+    margin-inline: auto;
     font-style: normal;
-    padding-bottom: 82px;
-    padding-top: 82px;
+    padding: 82px 0;
     margin: 0;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 20px;
+    line-height: 24px;
     padding-left: 0;
     text-align: center
 }
@@ -650,7 +712,7 @@ i {
 }
 
 .rounded-lg {
-    border-radius: calc(var(--radius) + 16px)
+    border-radius: calc(var(--radius) + 1rem)
 }
 
 .pt-64 {
@@ -682,9 +744,8 @@ i {
     outline-offset: 8px
 }
 
-.fa-s {
-    vertical-align: middle;
-    font-size: 0.75rem;
+.fa-2xs {
+    vertical-align: baseline;
     color: hsl(var(--link))
 }
 
@@ -955,6 +1016,7 @@ li .badge {
     padding: 0.8rem;
     visibility: visible;
     opacity: 1;
+    margin: 2px 0;
     color: hsl(var(--accent-foreground));
     font: var(--fa-font-regular)
 }

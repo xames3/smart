@@ -43,6 +43,7 @@ version = { attr = "theme.version" }
 
 [tool.djlint]
 indent = 2
+profile="jinja"
 
 [tool.ruff]
 line-length = 80
@@ -265,6 +266,7 @@ disable_error_code = [
 requires = [ "tox>=4.11" ]
 env_list = [
   "py313",
+  "html",
   "lint",
   "format",
   "typecheck",
@@ -302,4 +304,11 @@ deps = [
 ]
 commands = [
   [ "mypy", "theme", "--config-file", "pyproject.toml", "--color-output", "--show-error-codes" ],
+]
+
+[tool.tox.env.html]
+description = "Run HTML linting with djlint"
+deps = [ "djlint==1.36.4" ]
+commands = [
+  [ "djlint", "theme/base/", "--reformat" ],
 ]
