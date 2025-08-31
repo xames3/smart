@@ -23,17 +23,20 @@
     --highlight: 209.55 100% 94%;
     --danger-admonition-background: 0, 62.48%, 80.01%;
     --danger-admonition-foreground: 5.6, 69.49%, 45.14%;
+    --hint-admonition-background: 274.81, 100%, 87.75%;
+    --hint-admonition-foreground: 276.88, 100%, 40%;
     --tip-admonition-background: 98.86, 39.38%, 66.18%;
     --tip-admonition-foreground: 123.11, 91.39%, 29%;
     --warning-admonition-background: 28.89, 92.66%, 86.38%;
     --warning-admonition-foreground: 34.59, 100%, 43.75%;
-    --seealso-admonition-background: 204, 80.79%, 81.78%;
-    --seealso-admonition-foreground: 202.04, 80.33%, 23.92%;
+    --seealso-admonition-background: 210.35, 100%, 96%;
+    --seealso-admonition-foreground: 216.35, 100%, 47%;
+    --tab-foreground: 0, 0%, 40%, 0.5;
     --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
     --ease-in-out: cubic-bezier(0, 0, 0.2, 1);
     --duration-fast: 150ms;
-    --duration-normal: 300ms;
-    --duration-slow: 1.2s;
+    --duration-normal: 500ms;
+    --duration-slow: 1000ms;
     --sidebar-width: 250px;
     --header-offset: 2.5rem
 }
@@ -53,14 +56,26 @@ html[data-theme="dark"] {
     --highlight: 211.25, 97.96%, 19.22%;
     --danger-admonition-background: 0, 54.44%, 12.95%;
     --danger-admonition-foreground: 5.6, 76.17%, 55.94%;
-    --tip-admonition-background: 98.86, 39.37%, 16.5%;
-    --tip-admonition-foreground: 123.11, 76.59%, 72.23%;
+    --hint-admonition-background: 285.39, 73.16%, 19.06%;
+    --hint-admonition-foreground: 296.58, 100%, 73.25%;
+    --tip-admonition-background: 141.89, 55.64%, 21.2%;
+    --tip-admonition-foreground: 123.11, 63.58%, 62.93%;
     --warning-admonition-background: 28.89, 100%, 10.59%;
     --warning-admonition-foreground: 34.59, 100%, 50%;
-    --seealso-admonition-background: 198.63, 88.66%, 48.43%;
-    --seealso-admonition-foreground: 200.6, 94.37%, 86.08%;
+    --seealso-admonition-background: 213.21, 94%, 15%;
+    --seealso-admonition-foreground: 208.46, 100%, 64%;
+    --tab-foreground: 0, 0%, 63%, 0.5;
     --box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0px 1px 1px rgba(255, 255, 255, 0.04), 0px 8px 8px -8px rgba(255, 255, 255, 0.04);
     --card: 0 0% 0%
+}
+
+* {
+    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out), border-color var(--duration-normal) var(--ease-in-out),
+
+}
+
+body {
+    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out)
 }
 
 html {
@@ -68,6 +83,7 @@ html {
     -webkit-font-smoothing: antialiased;
     font-size: 1.05rem;
     scroll-behavior: smooth;
+    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out);
     scroll-padding-top: var(--header-offset)
 }
 
@@ -312,6 +328,37 @@ samp {
     .admonition.unusual-one::after {
         top: auto !important;
         transform: none !important
+    }
+
+    .admonition.attention::before,
+    .admonition.caution::before,
+    .admonition.error::before,
+    .admonition.hint::before,
+    .admonition.important::before,
+    .admonition.note::before,
+    .admonition.seealso::before,
+    .admonition.tip::before,
+    .admonition.warning::before,
+    .admonition.danger::before,
+    .admonition.unusual-one::after {
+        left: 0.5rem !important
+    }
+
+    .admonition.attention,
+    .admonition.caution,
+    .admonition.error,
+    .admonition.hint,
+    .admonition.important,
+    .admonition.note,
+    .admonition.seealso,
+    .admonition.tip,
+    .admonition.warning,
+    .admonition.danger {
+        padding-left: 2.5rem !important
+    }
+
+    .admonition.unusual-one {
+        padding-inline: 1rem !important
     }
 
     .sd-tab-set {
@@ -596,7 +643,7 @@ h6:hover>a.headerlink:before {
 
 #left-sidebar a,
 #right-sidebar ul li a {
-    transition-duration: .5s
+    transition-duration: var(--duration-fast)
 }
 
 #left-sidebar a.expandable {
@@ -846,6 +893,10 @@ i {
     padding: 1rem 1.5rem
 }
 
+.admonition code {
+    background-color: transparent
+}
+
 .admonition-title {
     margin-bottom: 0.5rem
 }
@@ -856,25 +907,32 @@ i {
 }
 
 .seealso {
-    background-color: hsl(var(--seealso-admonition-background), 0.3);
+    background-color: hsl(var(--seealso-admonition-background));
     color: hsl(var(--seealso-admonition-foreground))
 }
 
 .seealso:is(.dark *) {
-    background-color: hsl(var(--seealso-admonition-background), 0.1);
+    background-color: hsl(var(--seealso-admonition-background), 0.6);
     color: hsl(var(--seealso-admonition-foreground))
 }
 
-.tip,
-.hint {
+.tip {
     background-color: hsl(var(--tip-admonition-background), 0.4);
-    color: hsl(var(--tip-admonition-foreground))
+    color: hsl(var(--tip-admonition-foreground)) !important
 }
 
-.tip:is(.dark *),
+.tip:is(.dark *) {
+    background-color: hsl(var(--tip-admonition-background), 0.35)
+}
+
+.hint {
+    background-color: hsl(var(--hint-admonition-background), 0.4);
+    color: hsl(var(--hint-admonition-foreground))
+}
+
 .hint:is(.dark *) {
-    background-color: hsl(var(--tip-admonition-background), 0.35);
-    color: hsl(var(--tip-admonition-foreground))
+    background-color: hsl(var(--hint-admonition-background), 0.35);
+    color: hsl(var(--hint-admonition-foreground))
 }
 
 .error,
@@ -997,14 +1055,18 @@ i {
     color: hsl(var(--warning-admonition-foreground))
 }
 
-.admonition.tip::before,
-.admonition.hint::before {
-    content: "\f0eb";
+.admonition.tip::before {
+    content: "\f14e";
     color: hsl(var(--tip-admonition-foreground))
 }
 
+.admonition.hint::before {
+    content: "\f0eb";
+    color: hsl(var(--hint-admonition-foreground))
+}
+
 .admonition.seealso::before {
-    content: "\f57d";
+    content: "\f0ac";
     color: hsl(var(--seealso-admonition-foreground))
 }
 

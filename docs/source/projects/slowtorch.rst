@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 18 2025
-.. Last updated on: Saturday, 30 August 2025
+.. Last updated on: Sunday, 31 August 2025
 
 :og:title: PyTorch... But Slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -86,7 +86,7 @@ of the initial work in building the tensor class was similar to what I had done
 with xsNumPy, as :ref:`discussed here <crafting-my-first-array>`.
 
 .. admonition:: :fas:`sparkles` Quick analogy
-    :class: unusual-one tip
+    :class: unusual-one hint
 
     To put it simply, if arrays were like egg cartons, tensors were like egg
     trays. Stacked in a way that you could easily access any egg (element) in
@@ -207,7 +207,7 @@ understood the magic behind PyTorch's autodiff and my small autograd engine was
 working!!
 
 .. admonition:: :octicon:`heart-fill` Special shoutout
-    :class: unusual-one tip
+    :class: unusual-one danger
 
     I want to give a special shoutout to my colleague,
     :ref:`Fatemeh Taghvaei <cast-fatemeh-taghvaei>` for her patience and late
@@ -518,7 +518,7 @@ wrapped around classes much like PyTorch.
                     self.storage[:] = value.storage
 
 .. admonition:: :octicon:`heart-fill` Massive thanks
-    :class: unusual-one warning
+    :class: unusual-one danger
 
     I want to thank my friends, :ref:`Sameer <cast-sameer-g-mathad>` and
     `Lucas Yong <https://www.linkedin.com/in/lucas-yong>`_ for their invaluable

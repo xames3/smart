@@ -44,7 +44,7 @@
 .DocSearch-Button:active,
 .DocSearch-Button:focus,
 .DocSearch-Button:hover {
-    background-color: hsl(var(--light-accent));
+    background-color: hsl(var(--light-accent))
 }
 
 .DocSearch-Button:focus,
@@ -55,7 +55,7 @@
 }
 
 .DocSearch-Button-Keys {
-    min-width: auto;
+    min-width: auto
 }
 
 .DocSearch-Button-Key {
