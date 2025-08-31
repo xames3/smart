@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Saturday, 30 August 2025
+.. Last updated on: Sunday, 31 August 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -34,7 +34,7 @@ the bedrock of my growth as a teacher, mentor, and a lifelong learner. Each
 person mentioned here has left a significant mark, and it is through their
 collective influence that I continue to strive, share, and inspire.
 
-.. admonition:: :octicon:`heart-fill;1em;sd-text-danger` A note of gratitude
+.. admonition:: :octicon:`heart-fill` A note of gratitude
     :class: unusual-one danger
 
     These reflections aren't exhaustive, nor could they ever be. I've shared

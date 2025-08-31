@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Saturday, 30 August 2025
+.. Last updated on: Sunday, 31 August 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -97,7 +97,7 @@ That's where I decided to start, implementing my own |xp.ndarray|_ data
 structure.
 
 .. admonition:: :fas:`sparkles` Quick analogy
-    :class: unusual-one tip
+    :class: unusual-one hint
 
     If you're new to arrays, think of them as egg cartons, each slot holds an
     egg, and the shape of the carton tells you how many eggs you've got. Where

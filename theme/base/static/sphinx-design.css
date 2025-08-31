@@ -62,7 +62,7 @@
 
 .sd-tab-set>label {
     font-weight: 500;
-    color: hsl(var(--muted-foreground));
+    color: hsla(var(--tab-foreground));
     font-size: .9rem;
     letter-spacing: .05em
 }
@@ -160,5 +160,5 @@ div.sd-summary-content.sd-card-body {
 
 .sd-tab-label:hover {
     background-color: hsl(var(--light-accent));
-    color: hsl(var(--foreground));
+    color: hsl(var(--foreground))
 }
