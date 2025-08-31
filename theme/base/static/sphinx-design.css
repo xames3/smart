@@ -113,6 +113,12 @@ div.sd-summary-content.sd-card-body {
     margin-right: .25rem
 }
 
+.caption-text .fas,
+.caption-text .sd-octicon,
+.caption-text .sd-material-icon {
+    vertical-align: middle
+}
+
 .sd-tab-set>input:not(:checked)+label>svg,
 .sd-tab-set>input:not(:checked)+label>span {
     opacity: 0.5
