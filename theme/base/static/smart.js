@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     if (totalWordCount > 0) {
         const readingTime = Math.ceil(totalWordCount / wordsPerMinute);
         const rt = document.getElementById('readingTime');
-        if (rt) rt.innerHTML = `<i class='fa-regular fa-timer' style='margin-right: 8px;'></i>${readingTime} min read`;
+        if (rt) rt.innerHTML = `<i class='fa-regular fa-stopwatch' style='margin-right: 8px;'></i>${readingTime} min read`;
     }
 });
 
