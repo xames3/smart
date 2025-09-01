@@ -315,21 +315,6 @@ samp {
         margin-bottom: 0.3rem !important
     }
 
-    .admonition.danger::before,
-    .admonition.attention::before,
-    .admonition.caution::before,
-    .admonition.error::before,
-    .admonition.hint::before,
-    .admonition.important::before,
-    .admonition.seealso::before,
-    .admonition.tip::before,
-    .admonition.warning::before,
-    .admonition.note::before,
-    .admonition.unusual-one::after {
-        top: auto !important;
-        transform: none !important
-    }
-
     .admonition.attention::before,
     .admonition.caution::before,
     .admonition.error::before,
@@ -490,10 +475,19 @@ samp {
     margin-top: 0.5rem
 }
 
+table.docutils caption {
+    caption-side: bottom;
+    margin-top: 1rem;
+    letter-spacing: initial;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 32px
+}
+
 #content img:not(figure img) {
     margin: 60px auto;
     border-radius: var(--radius);
-    transition: transform var(--duration-normal) var(--ease-in-out);
+    transition: transform var(--duration-slow) var(--ease-in-out);
     display: block
 }
 
@@ -513,7 +507,7 @@ samp {
     width: 100%;
     height: auto;
     border-radius: var(--radius);
-    transition: transform var(--duration-normal) var(--ease-in-out);
+    transition: transform var(--duration-slow) var(--ease-in-out);
     transform-origin: center
 }
 
@@ -935,11 +929,13 @@ i {
     background-color: hsl(var(--tip-admonition-background), 0.35)
 }
 
+.important,
 .hint {
     background-color: hsl(var(--hint-admonition-background), 0.4);
     color: hsl(var(--hint-admonition-foreground))
 }
 
+.important:is(.dark *),
 .hint:is(.dark *) {
     background-color: hsl(var(--hint-admonition-background), 0.35);
     color: hsl(var(--hint-admonition-foreground))
@@ -959,7 +955,6 @@ i {
 
 .warning,
 .caution,
-.important,
 .attention {
     background-color: hsl(var(--warning-admonition-background), 0.5);
     color: hsl(var(--warning-admonition-foreground))
@@ -967,7 +962,6 @@ i {
 
 .warning:is(.dark *),
 .caution:is(.dark *),
-.important:is(.dark *),
 .attention:is(.dark *) {
     background-color: hsl(var(--warning-admonition-background), 0.6);
     color: hsl(var(--warning-admonition-foreground))
@@ -1008,6 +1002,78 @@ i {
     border: 0
 }
 
+.admonition.tip code {
+    border: 1px solid hsl(var(--tip-admonition-foreground), 0.3)
+}
+
+.admonition.tip a {
+    text-decoration-color: hsl(var(--tip-admonition-foreground), 0.25)
+}
+
+.admonition.tip a:hover {
+    color: hsl(var(--tip-admonition-foreground), 0.6) !important
+}
+
+.admonition.hint code,
+.admonition.important code {
+    border: 1px solid hsl(var(--hint-admonition-foreground), 0.3)
+}
+
+.admonition.hint a,
+.admonition.important a {
+    text-decoration-color: hsl(var(--hint-admonition-foreground), 0.25) !important
+}
+
+.admonition.hint a:hover,
+.admonition.important a:hover {
+    color: hsl(var(--hint-admonition-foreground), 0.6) !important
+}
+
+.admonition.seealso code {
+    border: 1px solid hsl(var(--seealso-admonition-foreground), 0.3)
+}
+
+.admonition.seealso a {
+    text-decoration-color: hsl(var(--seealso-admonition-foreground), 0.25) !important
+}
+
+.admonition.seealso a:hover {
+    color: hsl(var(--seealso-admonition-foreground), 0.6) !important
+}
+
+.admonition.attention code,
+.admonition.caution code,
+.admonition.warning code {
+    border: 1px solid hsl(var(--warning-admonition-foreground), 0.3)
+}
+
+.admonition.attention a,
+.admonition.caution a,
+.admonition.warning a {
+    text-decoration-color: hsl(var(--warning-admonition-foreground), 0.25) !important
+}
+
+.admonition.attention a:hover,
+.admonition.caution a:hover,
+.admonition.warning a:hover {
+    color: hsl(var(--warning-admonition-foreground), 0.6) !important
+}
+
+.admonition.error code,
+.admonition.danger code {
+    border: 1px solid hsl(var(--danger-admonition-foreground), 0.3)
+}
+
+.admonition.error a,
+.admonition.danger a {
+    text-decoration-color: hsl(var(--danger-admonition-foreground), 0.25) !important
+}
+
+.admonition.error a:hover,
+.admonition.danger a:hover {
+    color: hsl(var(--danger-admonition-foreground), 0.6) !important
+}
+
 .admonition.attention::before,
 .admonition.caution::before,
 .admonition.error::before,
@@ -1022,8 +1088,6 @@ i {
     font: var(--fa-font-regular);
     position: absolute;
     left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
     width: 28px;
     height: 28px;
     line-height: 28px;
@@ -1059,7 +1123,6 @@ i {
 
 .admonition.warning::before,
 .admonition.caution::before,
-.admonition.important::before,
 .admonition.attention::before {
     content: "\f071";
     color: hsl(var(--warning-admonition-foreground))
@@ -1068,6 +1131,11 @@ i {
 .admonition.tip::before {
     content: "\f14e";
     color: hsl(var(--tip-admonition-foreground))
+}
+
+.admonition.important::before {
+    content: "\f005";
+    color: hsl(var(--hint-admonition-foreground))
 }
 
 .admonition.hint::before {
