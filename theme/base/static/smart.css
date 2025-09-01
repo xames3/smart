@@ -810,6 +810,16 @@ i {
     line-height: 1.5 !important
 }
 
+#calendarIcon::before {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    content: "\f133";
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-regular);
+    margin-right: 10px
+}
+
 .rounded-lg {
     border-radius: calc(var(--radius) + 1rem)
 }

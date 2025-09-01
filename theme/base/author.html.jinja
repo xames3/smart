@@ -4,7 +4,7 @@ SMART Sphinx Theme Breadcrumbs Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Sunday, 31 August 2025
+Last updated on: Monday, 1 September 2025
 -->
 {% block author %}
 <div class="flex-col text-sm text-muted-foreground">
@@ -20,10 +20,7 @@ Last updated on: Sunday, 31 August 2025
   </div>
   <div class="flex justify-between mb-4">
     <p id="readingTime"></p>
-    <div class="flex gap-2">
-      <i class="fa-regular fa-calendar"></i>
-      <p class="text-sm text-muted-foreground">{{ timestamp|d("Updated Today") }}</p>
-    </div>
+    <p class="text-sm text-muted-foreground" id="calendarIcon">{{ timestamp|d("Updated Today") }}</p>
   </div>
 </div>
 {% endblock author %}
