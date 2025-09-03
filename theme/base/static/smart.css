@@ -3,6 +3,7 @@
 @import url("code.css");
 
 :root {
+    --bold: 0 0% 0%;
     --background: 0 0% 98%;
     --foreground: 0 0% 9%;
     --muted: 0 0% 92%;
@@ -42,6 +43,7 @@
 }
 
 html[data-theme="dark"] {
+    --bold: 0 0% 100%;
     --background: 0 0% 0%;
     --foreground: 0 0% 93%;
     --muted-foreground: 0 0% 63%;
@@ -94,7 +96,8 @@ html {
 b,
 strong,
 .font-bold {
-    font-weight: 600
+    font-weight: 600;
+    color: hsl(var(--bold))
 }
 
 code,
@@ -366,6 +369,17 @@ samp {
         border-bottom-right-radius: 0.5rem
     }
 
+    .picture-figure.align-left,
+    .picture-figure.align-right {
+        float: none;
+        max-width: 100%;
+        margin: 1rem auto;
+        display: block;
+    }
+
+    .picture-figure {
+        margin: 1rem auto;
+    }
 }
 
 /* iPad view */
@@ -879,6 +893,24 @@ i {
 
 .scrolltop-bottom {
     bottom: 13rem
+}
+
+.picture-figure {
+    text-align: center
+}
+
+.picture-figure img {
+    border-radius: 0 !important
+}
+
+.variant-dark {
+    position: absolute;
+    inset: 0
+}
+
+.picture-wrapper {
+    position: relative;
+    display: inline-block
 }
 
 .admonition p:not(.admonition-title) {
