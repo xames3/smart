@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 30 August 2025
-.. Last updated on: Wednesday, 3 September 2025
+.. Last updated on: Thursday, 4 September 2025
 
 :og:title: Learning Docker
 :og:description: Begineer's guide to Docker and containerisation
@@ -25,11 +25,12 @@ Learning Docker
 
     See... it works on my machine!
 
-This is my story from September 2020, during the pandemic while I was switching
-jobs. I knew I would get a new machine from my next employer, but I had no idea
-when. The pandemic was still at its peak, and I had to make the most of what I
-had. With how things were going, I knew I wouldn't get a new machine anytime
-soon, so I had to make my work machine last me a while longer.
+This is my story from September 2020, roughly five years ago as of writing this
+article. It is amidst the pandemic while I was switching jobs. I knew I would
+get a new machine from my next employer, but I had no idea when. The pandemic
+was still at its peak, and I had to make the most of what I had. With how
+things were going, I knew I wouldn't get a new machine anytime soon, so I had
+to improvise and make my work machine last me a while longer.
 
 As some of you know, I love writing code. It's what I do for the most part, and
 during lockdown, I wrote a lot! I tried to keep myself busy with work and other
@@ -38,7 +39,9 @@ multiple versions of Python, Rust, various dependencies, configs, tools, and
 frameworks that I won't be using after my *"experimentation"* phase. I knew
 `Docker`_ was a thing, but I never really got around to using it. I personally
 thought it was too much of a hassle to set up until I had no other option. So,
-I decided to give it a try. And here we are today...
+I decided to give it a try.
+
+And here we are today...
 
 .. _but-what-is-docker:
 
@@ -46,25 +49,26 @@ I decided to give it a try. And here we are today...
 But what is Docker?
 -------------------------------------------------------------------------------
 
-Learning and exploring Docker wasn't initially on my list of things to do, but
-I'm glad I did. Since then, it's made my hacky projects incredibly manageable,
-and my local machine still thanks me for it! I don't want to get too technical
-or nerdy right now, but I want to make sure we're on the same page. Docker is
-a **platform** that allows you to develop, ship, and run code inside
+Learning and exploring Docker wasn't initially on my bingo list, but I'm glad I
+did. Since then, it has made my hacky projects super duper manageable, and my
+local machine still thanks me for it! I don't want to get too technical or
+nerdy right now, but I want to make sure we're on the same page. Docker is a
+**platform** that allows you to develop, ship, and run code inside
 `containers`_.
 
 Simply put, it's basically a service that allows you to ship your application
 or code in a container that has all the things it needs to run. This means your
 application or code will run the same way regardless of where it's being run.
 You'll get the same results on your local machine, your friend's machine, or a
-server in the cloud. It solves the classic "it works on my machine" problem.
+server in the cloud.
 
-.. seealso::
+It solves the classic "it works on my machine" problem.
 
-    Docker is not the only containerisation platform out there, but it's
-    perhaps the most popular one and that's why people synonymously use the
-    term Docker to refer to containers in general. But in reality, they are not
-    the same thing.
+.. note::
+
+    Docker is not the only containerisation platform, but it's perhaps the most
+    popular one and that's why people synonymously use the term Docker to refer
+    to containers in general. But in reality, they are not the same thing.
 
 Docker was introduced in 2013 and has evolved since then. In the spirit of
 keeping things simple, I'd say there are two main components to Docker:
@@ -134,7 +138,7 @@ Python and other dependencies? Well, when I ran :console:`$ docker run`
 command, it was Docker Engine that was creating an isolated environment to run
 my experiments within it.
 
-These environments are what we call now as **containers**.
+These environments are what we call as **containers**.
 
 .. _idea-behind-containers:
 
@@ -170,16 +174,16 @@ containers and sandboxing. I mean, how is it any different from a GUI-less
 `Virtual machine`_? It's essentially acting the same way, right? Well, not
 exactly. Virtual machine (VMs) and containers are both used to create isolated
 environments, but they do it in different ways. VMs run a full copy of an
-operating system (OS) inside your local machine (host), while containers shares
-your host OS kernel.
+operating system (guest) inside your local machine (host), while containers
+shares your host OS kernel.
 
 .. admonition:: :fas:`sparkles` Quick analogy
     :class: unusual-one hint
 
     Think of it this way, having a VM is like renting an entire apartment when
     you just need a room, while using a container is like renting a room in a
-    shared house where you share some common facilities like the kitchen and
-    bathroom. The latter is much more efficient and cost-effective.
+    shared apartment where you share some common facilities like the kitchen
+    and bathroom. The latter is much more fast, efficient, and cost-effective.
 
 To expand a bit more, a VM creates a complete separate copy of an operating
 system on top of your existing OS using something called as a `Hypervisor`_.
@@ -188,10 +192,12 @@ machine and you choose which one to boot into. In a VM, you have your main OS
 (host) running, and inside it, you have another OS (guest) running as a
 separate entity. VMs run like a regular application on your local machine. It's
 like running Windows on your Mac using `Parallels`_ or like running Linux on
-your Windows using `VirtualBox`_. Since a VM runs just like a regular
-application, it needs its own set of resources like CPU, memory, storage, and
-processing power. It's thorough, but it's also heavy. Very heavy... I mean,
-you're running multiple OSes at the same time!
+your Windows using `VirtualBox`_.
+
+Since a VM runs just like a regular application, it needs its own set of
+dedicated resources like CPU, memory, storage, and processing power. It's
+thorough, but it's also heavy. Very heavy... I mean, you're running multiple
+OSes at the same time!
 
 .. picture:: ../../assets/media/vm-on-host
     :alt: Virtual Machine on a host MacBook Pro
@@ -199,10 +205,10 @@ you're running multiple OSes at the same time!
     Virtualisation using Virtual Machines. Here, the MacBook Pro represents the
     physical hardware (Infrastructure). On top of that, we have macOS which is
     the host operating system. Then we have Parallels which is the Hypervisor
-    that creates and manages the VMs. Inside Parallels, we have a Windows 11
-    VM, macOS 26 VM, and an Ubuntu 24.04 VM running as separate guest OSes.
-    These VMs have their own executables, libraries, and binaries which assist
-    in running the Python 3.10 interpreter.
+    application that creates and manages the VMs. Inside Parallels, we have a
+    Windows 11 VM, macOS 26 VM, and an Ubuntu 24.04 VM running as separate
+    guest OSes. These VMs have their own executables, libraries, and binaries
+    which assist in running the Python 3.10 interpreter.
 
 Containers, on the other hand, share the host OS's resources (kernel) and run
 as isolated processes (not technically) in user space on the host OS. In simple
@@ -224,6 +230,81 @@ together.
     their own binaries and libraries but all sharing the same host OS kernel
     and resources.
 
+.. _pulling-images-from-docker-hub:
+
+-------------------------------------------------------------------------------
+Pulling images from Docker Hub
+-------------------------------------------------------------------------------
+
+Okay, coming back to my story... this is me a few days into getting started
+with Docker. After understanding what containers do and how they're better in
+comparison to VMs, I realised why Docker is so popular among developers. I was
+already using it for my personal projects. But now I had another problem... I
+had a messy local machine with multiple Docker containers with the same Python
+versions. I realised I needed to clean up and manage my containers better, or
+follow some best practices. In doing so, I wondered where I had been getting
+all these containers from in the first place. That's when I discovered
+**Docker Hub**.
+
+I thought I was downloading these containers from the internet, but I had no
+idea where. It turns out that Docker Hub is a cloud-based registry service
+where you can find and share container images, not containers! And that got me
+confused all over again. I mean, I got the concept of containers, but what's an
+image now? With a bit of research, I found out that a Docker image is a
+lightweight, standalone, and executable package that includes everything needed
+to run a piece of software, including the code, runtime, libraries, environment
+variables, and configuration files. Wait, that sounds a lot like a container to
+me.
+
+But not quite...
+
+An image is a blueprint for creating containers. When you run a Docker image,
+it creates a container based on that image. It is a read-only template that
+contains the instructions for creating a container. You can think of it as a
+snapshot of a filesystem and settings to run an application. You can have
+multiple containers running from the same image, each with its own isolated
+environment.
+
+.. admonition:: :fas:`sparkles` Quick analogy
+    :class: unusual-one hint
+
+    In programming terms, you can think of an image as a class and a container
+    as an instance of that class. You can have multiple containers (instances)
+    running from the same image (class) at the same time.
+
+And Docker Hub is where you can find and share these images. You can pull
+images from Docker Hub to run containers on your local machine, or you can push
+your own images to Docker Hub to share them with others. Docker Hub has a vast
+library of pre-built images for various applications and services, including
+databases, web servers, programming languages, and more. This makes it easy to
+get started with Docker and quickly set up your development environment.
+
+Yet another reason why Docker is so popular among developers...
+
+.. _a-week-into-docker:
+
+-------------------------------------------------------------------------------
+A week into Docker
+-------------------------------------------------------------------------------
+
+By now, I was a week into using Docker, and I was totally hooked! I had a basic
+understanding of what Docker and containerisation are and roughly how the whole
+ecosystem works. I was excited to explore and experiment even more. Sure, I was
+confused in the beginning, but I slowly started to get the hang of it. First,
+it was between containers and virtual machines, then with containers and
+images. I think the biggest culprits were the terminologies themselves. They
+are so similar that it can get really confusing for a beginner.
+
+But once I got the hang of it, I realised how powerful the whole concept of
+containerisation is and how it can make my life easier. After a few weeks, I
+realised that even containerisation isn't a new concept. It's been around and
+experimented with for decades within the Linux community. There are other
+containerisation implementations like `LXC`_ and `OpenVZ`_, but Docker made it
+easy and accessible for everyone.
+
+In the next chapter, I'll share my experiences of running my first container
+and how it changed the way I started working on my local machine.
+
 .. _Docker: https://www.docker.com/
 .. _containers: https://en.wikipedia.org/wiki/Container_(virtualization)
 .. _Docker Engine: https://docs.docker.com/engine/
@@ -233,3 +314,5 @@ together.
 .. _Hypervisor: https://en.wikipedia.org/wiki/Hypervisor
 .. _Parallels: https://www.parallels.com/
 .. _VirtualBox: https://www.virtualbox.org/
+.. _LXC: https://linuxcontainers.org/
+.. _OpenVZ: https://openvz.org/
