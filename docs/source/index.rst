@@ -151,6 +151,12 @@ I'm reachable via `Email <mailto:xa@mes3.dev>`_,
     projects/slowtorch
 
 .. toctree::
+    :caption: Explained
+    :hidden:
+
+    Docker <explained/docker/index>
+
+.. toctree::
     :caption: Miscellany
     :hidden:
 
