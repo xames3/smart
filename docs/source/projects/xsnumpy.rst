@@ -1,13 +1,13 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Sunday, 31 August 2025
+.. Last updated on: Thursday, 4 September 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
     of NumPy's core features
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
-    assets/media/matmul-confusion-meme.jpg
+    assets/opengraph/matmul-confusion-meme.jpg
 
 .. _project-building-xsnumpy:
 
@@ -69,6 +69,7 @@ one day, I had to go deeper...
 
 .. image:: ../assets/media/need-to-go-deeper-meme.jpg
     :alt: We need to go deeper meme from Inception
+    :class: zoom
 
 It felt a wee bit like baking a cake from scratch. Every ingredient, every
 step, had to be understood and chosen deliberately. If I was going to learn
@@ -341,6 +342,7 @@ multiplying numbers, but learning and recreating NumPy's broadcasting rules.
 
 .. image:: ../assets/media/batched-matrix-multiplication-meme.jpg
     :alt: Trying to do batched matrix multiplication meme
+    :class: zoom
     :width: 100%
 
 Matrix multiplication was another beast entirely. I thought it would be just a

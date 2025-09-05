@@ -5,6 +5,8 @@
 :og:title: Learning Docker
 :og:description: Begineer's guide to Docker and containerisation
 :og:type: article
+:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+    assets/opengraph/it-works-on-my-machine-meme.jpg
 
 .. _explained-learning-docker:
 
@@ -81,7 +83,7 @@ now.
    that makes version control possible, Docker Engine is the tool that makes
    containerisation possible.
 
-   .. picture:: ../../assets/media/docker-engine-internals
+   .. picture:: ../../assets/coloured/docker-engine-internals
        :alt: Docker Engine Internals
 
        Inside the Docker Engine. The commands you run on your terminal go to
@@ -199,7 +201,7 @@ dedicated resources like CPU, memory, storage, and processing power. It's
 thorough, but it's also heavy. Very heavy... I mean, you're running multiple
 OSes at the same time!
 
-.. picture:: ../../assets/media/vm-on-host
+.. picture:: ../../assets/coloured/vm-on-host
     :alt: Virtual Machine on a host MacBook Pro
 
     Virtualisation using Virtual Machines. Here, the MacBook Pro represents the
@@ -219,7 +221,7 @@ makes containers ideal for deploying applications in a microservices
 architecture where you have multiple small, independent services running
 together.
 
-.. picture:: ../../assets/media/container-on-host
+.. picture:: ../../assets/coloured/container-on-host
     :alt: Container on a host MacBook Pro
 
     Containerisation using Docker. Here, the MacBook Pro represents the
