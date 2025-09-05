@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 1 March 2025
-.. Last updated on: Thursday, 4 September 2025
+.. Last updated on: Friday, 5 September 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -12,7 +12,7 @@
 .. _project-building-xsnumpy:
 
 ===============================================================================
-Building xsNumPy
+:octicon:`server` Building xsNumPy
 ===============================================================================
 
 .. author::

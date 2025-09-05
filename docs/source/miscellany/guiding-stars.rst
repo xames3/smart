@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Sunday, 31 August 2025
+.. Last updated on: Friday, 5 September 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -10,7 +10,7 @@
 .. _miscellany-guiding-stars:
 
 ===============================================================================
-Guiding Stars
+:octicon:`code-of-conduct` Guiding Stars
 ===============================================================================
 
 .. author::

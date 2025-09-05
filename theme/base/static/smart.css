@@ -170,6 +170,26 @@ samp {
         padding-inline: 0 !important
     }
 
+    #left-sidebar ul ul {
+        margin-left: 0.5rem
+    }
+
+    #left-sidebar ul ul:before,
+    #left-sidebar ul ul:is(.dark *):before {
+        left: 0 !important
+    }
+
+    .fas,
+    .sd-octicon,
+    .sd-material-icon {
+        height: fit-content !important;
+        width: fit-content !important
+    }
+
+    nav a i {
+        top: -2px
+    }
+
     #content table {
         display: block;
         max-width: 100%;
@@ -374,11 +394,11 @@ samp {
         float: none;
         max-width: 100%;
         margin: 1rem auto;
-        display: block;
+        display: block
     }
 
     .picture-figure {
-        margin: 1rem auto;
+        margin: 1rem auto
     }
 }
 
@@ -459,6 +479,11 @@ samp {
     scroll-margin-top: var(--header-offset)
 }
 
+.whitespace-nowrap>svg,
+#content h1 svg {
+    display: none
+}
+
 #content section>p {
     line-height: 1.5rem
 }
@@ -505,10 +530,6 @@ table.docutils caption {
     display: block
 }
 
-#content img.zoom:not(figure img):hover {
-    transform: scale(1.05)
-}
-
 #content figure {
     margin: 60px auto 0 auto;
     width: fit-content;
@@ -527,10 +548,6 @@ table.docutils caption {
 
 #content figure.zoom .zoom-inner {
     overflow: hidden
-}
-
-#content figure.zoom:hover .zoom-scale {
-    transform: scale(1.05)
 }
 
 #content .face-tag-wrap .face-tag {
@@ -585,7 +602,7 @@ a.headerlink {
 .highlighted,
 #content a:not(.toc-backref) {
     text-decoration-line: underline;
-    text-decoration-color: hsl(var(--foreground) / 0.25);
+    text-decoration-color: hsl(var(--foreground) / 0.35);
     text-underline-offset: 2px;
     font-weight: inherit;
     color: inherit
@@ -593,7 +610,8 @@ a.headerlink {
 
 .highlighted:hover,
 #content a:not(.toc-backref):hover {
-    color: hsl(var(--foreground) / 0.6)
+    color: hsl(var(--foreground) / 0.75);
+    transition: color var(--duration-normal) var(--ease-in-out)
 }
 
 .code-block-caption>span>a {
@@ -622,20 +640,27 @@ h6:hover>a.headerlink:before {
     margin-left: 8px
 }
 
+.headerlink:focus:after,
+.headerlink:focus:before,
+.headerlink:hover:after,
+.headerlink:hover:before {
+    animation: none
+}
+
 .copy,
 .headerlink:after {
     display: none !important
 }
 
 #left-sidebar .caption {
-    font-size: small;
-    color: hsl(0 0% 70%);
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground) / 0.5);
     text-transform: uppercase
 }
 
 #left-sidebar a {
     color: hsl(var(--muted-foreground));
-    transition: color var(--duration-fast) var(--ease-in-out), transform var(--duration-fast) var(--ease-in-out)
+    transition: color var(--duration-normal) var(--ease-in-out), transform var(--duration-normal) var(--ease-in-out)
 }
 
 #left-sidebar a.current {
@@ -646,12 +671,12 @@ h6:hover>a.headerlink:before {
 #right-sidebar ul li a:hover,
 #left-sidebar a:hover {
     text-decoration-line: none;
-    color: hsl(var(--accent-foreground))
+    color: hsl(var(--bold))
 }
 
 #left-sidebar a,
 #right-sidebar ul li a {
-    transition-duration: var(--duration-fast)
+    transition-duration: var(--duration-normal)
 }
 
 #left-sidebar a.expandable {
@@ -659,7 +684,7 @@ h6:hover>a.headerlink:before {
 }
 
 header {
-    transition: background-color var(--duration-fast) var(--ease-in-out), box-shadow var(--duration-fast) var(--ease-in-out)
+    transition: background-color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out)
 }
 
 .border-b {
@@ -672,7 +697,7 @@ header {
 }
 
 .hover\:text-accent-foreground:hover {
-    color: hsl(var(--muted-foreground))
+    color: hsl(var(--bold))
 }
 
 code {
@@ -1200,11 +1225,11 @@ i {
     border: 0
 }
 
+#left-sidebar ul ul:before,
 #left-sidebar ul ul:is(.dark *):before {
-    content: var(--tw-content);
-    --tw-bg-opacity: 0.5;
-    opacity: 0.3;
-    background-color: hsl(var(--muted-foreground))
+    left: 0.25rem;
+    top: 0;
+    bottom: 1rem
 }
 
 #left-sidebar li.has-children {
@@ -1218,7 +1243,7 @@ i {
 
 #left-sidebar li.has-children>button.nav-toggle {
     position: absolute;
-    top: 0.15rem;
+    top: 0.5rem;
     right: 0;
     width: 1.25rem;
     height: 1.25rem;
@@ -1231,7 +1256,7 @@ i {
     margin: 0;
     cursor: pointer;
     color: hsl(var(--muted-foreground));
-    transition: color var(--duration-fast) var(--ease-in-out)
+    transition: color var(--duration-normal) var(--ease-in-out)
 }
 
 #left-sidebar li.has-children>button.nav-toggle::before {
@@ -1242,7 +1267,7 @@ i {
     line-height: 1;
     display: inline-block;
     transform: rotate(0deg);
-    transition: transform var(--duration-fast) var(--ease-in-out);
+    transition: transform var(--duration-normal) var(--ease-in-out);
     transform-origin: 50% 50%
 }
 
@@ -1300,8 +1325,13 @@ li .badge {
     border-bottom: none !important;
     border-radius: 100% !important;
     background-clip: border-box !important;
-    transition: opacity var(--duration-fast) var(--ease-in-out), background-color var(--duration-fast) var(--ease-in-out) !important;
-    will-change: opacity, background-color
+    transition:
+        opacity var(--duration-fast) var(--ease-in-out),
+        background-color var(--duration-fast) var(--ease-in-out),
+        width var(--duration-normal) var(--ease-out),
+        height var(--duration-normal) var(--ease-out),
+        border-radius var(--duration-normal) var(--ease-out) !important;
+    will-change: opacity, background-color, width, height, border-radius
 }
 
 .scbs-carousel-caption {
@@ -1324,7 +1354,18 @@ li .badge {
 }
 
 .scbs-carousel .scbs-carousel-indicators .scbs-active {
-    transition-delay: 0.6s
+    transition-delay: 0s
+}
+
+.scbs-carousel-indicators .scbs-active {
+    opacity: 1 !important;
+    width: 40px !important;
+    height: 8px !important;
+    border-radius: 50px !important;
+    transition: width var(--duration-normal) var(--ease-out),
+        height var(--duration-normal) var(--ease-out),
+        border-radius var(--duration-normal) var(--ease-out) !important;
+    transform: none !important
 }
 
 @supports selector(:has(*)) {

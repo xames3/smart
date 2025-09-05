@@ -76,7 +76,7 @@ $(window).scroll(function () {
         figure.insertBefore(wrapper, el);
         wrapper.appendChild(scale);
         scale.appendChild(el);
-        wrapper.addEventListener('pointerenter', () => { scale.style.transform = 'scale(1.05)'; }, { passive: true });
+        wrapper.addEventListener('pointerenter', () => { scale.style.transform = 'scale(1.02)'; }, { passive: true });
         wrapper.addEventListener('pointerleave', () => { scale.style.transform = 'scale(1)'; }, { passive: true });
         figure.dataset.zoomReady = 'true';
     }
@@ -239,13 +239,19 @@ $(window).scroll(function () {
         function updateActiveTOC() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const windowHeight = window.innerHeight;
-            const headerOffset = 80;
+            const documentHeight = document.documentElement.scrollHeight;
+            const headerOffset = 0;
             let currentHeading = null;
-            for (let i = headings.length - 2; i >= 0; i--) {
-                const heading = headings[i];
-                if (scrollTop + headerOffset >= heading.offsetTop) {
-                    currentHeading = heading;
-                    break;
+            const isNearBottom = scrollTop + windowHeight >= documentHeight - 100;
+            if (isNearBottom && headings.length > 0) {
+                currentHeading = headings[headings.length - 1];
+            } else {
+                for (let i = headings.length - 1; i >= 0; i--) {
+                    const heading = headings[i];
+                    if (scrollTop + headerOffset >= heading.offsetTop - 40) {
+                        currentHeading = heading;
+                        break;
+                    }
                 }
             }
             if (scrollTop < 100) {
@@ -363,3 +369,13 @@ $(window).scroll(function () {
         document.addEventListener('DOMContentLoaded', initPlaceholderAnimation);
     }
 })();
+document.addEventListener('DOMContentLoaded', function () {
+    const h1Elements = document.querySelectorAll('h1');
+    h1Elements.forEach(h1 => {
+        const originalText = h1.textContent;
+        const trimmedText = originalText.replace(/^\s+/, '');
+        if (originalText !== trimmedText) {
+            h1.textContent = trimmedText;
+        }
+    });
+});
