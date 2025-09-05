@@ -108,9 +108,25 @@ div.sd-summary-content.sd-card-body {
 .fas,
 .sd-octicon,
 .sd-material-icon {
-    vertical-align: text-top;
     height: .9rem;
+    width: .9rem;
     margin-right: .25rem
+}
+
+
+nav a svg .fas,
+nav a svg .sd-octicon,
+nav a svg .sd-material-icon {
+    height: 0.9rem;
+    width: 0.9rem;
+    margin-right: 0.45rem;
+    vertical-align: text-bottom
+}
+
+.admonition-title .fas,
+.admonition-title .sd-octicon,
+.admonition-title .sd-material-icon {
+    vertical-align: text-top
 }
 
 .caption-text .fas,

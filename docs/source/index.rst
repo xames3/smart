@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 22 February 2025
-.. Last updated on: Friday, 29 August 2025
+.. Last updated on: Friday, 5 September 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -143,18 +143,18 @@ I'm reachable via `Email <mailto:xa@mes3.dev>`_,
 .. _Subject-matter expert: https://en.wikipedia.org/wiki/Subject-matter_expert
 
 .. toctree::
+    :caption: Explained
+    :hidden:
+    :titlesonly:
+
+    explained/docker/index
+
+.. toctree::
     :caption: Development
-    :maxdepth: 1
     :hidden:
 
     projects/xsnumpy
     projects/slowtorch
-
-.. toctree::
-    :caption: Explained
-    :hidden:
-
-    Docker <explained/docker/index>
 
 .. toctree::
     :caption: Miscellany
