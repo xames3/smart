@@ -318,3 +318,8 @@ and how it changed the way I started working on my local machine.
 .. _VirtualBox: https://www.virtualbox.org/
 .. _LXC: https://linuxcontainers.org/
 .. _OpenVZ: https://openvz.org/
+
+.. toctree::
+   :hidden:
+
+   First container <first-container>

@@ -12,7 +12,7 @@
 .. _project-building-xsnumpy:
 
 ===============================================================================
-:octicon:`server` Building xsNumPy
+:octicon:`mention` Building xsNumPy
 ===============================================================================
 
 .. author::
