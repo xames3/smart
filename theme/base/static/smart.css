@@ -16,7 +16,7 @@
     --border: 0 0% 92%;
     --input: 0 0% 92%;
     --light-accent: 0, 0%, 94%;
-    --link: 0 0% 9%;
+    --link: 210.84, 100%, 41.96%;
     --radius: 12px;
     --box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0px 1px 1px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
     --code-background: 0, 0%, 100%;
@@ -52,7 +52,7 @@ html[data-theme="dark"] {
     --border: 0 0% 12%;
     --input: 0 0% 12%;
     --light-accent: 0, 0%, 8%;
-    --link: 0 0% 93%;
+    --link: 210.61, 100%, 61.18%;
     --code-background: 0, 0%, 4%;
     --pre-shadow: 0 0% 12%;
     --highlight: 211.25, 97.96%, 19.22%;
@@ -409,6 +409,14 @@ samp {
     .picture-figure {
         margin: 1rem auto
     }
+
+    #left-sidebar .sidebar-github-button {
+        display: inline-flex;
+    }
+
+    #right-sidebar .sidebar-github-button {
+        display: none !important;
+    }
 }
 
 /* iPad view */
@@ -454,6 +462,14 @@ samp {
 
     .search-w-full {
         width: 768px
+    }
+
+    .sidebar-github-button {
+        display: none !important;
+    }
+
+    #right-sidebar .sidebar-github-button {
+        display: inline-flex !important;
     }
 }
 
@@ -610,17 +626,13 @@ a.headerlink {
 
 .highlighted,
 #content a:not(.toc-backref) {
-    text-decoration-line: underline;
-    text-decoration-color: hsl(var(--foreground) / 0.35);
-    text-underline-offset: 2px;
+    text-decoration: none;
     font-weight: inherit;
-    color: inherit
+    color: hsl(var(--link))
 }
 
-.highlighted:hover,
-#content a:not(.toc-backref):hover {
-    color: hsl(var(--foreground) / 0.75);
-    transition: color var(--duration-normal) var(--ease-in-out)
+#content a:not(.admonition) {
+    text-decoration: none
 }
 
 .code-block-caption>span>a {
@@ -724,6 +736,14 @@ code {
     padding: 2px 4px;
     border-radius: 0.25rem;
     transition: transform var(--duration-fast) var(--ease-in-out)
+}
+
+#content a code {
+    color: hsl(var(--foreground));
+    text-decoration-line: underline;
+    text-decoration-color: hsl(var(--foreground) / 0.35);
+    text-underline-offset: 2px;
+    font-weight: inherit
 }
 
 pre {
@@ -967,6 +987,16 @@ i {
     background-color: transparent
 }
 
+#content .admonition a {
+    text-decoration: underline !important;
+    text-underline-offset: 2px
+}
+
+.admonition a code {
+    color: inherit !important;
+    text-decoration-color: inherit !important
+}
+
 .admonition-title {
     margin-bottom: 0.5rem
 }
@@ -1073,11 +1103,8 @@ i {
 }
 
 .admonition.tip a {
-    text-decoration-color: hsl(var(--tip-admonition-foreground), 0.25)
-}
-
-.admonition.tip a:hover {
-    color: hsl(var(--tip-admonition-foreground), 0.6) !important
+    color: hsl(var(--tip-admonition-foreground)) !important;
+    text-decoration-color: hsl(var(--tip-admonition-foreground), 0.25) !important
 }
 
 .admonition.hint code,
@@ -1087,12 +1114,8 @@ i {
 
 .admonition.hint a,
 .admonition.important a {
+    color: hsl(var(--hint-admonition-foreground)) !important;
     text-decoration-color: hsl(var(--hint-admonition-foreground), 0.25) !important
-}
-
-.admonition.hint a:hover,
-.admonition.important a:hover {
-    color: hsl(var(--hint-admonition-foreground), 0.6) !important
 }
 
 .admonition.seealso code {
@@ -1100,11 +1123,8 @@ i {
 }
 
 .admonition.seealso a {
+    color: hsl(var(--seealso-admonition-foreground)) !important;
     text-decoration-color: hsl(var(--seealso-admonition-foreground), 0.25) !important
-}
-
-.admonition.seealso a:hover {
-    color: hsl(var(--seealso-admonition-foreground), 0.6) !important
 }
 
 .admonition.attention code,
@@ -1116,13 +1136,8 @@ i {
 .admonition.attention a,
 .admonition.caution a,
 .admonition.warning a {
+    color: hsl(var(--warning-admonition-foreground)) !important;
     text-decoration-color: hsl(var(--warning-admonition-foreground), 0.25) !important
-}
-
-.admonition.attention a:hover,
-.admonition.caution a:hover,
-.admonition.warning a:hover {
-    color: hsl(var(--warning-admonition-foreground), 0.6) !important
 }
 
 .admonition.error code,
@@ -1132,12 +1147,8 @@ i {
 
 .admonition.error a,
 .admonition.danger a {
+    color: hsl(var(--danger-admonition-foreground)) !important;
     text-decoration-color: hsl(var(--danger-admonition-foreground), 0.25) !important
-}
-
-.admonition.error a:hover,
-.admonition.danger a:hover {
-    color: hsl(var(--danger-admonition-foreground), 0.6) !important
 }
 
 .admonition.attention::before,
@@ -1508,6 +1519,7 @@ li .badge {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     line-clamp: 1;
+    color: hsl(var(--foreground));
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis
@@ -1518,4 +1530,29 @@ li .badge {
     font-size: .875rem;
     line-height: 1.25rem;
     margin: 0 1rem 1.25rem 0 !important
+}
+
+.sidebar-github-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: calc(var(--radius) / 1.5);
+    height: 2rem;
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    background-color: hsl(var(--light-accent));
+    border: 1px solid hsl(var(--border)) !important;
+    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out), transform var(--duration-normal) var(--ease-in-out);
+}
+
+.sidebar-github-button:hover {
+    color: hsl(var(--foreground))
+}
+
+.sidebar-github-button:hover .fa-heart {
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid)
 }
