@@ -7,6 +7,11 @@
     --sd-color-tabs-underline: hsl(var(--border))
 }
 
+.sd-row {
+    --sd-gutter-x: 0.75rem;
+    --sd-gutter-y: 1rem
+}
+
 .sd-card {
     background-color: hsl(var(--card));
     border-color: hsl(var(--border));
@@ -19,6 +24,10 @@
 .sd-card-body:hover {
     box-shadow: var(--box-shadow);
     border-radius: var(--radius)
+}
+
+.sd-dropdown .sd-card-body:hover {
+    box-shadow: none
 }
 
 .sd-sphinx-override p {
@@ -38,6 +47,14 @@
 .sd-summary-title {
     color: hsl(var(--muted-foreground));
     font-weight: 500 !important
+}
+
+details.sd-dropdown summary.sd-summary-title svg {
+    opacity: 1 !important;
+    margin-right: 0;
+    margin-bottom: 0;
+    height: auto;
+    width: auto
 }
 
 .sd-card-footer,
@@ -81,8 +98,6 @@ details.sd-dropdown summary.sd-summary-title {
     padding: 0;
     text-transform: none;
     color: hsl(var(--foreground));
-    font-size: 1.5rem;
-    font-weight: 600;
     line-height: 1.625rem;
     letter-spacing: -0.4px
 }
@@ -114,7 +129,6 @@ div.sd-summary-content.sd-card-body {
     margin-bottom: -0.125rem;
     margin-right: .25rem
 }
-
 
 nav a svg .fas,
 nav a svg .sd-octicon,

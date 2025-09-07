@@ -301,6 +301,7 @@ deps = [
   "types-beautifulsoup4",
   "types-docutils",
   "typing_extensions",
+  "types-requests",
 ]
 commands = [
   [ "mypy", "theme", "--config-file", "pyproject.toml", "--color-output", "--show-error-codes" ],

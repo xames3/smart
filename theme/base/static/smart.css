@@ -389,6 +389,15 @@ samp {
         border-bottom-right-radius: 0.5rem
     }
 
+    .sd-row-cols-2>*,
+    .sd-row-cols-3>* {
+        width: 100% !important
+    }
+
+    details.sd-dropdown .sd-summary-icon {
+        display: none !important
+    }
+
     .picture-figure.align-left,
     .picture-figure.align-right {
         float: none;
@@ -1434,4 +1443,79 @@ li .badge {
 
 .scbs-carousel-control-next-icon::before {
     content: "\f061"
+}
+
+.youtube-card-container {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    width: 100%
+}
+
+#content .youtube-card-container {
+    text-decoration: none !important
+}
+
+.youtube-card {
+    display: flex;
+    flex-direction: column
+}
+
+.youtube-card-container:hover img {
+    transform: scale(1.02)
+}
+
+.youtube-thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%
+}
+
+.youtube-thumbnail-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0 !important;
+    border-radius: 0 !important
+}
+
+.youtube-card .sd-card-text {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin: 1rem auto !important;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.youtube-card-content {
+    padding: 0
+}
+
+.youtube-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin: 1rem 1rem 0.4rem 0 !important;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.youtube-channel {
+    color: hsl(var(--muted-foreground));
+    font-size: .875rem;
+    line-height: 1.25rem;
+    margin: 0 1rem 1.25rem 0 !important
 }
