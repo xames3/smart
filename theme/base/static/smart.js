@@ -264,6 +264,7 @@ $(window).scroll(function () {
             if (currentHeading) {
                 currentHeading.link.classList.add('toc-active');
                 currentHeading.link.style.color = 'hsl(var(--foreground))';
+                currentHeading.link.style.fontWeight = '500';
             }
         }
         let ticking = false;
