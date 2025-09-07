@@ -410,13 +410,6 @@ samp {
         margin: 1rem auto
     }
 
-    #left-sidebar .sidebar-github-button {
-        display: inline-flex;
-    }
-
-    #right-sidebar .sidebar-github-button {
-        display: none !important;
-    }
 }
 
 /* iPad view */
@@ -464,13 +457,6 @@ samp {
         width: 768px
     }
 
-    .sidebar-github-button {
-        display: none !important;
-    }
-
-    #right-sidebar .sidebar-github-button {
-        display: inline-flex !important;
-    }
 }
 
 #content h1 {
@@ -1532,26 +1518,19 @@ li .badge {
     margin: 0 1rem 1.25rem 0 !important
 }
 
-.sidebar-github-button {
-    display: inline-flex;
-    align-items: center;
+.sidebar-button {
     justify-content: center;
     gap: 0.5rem;
     border-radius: calc(var(--radius) / 1.5);
     height: 2rem;
-    padding: 0 0.5rem;
+    padding: 0 0.5rem !important;
     font-size: 0.8rem;
-    color: hsl(var(--muted-foreground));
+    color: hsl(var(--foreground)) !important;
     background-color: hsl(var(--light-accent));
-    border: 1px solid hsl(var(--border)) !important;
-    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out), transform var(--duration-normal) var(--ease-in-out);
+    border: 1px solid hsl(var(--border)) !important
 }
 
-.sidebar-github-button:hover {
-    color: hsl(var(--foreground))
-}
-
-.sidebar-github-button:hover .fa-heart {
+.sidebar-button:hover .fa-heart {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     font: var(--fa-font-solid)
