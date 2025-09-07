@@ -4,7 +4,7 @@ SMART Sphinx Theme Scrollspy ToC Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Sunday, 7 September 2025
 -->
 <aside id="right-sidebar" class="text-sm sidebar-sticky overflow-y-auto pt-6 space-y-2">
   {%- block toc_before %}{%- endblock -%}
@@ -12,5 +12,7 @@ Last updated on: Friday, 8 August 2025
   <p class="font-medium">On this page</p>
   {{ toc }}
   {% endif %}
-  {%- block toc_after %}{%- endblock -%}
+  {%- block toc_after %}
+    <a href="{{ sponsor|d('#') }}" target="_blank" rel="noopener noreferrer" class="sidebar-github-button"><i class="fa-regular fa-heart sd-text-danger"></i>Sponsor on GitHub</a>
+  {%- endblock -%}
 </aside>

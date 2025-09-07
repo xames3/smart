@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Sunday, 31 August 2025
+Last updated on: Sunday, 7 September 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -58,6 +58,7 @@ teaching and learning platform.
         option `last_updated_body`.
     [3] Show the "Built with Sphinx" footer note by enabling the
         `show_sphinx` option in `website_options`.
+    [4] Added support for `sponsor` button in the right sidebar.
 """
 
 from __future__ import annotations
@@ -127,6 +128,7 @@ locale_dirs: list[str] = ["../locale/"]
 gettext_compact: bool = False
 html_context: dict[str, t.Any] = {
     "docsearch": True,
+    "sponsor": "https://github.com/sponsors/xames3",
 }
 rst_epilog = ""
 with open("_static/extra/epilog.rst") as f:
