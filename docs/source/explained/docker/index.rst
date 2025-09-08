@@ -17,7 +17,7 @@
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: National Louis University
+    :about: Adjunct, National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
@@ -82,14 +82,6 @@ now.
    thing that makes Docker work on your machine. Like how Git is the tool
    that makes version control possible, Docker Engine is the tool that makes
    containerisation possible.
-
-   .. picture:: ../../assets/coloured/docker-engine-internals
-       :alt: Docker Engine Internals
-
-       Inside the Docker Engine. The commands you run on your terminal go to
-       the Docker CLI which acts as a client to the Docker Daemon (dockerd)
-       that runs in the background. Docker Daemon is the server-side part of
-       the Docker Engine that does all the heavy lifting.
 
 2. **Docker Hub.** This is a cloud-based registry service where you can find
    and share container images. Again, you can think of it as a GitHub or GitLab

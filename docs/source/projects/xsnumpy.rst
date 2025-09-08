@@ -18,7 +18,7 @@
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: National Louis University
+    :about: Adjunct, National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
@@ -36,6 +36,7 @@ simple. However, beneath this simplicity, a few questions began to gnaw at me.
 So, I found myself experimenting with a simple code, nothing fancy.
 
 .. code-block:: python
+    :linenos:
 
     a = np.array([[1, 2], [3, 4]])
     b = np.array([[5, 6], [7, 8]])
@@ -119,6 +120,7 @@ wasn't pretty, but it worked.
 
 .. code-block:: python
     :caption: :octicon:`file-code` `xsnumpy/_core.py`_
+    :linenos:
 
     class ndarray:
 
@@ -185,6 +187,7 @@ a :py:class:`tuple`. Then, I converted the shape into a tuple of
 array.
 
 .. code-block:: python
+    :linenos:
 
     if not isinstance(shape, Iterable):
         shape = (shape,)
@@ -197,6 +200,7 @@ type from the global namespace using :func:`globals`. This nifty trick meant I
 could dynamically fetch whatever data type you fancied.
 
 .. code-block:: python
+    :linenos:
 
     if dtype is None:
         dtype = globals()[dtype]
@@ -209,6 +213,7 @@ calculate the `strides`_, which, put simply, are just the number of bytes
 between consecutive elements in memory.
 
 .. code-block:: python
+    :linenos:
 
     if buffer is None:
         self._base = None
@@ -224,6 +229,7 @@ Well, then it got a bit trickier. It used the base buffer and the strides were
 either given directly or calculated.
 
 .. code-block:: python
+    :linenos:
     :emphasize-lines: 8
 
     else:
@@ -260,6 +266,7 @@ Little did I know, I was shooting myself in the foot. At its core, a
 I started with something simple, and it worked for scalars and 1D arrays.
 
 .. code-block:: python
+    :linenos:
 
     def __repr__(self):
         return f"array({self._data}, dtype={str(self.dtype)})"
@@ -269,6 +276,7 @@ printed everything as a flat list. I realised I hadn't accounted for the rows
 and columns. No problem, I updated the code and it worked!
 
 .. code-block:: python
+    :linenos:
 
     def __repr__(self):
         if self.ndim == 1:
@@ -315,6 +323,7 @@ first few test cases. But, as always, the system collapsed almost immediately
 for higher-dimensional vectors.
 
 .. code-block:: python
+    :linenos:
     :emphasize-lines: 4,11
 
     def __add__(self, other):
@@ -408,7 +417,7 @@ tour, without the scaffolding, to show what it already does well.
         routines are consistent, predictable, and designed to slot neatly into
         later operations.
 
-        - **array()**
+        - ``array()``
 
           Like NumPy, the |xp.array|_ function is the bread and butter of
           xsNumPy as well. It's the most flexible way to create arrays from
@@ -427,7 +436,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> xp.array([1, 0, 2], dtype=xp.bool)
               array([True, False, True])
 
-        - **zeros()**, **ones()**, and **full()**
+        - ``zeros()``, ``ones()``, and ``full()``
 
           xsNumPy support |xp.zeros|_, |xp.ones|_, and |xp.full|_ functions for
           repeatable initialisation of arrays filled with, zeros, ones, and any
@@ -445,7 +454,7 @@ tour, without the scaffolding, to show what it already does well.
               array([[3.14159, 3.14159, 3.14159],
                      [3.14159, 3.14159, 3.14159]])
 
-        - **arange()**
+        - ``arange()``
 
           Inspired by Python's :py:class:`range`, |xp.arange|_ generates arrays
           with evenly spaced values.
@@ -538,7 +547,7 @@ tour, without the scaffolding, to show what it already does well.
 
             Read more about `NumPy internals`_ here.
 
-        - **reshape()**
+        - ``.reshape()``
 
           The |xp.ndarray.reshape|_ method changes the view of data when
           possible, preserving the total element count.
@@ -550,7 +559,7 @@ tour, without the scaffolding, to show what it already does well.
               array([[1, 2, 3],
                      [4, 5, 6]])
 
-        - **transpose()**
+        - ``.transpose()``
 
           Transposing is more than just flipping rows and columns; for
           higher-dimensional arrays, it's about permuting the axes. The
@@ -564,7 +573,7 @@ tour, without the scaffolding, to show what it already does well.
                      [2, 5],
                      [3, 6]])
 
-        - **flatten()**
+        - ``.flatten()``
 
           The |xp.ndarray.flatten|_ method returns a tidy 1D copy.
 
@@ -639,7 +648,7 @@ tour, without the scaffolding, to show what it already does well.
         the data. xsNumPy provides a few key reduction operations that are
         predictable and consistent.
 
-        - **sum()**
+        - ``.sum()``
 
           The |xp.sum|_ method computes the sum of elements along a given
           axis.
@@ -652,7 +661,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> a.sum(axis=0)
               array([5, 7, 9])
 
-        - **prod()**
+        - ``.prod()``
 
           The |xp.prod|_ (product) method computes the multiplication of
           elements along a given axis.
@@ -665,7 +674,7 @@ tour, without the scaffolding, to show what it already does well.
               >>> a.prod(axis=0)
               array([ 4, 10, 18])
 
-        - **any()** and **all()**
+        - ``.any()`` and ``.all()``
 
           The |xp.all|_ method checks if all elements are :py:obj:`True`, while
           |xp.any|_ checks if at least one is.

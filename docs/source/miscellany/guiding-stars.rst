@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Monday, 24 February 2025
-.. Last updated on: Friday, 5 September 2025
+.. Last updated on: Monday, 8 September 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -16,7 +16,7 @@
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: National Louis University
+    :about: Adjunct, National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
@@ -292,13 +292,25 @@ had fostered with care.
         joined in, creating a vibrant atmosphere of learning and sharing
         their experiences
 
+    .. figure:: ../assets/media/chicago-code-coffee-7.jpg
+        :alt: Chicago Code and Coffee Event (August 2025)
+
+        August 2025 Chicago Code and Coffee, a lively gathering of some known
+        and new professionals and enthusiasts, all eager to connect and learn
+        from each other
+
 As time passed, our community has grown significantly. I became a volunteer,
 and more people have found comfort and opportunity through your work. On behalf
 of everyone who has ever found camaraderie or a new beginning at Chicago Code
 and Coffee, I'd like to thank you, John. Your efforts have created a space
-where people truly belong. You, my friend, will get no strikes!
+where people truly belong.
 
-Join Chicago Code and Coffee's `Discord`_.
+You, my friend, will get no strikes!
+
+.. seealso::
+
+    Join Chicago Code and Coffee's `Discord`_ and sign up for the upcoming
+    event on `Meetup`_.
 
 .. _cast-judy-cazares:
 
@@ -436,3 +448,4 @@ And for that... I'm very thankful, Young!
 .. _Chicago Code and Coffee: https://www.meetup.com/code-and-coffee-chicago/
 .. _Discord: https://discord.gg/NNYtWNFByN
 .. _ChiPy: https://www.chipy.org/
+.. _Meetup: https://www.meetup.com/code-and-coffee-chicago/
