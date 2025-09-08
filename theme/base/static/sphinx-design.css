@@ -50,11 +50,7 @@
 }
 
 details.sd-dropdown summary.sd-summary-title svg {
-    opacity: 1 !important;
-    margin-right: 0;
-    margin-bottom: 0;
-    height: auto;
-    width: auto
+    display: none !important
 }
 
 .sd-card-footer,
@@ -90,6 +86,32 @@ details.sd-dropdown:not([open])>.sd-card-header {
     background-color: transparent
 }
 
+details.sd-dropdown .sd-summary-chevron-right::before {
+    color: hsl(var(--foreground)) !important;
+    opacity: 1 !important;
+    content: "\f078";
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem !important;
+    font: var(--fa-font-regular);
+    margin-right: 0;
+    margin-left: 8px;
+    transform: rotateX(0deg) !important;
+    transition: transform var(--duration-normal) var(--ease-in-out);
+    will-change: transform;
+}
+
+
+details.sd-dropdown[open] .sd-summary-chevron-right::before {
+    transform: rotateX(180deg) !important;
+}
+
+details.sd-dropdown[open]>.sd-summary-title .sd-summary-chevron-down,
+details.sd-dropdown[open]>.sd-summary-title .sd-summary-chevron-right {
+    transform: none !important
+}
+
 details .sd-card-header {
     border: none
 }
@@ -97,9 +119,13 @@ details .sd-card-header {
 details.sd-dropdown summary.sd-summary-title {
     padding: 0;
     text-transform: none;
-    color: hsl(var(--foreground));
-    line-height: 1.625rem;
-    letter-spacing: -0.4px
+    color: hsl(var(--foreground))
+}
+
+details.sd-dropdown summary.sd-summary-title .fas,
+details.sd-dropdown summary.sd-summary-title .sd-octicon,
+details.sd-dropdown summary.sd-summary-title .sd-material-icon {
+    margin-right: 0 !important
 }
 
 details.sd-dropdown summary:focus {

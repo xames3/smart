@@ -90,15 +90,30 @@ $(window).scroll(function () {
         wrapper.style.borderRadius = 'var(--radius)';
         wrapper.style.lineHeight = '0';
         wrapper.style.display = 'block';
+
         wrapper.style.margin = window.getComputedStyle(img).margin || '60px auto';
+
         img.style.margin = '0';
         img.style.borderRadius = '0';
         img.style.display = 'block';
         img.style.width = '100%';
         img.style.height = 'auto';
+
+        const scale = document.createElement('div');
+        scale.className = 'zoom-scale';
+        scale.style.transformOrigin = 'center';
+        scale.style.transition = 'transform var(--duration-slow) var(--ease-in-out)';
+        scale.style.display = 'block';
+        scale.style.lineHeight = '0';
+
         const parent = img.parentElement;
         parent.insertBefore(wrapper, img);
-        wrapper.appendChild(img);
+        wrapper.appendChild(scale);
+        scale.appendChild(img);
+
+        wrapper.addEventListener('pointerenter', () => { scale.style.transform = 'scale(1.02)'; }, { passive: true });
+        wrapper.addEventListener('pointerleave', () => { scale.style.transform = 'scale(1)'; }, { passive: true });
+
         img.dataset.zoomReady = 'true';
     }
 })();
@@ -240,15 +255,15 @@ $(window).scroll(function () {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
-            const headerOffset = 0;
+            const headerOffset = 250;
             let currentHeading = null;
-            const isNearBottom = scrollTop + windowHeight >= documentHeight - 100;
+            const isNearBottom = scrollTop + windowHeight >= documentHeight - 250;
             if (isNearBottom && headings.length > 0) {
                 currentHeading = headings[headings.length - 1];
             } else {
                 for (let i = headings.length - 1; i >= 0; i--) {
                     const heading = headings[i];
-                    if (scrollTop + headerOffset >= heading.offsetTop - 40) {
+                    if (scrollTop + headerOffset >= heading.offsetTop - 500) {
                         currentHeading = heading;
                         break;
                     }
@@ -264,7 +279,6 @@ $(window).scroll(function () {
             if (currentHeading) {
                 currentHeading.link.classList.add('toc-active');
                 currentHeading.link.style.color = 'hsl(var(--foreground))';
-                currentHeading.link.style.fontWeight = '500';
             }
         }
         let ticking = false;
@@ -292,6 +306,7 @@ $(window).scroll(function () {
         initTOCScrollSpy();
     }
 })();
+
 (function () {
     function initPlaceholderAnimation() {
         const input = document.querySelector(".DocSearch-Button-Placeholder");
@@ -370,6 +385,7 @@ $(window).scroll(function () {
         document.addEventListener('DOMContentLoaded', initPlaceholderAnimation);
     }
 })();
+
 document.addEventListener('DOMContentLoaded', function () {
     const h1Elements = document.querySelectorAll('h1');
     h1Elements.forEach(h1 => {

@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 22 February 2025
-.. Last updated on: Friday, 5 September 2025
+.. Last updated on: Monday, 8 September 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -17,7 +17,7 @@ Studying, Mentorship, And Resourceful Teaching
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: National Louis University
+    :about: Adjunct, National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
@@ -36,11 +36,6 @@ both as a digital portfolio, showcasing my work, and a space where I share my
 learning and teaching experiences in the fields of Artificial Intelligence,
 Software Development, Scientific Computing, and Open Science.
 
-I've a special interest in natural language processing, reinforcement
-learning, and numerical computing, which I've explored through my personal
-projects. I'm also committed to contributing to the `NASA Open Science`_
-mission, promoting transparent, reproducible, and inclusive research.
-
 .. figure:: ./assets/media/me-at-nasa-open-science.jpg
     :alt: Me at NASA Open Science 2024
     :figclass: zoom
@@ -49,16 +44,21 @@ mission, promoting transparent, reproducible, and inclusive research.
     Dr. Ian Moncrief (left), Gianna Dubinski (centre), and Brian Palafox
     (right)
 
-Alongside Open Science, I practise open source. For me, it is more than a
+I've a special interest in natural language processing, reinforcement
+learning, and numerical computing, which I've explored through my personal
+projects. I'm also committed to contributing to the `NASA Open Science`_
+mission, promoting transparent, reproducible, and inclusive research.
+
+.. _open-source:
+
+-------------------------------------------------------------------------------
+Open Source
+-------------------------------------------------------------------------------
+
+Alongside ppen Science, I practise open source. For me, it is more than a
 philosophy. It is my personal reminder to make my learnings, experiences, and
 knowledge free and accessible, breaking down cultural and digital barriers and
 inviting collaboration across disciplines and borders.
-
-.. _personal-projects:
-
--------------------------------------------------------------------------------
-Personal projects
--------------------------------------------------------------------------------
 
 I've worked on a diverse range of projects, from building performant machine
 learning models to crafting efficient numerical computing libraries. My
@@ -132,9 +132,9 @@ about the tech either; I'm a huge film nerd and I enjoy memes!! If you are
 also passionate about films or want to share something funny, feel free to
 reach out or send a recommendation or two.
 
-I'm reachable via `Email <mailto:xa@mes3.dev>`_,
-`LinkedIn <https://www.linkedin.com/in/xames3>`_, or
-`GitHub <https://github.com/xames3>`_.
+I don't use, nor am I on, any social media, but I'm reachable via
+`email <mailto:xa@mes3.dev>`_ or via
+`LinkedIn <https://www.linkedin.com/in/xames3>`_.
 
 .. _NASA Open Science: https://science.nasa.gov/open-science/
 .. _NumPy: https://numpy.org/
@@ -159,5 +159,6 @@ I'm reachable via `Email <mailto:xa@mes3.dev>`_,
 .. toctree::
     :caption: Miscellany
     :hidden:
+    :maxdepth: 2
 
     miscellany/guiding-stars

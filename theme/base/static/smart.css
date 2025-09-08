@@ -319,7 +319,8 @@ samp {
 
     .search-w-full {
         width: calc(100vw - 8rem);
-        margin-left: 1rem
+        margin-left: 1rem;
+        padding-right: 1rem
     }
 
     .code-block-caption .caption-text {
@@ -454,7 +455,7 @@ samp {
     }
 
     .search-w-full {
-        width: 768px
+        width: 730px
     }
 
 }
@@ -1266,19 +1267,20 @@ i {
 }
 
 #left-sidebar li.has-children>button.nav-toggle::before {
-    content: "\f054";
+    content: "\f078";
     font: var(--fa-font-regular);
     font-weight: 900;
     font-size: 0.75rem;
     line-height: 1;
     display: inline-block;
-    transform: rotate(0deg);
+    transform: rotateX(0deg);
     transition: transform var(--duration-normal) var(--ease-in-out);
     transform-origin: 50% 50%
 }
 
 #left-sidebar li.has-children[aria-expanded="true"]>button.nav-toggle::before {
-    transform: rotate(90deg)
+    color: hsl(var(--bold));
+    transform: rotateX(180deg)
 }
 
 .badge {
@@ -1521,13 +1523,17 @@ li .badge {
 .sidebar-button {
     justify-content: center;
     gap: 0.5rem;
-    border-radius: calc(var(--radius) / 1.5);
+    border-radius: calc(var(--radius) / 1.5) !important;
     height: 2rem;
     padding: 0 0.5rem !important;
     font-size: 0.8rem;
-    color: hsl(var(--foreground)) !important;
+    color: hsl(var(--muted-foreground));
     background-color: hsl(var(--light-accent));
     border: 1px solid hsl(var(--border)) !important
+}
+
+.sidebar-button:hover {
+    color: hsl(var(--foreground))
 }
 
 .sidebar-button:hover .fa-heart {

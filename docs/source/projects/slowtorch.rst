@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Friday, April 18 2025
-.. Last updated on: Friday, 5 September 2025
+.. Last updated on: Monday, 8 September 2025
 
 :og:title: PyTorch... But Slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -18,7 +18,7 @@
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: National Louis University
+    :about: Adjunct, National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
@@ -161,6 +161,7 @@ more structured way.
 .. code-block:: python
     :caption: :octicon:`file-code` `slowtorch/internal/tensor.py`_
     :emphasize-lines: 19-21
+    :linenos:
 
     class Tensor:
 
@@ -268,6 +269,7 @@ wrapped around classes much like PyTorch.
         .. code-block:: python
             :caption: :octicon:`file-code` `slowtorch/nn/functional/layer.py`_
             :emphasize-lines: 2,9-10
+            :linenos:
 
             def linear(input, weight, bias=None):
                 new_tensor = input @ weight.T
@@ -336,6 +338,7 @@ wrapped around classes much like PyTorch.
             :caption: :octicon:`file-code`
                 `slowtorch/nn/functional/pointwise.py`_
             :emphasize-lines: 10,13,19
+            :linenos:
 
             def sigmoid(input):
                 new_tensor = Tensor(input._shape, input.dtype)
@@ -406,6 +409,7 @@ wrapped around classes much like PyTorch.
         .. code-block:: python
             :caption: :octicon:`file-code` `slowtorch/nn/functional/loss.py`_
             :emphasize-lines: 2,14-16
+            :linenos:
 
             def mse_loss(input, target, reduction="mean"):
                 loss = (input - target) ** 2
@@ -471,6 +475,7 @@ wrapped around classes much like PyTorch.
             :caption: :octicon:`file-code`
                 `slowtorch/nn/functional/mutation.py`_
             :emphasize-lines: 3,7
+            :linenos:
 
             def ravel(input):
                 new_tensor = Tensor(input.nelement(), input.dtype)
@@ -492,6 +497,7 @@ wrapped around classes much like PyTorch.
 
         .. code-block:: python
             :caption: :octicon:`file-code` `slowtorch/nn/modules/parameter.py`_
+            :linenos:
 
             class Parameter(Tensor):
 
@@ -551,6 +557,7 @@ method that updated the parameters based on their gradients.
 
 .. code-block:: python
     :caption: :octicon:`file-code` `slowtorch/optim/optimiser.py`_
+    :linenos:
 
     class Optimiser:
 
