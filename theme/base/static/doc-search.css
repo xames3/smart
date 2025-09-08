@@ -24,7 +24,6 @@
     border: 1px solid hsl(var(--border));
     border-radius: 8px;
     margin: 0;
-    margin-left: -0.5rem;
     cursor: pointer
 }
 
