@@ -4,7 +4,7 @@ SMART Sphinx Theme YouTube Thumbnail Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 6 September 2025
-Last updated on: Sunday, 7 September 2025
+Last updated on: Monday, 8 September 2025
 
 This module defines a custom `thumbnail` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a YouTube video thumbnail
@@ -41,8 +41,6 @@ import typing as t
 import docutils.nodes as nodes
 import docutils.parsers.rst as rst
 import jinja2
-import requests
-from bs4 import BeautifulSoup as Soup
 
 
 if t.TYPE_CHECKING:
@@ -75,10 +73,6 @@ class directive(rst.Directive):
     """
 
     has_content = True
-    option_spec = {  # noqa: RUF012
-        "title": rst.directives.unchanged,
-        "channel": rst.directives.unchanged,
-    }
 
     def run(self) -> list[nodes.Node]:
         """Parse the directive content, fetch metadata, and create a
@@ -90,6 +84,16 @@ class directive(rst.Directive):
         This allows Sphinx to render them correctly.
 
         :return: A list containing a single `thumbnail.node` element.
+
+        .. deprecated:: 8.9.2025
+
+            [1] Deprecated using `requests` and `BeautifulSoup` for
+                fetching and parsing YouTube metadata. This approach
+                was unreliable due to frequent changes in YouTube's HTML
+                structure and super long build times.
+            [2] The directive now uses YouTube's oEmbed endpoint to
+                fetch video metadata in a more stable and efficient
+                manner.
         """
         self.assert_has_content()
         src = rst.directives.uri(self.content.pop())
@@ -98,10 +102,8 @@ class directive(rst.Directive):
             vid = src.rsplit("/", 1)[-1].split("?", 1)[0]
         elif "watch?v=" in src:
             vid = src.split("v=", 1)[-1].split("&", 1)[0]
-        if "title" not in self.options:
-            soup = Soup(requests.get(src, timeout=1).text, "html.parser")
-            self.options["title"] = soup.find("title").text
         self.options["src"] = src
+        self.options["video_id"] = vid
         self.options["thumbnail"] = (
             f"https://img.youtube.com/vi/{vid}/hqdefault.jpg"
         )

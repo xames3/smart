@@ -35,6 +35,9 @@
     --tab-foreground: 0, 0%, 40%, 0.5;
     --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
     --ease-in-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out-circ: cubic-bezier(0.79, 0.14, 0.15, 0.86);
+    --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+    --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
     --duration-fast: 150ms;
     --duration-normal: 500ms;
     --duration-slow: 1000ms;
@@ -1469,6 +1472,37 @@ li .badge {
     width: 100%;
     overflow: hidden;
     padding-top: 56.25%
+}
+
+.youtube-thumbnail-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: -20% -60%;
+    background: linear-gradient(90deg, hsl(0 0% 100% / 0) 0%, hsla(0, 0%, 100%, 0.215) 25%, hsl(0 0% 100% / 0) 50%, hsl(0 0% 100% / 0) 0%);
+    transform: translateX(-120%) skewX(-45deg);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.youtube-card-container:hover .youtube-thumbnail-wrapper::after {
+    animation: youtube-thumb-shine var(--duration-slow) var(--ease-in-out);
+}
+
+@keyframes youtube-thumb-shine {
+    from {
+        transform: translateX(-120%) skewX(-45deg);
+    }
+
+    to {
+        transform: translateX(120%) skewX(-45deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .youtube-card-container:hover .youtube-thumbnail-wrapper::after {
+        animation: none;
+    }
 }
 
 .youtube-thumbnail-wrapper img {

@@ -396,3 +396,62 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+(function () {
+    function intersectOnce(nodes, onEnter) {
+        const list = Array.from(nodes);
+        if (!list.length) return;
+        if (!('IntersectionObserver' in window)) {
+            list.forEach(onEnter);
+            return;
+        }
+        const io = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+                if (e.isIntersecting) {
+                    io.unobserve(e.target);
+                    onEnter(e.target);
+                }
+            }
+        }, { rootMargin: '200px' });
+        list.forEach(n => io.observe(n));
+    }
+
+    function withTimeout(promise, ms) {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), ms);
+        return Promise.race([
+            fetch(promise, { signal: ctrl.signal }),
+            new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms + 10))
+        ]).finally(() => clearTimeout(t));
+    }
+
+    async function enrichYouTubeCard(card) {
+        if (card.dataset.youtubeEnriched === '1') return;
+        const vid = card.getAttribute('data-youtube-id');
+        if (!vid) { card.dataset.youtubeEnriched = '1'; return; }
+        const titleEl = card.querySelector('.youtube-title');
+        const channelEl = card.querySelector('.youtube-channel');
+        const url = 'https://www.youtube.com/oembed?url=' + encodeURIComponent('https://www.youtube.com/watch?v=' + vid) + '&format=json';
+        try {
+            const res = await withTimeout(url, 8000);
+            if (!res.ok) throw new Error(String(res.status));
+            const data = await res.json();
+            if (titleEl) titleEl.textContent = data.title;
+            if (channelEl) channelEl.textContent = data.author_name;
+        } catch (_) {
+        } finally {
+            card.dataset.youtubeEnriched = '1';
+        }
+    }
+
+    function bootYouTubeOEmbed() {
+        const cards = document.querySelectorAll('.youtube-card-container[data-youtube-id]');
+        intersectOnce(cards, enrichYouTubeCard);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bootYouTubeOEmbed);
+    } else {
+        bootYouTubeOEmbed();
+    }
+})();
