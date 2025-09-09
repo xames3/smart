@@ -162,3 +162,4 @@ I don't use, nor am I on, any social media, but I'm reachable via
     :maxdepth: 2
 
     miscellany/guiding-stars
+    miscellany/youtube-videos
