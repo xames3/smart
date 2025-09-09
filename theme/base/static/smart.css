@@ -1575,3 +1575,27 @@ li .badge {
     -webkit-font-smoothing: antialiased;
     font: var(--fa-font-solid)
 }
+
+a[data-tooltip] {
+    position: relative;
+}
+
+a[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
+    padding: 0.25rem 0.75rem;
+    border-radius: calc(var(--radius) / 1.5);
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity var(--duration-slow) var(--ease-in-out);
+}
+
+a[data-tooltip].show-tooltip::after {
+    opacity: 1;
+}
