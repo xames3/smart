@@ -81,6 +81,22 @@ html[data-theme="dark"] {
 /* Global default transitions */
 * {
     transition: border-color var(--duration-normal) var(--ease-in-out);
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: none
 }
 
 /* Transition/motion gates */
@@ -113,12 +129,11 @@ html.theme-transition *::before,
 html.theme-transition *::after {
     transition: background-color var(--duration-normal) var(--ease-in-out),
         color var(--duration-normal) var(--ease-in-out),
-        border-color var(--duration-normal) var(--ease-in-out),
         fill var(--duration-normal) var(--ease-in-out),
         stroke var(--duration-normal) var(--ease-in-out),
         box-shadow var(--duration-normal) var(--ease-in-out),
         text-decoration-color var(--duration-normal) var(--ease-in-out) !important;
-    will-change: background-color, color, border-color, fill, stroke, box-shadow, text-decoration-color;
+    will-change: background-color, color, fill, stroke, box-shadow, text-decoration-color;
 }
 
 /* Typography */

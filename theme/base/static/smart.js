@@ -156,7 +156,7 @@ window.addEventListener('load', () => {
             }
             function onEnd(e) {
                 if (!e || !e.propertyName) return;
-                if (e.propertyName === 'color' || e.propertyName === 'background-color' || e.propertyName === 'border-color' || e.propertyName === 'fill' || e.propertyName === 'stroke' || e.propertyName === 'box-shadow' || e.propertyName === 'text-decoration-color') {
+                if (e.propertyName === 'color' || e.propertyName === 'background-color' || e.propertyName === 'fill' || e.propertyName === 'stroke' || e.propertyName === 'box-shadow' || e.propertyName === 'text-decoration-color') {
                     if (doneTimer) clearTimeout(doneTimer);
                     doneTimer = setTimeout(cleanup, debounce);
                 }
