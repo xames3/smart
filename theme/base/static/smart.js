@@ -109,6 +109,91 @@ window.addEventListener('load', () => {
     });
 })();
 
+// Mobile-friendly copy URL handler with fallback and tooltip feedback
+(function () {
+    function showTooltip(el, text) {
+        try {
+            if (text) el.setAttribute('data-tooltip', text);
+            el.classList.add('show-tooltip');
+            setTimeout(() => { el.classList.remove('show-tooltip'); }, 1800);
+        } catch { }
+    }
+
+    async function copyTextLegacy(text) {
+        return new Promise((resolve, reject) => {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'absolute';
+                ta.style.left = '-9999px';
+                ta.style.fontSize = '12pt';
+                document.body.appendChild(ta);
+                const selection = document.getSelection();
+                const selected = selection && selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+                ta.select();
+                ta.setSelectionRange(0, ta.value.length);
+                const ok = document.execCommand && document.execCommand('copy');
+                document.body.removeChild(ta);
+                if (selected && selection) {
+                    selection.removeAllRanges();
+                    selection.addRange(selected);
+                }
+                if (!ok) return reject(new Error('execCommand copy failed'));
+                resolve();
+            } catch (e) { reject(e); }
+        });
+    }
+
+    async function copyToClipboard(text) {
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(text);
+                return true;
+            }
+        } catch (_) { }
+        try {
+            await copyTextLegacy(text);
+            return true;
+        } catch (_) {
+            return false;
+        }
+    }
+
+    function getCanonicalUrl() {
+        const c = document.querySelector('link[rel="canonical"]');
+        if (c && c.href) return c.href;
+        return window.location.href;
+    }
+
+    function initCopyUrl() {
+        const links = document.querySelectorAll('a.copy-url');
+        if (!links.length) return;
+        links.forEach(link => {
+            link.addEventListener('click', async (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const url = getCanonicalUrl();
+                const ok = await copyToClipboard(url);
+                showTooltip(link, ok ? 'Copied!' : 'Copy failed');
+            }, { passive: false });
+            link.addEventListener('touchend', async (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const url = getCanonicalUrl();
+                const ok = await copyToClipboard(url);
+                showTooltip(link, ok ? 'Copied!' : 'Copy failed');
+            }, { passive: false });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCopyUrl);
+    } else {
+        initCopyUrl();
+    }
+})();
+
 (function () {
     function onScroll() {
         const sc = window.scrollY || document.documentElement.scrollTop;

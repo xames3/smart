@@ -30,6 +30,7 @@ from sphinx.environment.adapters.toctree import TocTree
 from sphinx.util.display import status_iterator
 from sphinx.util.docutils import new_document
 
+
 if t.TYPE_CHECKING:
     from sphinx.application import Sphinx
     from sphinx.environment import BuildEnvironment
@@ -75,7 +76,9 @@ def make_toc_collapsible(tree: bs4.BeautifulSoup) -> None:
         if not parent or parent.name != "li":
             continue
         if not children.get("id"):
-            children["id"] = f"nav-branch-{abs(hash(str(children))) % (10**8)}"
+            children["id"] = (  # type: ignore
+                f"nav-branch-{abs(hash(str(children))) % (10**8)}"
+            )
         current = (
             "current" in (parent.get("class") or [])
             or "current" in (link.get("class") or [])
@@ -90,7 +93,7 @@ def make_toc_collapsible(tree: bs4.BeautifulSoup) -> None:
             parent["aria-expanded"] = "false"
         button = tree.new_tag("button", type="button")
         button["class"] = "nav-toggle"
-        button["aria-controls"] = children["id"]
+        button["aria-controls"] = children["id"]  # type: ignore
         sr = tree.new_tag("span", attrs={"class": "sr-only"})
         sr.string = "Toggle section"
         button.append(sr)

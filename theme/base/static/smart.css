@@ -423,7 +423,7 @@ samp {
     .sd-tab-label {
         padding: 0.5rem 1rem !important;
         border-radius: 0.5rem;
-        border: 4px solid hsl(var(--border)) !important
+        border: 2px solid hsl(var(--border)) !important
     }
 
     .sd-tab-label:first-of-type {
