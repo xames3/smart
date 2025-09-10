@@ -1,10 +1,19 @@
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const wordsPerMinute = 225;
-    const section = document.querySelector('section');
-    if (!section) return;
-    const paragraphs = section.querySelectorAll('p');
-    const totalWordCount = Array.from(paragraphs).reduce((count, p) =>
-        count + p.textContent.trim().split(/\s+/).length, 0);
+    const root = document.getElementById('content') || document.querySelector('[role="main"]') || document.querySelector('section');
+    if (!root) return;
+    const candidates = Array.from(root.querySelectorAll('p'));
+    const totalWordCount = candidates.reduce((acc, p) => {
+        if (p.closest('pre, code, figure, figcaption, .literal-block-wrapper, .highlight, .code-block-caption, .math, .sidebar, .sphinxsidebar, .admonition, nav, header, footer')) {
+            return acc;
+        }
+        const clone = p.cloneNode(true);
+        clone.querySelectorAll('code, pre, kbd, samp, .linenos, .copybtn, .headerlink, svg, i.fa, .fa').forEach(n => n.remove());
+        const text = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!text || text.length < 20) return acc;
+        const words = text.split(/\s+/).filter(tok => /[\p{L}\p{N}]/u.test(tok)).length;
+        return acc + words;
+    }, 0);
     if (totalWordCount > 0) {
         const readingTime = Math.ceil(totalWordCount / wordsPerMinute);
         const rt = document.getElementById('readingTime');

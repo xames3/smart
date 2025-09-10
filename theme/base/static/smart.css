@@ -428,7 +428,7 @@ samp {
     .sd-tab-label {
         padding: 0.5rem 1rem !important;
         border-radius: 0.5rem;
-        border: 2px solid hsl(var(--border)) !important
+        border: 1px solid hsl(var(--pre-shadow)) !important
     }
 
     .sd-tab-label:first-of-type {
@@ -794,8 +794,6 @@ pre {
     font-size: 13px;
     line-height: 20px;
     tab-size: 4;
-    border: none;
-    box-shadow: var(--box-shadow);
     border-radius: var(--radius) !important;
     transition: transform var(--duration-fast) var(--ease-in-out)
 }
@@ -815,7 +813,6 @@ pre span.linenos {
 }
 
 .literal-block-wrapper pre {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
     border-radius: 0 0 var(--radius) var(--radius) !important
 }
 
