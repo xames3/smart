@@ -1,7 +1,9 @@
+/* Imports */
 @import url("theme.css");
 @import url("geist.css");
 @import url("code.css");
 
+/* Theme variables */
 :root {
     --bold: 0 0% 0%;
     --background: 0 0% 98%;
@@ -42,9 +44,11 @@
     --duration-normal: 500ms;
     --duration-slow: 1000ms;
     --sidebar-width: 250px;
-    --header-offset: 2.5rem
+    --header-offset: 2.5rem;
+    --anchor-offset-extra: 12px;
 }
 
+/* Dark theme overrides */
 html[data-theme="dark"] {
     --bold: 0 0% 100%;
     --background: 0 0% 0%;
@@ -74,13 +78,38 @@ html[data-theme="dark"] {
     --card: 0 0% 0%
 }
 
+/* Global default transitions */
 * {
-    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out), border-color var(--duration-normal) var(--ease-in-out),
-
+    transition: border-color var(--duration-normal) var(--ease-in-out);
+    -ms-overflow-style: none;
+    scrollbar-width: none
 }
 
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: none
+}
+
+/* Transition/motion gates */
+html.no-transitions *,
+html.no-transitions *::before,
+html.no-transitions *::after {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Base */
 body {
-    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out)
+    transition: none
 }
 
 html {
@@ -88,10 +117,26 @@ html {
     -webkit-font-smoothing: antialiased;
     font-size: 1.05rem;
     scroll-behavior: smooth;
-    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out);
+    transition: none;
     scroll-padding-top: var(--header-offset)
 }
 
+/* Theme transition opt-in */
+html.theme-transition,
+html.theme-transition body,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition: background-color var(--duration-normal) var(--ease-in-out),
+        color var(--duration-normal) var(--ease-in-out),
+        fill var(--duration-normal) var(--ease-in-out),
+        stroke var(--duration-normal) var(--ease-in-out),
+        box-shadow var(--duration-normal) var(--ease-in-out),
+        text-decoration-color var(--duration-normal) var(--ease-in-out) !important;
+    will-change: background-color, color, fill, stroke, box-shadow, text-decoration-color;
+}
+
+/* Typography */
 .font-sans {
     font-family: "Geist Sans", sans-serif
 }
@@ -110,6 +155,7 @@ samp {
     font-family: "Geist Mono", monospace
 }
 
+/* Layout visibility defaults */
 .layout-grid>#left-sidebar {
     display: none
 }
@@ -126,6 +172,7 @@ samp {
     overflow-y: auto
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .scbs-carousel-indicators [data-bs-target] {
         transition: none !important
@@ -151,7 +198,6 @@ samp {
     }
 }
 
-/* iPhone view */
 @media (max-width: 768px) {
 
     html {
@@ -215,10 +261,7 @@ samp {
     #content h2 {
         font-size: 1.5rem !important;
         letter-spacing: -0.36px !important;
-        line-height: 1.5rem !important
-    }
-
-    #content h2 {
+        line-height: 1.5rem !important;
         margin-top: calc(92px / 2) !important
     }
 
@@ -342,6 +385,11 @@ samp {
         margin-bottom: 0.3rem !important
     }
 
+    .scbs-carousel-control-prev-icon,
+    .scbs-carousel-control-next-icon {
+        margin-top: 0.7rem;
+    }
+
     .admonition.attention::before,
     .admonition.caution::before,
     .admonition.error::before,
@@ -380,17 +428,17 @@ samp {
     .sd-tab-label {
         padding: 0.5rem 1rem !important;
         border-radius: 0.5rem;
-        border: 4px solid hsl(var(--border)) !important
+        border: 1px solid hsl(var(--pre-shadow)) !important
     }
 
     .sd-tab-label:first-of-type {
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem
+        border-top-left-radius: 0.5rem !important;
+        border-bottom-left-radius: 0.5rem !important
     }
 
     .sd-tab-label:last-of-type {
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem
+        border-top-right-radius: 0.5rem !important;
+        border-bottom-right-radius: 0.5rem !important
     }
 
     .sd-row-cols-2>*,
@@ -439,16 +487,6 @@ samp {
 
 /* Desktop view */
 @media (min-width: 1280px) {
-    .layout-grid {
-        display: grid;
-        align-items: start;
-        grid-template-columns: var(--sidebar-width) minmax(0, 1fr)
-    }
-
-    .layout-grid>#left-sidebar {
-        display: block
-    }
-
     .layout-grid.has-right-sidebar {
         grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width)
     }
@@ -463,6 +501,7 @@ samp {
 
 }
 
+/* Content: headings */
 #content h1 {
     font-size: 3rem;
     font-weight: 600;
@@ -487,13 +526,12 @@ samp {
     letter-spacing: -0.4px
 }
 
-#content :is(h1, h2, h3, h4, h5, h6)[id],
-#content section[id],
-#content .section[id],
-#content [id] {
-    scroll-margin-top: var(--header-offset)
+/* Anchor scroll offset */
+#content :is(h1, h2, h3, h4, h5, h6, .section, section, [id])[id] {
+    scroll-margin-top: calc(var(--header-offset) + var(--anchor-offset-extra));
 }
 
+/* Utilities */
 .whitespace-nowrap>svg,
 #content h1 svg {
     display: none
@@ -503,6 +541,7 @@ samp {
     line-height: 1.5rem
 }
 
+/* Lead paragraph */
 #content section>p.lead {
     color: hsl(var(--muted-foreground));
     font-size: 24px;
@@ -625,6 +664,7 @@ a.headerlink {
     text-decoration: none
 }
 
+/* Code caption link */
 .code-block-caption>span>a {
     color: hsl(var(--muted-foreground)) !important;
     font-family: "Geist Mono", monospace;
@@ -633,6 +673,7 @@ a.headerlink {
     text-decoration-line: none !important
 }
 
+/* Headerlink icon on hover */
 h2:hover>a.headerlink:before,
 h3:hover>a.headerlink:before,
 h4:hover>a.headerlink:before,
@@ -663,6 +704,7 @@ h6:hover>a.headerlink:before {
     display: none !important
 }
 
+/* Sidebars */
 #left-sidebar .caption {
     font-size: 0.75rem;
     color: hsl(var(--muted-foreground) / 0.5);
@@ -685,15 +727,12 @@ h6:hover>a.headerlink:before {
     color: hsl(var(--bold))
 }
 
-#left-sidebar a,
 #right-sidebar ul li a {
     transition-duration: var(--duration-normal)
 }
 
-#left-sidebar a.expandable {
-    padding-right: 0
-}
 
+/* Header */
 header {
     transition: background-color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out)
 }
@@ -711,6 +750,11 @@ header {
     color: hsl(var(--bold))
 }
 
+.is-active {
+    transform: translateY(0)
+}
+
+/* Inline code */
 code {
     background-color: hsl(var(--muted));
     font-size: 0.9em;
@@ -736,6 +780,7 @@ code {
     font-weight: inherit
 }
 
+/* Code block */
 pre {
     background-color: hsl(var(--code-background));
     overflow-x: auto;
@@ -749,8 +794,6 @@ pre {
     font-size: 13px;
     line-height: 20px;
     tab-size: 4;
-    border: none;
-    box-shadow: var(--box-shadow);
     border-radius: var(--radius) !important;
     transition: transform var(--duration-fast) var(--ease-in-out)
 }
@@ -770,10 +813,10 @@ pre span.linenos {
 }
 
 .literal-block-wrapper pre {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
     border-radius: 0 0 var(--radius) var(--radius) !important
 }
 
+/* Copy button */
 button.copybtn {
     border: none !important;
     background-color: transparent !important;
@@ -785,7 +828,6 @@ button.copybtn {
 }
 
 #left-sidebar .caption button svg,
-#left-sidebar a>button svg,
 button.copybtn svg {
     display: none !important
 }
@@ -802,16 +844,18 @@ button.copybtn::before {
     font: var(--fa-font-regular)
 }
 
+/* Copy tooltip */
 .o-tooltip--left:after {
     transform: translateX(-102%) translateY(0);
     transition: opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
     background-color: hsl(var(--code-background)) !important;
     color: hsl(0, 0%, 63%) !important;
-    padding: 4px 5px !important;
+    padding: 4px 10px !important;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 8px !important
 }
 
+/* Blockquote */
 blockquote {
     border: none;
     max-width: 90%;
@@ -872,6 +916,7 @@ i {
     margin-right: 10px
 }
 
+/* Utility helpers */
 .rounded-lg {
     border-radius: calc(var(--radius) + 1rem)
 }
@@ -939,6 +984,7 @@ i {
     bottom: 13rem
 }
 
+/* Figures & images */
 .picture-figure {
     text-align: center
 }
@@ -961,11 +1007,11 @@ i {
     margin-top: 0
 }
 
+/* Admonitions */
 .admonition {
     background-color: hsl(var(--light-accent));
-    border-color: transparent;
     border-radius: var(--radius);
-    border-width: 0;
+    border: 1px solid hsl(var(--pre-shadow));
     color: hsl(var(--accent-foreground));
     line-height: 1.5rem;
     max-width: 90%;
@@ -997,44 +1043,52 @@ i {
 }
 
 .seealso {
+    border: 1px solid hsl(var(--seealso-admonition-foreground), 0.1);
     background-color: hsl(var(--seealso-admonition-background));
     color: hsl(var(--seealso-admonition-foreground))
 }
 
 .seealso:is(.dark *) {
+    border: 1px solid hsl(var(--seealso-admonition-foreground), 0.1);
     background-color: hsl(var(--seealso-admonition-background), 0.6);
     color: hsl(var(--seealso-admonition-foreground))
 }
 
 .tip {
+    border: 1px solid hsl(var(--tip-admonition-foreground), 0.1);
     background-color: hsl(var(--tip-admonition-background), 0.4);
     color: hsl(var(--tip-admonition-foreground)) !important
 }
 
 .tip:is(.dark *) {
+    border: 1px solid hsl(var(--tip-admonition-foreground), 0.1);
     background-color: hsl(var(--tip-admonition-background), 0.35)
 }
 
 .important,
 .hint {
+    border: 1px solid hsl(var(--hint-admonition-foreground), 0.1);
     background-color: hsl(var(--hint-admonition-background), 0.4);
     color: hsl(var(--hint-admonition-foreground))
 }
 
 .important:is(.dark *),
 .hint:is(.dark *) {
+    border: 1px solid hsl(var(--hint-admonition-foreground), 0.1);
     background-color: hsl(var(--hint-admonition-background), 0.35);
     color: hsl(var(--hint-admonition-foreground))
 }
 
 .error,
 .danger {
+    border: 1px solid hsl(var(--danger-admonition-foreground), 0.1);
     background-color: hsl(var(--danger-admonition-background), 0.4);
     color: hsl(var(--danger-admonition-foreground))
 }
 
 .error:is(.dark *),
 .danger:is(.dark *) {
+    border: 1px solid hsl(var(--danger-admonition-foreground), 0.1);
     background-color: hsl(var(--danger-admonition-background), 0.5);
     color: hsl(var(--danger-admonition-foreground))
 }
@@ -1042,6 +1096,7 @@ i {
 .warning,
 .caution,
 .attention {
+    border: 1px solid hsl(var(--warning-admonition-foreground), 0.1);
     background-color: hsl(var(--warning-admonition-background), 0.5);
     color: hsl(var(--warning-admonition-foreground))
 }
@@ -1049,6 +1104,7 @@ i {
 .warning:is(.dark *),
 .caution:is(.dark *),
 .attention:is(.dark *) {
+    border: 1px solid hsl(var(--warning-admonition-foreground), 0.1);
     background-color: hsl(var(--warning-admonition-background), 0.6);
     color: hsl(var(--warning-admonition-foreground))
 }
@@ -1165,18 +1221,7 @@ i {
     pointer-events: none
 }
 
-.admonition.attention p:not(.admonition-title),
-.admonition.caution p:not(.admonition-title),
-.admonition.error p:not(.admonition-title),
-.admonition.hint p:not(.admonition-title),
-.admonition.important p:not(.admonition-title),
-.admonition.note p:not(.admonition-title),
-.admonition.seealso p:not(.admonition-title),
-.admonition.tip p:not(.admonition-title),
-.admonition.warning p:not(.admonition-title),
-.admonition.danger p:not(.admonition-title) {
-    margin-top: 0
-}
+
 
 .admonition.danger::before {
     content: "\f714";
@@ -1235,28 +1280,42 @@ i {
     border: 0
 }
 
-#left-sidebar ul ul:before,
-#left-sidebar ul ul:is(.dark *):before {
-    left: 0.25rem;
-    top: 0;
-    bottom: 1rem
+
+
+/* ToC vertical guide line */
+@supports (position: relative) {
+    #left-sidebar ul ul {
+        position: relative
+    }
+
+    #left-sidebar ul ul:before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        background: hsl(var(--border));
+        top: 0.25rem;
+        bottom: 0.25rem;
+        left: 0.25rem
+    }
 }
 
+/* Left sidebar accordion */
 #left-sidebar li.has-children {
     position: relative
 }
 
 #left-sidebar li.has-children>a {
     display: inline-block;
-    width: auto
+    width: auto;
+    padding-right: 1.25rem
 }
 
 #left-sidebar li.has-children>button.nav-toggle {
     position: absolute;
     top: 0.5rem;
     right: 0;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1266,14 +1325,15 @@ i {
     margin: 0;
     cursor: pointer;
     color: hsl(var(--muted-foreground));
-    transition: color var(--duration-normal) var(--ease-in-out)
+    transition: color var(--duration-normal) var(--ease-in-out);
+    z-index: 2
 }
 
 #left-sidebar li.has-children>button.nav-toggle::before {
     content: "\f078";
     font: var(--fa-font-regular);
     font-weight: 900;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     line-height: 1;
     display: inline-block;
     transform: rotateX(0deg);
@@ -1286,6 +1346,28 @@ i {
     transform: rotateX(180deg)
 }
 
+#left-sidebar li.has-children>ul {
+    display: block !important;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    will-change: max-height, opacity;
+    transition: max-height var(--duration-normal) var(--ease-in-out), opacity var(--duration-normal) var(--ease-in-out)
+}
+
+#left-sidebar li.has-children[aria-expanded="true"]>ul {
+    max-height: 1200px;
+    opacity: 1
+}
+
+#left-sidebar li.has-children>a:hover+button.nav-toggle::before,
+#left-sidebar li.has-children>button.nav-toggle:hover::before,
+#left-sidebar li.has-children.current>button.nav-toggle::before,
+#left-sidebar li.has-children[aria-expanded="true"]>button.nav-toggle::before {
+    color: hsl(var(--bold))
+}
+
+/* Badges */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -1319,6 +1401,7 @@ li .badge {
     padding: 1rem
 }
 
+/* Carousel */
 .scbs-carousel-control-next,
 .scbs-carousel-control-prev {
     width: auto !important;
@@ -1440,13 +1523,16 @@ li .badge {
 }
 
 .scbs-carousel-control-prev-icon::before {
-    content: "\f060"
+    content: "\f060";
+    margin-top: 0.2rem;
 }
 
 .scbs-carousel-control-next-icon::before {
-    content: "\f061"
+    content: "\f061";
+    margin-top: 0.2rem;
 }
 
+/* YouTube card */
 .youtube-card-container {
     text-decoration: none;
     color: inherit;
@@ -1554,6 +1640,7 @@ li .badge {
     margin: 0 1rem 1.25rem 0 !important
 }
 
+/* Sidebar CTA button */
 .sidebar-button {
     justify-content: center;
     gap: 0.5rem;
@@ -1576,6 +1663,7 @@ li .badge {
     font: var(--fa-font-solid)
 }
 
+/* Generic tooltip */
 a[data-tooltip] {
     position: relative;
 }
@@ -1586,10 +1674,11 @@ a[data-tooltip]::after {
     bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
-    background: hsl(var(--muted));
+    background: hsl(var(--muted) / 0.75);
     color: hsl(var(--foreground));
-    padding: 0.25rem 0.75rem;
-    border-radius: calc(var(--radius) / 1.5);
+    padding: 0.1rem 0.5rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: calc(var(--radius) / 2);
     opacity: 0;
     white-space: nowrap;
     pointer-events: none;

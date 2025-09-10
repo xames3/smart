@@ -4,7 +4,7 @@ SMART Sphinx Theme Utilities
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Friday, 21 February 2025
-Last updated on: Wednesday, 27 August 2025
+Last updated on: Wednesday, 10 September 2025
 
 This module defines a collection of utility functions used for
 customising the SMART Sphinx Theme. These utilities focus on enhancing
@@ -60,49 +60,44 @@ def findall(
 
 
 def make_toc_collapsible(tree: bs4.BeautifulSoup) -> None:
-    """Enhance the left sidebar's table of contents (ToC) by making the
-    child elements collapsible.
+    """Enhance the left sidebar's ToC with collapsible branches.
 
-    This function identifies anchor tags within the left sidebar that
-    have adjacent unordered lists (`ul`), indicating nested ToC items.
-    It then modifies these elements by adding `Alpine.js`-based
-    attributes to enable dynamic collapsing and expanding functionality.
+    This attaches an adjacent toggle button after links that have a
+    following ``ul``. The button uses theme CSS for a down chevron via a
+    pseudo element. No Alpine attributes or inline SVGs are injected.
 
-    The function also appends a clickable button with an icon to trigger
-    the collapse/expand action. This improves navigation by allowing
-    users to hide or reveal sections of the ToC as needed.
-
-    :param tree: The parsed HTML tree representing the document
-        structure, used for DOM manipulation.
+    :param tree: Parsed HTML tree to mutate.
     """
     for link in tree.select("#left-sidebar a"):
         children = link.find_next_sibling("ul")
-        if children:
-            link.parent["x-data"] = (  # type: ignore[index]
-                "{ expanded: $el.classList.contains('current') }"
+        if not children:
+            continue
+        parent = link.parent
+        if not parent or parent.name != "li":
+            continue
+        if not children.get("id"):
+            children["id"] = (  # type: ignore
+                f"nav-branch-{abs(hash(str(children))) % (10**8)}"
             )
-            link["@click"] = "expanded = !expanded"
-            link["class"].append("expandable")
-            link[":class"] = "{ 'expanded': expanded }"
-            children["x-show"] = "expanded"  # type: ignore[index]
-            button = tree.new_tag(
-                "button",
-                type="button",
-                **{"@click.prevent.stop": "expanded = !expanded"},
-            )
-            label = tree.new_tag("span", attrs={"class": "sr-only"})
-            button.append(label)
-            svg = bs4.BeautifulSoup(
-                (
-                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 '
-                    '24" width="18px" height="18px" stroke="none" '
-                    'fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.'
-                    '58 4.59L10 18l6-6z"/></svg>'
-                ),
-                "html.parser",
-            ).svg
-            button.append(svg)  # type:ignore[arg-type]
-            link.append(button)
+        current = (
+            "current" in (parent.get("class") or [])
+            or "current" in (link.get("class") or [])
+            or bool(children.select(".current"))
+        )
+        parent["class"] = list(
+            set((parent.get("class") or []) + ["has-children"])
+        )
+        if current:
+            parent["aria-expanded"] = "true"
+        else:
+            parent["aria-expanded"] = "false"
+        button = tree.new_tag("button", type="button")
+        button["class"] = "nav-toggle"
+        button["aria-controls"] = children["id"]  # type: ignore
+        sr = tree.new_tag("span", attrs={"class": "sr-only"})
+        sr.string = "Toggle section"
+        button.append(sr)
+        link.insert_after(button)
 
 
 def add_scrollspy(tree: bs4.BeautifulSoup) -> None:
