@@ -75,12 +75,18 @@ html[data-theme="dark"] {
 }
 
 * {
-    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out), border-color var(--duration-normal) var(--ease-in-out),
+    transition: border-color var(--duration-normal) var(--ease-in-out);
+}
 
+html.no-transitions *,
+html.no-transitions *::before,
+html.no-transitions *::after {
+    transition: none !important;
+    animation: none !important;
 }
 
 body {
-    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out)
+    transition: none
 }
 
 html {
@@ -88,8 +94,23 @@ html {
     -webkit-font-smoothing: antialiased;
     font-size: 1.05rem;
     scroll-behavior: smooth;
-    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out);
+    transition: none;
     scroll-padding-top: var(--header-offset)
+}
+
+html.theme-transition,
+html.theme-transition body,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition: background-color var(--duration-normal) var(--ease-in-out),
+        color var(--duration-normal) var(--ease-in-out),
+        border-color var(--duration-normal) var(--ease-in-out),
+        fill var(--duration-normal) var(--ease-in-out),
+        stroke var(--duration-normal) var(--ease-in-out),
+        box-shadow var(--duration-normal) var(--ease-in-out),
+        text-decoration-color var(--duration-normal) var(--ease-in-out) !important;
+    will-change: background-color, color, border-color, fill, stroke, box-shadow, text-decoration-color;
 }
 
 .font-sans {
@@ -690,9 +711,6 @@ h6:hover>a.headerlink:before {
     transition-duration: var(--duration-normal)
 }
 
-#left-sidebar a.expandable {
-    padding-right: 0
-}
 
 header {
     transition: background-color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out)
@@ -709,6 +727,10 @@ header {
 
 .hover\:text-accent-foreground:hover {
     color: hsl(var(--bold))
+}
+
+.is-active {
+    transform: translateY(0);
 }
 
 code {
@@ -785,7 +807,6 @@ button.copybtn {
 }
 
 #left-sidebar .caption button svg,
-#left-sidebar a>button svg,
 button.copybtn svg {
     display: none !important
 }
@@ -1242,21 +1263,38 @@ i {
     bottom: 1rem
 }
 
+@supports (position: relative) {
+    #left-sidebar ul ul {
+        position: relative
+    }
+
+    #left-sidebar ul ul:before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        background: hsl(var(--border));
+        top: 0.25rem;
+        bottom: 0.25rem;
+        left: 0.25rem
+    }
+}
+
 #left-sidebar li.has-children {
     position: relative
 }
 
 #left-sidebar li.has-children>a {
     display: inline-block;
-    width: auto
+    width: auto;
+    padding-right: 1.25rem
 }
 
 #left-sidebar li.has-children>button.nav-toggle {
     position: absolute;
     top: 0.5rem;
     right: 0;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1266,14 +1304,15 @@ i {
     margin: 0;
     cursor: pointer;
     color: hsl(var(--muted-foreground));
-    transition: color var(--duration-normal) var(--ease-in-out)
+    transition: color var(--duration-normal) var(--ease-in-out);
+    z-index: 2
 }
 
 #left-sidebar li.has-children>button.nav-toggle::before {
     content: "\f078";
     font: var(--fa-font-regular);
     font-weight: 900;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     line-height: 1;
     display: inline-block;
     transform: rotateX(0deg);
@@ -1284,6 +1323,27 @@ i {
 #left-sidebar li.has-children[aria-expanded="true"]>button.nav-toggle::before {
     color: hsl(var(--bold));
     transform: rotateX(180deg)
+}
+
+#left-sidebar li.has-children>ul {
+    display: block !important;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    will-change: max-height, opacity;
+    transition: max-height var(--duration-normal) var(--ease-in-out), opacity var(--duration-normal) var(--ease-in-out)
+}
+
+#left-sidebar li.has-children[aria-expanded="true"]>ul {
+    max-height: 1200px;
+    opacity: 1
+}
+
+#left-sidebar li.has-children>a:hover+button.nav-toggle::before,
+#left-sidebar li.has-children>button.nav-toggle:hover::before,
+#left-sidebar li.has-children.current>button.nav-toggle::before,
+#left-sidebar li.has-children[aria-expanded="true"]>button.nav-toggle::before {
+    color: hsl(var(--bold))
 }
 
 .badge {
