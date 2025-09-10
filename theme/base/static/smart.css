@@ -385,6 +385,11 @@ samp {
         margin-bottom: 0.3rem !important
     }
 
+    .scbs-carousel-control-prev-icon,
+    .scbs-carousel-control-next-icon {
+        margin-top: 0.7rem;
+    }
+
     .admonition.attention::before,
     .admonition.caution::before,
     .admonition.error::before,
@@ -1521,11 +1526,13 @@ li .badge {
 }
 
 .scbs-carousel-control-prev-icon::before {
-    content: "\f060"
+    content: "\f060";
+    margin-top: 0.2rem;
 }
 
 .scbs-carousel-control-next-icon::before {
-    content: "\f061"
+    content: "\f061";
+    margin-top: 0.2rem;
 }
 
 /* YouTube card */
