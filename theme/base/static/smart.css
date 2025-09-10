@@ -1,7 +1,9 @@
+/* Imports */
 @import url("theme.css");
 @import url("geist.css");
 @import url("code.css");
 
+/* Theme variables */
 :root {
     --bold: 0 0% 0%;
     --background: 0 0% 98%;
@@ -42,9 +44,11 @@
     --duration-normal: 500ms;
     --duration-slow: 1000ms;
     --sidebar-width: 250px;
-    --header-offset: 2.5rem
+    --header-offset: 2.5rem;
+    --anchor-offset-extra: 12px;
 }
 
+/* Dark theme overrides */
 html[data-theme="dark"] {
     --bold: 0 0% 100%;
     --background: 0 0% 0%;
@@ -74,10 +78,12 @@ html[data-theme="dark"] {
     --card: 0 0% 0%
 }
 
+/* Global default transitions */
 * {
     transition: border-color var(--duration-normal) var(--ease-in-out);
 }
 
+/* Transition/motion gates */
 html.no-transitions *,
 html.no-transitions *::before,
 html.no-transitions *::after {
@@ -85,6 +91,7 @@ html.no-transitions *::after {
     animation: none !important;
 }
 
+/* Base */
 body {
     transition: none
 }
@@ -98,6 +105,7 @@ html {
     scroll-padding-top: var(--header-offset)
 }
 
+/* Theme transition opt-in */
 html.theme-transition,
 html.theme-transition body,
 html.theme-transition *,
@@ -113,6 +121,7 @@ html.theme-transition *::after {
     will-change: background-color, color, border-color, fill, stroke, box-shadow, text-decoration-color;
 }
 
+/* Typography */
 .font-sans {
     font-family: "Geist Sans", sans-serif
 }
@@ -131,6 +140,7 @@ samp {
     font-family: "Geist Mono", monospace
 }
 
+/* Layout visibility defaults */
 .layout-grid>#left-sidebar {
     display: none
 }
@@ -147,6 +157,7 @@ samp {
     overflow-y: auto
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .scbs-carousel-indicators [data-bs-target] {
         transition: none !important
@@ -172,7 +183,6 @@ samp {
     }
 }
 
-/* iPhone view */
 @media (max-width: 768px) {
 
     html {
@@ -236,10 +246,7 @@ samp {
     #content h2 {
         font-size: 1.5rem !important;
         letter-spacing: -0.36px !important;
-        line-height: 1.5rem !important
-    }
-
-    #content h2 {
+        line-height: 1.5rem !important;
         margin-top: calc(92px / 2) !important
     }
 
@@ -405,13 +412,13 @@ samp {
     }
 
     .sd-tab-label:first-of-type {
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem
+        border-top-left-radius: 0.5rem !important;
+        border-bottom-left-radius: 0.5rem !important
     }
 
     .sd-tab-label:last-of-type {
-        border-top-right-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem
+        border-top-right-radius: 0.5rem !important;
+        border-bottom-right-radius: 0.5rem !important
     }
 
     .sd-row-cols-2>*,
@@ -460,16 +467,6 @@ samp {
 
 /* Desktop view */
 @media (min-width: 1280px) {
-    .layout-grid {
-        display: grid;
-        align-items: start;
-        grid-template-columns: var(--sidebar-width) minmax(0, 1fr)
-    }
-
-    .layout-grid>#left-sidebar {
-        display: block
-    }
-
     .layout-grid.has-right-sidebar {
         grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--sidebar-width)
     }
@@ -484,6 +481,7 @@ samp {
 
 }
 
+/* Content: headings */
 #content h1 {
     font-size: 3rem;
     font-weight: 600;
@@ -508,13 +506,12 @@ samp {
     letter-spacing: -0.4px
 }
 
-#content :is(h1, h2, h3, h4, h5, h6)[id],
-#content section[id],
-#content .section[id],
-#content [id] {
-    scroll-margin-top: var(--header-offset)
+/* Anchor scroll offset */
+#content :is(h1, h2, h3, h4, h5, h6, .section, section, [id])[id] {
+    scroll-margin-top: calc(var(--header-offset) + var(--anchor-offset-extra));
 }
 
+/* Utilities */
 .whitespace-nowrap>svg,
 #content h1 svg {
     display: none
@@ -524,6 +521,7 @@ samp {
     line-height: 1.5rem
 }
 
+/* Lead paragraph */
 #content section>p.lead {
     color: hsl(var(--muted-foreground));
     font-size: 24px;
@@ -646,6 +644,7 @@ a.headerlink {
     text-decoration: none
 }
 
+/* Code caption link */
 .code-block-caption>span>a {
     color: hsl(var(--muted-foreground)) !important;
     font-family: "Geist Mono", monospace;
@@ -654,6 +653,7 @@ a.headerlink {
     text-decoration-line: none !important
 }
 
+/* Headerlink icon on hover */
 h2:hover>a.headerlink:before,
 h3:hover>a.headerlink:before,
 h4:hover>a.headerlink:before,
@@ -684,6 +684,7 @@ h6:hover>a.headerlink:before {
     display: none !important
 }
 
+/* Sidebars */
 #left-sidebar .caption {
     font-size: 0.75rem;
     color: hsl(var(--muted-foreground) / 0.5);
@@ -706,12 +707,12 @@ h6:hover>a.headerlink:before {
     color: hsl(var(--bold))
 }
 
-#left-sidebar a,
 #right-sidebar ul li a {
     transition-duration: var(--duration-normal)
 }
 
 
+/* Header */
 header {
     transition: background-color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out)
 }
@@ -730,9 +731,10 @@ header {
 }
 
 .is-active {
-    transform: translateY(0);
+    transform: translateY(0)
 }
 
+/* Inline code */
 code {
     background-color: hsl(var(--muted));
     font-size: 0.9em;
@@ -758,6 +760,7 @@ code {
     font-weight: inherit
 }
 
+/* Code block */
 pre {
     background-color: hsl(var(--code-background));
     overflow-x: auto;
@@ -796,6 +799,7 @@ pre span.linenos {
     border-radius: 0 0 var(--radius) var(--radius) !important
 }
 
+/* Copy button */
 button.copybtn {
     border: none !important;
     background-color: transparent !important;
@@ -823,16 +827,18 @@ button.copybtn::before {
     font: var(--fa-font-regular)
 }
 
+/* Copy tooltip */
 .o-tooltip--left:after {
     transform: translateX(-102%) translateY(0);
     transition: opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
     background-color: hsl(var(--code-background)) !important;
     color: hsl(0, 0%, 63%) !important;
-    padding: 4px 5px !important;
+    padding: 4px 10px !important;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 8px !important
 }
 
+/* Blockquote */
 blockquote {
     border: none;
     max-width: 90%;
@@ -893,6 +899,7 @@ i {
     margin-right: 10px
 }
 
+/* Utility helpers */
 .rounded-lg {
     border-radius: calc(var(--radius) + 1rem)
 }
@@ -960,6 +967,7 @@ i {
     bottom: 13rem
 }
 
+/* Figures & images */
 .picture-figure {
     text-align: center
 }
@@ -982,11 +990,11 @@ i {
     margin-top: 0
 }
 
+/* Admonitions */
 .admonition {
     background-color: hsl(var(--light-accent));
-    border-color: transparent;
     border-radius: var(--radius);
-    border-width: 0;
+    border: 1px solid hsl(var(--pre-shadow));
     color: hsl(var(--accent-foreground));
     line-height: 1.5rem;
     max-width: 90%;
@@ -1018,44 +1026,52 @@ i {
 }
 
 .seealso {
+    border: 1px solid hsl(var(--seealso-admonition-foreground), 0.1);
     background-color: hsl(var(--seealso-admonition-background));
     color: hsl(var(--seealso-admonition-foreground))
 }
 
 .seealso:is(.dark *) {
+    border: 1px solid hsl(var(--seealso-admonition-foreground), 0.1);
     background-color: hsl(var(--seealso-admonition-background), 0.6);
     color: hsl(var(--seealso-admonition-foreground))
 }
 
 .tip {
+    border: 1px solid hsl(var(--tip-admonition-foreground), 0.1);
     background-color: hsl(var(--tip-admonition-background), 0.4);
     color: hsl(var(--tip-admonition-foreground)) !important
 }
 
 .tip:is(.dark *) {
+    border: 1px solid hsl(var(--tip-admonition-foreground), 0.1);
     background-color: hsl(var(--tip-admonition-background), 0.35)
 }
 
 .important,
 .hint {
+    border: 1px solid hsl(var(--hint-admonition-foreground), 0.1);
     background-color: hsl(var(--hint-admonition-background), 0.4);
     color: hsl(var(--hint-admonition-foreground))
 }
 
 .important:is(.dark *),
 .hint:is(.dark *) {
+    border: 1px solid hsl(var(--hint-admonition-foreground), 0.1);
     background-color: hsl(var(--hint-admonition-background), 0.35);
     color: hsl(var(--hint-admonition-foreground))
 }
 
 .error,
 .danger {
+    border: 1px solid hsl(var(--danger-admonition-foreground), 0.1);
     background-color: hsl(var(--danger-admonition-background), 0.4);
     color: hsl(var(--danger-admonition-foreground))
 }
 
 .error:is(.dark *),
 .danger:is(.dark *) {
+    border: 1px solid hsl(var(--danger-admonition-foreground), 0.1);
     background-color: hsl(var(--danger-admonition-background), 0.5);
     color: hsl(var(--danger-admonition-foreground))
 }
@@ -1063,6 +1079,7 @@ i {
 .warning,
 .caution,
 .attention {
+    border: 1px solid hsl(var(--warning-admonition-foreground), 0.1);
     background-color: hsl(var(--warning-admonition-background), 0.5);
     color: hsl(var(--warning-admonition-foreground))
 }
@@ -1070,6 +1087,7 @@ i {
 .warning:is(.dark *),
 .caution:is(.dark *),
 .attention:is(.dark *) {
+    border: 1px solid hsl(var(--warning-admonition-foreground), 0.1);
     background-color: hsl(var(--warning-admonition-background), 0.6);
     color: hsl(var(--warning-admonition-foreground))
 }
@@ -1186,18 +1204,7 @@ i {
     pointer-events: none
 }
 
-.admonition.attention p:not(.admonition-title),
-.admonition.caution p:not(.admonition-title),
-.admonition.error p:not(.admonition-title),
-.admonition.hint p:not(.admonition-title),
-.admonition.important p:not(.admonition-title),
-.admonition.note p:not(.admonition-title),
-.admonition.seealso p:not(.admonition-title),
-.admonition.tip p:not(.admonition-title),
-.admonition.warning p:not(.admonition-title),
-.admonition.danger p:not(.admonition-title) {
-    margin-top: 0
-}
+
 
 .admonition.danger::before {
     content: "\f714";
@@ -1256,13 +1263,9 @@ i {
     border: 0
 }
 
-#left-sidebar ul ul:before,
-#left-sidebar ul ul:is(.dark *):before {
-    left: 0.25rem;
-    top: 0;
-    bottom: 1rem
-}
 
+
+/* ToC vertical guide line */
 @supports (position: relative) {
     #left-sidebar ul ul {
         position: relative
@@ -1279,6 +1282,7 @@ i {
     }
 }
 
+/* Left sidebar accordion */
 #left-sidebar li.has-children {
     position: relative
 }
@@ -1346,6 +1350,7 @@ i {
     color: hsl(var(--bold))
 }
 
+/* Badges */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -1379,6 +1384,7 @@ li .badge {
     padding: 1rem
 }
 
+/* Carousel */
 .scbs-carousel-control-next,
 .scbs-carousel-control-prev {
     width: auto !important;
@@ -1507,6 +1513,7 @@ li .badge {
     content: "\f061"
 }
 
+/* YouTube card */
 .youtube-card-container {
     text-decoration: none;
     color: inherit;
@@ -1614,6 +1621,7 @@ li .badge {
     margin: 0 1rem 1.25rem 0 !important
 }
 
+/* Sidebar CTA button */
 .sidebar-button {
     justify-content: center;
     gap: 0.5rem;
@@ -1636,6 +1644,7 @@ li .badge {
     font: var(--fa-font-solid)
 }
 
+/* Generic tooltip */
 a[data-tooltip] {
     position: relative;
 }
@@ -1646,10 +1655,11 @@ a[data-tooltip]::after {
     bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
-    background: hsl(var(--muted));
+    background: hsl(var(--muted) / 0.75);
     color: hsl(var(--foreground));
-    padding: 0.25rem 0.75rem;
-    border-radius: calc(var(--radius) / 1.5);
+    padding: 0.1rem 0.5rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: calc(var(--radius) / 2);
     opacity: 0;
     white-space: nowrap;
     pointer-events: none;

@@ -43,7 +43,7 @@
 .DocSearch-Button:active,
 .DocSearch-Button:focus,
 .DocSearch-Button:hover {
-    background-color: hsl(var(--light-accent))
+    background-color: hsl(var(--light-accent), 0.5)
 }
 
 .DocSearch-Button:focus,

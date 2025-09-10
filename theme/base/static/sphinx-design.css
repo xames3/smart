@@ -209,20 +209,19 @@ nav a svg .sd-material-icon {
 }
 
 .sd-tab-label:first-of-type {
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 4rem;
+    border-bottom-left-radius: 4rem;
     border-left: 4px solid hsl(var(--border)) !important;
     border-right: 0
 }
 
 .sd-tab-label:last-of-type {
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: 4rem;
+    border-bottom-right-radius: 4rem;
     border-right: 4px solid hsl(var(--border)) !important;
     border-left: 0
 }
 
 .sd-tab-label:hover {
-    background-color: hsl(var(--light-accent));
-    color: hsl(var(--foreground))
+    color: hsl(var(--foreground) / 0.5) !important;
 }
