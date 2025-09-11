@@ -421,26 +421,6 @@ samp {
         padding-inline: 1rem !important
     }
 
-    /* .sd-tab-set {
-        gap: 0.15rem
-    }
-
-    .sd-tab-label {
-        padding: 0.5rem 1rem !important;
-        border-radius: 0.5rem;
-        border: 1px solid hsl(var(--pre-shadow)) !important
-    }
-
-    .sd-tab-label:first-of-type {
-        border-top-left-radius: 0.5rem !important;
-        border-bottom-left-radius: 0.5rem !important
-    }
-
-    .sd-tab-label:last-of-type {
-        border-top-right-radius: 0.5rem !important;
-        border-bottom-right-radius: 0.5rem !important
-    } */
-
     .sd-row-cols-2>*,
     .sd-row-cols-3>* {
         width: 100% !important

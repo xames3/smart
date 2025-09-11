@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: Saturday, 22 February 2025
-.. Last updated on: Monday, 8 September 2025
+.. Last updated on: Wednesday, 10 September 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -55,7 +55,7 @@ mission, promoting transparent, reproducible, and inclusive research.
 Open Source
 -------------------------------------------------------------------------------
 
-Alongside ppen Science, I practise open source. For me, it is more than a
+Alongside Open Science, I practise open source. For me, it is more than a
 philosophy. It is my personal reminder to make my learnings, experiences, and
 knowledge free and accessible, breaking down cultural and digital barriers and
 inviting collaboration across disciplines and borders.
