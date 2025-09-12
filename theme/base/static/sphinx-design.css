@@ -182,7 +182,7 @@ nav a svg .sd-material-icon {
 }
 
 .sd-tab-set input[type="radio"]:checked+.sd-tab-label {
-    color: hsl(var(--accent-foreground));
+    color: hsl(var(--accent-foreground)) !important;
     padding: 0.5rem 0.9rem
 }
 
