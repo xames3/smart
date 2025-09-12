@@ -668,8 +668,7 @@ h6:hover>a.headerlink:before {
     font-size: 1rem !important;
     font: var(--fa-font-regular);
     margin-right: 0;
-    rotate: 135deg;
-    margin-left: 8px
+    margin-left: 0.5rem
 }
 
 .headerlink:focus:after,
