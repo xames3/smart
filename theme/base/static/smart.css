@@ -960,7 +960,27 @@ i {
 }
 
 .scrolltop-bottom {
-    bottom: 13rem
+    color: hsl(var(--muted-foreground));
+    transition: all var(--duration-normal) var(--ease-in-out);
+    display: none;
+}
+
+.scrolltop-bottom:hover {
+    color: hsl(var(--bold));
+}
+
+.scrolltop-bottom::before {
+    content: "\f062";
+    text-rendering: auto;
+    margin-right: 0.125rem;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    display: inline-block;
+    background-color: hsl(var(--muted));
+    width: 1.75rem;
+    height: 1.75rem;
+    align-content: center;
+    border-radius: 50px;
 }
 
 /* Figures & images */
