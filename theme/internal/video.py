@@ -4,7 +4,7 @@ SMART Sphinx Theme Video Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Wednesday, 27 August 2025
+Last updated on: Tuesday, 16 September 2025
 
 This module defines a custom `video` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a video—directly within
@@ -20,7 +20,6 @@ follows::
     .. code-block:: rst
 
         .. video:: https://www.w3schools.com/tags/movie.mp4
-            :title: This is some video off the internet.
 
 The above snippet will be processed and rendered according to the
 theme's Jinja2 template, producing a consistent author card or section
