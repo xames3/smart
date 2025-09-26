@@ -1647,7 +1647,6 @@ li .badge {
     height: 2rem;
     padding: 0 0.5rem !important;
     font-size: 0.8rem;
-    color: hsl(var(--muted-foreground));
     background-color: hsl(var(--light-accent));
     border: 1px solid hsl(var(--border)) !important
 }

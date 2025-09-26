@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = el.getBoundingClientRect();
         const headerOffset = getHeaderOffsetPx();
         const targetY = (window.pageYOffset || document.documentElement.scrollTop || 0) + rect.top - headerOffset;
-        const base = (window.smartGetDurationMs ? smartGetDurationMs('--duration-slow', 1000) : 1000);
+        const base = (window.smartGetDurationMs ? smartGetDurationMs('--duration-slow', 2500) : 2500);
         const dist = Math.abs((window.pageYOffset || 0) - targetY);
-        const duration = Math.max(500, Math.min(1600, base + Math.min(400, dist * 0.2)));
+        const duration = Math.max(1500, Math.min(4000, base + Math.min(1000, dist * 1.5)));
         smartScrollTo(targetY, duration).then(() => {
             try { history.pushState(null, '', '#' + id); } catch { /* noop */ }
         });
