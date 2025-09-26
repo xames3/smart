@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Sunday, 7 September 2025
+Last updated on: Thursday, 25 September 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -70,7 +70,7 @@ from datetime import datetime as dt
 
 from theme import version
 
-project: t.Final[str] = "~/"
+project: t.Final[str] = "localhost"
 author: t.Final[str] = "Akshay Mestry"
 author_email: t.Final[str] = "xa@mes3.dev"
 baseurl: t.Final[str] = "https://smart.mes3.dev/"

@@ -4,14 +4,15 @@ SMART Sphinx Theme YouTube Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Friday, 8 August 2025
+Last updated on: Friday, 26 September 2025
 -->
 {% block youtube %}
-<div class="flex justify-center my-8">
-  <div class="w-full">
-    <div class="relative w-full" style="padding-bottom: 56.25%;">
-      <iframe class="absolute top-0 left-0 w-full h-full rounded-[0.5rem]" 
-        src="{{ url }}&controls=1&modestbranding=1" 
+<div class="flex justify-center my-8" style="border-radius: var(--radius);">
+  <div class="w-full" style="border-radius: var(--radius);">
+    <div class="relative w-full" style="padding-bottom: 56.25%; border-radius: var(--radius);">
+      <iframe class="absolute top-0 left-0 w-full h-full"
+        style="border-radius: var(--radius);" 
+        src="{{ url }}&controls=1&modestbranding=1&color=white" 
         title="YouTube"
         frameborder="0" 
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
