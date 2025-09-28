@@ -934,6 +934,10 @@ i {
     color: hsl(var(--link))
 }
 
+.fa-sm {
+    font-size: large;
+}
+
 .prev-next {
     width: 48px;
     height: 48px;

@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: Saturday, 22 February 2025
-Last updated on: Thursday, 25 September 2025
+Last updated on: Saturday, 27 September 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -110,6 +110,7 @@ website_title: t.Final[str] = project
 website_version: t.Final[str] = version
 website_hide_index_toctree: bool = True
 website_documentation: str = source
+website_favicon: str = "_static/favicon.ico"
 
 # NOTE(xames3): Disabling the last updated command for now.
 website_options: dict[str, t.Any] = {
