@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Friday, 5 September 2025
-.. Last updated on: Monday, 8 September 2025
+.. Created on: 05 September, 2025
+.. Last updated on: 08 September, 2025
 
 :og:title: First Container...
 :og:description: First exploration in isolation

@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Saturday, 1 March 2025
-.. Last updated on: Friday, 5 September 2025
+.. Created on: 01 March, 2025
+.. Last updated on: 05 September, 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -22,7 +22,7 @@
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: 4 Apr, 2025
+    :timestamp: 04 April, 2025
 
 .. rst-class:: lead
 

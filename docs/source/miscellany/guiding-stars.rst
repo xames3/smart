@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Monday, 24 February 2025
-.. Last updated on: Monday, 8 September 2025
+.. Created on: 24 February, 2025
+.. Last updated on: 08 September, 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -20,7 +20,7 @@
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: 18 Aug, 2025
+    :timestamp: 18 August, 2025
 
 .. rst-class:: lead
 
@@ -56,7 +56,7 @@ acceptance.
 
 .. figure:: ../assets/media/me-and-mum.jpg
     :alt: Me and Mum celebrating my admission into DePaul University
-    :figclass: zoom
+    :figclass: zoom grayscale
 
     Mum and I, September 2022, celebrating my admission into DePaul University
     while in Enfield
@@ -165,7 +165,7 @@ valuable advice and encouragement.
 .. figure:: ../assets/media/dr-tovar-and-my-students.jpg
     :alt: Dr. Tovar with my students at NASA Open Science 2025 Workshop on the
         final day
-    :figclass: zoom
+    :figclass: zoom grayscale
 
     Dr. Tovar with my students at NASA Open Science 2025 after presentations
 
@@ -213,7 +213,7 @@ well-wisher!
 
 .. figure:: ../assets/media/young-at-our-graduation-1.jpg
     :alt: Fatemeh attending my graduation ceremony, alongside Young
-    :figclass: zoom
+    :figclass: zoom grayscale
 
     Fatemeh attending my graduation ceremony alongside Young, June 2025
 
@@ -366,7 +366,7 @@ genuine admiration for your steady commitment to hard work.
 
 .. figure:: ../assets/media/sameer-and-i-graduated.jpg
     :alt: Sameer and I at our graduation ceremony
-    :figclass: zoom
+    :figclass: zoom grayscale
 
     Sameer and I, June 2025 at our graduation ceremony
 
@@ -424,7 +424,7 @@ truly grateful for the friendship we've built since then!
 
 .. figure:: ../assets/media/young-at-our-graduation-2.jpg
     :alt: Young attending our graduation ceremony in June 2025
-    :figclass: zoom
+    :figclass: zoom grayscale
 
     Young attending and celebrating our graduation ceremony, June 2025
 
