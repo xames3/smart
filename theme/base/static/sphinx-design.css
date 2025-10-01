@@ -18,7 +18,6 @@
     border-radius: var(--radius);
     border-width: 1px;
     color: hsl(var(--foreground));
-    margin-top: 1.5rem
 }
 
 .sd-card-body:hover {
@@ -80,10 +79,14 @@ details.sd-dropdown summary.sd-summary-title svg {
     letter-spacing: .05em
 }
 
+details.sd-dropdown {
+    margin-top: 1rem;
+}
+
 details.sd-dropdown,
 details.sd-dropdown:not([open])>.sd-card-header {
     border: none;
-    background-color: transparent
+    background-color: transparent;
 }
 
 details.sd-dropdown .sd-summary-chevron-right::before {
@@ -149,8 +152,6 @@ div.sd-summary-content.sd-card-body {
 .fas,
 .sd-octicon,
 .sd-material-icon {
-    height: .9rem;
-    width: .9rem;
     vertical-align: unset;
     margin-bottom: -0.125rem;
     margin-right: .25rem
@@ -159,8 +160,6 @@ div.sd-summary-content.sd-card-body {
 nav a svg .fas,
 nav a svg .sd-octicon,
 nav a svg .sd-material-icon {
-    height: 0.9rem;
-    width: 0.9rem;
     margin-right: 0.45rem;
     vertical-align: text-bottom
 }
@@ -181,17 +180,20 @@ nav a svg .sd-material-icon {
     display: none
 }
 
+.sd-tab-set>label {
+    border-bottom: 0;
+}
+
 .sd-tab-set input[type="radio"]:checked+.sd-tab-label {
     color: hsl(var(--accent-foreground)) !important;
-    padding: 0.5rem 0.9rem
+    padding: 0.5rem 0.75rem
 }
 
 .sd-tab-set>input:checked+label {
     color: hsl(var(--foreground));
-    background-color: hsl(var(--light-accent), 0.3);
-    border-color: transparent;
     border-radius: 50px;
-    border: 1px solid hsl(var(--pre-shadow)) !important;
+    border-color: transparent;
+    outline: 1px solid hsl(var(--pre-shadow));
 }
 
 .sd-tab-label {

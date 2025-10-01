@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!root) return;
     const candidates = Array.from(root.querySelectorAll('p'));
     const totalWordCount = candidates.reduce((acc, p) => {
-        if (p.closest('pre, code, figure, figcaption, .literal-block-wrapper, .highlight, .code-block-caption, .math, .sidebar, .sphinxsidebar, .admonition, nav, header, footer')) {
+        if (p.closest('pre, code, figure, figcaption, .literal-block-wrapper, .highlight, .code-block-caption, .math, .sidebar, .site-sidebar, .sphinxsidebar, .admonition, nav, header, footer')) {
             return acc;
         }
         const clone = p.cloneNode(true);
@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = el.getBoundingClientRect();
         const headerOffset = getHeaderOffsetPx();
         const targetY = (window.pageYOffset || document.documentElement.scrollTop || 0) + rect.top - headerOffset;
-        const base = (window.smartGetDurationMs ? smartGetDurationMs('--duration-slow', 1000) : 1000);
+        const base = (window.smartGetDurationMs ? smartGetDurationMs('--duration-slow', 2500) : 2500);
         const dist = Math.abs((window.pageYOffset || 0) - targetY);
-        const duration = Math.max(500, Math.min(1600, base + Math.min(400, dist * 0.2)));
+        const duration = Math.max(1500, Math.min(4000, base + Math.min(1000, dist * 1.5)));
         smartScrollTo(targetY, duration).then(() => {
             try { history.pushState(null, '', '#' + id); } catch { /* noop */ }
         });
@@ -206,10 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
 (function () {
     function onScroll() {
         const sc = window.scrollY || document.documentElement.scrollTop;
-        const header = document.querySelector('header');
+        const header = document.querySelector('.site-header');
         if (!header) return;
-        if (sc > 250) header.classList.add('border-b');
-        else header.classList.remove('border-b');
+        if (sc > 250) header.classList.add('site-header--with-border');
+        else header.classList.remove('site-header--with-border');
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 function initLeftSidebarAccordion() {
-    const sidebars = document.querySelectorAll('#left-sidebar, #sidebar, .sidebar');
+    const sidebars = document.querySelectorAll('.site-sidebar--primary');
     if (!sidebars.length) return;
     sidebars.forEach((sidebar) => {
         let uid = 0;
@@ -446,26 +446,28 @@ if (document.readyState === 'loading') {
         return Array.from(root.querySelectorAll(sel));
     }
     function initMobileSidebar() {
-        const sidebar = document.querySelector('#left-sidebar, #sidebar, .sidebar');
+        const sidebar = document.querySelector('.site-sidebar--primary');
         if (!sidebar) return;
 
-        let backdrop = document.querySelector('.sidebar-backdrop');
+        let backdrop = document.querySelector('.site-sidebar__backdrop');
         if (!backdrop) {
             backdrop = document.createElement('div');
-            backdrop.className = 'sidebar-backdrop';
+            backdrop.className = 'site-sidebar__backdrop';
             document.body.appendChild(backdrop);
         }
-        const toggles = qsAll('[data-sidebar-toggle], .sidebar-toggle, #sidebar-toggle, [aria-controls="sidebar"]');
+        const toggles = qsAll('[data-sidebar-toggle]');
         const closers = qsAll('[data-sidebar-close]');
         function open() {
-            document.body.classList.add('sidebar-open');
+            document.body.classList.add('site-body--sidebar-open');
+            document.body.classList.add('site-body--locked');
         }
         function close() {
-            document.body.classList.remove('sidebar-open');
+            document.body.classList.remove('site-body--sidebar-open');
+            document.body.classList.remove('site-body--locked');
         }
         function toggle(e) {
             if (e) e.preventDefault();
-            if (document.body.classList.contains('sidebar-open')) close();
+            if (document.body.classList.contains('site-body--sidebar-open')) close();
             else open();
         }
         toggles.forEach(btn => btn.addEventListener('click', toggle, { passive: false }));
@@ -687,27 +689,36 @@ document.addEventListener('DOMContentLoaded', function () {
         ]).finally(() => clearTimeout(t));
     }
 
+    function resolveYouTubeTargets(card) {
+        if (!card) return { host: null, titleEl: null, channelEl: null };
+        const host = card.matches('[data-youtube-id]') ? card : card.closest('[data-youtube-id]');
+        if (!host) return { host: null, titleEl: null, channelEl: null };
+        const titleEl = host.querySelector('.site-youtube-card__title');
+        const channelEl = host.querySelector('.site-youtube-card__channel');
+        return { host, titleEl, channelEl };
+    }
+
     async function enrichYouTubeCard(card) {
-        if (card.dataset.youtubeEnriched === '1') return;
-        const vid = card.getAttribute('data-youtube-id');
-        if (!vid) { card.dataset.youtubeEnriched = '1'; return; }
-        const titleEl = card.querySelector('.youtube-title');
-        const channelEl = card.querySelector('.youtube-channel');
+        const { host, titleEl, channelEl } = resolveYouTubeTargets(card);
+        if (!host || host.dataset.youtubeEnriched === '1') return;
+        const vid = host.getAttribute('data-youtube-id');
+        if (!vid) { host.dataset.youtubeEnriched = '1'; return; }
         const url = 'https://www.youtube.com/oembed?url=' + encodeURIComponent('https://www.youtube.com/watch?v=' + vid) + '&format=json';
         try {
             const res = await withTimeout(url, 8000);
             if (!res.ok) throw new Error(String(res.status));
             const data = await res.json();
-            if (titleEl) titleEl.textContent = data.title;
-            if (channelEl) channelEl.textContent = data.author_name;
+            if (titleEl && data.title) titleEl.textContent = data.title;
+            if (channelEl && data.author_name) channelEl.textContent = data.author_name;
         } catch (_) {
         } finally {
-            card.dataset.youtubeEnriched = '1';
+            host.dataset.youtubeEnriched = '1';
         }
     }
 
     function bootYouTubeOEmbed() {
-        const cards = document.querySelectorAll('.youtube-card-container[data-youtube-id]');
+        const cards = document.querySelectorAll('.site-youtube-card[data-youtube-id], .youtube-card-container[data-youtube-id]');
+        if (!cards.length) return;
         intersectOnce(cards, enrichYouTubeCard);
     }
 

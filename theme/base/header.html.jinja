@@ -3,43 +3,48 @@ SMART Sphinx Theme Header Template
 ==================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, 21 February 2025
-Last updated on: Tuesday, 19 August 2025
+Created on: 21 February, 2025
+Last updated on: 01 October, 2025
 -->
-<header
-  class="sticky top-0 z-40 w-full border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur">
+<header class="site-header">
   {%- block header_before %}{% endblock header_before -%}
-  <div class="container flex items-center h-14">
+  <div class="site-header__inner container">
     {%- block header_left %}
-    <div class="hidden mr-4 md:flex">
+    <div class="site-header__primary">
       {%- block website_logo %}
-      <a href="{{ pathto(master_doc) }}" class="flex items-center">
+      <a href="{{ pathto(master_doc) }}" class="site-header__logo">
         {%- if logo_url %}
-        <img height="16" width="16" class="mr-2 dark:invert" src="{{ logo_url }}" alt="Logo" />
+        <img height="16" width="16" class="site-header__logo-image site-header__logo-image--single" src="{{ logo_url }}"
+          alt="Logo" />
         {%- endif -%}
         {%- if dark_logo and not logo_url %}
-        <img width="16" height="16" class="mr-2 hidden dark:block" src="{{ pathto('_static/' + dark_logo, 1) }}"
-          alt="Logo" />
+        <img width="16" height="16" class="site-header__logo-image site-header__logo-image--dark"
+          src="{{ pathto('_static/' + dark_logo, 1) }}" alt="Logo" />
         {%- endif -%}
         {%- if light_logo and not logo_url %}
-        <img width="16" height="16" class="mr-2 dark:hidden" src="{{ pathto('_static/' + light_logo, 1) }}"
-          alt="Logo" />
+        <img width="16" height="16" class="site-header__logo-image site-header__logo-image--light"
+          src="{{ pathto('_static/' + light_logo, 1) }}" alt="Logo" />
         {%- endif -%}
-        <span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">{{ docstitle }}</span>
+        <span class="site-header__title">{{ docstitle }}</span>
       </a>
       {%- endblock website_logo %}
       {%- block header_main_nav %}
       {%- if theme_main_nav_links|tobool -%}
-      <nav class="flex items-center space-x-6 text-sm font-medium">
-        {%- for text,url in theme_main_nav_links.items() %}
-        {%- set _active = "text-foreground" if pagename in url else "text-foreground/60" -%}
-        {%- if url.startswith("http") %}
-        <a href="{{ url }}" class="transition-colors hover:text-foreground/80 {{ _active }}" rel="noopener nofollow">{{
-          text }}</a>
-        {%- else %}
-        <a href="{{ pathto(url) }}" class="transition-colors hover:text-foreground/80 {{ _active }}">{{ text }}</a>
-        {%- endif %}
-        {%- endfor %}
+      <nav class="site-header__nav" aria-label="Main navigation">
+        <ul class="site-header__nav-list">
+          {%- for text,url in theme_main_nav_links.items() %}
+          {%- set is_external = url.startswith('http') -%}
+          {%- set is_active = (not is_external) and (pagename in url) -%}
+          <li class="site-header__nav-item">
+            {%- if is_external %}
+            <a href="{{ url }}" class="site-header__nav-link" rel="noopener nofollow">{{ text }}</a>
+            {%- else %}
+            <a href="{{ pathto(url) }}"
+              class="site-header__nav-link{{ ' site-header__nav-link--active' if is_active else '' }}">{{ text }}</a>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
       </nav>
       {%- endif %}
       {%- endblock header_main_nav -%}
@@ -47,44 +52,39 @@ Last updated on: Tuesday, 19 August 2025
     {%- endblock header_left %}
     {%- block mobile_menu %}
     {%- if sidebars|length >0 -%}
-    <button
-      class="inline-flex items-center justify-center h-10 px-0 py-2 text-xl font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden"
-      type="button" @click="showSidebar = true" data-sidebar-toggle>
+    <button class="site-header__menu-toggle" type="button" @click="showSidebar = true" data-sidebar-toggle>
       <i class="fa-light fa-sidebar"></i>
       <span class="sr-only">Toggle navigation menu</span>
     </button>
     {%- endif -%}
     {%- endblock mobile_menu %}
     {%- block header_right %}
-    <div class="flex items-center mx-auto">
-    {%- if docsearch or hasdoc('search') %}
-      {%- include "searchbox.html.jinja" %}
-    {%- endif %}
-    </div>
-    <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher"
-      class="relative inline-flex items-center text-xl font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground"
-      type="button" style="margin-right: 2rem;">
-      <i class="fa-solid fa-brightness-low absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0"></i>
-      <i class="fa-solid fa-sun-bright absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100"></i>
-    </button>
-    {%- block extra_header_link_icons %}
-    <div>
-      <nav class="flex items-center space-x-1">
-        {%- if theme_extra_header_link_icons|tobool %}
-        {%- for text,url in theme_extra_header_link_icons.items() %}
+    <div class="site-header__utilities">
+      {%- if docsearch or hasdoc('search') %}
+      <div class="site-header__search">
+        {%- include "searchbox.html.jinja" %}
+      </div>
+      {%- endif %}
+      {%- block extra_header_link_buttons %}
+      {%- if extra_header_links|tobool %}
+      <nav class="site-header__icon-list" aria-label="External links">
+        {%- for text,url in extra_header_links.items() %}
         {%- if url is mapping %}
-        <a href="{{ url.link }}" title="Visit {{ text }}" rel="noopener nofollow">
-          <div
-            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
-            {{ url.icon }}
-          </div>
+        <a href="{{ url.link }}" title="Visit {{ text }}" rel="noopener nofollow" class="site-header__icon-link">
+          {{ url.icon }}
+          <span class="sr-only">Visit {{ text }}</span>
         </a>
         {% endif %}
         {%- endfor %}
-        {%- endif %}
       </nav>
+      {%- endif %}
+      {%- endblock extra_header_link_buttons %}
     </div>
-    {%- endblock extra_header_link_icons %}
+    <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Colour theme switcher"
+      class="site-header__theme-toggle" type="button">
+      <i class="fa-solid fa-moon-star site-header__theme-toggle-icon site-header__theme-toggle-icon--moon"></i>
+      <i class="fa-solid fa-sun-bright site-header__theme-toggle-icon site-header__theme-toggle-icon--sun"></i>
+    </button>
     {%- endblock header_right %}
   </div>
   {%- block header_after %}{%- endblock header_after %}

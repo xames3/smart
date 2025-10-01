@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Friday, 5 September 2025
-.. Last updated on: Monday, 8 September 2025
+.. Created on: 05 September, 2025
+.. Last updated on: 08 September, 2025
 
 :og:title: The best YouTube has to Offer
 :og:description: A curated list of my favourite YouTube videos that I've found
@@ -22,7 +22,7 @@
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: 5 Sept, 2025
+    :timestamp: 05 September, 2025
 
 .. rst-class:: lead
 

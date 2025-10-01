@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Saturday, 30 August 2025
-.. Last updated on: Thursday, 4 September 2025
+.. Created on: 30 August, 2025
+.. Last updated on: 04 September, 2025
 
 :og:title: Learning Docker
 :og:description: Begineer's guide to Docker and containerisation
@@ -21,7 +21,7 @@
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: 30 Aug, 2025
+    :timestamp: 30 August, 2025
 
 .. rst-class:: lead
 
@@ -111,7 +111,7 @@ a personal sandbox to play in.
 
 Want to try out the latest RC build of Python? No problem, run...
 
-:console:`$ docker run -it python:3.14.0rc2 python`
+:console:`$ docker run -it python:3.10.0rc2 python`
 
 Want to test out new features of Postgres without installing it globally? Easy,
 run...

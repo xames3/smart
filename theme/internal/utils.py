@@ -3,8 +3,8 @@ SMART Sphinx Theme Utilities
 ============================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, 21 February 2025
-Last updated on: Wednesday, 10 September 2025
+Created on: 21 February, 2025
+Last updated on: 01 October, 2025
 
 This module defines a collection of utility functions used for
 customising the SMART Sphinx Theme. These utilities focus on enhancing
@@ -22,7 +22,13 @@ leveraging Sphinx's internal APIs and dynamic JavaScript bindings.
 
 from __future__ import annotations
 
+import re
+import shlex
 import typing as t
+from datetime import datetime as dt
+from pathlib import Path
+from subprocess import CalledProcessError
+from subprocess import check_output as co
 
 import bs4
 from docutils import nodes
@@ -34,6 +40,10 @@ from sphinx.util.docutils import new_document
 if t.TYPE_CHECKING:
     from sphinx.application import Sphinx
     from sphinx.environment import BuildEnvironment
+
+LAST_UPDATED_RE: re.Pattern[str] = re.compile(
+    r"^\.\.\s+Last updated on:\s*(.+)$", re.IGNORECASE
+)
 
 
 def findall(
@@ -361,3 +371,59 @@ def build_finished(app: Sphinx, exc: Exception | None) -> None:
         app.verbosity,
     ):
         postprocess(html, app)
+
+
+def last_updated_date(app: Sphinx, docname: str, source: list[str]) -> None:
+    """Inject the last updated date into the document's metadata.
+
+    This function checks if the `last_updated` metadata is already set
+    for the given document. If not, it attempts to extract the last
+    updated date from a special comment in the document source. If no
+    such comment is found, it falls back to using the last commit date
+    from Git. If the document is not tracked by Git, it uses the file's
+    last modified timestamp.
+
+    :param app: The Sphinx application instance.
+    :param docname: The name of the document being processed.
+    :param source: The source content of the document as a list of
+        strings.
+    """
+    metadata = app.env.metadata.setdefault(docname, {})
+    if metadata.get("last_updated"):
+        return
+    on = None
+    if source:
+        for line in source[0].splitlines():
+            match = LAST_UPDATED_RE.match(line.strip())
+            if match:
+                on = match.group(1).strip()
+                break
+    if on:
+        metadata["last_updated"] = on
+        return
+    src = Path(app.env.doc2path(docname, base=True))
+    if not src.is_file():
+        return
+    on = ""
+    try:
+        cmd = [
+            "git",
+            "log",
+            "--pretty=format:%cd",
+            "--date=format:%B %d, %Y",
+            "-n1",
+            "--",
+            shlex.quote(str(src)),
+        ]
+        on = co(cmd, cwd=app.confdir).decode().strip()  # noqa: S603
+    except (CalledProcessError, FileNotFoundError):
+        on = ""
+    if not on:
+        timestamp = src.stat().st_mtime
+        try:
+            tz = dt.now().astimezone().tzinfo or dt.timezone.utc
+            on = dt.fromtimestamp(timestamp, tz=tz).strftime("%b %d, %Y")
+        except FileNotFoundError:
+            on = ""
+    if on:
+        metadata["last_updated"] = on

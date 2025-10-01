@@ -3,8 +3,8 @@ SMART Sphinx Theme
 ==================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, 21 February 2025
-Last updated on: Wednesday, 27 August 2025
+Created on: 21 February, 2025
+Last updated on: 01 October, 2025
 
 This module serves as the primary entry point for the SMART Sphinx
 Theme. It is responsible for initialising the theme, configuring its
@@ -39,6 +39,8 @@ event hooks for post-processing and dynamic content handling.
 
     [1] Added support for `tagged` directive to overlay clickable
         face tags on images.
+    [2] Added native support for injecting `last_updated` date just above
+        the footer.
 """
 
 from __future__ import annotations
@@ -54,6 +56,7 @@ from theme.internal import directives
 from theme.internal import roles
 from theme.internal.utils import build_finished
 from theme.internal.utils import env_before_read_docs
+from theme.internal.utils import last_updated_date
 from theme.internal.utils import register_website_options
 from theme.internal.utils import remove_title_from_scrollspy
 
@@ -162,6 +165,7 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
         if hasattr(directive, "html_page_context"):
             app.connect("html-page-context", directive.html_page_context)
     app.connect("env-before-read-docs", env_before_read_docs)
+    app.connect("source-read", last_updated_date)
     app.connect("html-page-context", register_website_options)
     app.connect("html-page-context", remove_title_from_scrollspy)
     app.connect("build-finished", build_finished)
