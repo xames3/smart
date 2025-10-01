@@ -3,8 +3,8 @@ SMART Sphinx Theme Tagged Directive
 ===================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Saturday, 9 August 2025
-Last updated on: Wednesday, 27 August 2025
+Created on: 09 August, 2025
+Last updated on: 01 October, 2025
 
 This module defines a custom `tagged` directive for the SMART Sphinx
 Theme. The directive extends the standard `figure` so it retains all of

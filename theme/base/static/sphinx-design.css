@@ -180,17 +180,20 @@ nav a svg .sd-material-icon {
     display: none
 }
 
+.sd-tab-set>label {
+    border-bottom: 0;
+}
+
 .sd-tab-set input[type="radio"]:checked+.sd-tab-label {
     color: hsl(var(--accent-foreground)) !important;
-    padding: 0.5rem 0.9rem
+    padding: 0.5rem 0.75rem
 }
 
 .sd-tab-set>input:checked+label {
     color: hsl(var(--foreground));
-    background-color: hsl(var(--light-accent), 0.3);
-    border-color: transparent;
     border-radius: 50px;
-    border: 1px solid hsl(var(--pre-shadow)) !important;
+    border-color: transparent;
+    outline: 1px solid hsl(var(--pre-shadow));
 }
 
 .sd-tab-label {

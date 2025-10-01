@@ -3,8 +3,8 @@ SMART Sphinx Theme ToC Template
 ===============================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, 21 February 2025
-Last updated on: Wednesday, 10 September 2025
+Created on: 21 February, 2025
+Last updated on: 01 October, 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
@@ -81,40 +81,39 @@ Last updated on: Wednesday, 10 September 2025
     {%- block extrahead %}{%- endblock extrahead %}
     </head>
     <body x-data="{ showSidebar: false, showScrollTop: false, lastScroll: 0 }"
-          class="min-h-screen font-sans antialiased bg-background text-foreground"
-          :class="{ 'overflow-hidden': showSidebar }"
+          class="site-body"
+          :class="{ 'site-body--locked': showSidebar, 'site-body--sidebar-open': showSidebar }"
           @scroll.window="const y=pageYOffset; const docH=document.documentElement.scrollHeight; const nearBottom=(y+innerHeight)>= (docH-200); const down=y>lastScroll; showScrollTop = down && (y>200 || nearBottom); lastScroll = y < 0 ? 0 : y;">
       {%- if sidebars|length > 0 %}
         <div x-cloak
              x-show="showSidebar"
-             class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden sidebar-backdrop"
+             class="site-sidebar__backdrop"
              @click.self="showSidebar = false"></div>
       {%- endif %}
-      <div id="page" class="relative flex flex-col min-h-screen">
-        <a href="#content"
-           class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100">
-          Skip to content
-        </a>
+      <div id="page" class="site-shell">
+        <a href="#content" class="site-shell__skip-link">Skip to content</a>
         {%- block header %}
           {%- include "header.html.jinja" %}
         {%- endblock header %}
-        <div class="flex-1">
-          <div class="container flex-1 layout-grid md:gap-6 lg:gap-10 has-right-sidebar">
+        <div class="site-shell__main">
+          <div class="site-layout container site-layout--has-secondary">
             {%- block sidebar %}
               {%- if sidebars|length > 0 %}
                 {%- include "sidebar.html.jinja" %}
               {%- endif %}
             {%- endblock sidebar %}
             {%- block main %}
-              <main class="relative py-6 lg:gap-10 lg:py-8">
+              <main class="site-layout__content">
                 {%- block body %}{%- endblock %}
-                  {%- trans last_updated_body=last_updated_body|e -%}
-                  <p class="text-sm text-muted-foreground mt-12"
-                     style="margin-left: 0.45rem">
-                    Last updated {{ last_updated_body
-                    }}
+                  {%- set page_meta = meta | default({}, true) %}
+                  {%- set updated_on = page_meta.get('last_updated') or last_updated %}
+                  {%- if updated_on %}
+                    <p class="site-layout__meta">
+                      {%- trans updated_on=updated_on|e -%}
+                      Last updated on {{ updated_on }}
+                    {%- endtrans -%}
                   </p>
-                {%- endtrans -%}
+                {%- endif %}
               </main>
             {%- endblock main %}
             {%- block right_sidebar %}

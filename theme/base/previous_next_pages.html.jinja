@@ -3,24 +3,20 @@ SMART Sphinx Theme Previous and Next Page Buttons Template
 ==========================================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Friday, 21 February 2025
-Last updated on: Friday, 12 September 2025
+Created on: 21 February, 2025
+Last updated on: 01 October, 2025
 -->
-<div class="flex items-center pt-6 mt-12 gap-2 justify-center">
+<nav class="site-pagination" aria-label="Pagination">
   {%- if prev %}
-  <div>
-    <a href="{{ prev.link|e }}"
-      class="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-2 prev-next">
-      <i class="fa-solid fa-arrow-left"></i>
-    </a>
-  </div>
+  <a href="{{ prev.link|e }}" class="site-pagination__link site-pagination__link--prev">
+    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    <span class="sr-only">{{ _('Previous page') }}</span>
+  </a>
   {%- endif %}
   {%- if next %}
-  <div>
-    <a href="{{ next.link|e }}"
-      class="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground p-2 prev-next">
-      <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
+  <a href="{{ next.link|e }}" class="site-pagination__link site-pagination__link--next">
+    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    <span class="sr-only">{{ _('Next page') }}</span>
+  </a>
   {%- endif %}
-</div>
+</nav>

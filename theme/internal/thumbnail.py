@@ -3,8 +3,8 @@ SMART Sphinx Theme YouTube Thumbnail Directive
 ==============================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Saturday, 6 September 2025
-Last updated on: Monday, 8 September 2025
+Created on: 06 September, 2025
+Last updated on: 01 October, 2025
 
 This module defines a custom `thumbnail` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a YouTube video thumbnail

@@ -3,18 +3,18 @@ SMART Sphinx Theme Video Template
 =================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Saturday, 22 February 2025
-Last updated on: Friday, 8 August 2025
+Created on: 22 February, 2025
+Last updated on: 01 October, 2025
 -->
 {% block video %}
-<div class="flex justify-center my-8">
-  <div class="flex-col gap-2">
-    <video class="rounded" width="auto" height="auto" controls>
+<figure class="site-media site-media--video">
+  <div class="site-media__frame">
+    <video class="site-media__video" width="auto" height="auto" controls>
       <source src="{{ url }}" type="video/mp4">Your browser does not support the video tag.
     </video>
-      {%- if caption %}
-        <figcaption class="mt-4">{{ caption }}</figcaption>
-      {%- endif -%}
   </div>
-</div>
+  {%- if caption %}
+  <figcaption class="site-media__caption">{{ caption }}</figcaption>
+  {%- endif -%}
+</figure>
 {% endblock video %}
