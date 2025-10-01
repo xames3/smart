@@ -3,8 +3,8 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 ===========================================================
 
 Author: Akshay Mestry <xa@mes3.dev>
-Created on: Saturday, 22 February 2025
-Last updated on: Saturday, 27 September 2025
+Created on: 22 February, 2025
+Last updated on: 01 October, 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -64,13 +64,12 @@ teaching and learning platform.
 from __future__ import annotations
 
 import os
-import subprocess
 import typing as t
 from datetime import datetime as dt
 
 from theme import version
 
-project: t.Final[str] = "localhost"
+project: t.Final[str] = "MES"
 author: t.Final[str] = "Akshay Mestry"
 author_email: t.Final[str] = "xa@mes3.dev"
 baseurl: t.Final[str] = "https://smart.mes3.dev/"
@@ -87,18 +86,6 @@ extensions: list[str] = [
 ]
 nitpicky: bool = True
 
-try:
-    last_updated_cmd = (
-        "git",
-        "log",
-        "--pretty=format:%cd",
-        "--date=format:%B %d, %Y",
-        "-n1",
-    )
-    last_updated = f"on {subprocess.check_output(last_updated_cmd).decode()}"
-except Exception:
-    last_updated = "today"
-
 website_author: t.Final[str] = author
 website_copyright: t.Final[str] = f"{website_author} © {dt.now().year}"
 website_email: t.Final[str] = author_email
@@ -112,11 +99,8 @@ website_hide_index_toctree: bool = True
 website_documentation: str = source
 website_favicon: str = "_static/favicon.ico"
 
-# NOTE(xames3): Disabling the last updated command for now.
 website_options: dict[str, t.Any] = {
     "add_copy_to_headerlinks": True,
-    "last_updated": False,
-    "last_updated_body": last_updated,
     "open_links_in_new_tab": True,
     "show_sphinx": True,
 }

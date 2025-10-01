@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
-.. Created on: Saturday, 22 February 2025
-.. Last updated on: Wednesday, 10 September 2025
+.. Created on: 22 February, 2025
+.. Last updated on: 29 September, 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -11,17 +11,17 @@
 .. _home-page:
 
 ===============================================================================
-Studying, Mentorship, And Resourceful Teaching
+Akshay's Corner
 ===============================================================================
 
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: Adjunct, National Louis University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
-    :timestamp: 8 Aug, 2025
+    :timestamp: 08 August, 2025
 
 .. rst-class:: lead
 
@@ -35,14 +35,6 @@ intersection of technology and learning. This corner of the internet serves
 both as a digital portfolio, showcasing my work, and a space where I share my
 learning and teaching experiences in the fields of Artificial Intelligence,
 Software Development, Scientific Computing, and Open Science.
-
-.. figure:: ./assets/media/me-at-nasa-open-science.jpg
-    :alt: Me at NASA Open Science 2024
-    :figclass: zoom
-
-    Me at NASA Open Science 2024 at National Louis University, Chicago with
-    Dr. Ian Moncrief (left), Gianna Dubinski (centre), and Brian Palafox
-    (right)
 
 I've a special interest in natural language processing, reinforcement
 learning, and numerical computing, which I've explored through my personal
