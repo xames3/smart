@@ -17,7 +17,7 @@
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: Adjunct, National Louis University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
@@ -310,8 +310,3 @@ and how it changed the way I started working on my local machine.
 .. _VirtualBox: https://www.virtualbox.org/
 .. _LXC: https://linuxcontainers.org/
 .. _OpenVZ: https://openvz.org/
-
-.. toctree::
-   :hidden:
-
-   First container <first-container>

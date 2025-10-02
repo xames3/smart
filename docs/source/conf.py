@@ -67,6 +67,8 @@ import os
 import typing as t
 from datetime import datetime as dt
 
+from markupsafe import Markup
+
 from theme import version
 
 project: t.Final[str] = "MES"
@@ -103,6 +105,14 @@ website_options: dict[str, t.Any] = {
     "add_copy_to_headerlinks": True,
     "open_links_in_new_tab": True,
     "show_sphinx": True,
+    "extra_header_links": {
+        "Sponsor on GitHub": {
+            "link": "https://github.com/sponsors/xames3",
+            "icon": Markup(
+                "<i class='fa-regular fa-heart' aria-hidden='true'></i>"
+            ),
+        },
+    },
 }
 
 html_theme: t.Final[str] = "smart"
@@ -113,7 +123,6 @@ locale_dirs: list[str] = ["../locale/"]
 gettext_compact: bool = False
 html_context: dict[str, t.Any] = {
     "docsearch": True,
-    "sponsor": "https://github.com/sponsors/xames3",
 }
 rst_epilog = ""
 with open("_static/extra/epilog.rst") as f:

@@ -53,7 +53,7 @@ Last updated on: 01 October, 2025
     {%- block mobile_menu %}
     {%- if sidebars|length >0 -%}
     <button class="site-header__menu-toggle" type="button" @click="showSidebar = true" data-sidebar-toggle>
-      <i class="fa-light fa-sidebar"></i>
+      <span class="site-header__title">{{ docstitle }}</span>
       <span class="sr-only">Toggle navigation menu</span>
     </button>
     {%- endif -%}
@@ -68,11 +68,11 @@ Last updated on: 01 October, 2025
       {%- block extra_header_link_buttons %}
       {%- if extra_header_links|tobool %}
       <nav class="site-header__icon-list" aria-label="External links">
-        {%- for text,url in extra_header_links.items() %}
+        {%- for text, url in extra_header_links.items() %}
         {%- if url is mapping %}
-        <a href="{{ url.link }}" title="Visit {{ text }}" rel="noopener nofollow" class="site-header__icon-link">
+        <a href="{{ url.link }}" title="{{ text }}" rel="noopener nofollow" target="_blank" class="site-header__icon-link">
           {{ url.icon }}
-          <span class="sr-only">Visit {{ text }}</span>
+          <span class="sr-only">{{ text }}</span>
         </a>
         {% endif %}
         {%- endfor %}
@@ -81,7 +81,7 @@ Last updated on: 01 October, 2025
       {%- endblock extra_header_link_buttons %}
     </div>
     <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Colour theme switcher"
-      class="site-header__theme-toggle" type="button">
+      class="site-header__theme-toggle" style="display: none;" type="button">
       <i class="fa-solid fa-moon-star site-header__theme-toggle-icon site-header__theme-toggle-icon--moon"></i>
       <i class="fa-solid fa-sun-bright site-header__theme-toggle-icon site-header__theme-toggle-icon--sun"></i>
     </button>

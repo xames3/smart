@@ -16,7 +16,7 @@
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: Adjunct, National Louis University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
