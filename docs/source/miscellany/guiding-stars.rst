@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 24 February, 2025
-.. Last updated on: 08 September, 2025
+.. Last updated on: 03 October, 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -247,43 +247,23 @@ had fostered with care.
     :show_fade:
     :show_indicators:
 
-    .. figure:: ../assets/media/chicago-code-coffee-3.jpg
-        :alt: Chicago Code and Coffee Event (December 2024)
+    .. figure:: ../assets/media/chicago-code-coffee-9.jpg
+        :alt: Chicago Code and Coffee Event (September 2025)
 
-        In December 2024, we started having name tags for all the attendees
-        of the Chicago Code and Coffee
+        Chicago Code and Coffee for September 2025 group selfie
 
-    .. figure:: ../assets/media/chicago-code-coffee-2.jpg
-        :alt: Chicago Code and Coffee Event (January 2025)
+    .. figure:: ../assets/media/chicago-code-coffee-8.jpg
+        :alt: Chicago Code and Coffee Event (September 2025)
 
-        January 2025 Chicago Code and Coffee, surprisingly had a lot of people
-        showing up, despite of the cold and windy weather
+        Chicago Code and Coffee for September 2025, introduced a whole lot of
+        new faces and from different avenues of life
 
-    .. figure:: ../assets/media/chicago-code-coffee-4.jpg
-        :alt: Chicago Code and Coffee Event Welcoming Banner (February 2025)
+    .. figure:: ../assets/media/chicago-code-coffee-7.jpg
+        :alt: Chicago Code and Coffee Event (August 2025)
 
-        Chicago Code and Coffee meet-up welcoming Banner at the Capital One
-        cafe, Thanks for Angel and his team for making this happen
-
-    .. figure:: ../assets/media/chicago-code-coffee-1.jpg
-        :alt: Chicago Code and Coffee Event (February 2025)
-
-        Chicago Code and Coffee, February 2025 packed a lot of new faces and
-        familiar ones, all eager to learn and connect
-
-    .. figure:: ../assets/media/chicago-code-coffee-team.jpg
-        :alt: Chicago Code and Coffee Team (June 2025)
-
-        Chicago Code and Coffee team, June 2025. Hyunsu Kim (left), Aarón
-        Ramírez Lezama (left centre), Sameer Mathad (right centre), and John
-        Komarnicki (right)
-
-    .. figure:: ../assets/media/chicago-code-coffee-5.jpg
-        :alt: Chicago Code and Coffee Event (July 2025)
-
-        July 2025 Chicago Code and Coffee started with a smaller audience than
-        usual, but it grew as the day progressed with people coming in from
-        all over the city
+        August 2025 Chicago Code and Coffee, a lively gathering of some known
+        and new professionals and enthusiasts, all eager to connect and learn
+        from each other
 
     .. figure:: ../assets/media/chicago-code-coffee-6.jpg
         :alt: Chicago Code and Coffee Event (July 2025)
@@ -292,12 +272,43 @@ had fostered with care.
         joined in, creating a vibrant atmosphere of learning and sharing
         their experiences
 
-    .. figure:: ../assets/media/chicago-code-coffee-7.jpg
-        :alt: Chicago Code and Coffee Event (August 2025)
+    .. figure:: ../assets/media/chicago-code-coffee-5.jpg
+        :alt: Chicago Code and Coffee Event (July 2025)
 
-        August 2025 Chicago Code and Coffee, a lively gathering of some known
-        and new professionals and enthusiasts, all eager to connect and learn
-        from each other
+        July 2025 Chicago Code and Coffee started with a smaller audience than
+        usual, but it grew as the day progressed with people coming in from
+        all over the city
+
+    .. figure:: ../assets/media/chicago-code-coffee-team.jpg
+        :alt: Chicago Code and Coffee Team (June 2025)
+
+        Chicago Code and Coffee team, June 2025. Hyunsu Kim (left), Aarón
+        Ramírez Lezama (left centre), Sameer Mathad (right centre), and John
+        Komarnicki (right)
+
+    .. figure:: ../assets/media/chicago-code-coffee-1.jpg
+        :alt: Chicago Code and Coffee Event (February 2025)
+
+        Chicago Code and Coffee, February 2025 packed a lot of new faces and
+        familiar ones, all eager to learn and connect
+
+    .. figure:: ../assets/media/chicago-code-coffee-4.jpg
+        :alt: Chicago Code and Coffee Event Welcoming Banner (February 2025)
+
+        Chicago Code and Coffee meet-up welcoming Banner at the Capital One
+        cafe, Thanks for Angel and his team for making this happen
+
+    .. figure:: ../assets/media/chicago-code-coffee-2.jpg
+        :alt: Chicago Code and Coffee Event (January 2025)
+
+        January 2025 Chicago Code and Coffee, surprisingly had a lot of people
+        showing up, despite of the cold and windy weather
+
+    .. figure:: ../assets/media/chicago-code-coffee-3.jpg
+        :alt: Chicago Code and Coffee Event (December 2024)
+
+        In December 2024, we started having name tags for all the attendees
+        of the Chicago Code and Coffee
 
 As time passed, our community has grown significantly. I became a volunteer,
 and more people have found comfort and opportunity through your work. On behalf

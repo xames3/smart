@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 05 September, 2025
-.. Last updated on: 08 September, 2025
+.. Last updated on: 05 October, 2025
 
 :og:title: The best YouTube has to Offer
 :og:description: A curated list of my favourite YouTube videos that I've found
@@ -28,15 +28,16 @@
 
     Hand-picked collection of the finest videos I've stumbled upon
 
-I love YouTube!!
-
-Recently, out of nowhere, I watched looking at my phone's screen time stats and
-I realised that I spend a significant amount of time on YouTube. As I got into
+Recently, out of nowhere, I was looking at my phone's screen time stats and I
+realised that I spend a significant amount of time on YouTube. As I got into
 software engineering back in 2017, it has been my go-to platform for learning
 new things, staying updated with tech trends, and unwinding with some
 light-hearted or borderline weird content. Over the last few years, I've
 curated a personal playlist of videos that have either taught me something
 valuable or simply made my day better.
+
+.. image:: ../assets/media/best-of-youtube-banner.jpg
+    :alt: Best of YouTube
 
 This page is a collection of those gems. Think of it as my personal watchlist,
 shared with you, so you don't have to sift through the endless noise of the
