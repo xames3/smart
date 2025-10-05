@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 29 September, 2025
+.. Last updated on: 04 October, 2025
 
 :orphan:
 :og:title: Studying, Mentorship, And Resourceful Teaching
@@ -29,45 +29,59 @@ Akshay's Corner
 
 Hello hello!
 
-I'm **Akshay** (/uh-k-ʃ-æ/), an Adjunct Professor at National Louis
-University, AI Engineer, and open-source contributor dedicated to the
-intersection of technology and learning. This corner of the internet serves
-both as a digital portfolio, showcasing my work, and a space where I share my
-learning and teaching experiences in the fields of Artificial Intelligence,
-Software Development, Scientific Computing, and Open Science.
+I'm **Akshay**, an Adjunct Professor, AI Engineer, and passionate open-source
+contributor. This corner of the internet is my space to explore the fascinating
+intersection of technology, learning, and storytelling, and I hope it can be a
+useful place for you, too. Here. I share my work, my "aha!" moments, and my
+journey through the worlds of AI, Software Development, and Open Source.
 
 I've a special interest in natural language processing, reinforcement
 learning, and numerical computing, which I've explored through my personal
-projects. I'm also committed to contributing to the `NASA Open Science`_
+projects. I'm also committed to contributing to the `NASA's Open Science`_
 mission, promoting transparent, reproducible, and inclusive research.
 
 .. _open-source:
 
 -------------------------------------------------------------------------------
-Open Source
+Open source
 -------------------------------------------------------------------------------
 
-Alongside Open Science, I practise open source. For me, it is more than a
-philosophy. It is my personal reminder to make my learnings, experiences, and
-knowledge free and accessible, breaking down cultural and digital barriers and
-inviting collaboration across disciplines and borders.
+I :octicon:`heart-fill;1em;sd-text-danger mr-0` Open Source!
+
+For me, it is more than a philosophy. It is my personal reminder to make my
+learnings, experiences, and knowledge free and accessible, breaking down
+cultural and digital barriers and inviting collaboration across disciplines and
+borders. My belief in open collaboration has led me to contribute and work at
+some amazing research labs.
+
+.. raw:: html
+    :file: ./assets/html/contributed.html
 
 I've worked on a diverse range of projects, from building performant machine
 learning models to crafting efficient numerical computing libraries. My
-projects reflect both technical depth and a passion for education. Some
-highlights include:
+projects reflect both technical depth and a passion for education.
 
-- **xsNumPy & SlowTorch.** Lightweight educational libraries inspired by
-  `NumPy`_ and `PyTorch`_, built to simplify complex concepts for learners and
-  researchers.
+.. grid:: 2 2 2 2
 
-  Read my stories of building :doc:`xsNumPy <projects/xsnumpy>` and
-  :doc:`SlowTorch <projects/slowtorch>` |>|
+    .. grid-item-card:: PyTorch... but much slower
+        :link: projects/slowtorch
+        :link-type: doc
+        :link-alt: Read
 
-- **Reinforcement Learning.** `Snake game <https://gist.github.com/xames3/
-  563c99598c2aa1dd84e3c9494b648063>`_ including the environment built in
-  `Pygame`_, featuring a modular agent and an optimised reinforcement learning
-  strategy.
+        :octicon:`flame` Writing PyTorch from Scratch
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        A maximally minimal auto-differentiation and tensor library written in
+        pure Python.
+
+    .. grid-item-card:: Why write xsNumPy?
+        :link: projects/xsnumpy
+        :link-type: doc
+        :link-alt: Read
+
+        :octicon:`beaker` Building NumPy in pure Python
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        A minimalist re-implementation of core NumPy features re-built in pure
+        Python.
 
 Beyond these, I've had the opportunity to speak at tech meetups and
 conferences, sharing insights on my projects, AI, Open Science, and the inner
@@ -104,10 +118,10 @@ students, and time.
 Purpose and vision
 -------------------------------------------------------------------------------
 
-This website is more than just a portfolio, it is a space where I blend
-technology and education. Through this website, I hope to build a community
-where technology meets education, and where I can learn, teach, and grow
-alongside you.
+This website is more than my portfolio; it's a living project where I'd like
+the technology and education to grow together. Through this website, I hope to
+build a community where curiosity is the only prerequisite. A place where we
+can learn, teach, and grow alongside each other.
 
 Ultimately, my goal is to use this corner on the internet to bridge the gap
 between collaboration and education, building tools, and sharing ideas.
@@ -124,11 +138,11 @@ about the tech either; I'm a huge film nerd and I enjoy memes!! If you are
 also passionate about films or want to share something funny, feel free to
 reach out or send a recommendation or two.
 
-I don't use, nor am I on, any social media, but I'm reachable via
+I'm not on social media, but I'm always reachable via
 `email <mailto:xa@mes3.dev>`_ or via
 `LinkedIn <https://www.linkedin.com/in/xames3>`_.
 
-.. _NASA Open Science: https://science.nasa.gov/open-science/
+.. _NASA's Open Science: https://science.nasa.gov/open-science/
 .. _NumPy: https://numpy.org/
 .. _PyTorch: https://pytorch.org/
 .. _Pygame: https://pygame.org/
@@ -145,8 +159,8 @@ I don't use, nor am I on, any social media, but I'm reachable via
     :caption: Development
     :hidden:
 
-    projects/xsnumpy
     projects/slowtorch
+    projects/xsnumpy
 
 .. toctree::
     :caption: Miscellany

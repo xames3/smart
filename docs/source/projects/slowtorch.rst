@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 18 April, 2025
-.. Last updated on: 08 September, 2025
+.. Last updated on: 03 October, 2025
 
 :og:title: PyTorch... But Slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -12,13 +12,13 @@
 .. _project-slow-burning-torch:
 
 ===============================================================================
-:octicon:`flame` PyTorch... But Slower
+:octicon:`flame` PyTorch... But Much Slower
 ===============================================================================
 
 .. author::
     :name: Akshay Mestry
     :email: xa@mes3.dev
-    :about: Adjunct, National Louis University
+    :about: National Louis University
     :avatar: https://avatars.githubusercontent.com/u/90549089?v=4
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
