@@ -13,34 +13,26 @@
 }
 
 .sd-card {
-    background-color: hsl(var(--card));
-    border-color: hsl(var(--border));
     border-radius: var(--radius);
-    border-width: 1px;
+    border: 1px solid hsl(var(--border));
     color: hsl(var(--foreground));
 }
 
+.sd-card-hover:hover,
 .sd-card-body:hover {
-    box-shadow: var(--box-shadow);
-    border-radius: var(--radius)
+    border-color: hsl(var(--border));
+    transform: none;
 }
 
+.sd-card .sd-card-body:hover,
 .sd-dropdown .sd-card-body:hover {
     box-shadow: none
-}
-
-.sd-sphinx-override p {
-    margin-top: 1.5rem
 }
 
 .sd-container-fluid {
     padding-inline: 0;
     margin-bottom: 1.5rem;
     margin-top: 1.5rem
-}
-
-.sd-card-title {
-    font-weight: 600 !important
 }
 
 .sd-summary-title {
@@ -145,10 +137,6 @@ div.sd-summary-content.sd-card-body {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important
 }
 
-.sd-card-title {
-    margin-bottom: 0
-}
-
 .fas,
 .sd-octicon,
 .sd-material-icon {
@@ -208,4 +196,55 @@ nav a svg .sd-material-icon {
 .sd-tab-label:hover {
     color: hsl(var(--foreground) / 0.5) !important;
     border-bottom: none;
+}
+
+.sd-card .sd-card-header {
+    color: hsl(var(--muted-foreground));
+    padding: 0 1rem;
+    border: none;
+    margin-top: 1rem;
+}
+
+.sd-card .sd-card-header:first-child {
+    border-radius: 0;
+}
+
+.sd-card .sd-card-body .sd-card-title {
+    font-weight: 600 !important;
+    font-size: 1.5rem;
+    letter-spacing: -0.86px;
+}
+
+.sd-card .sd-card-body .sd-card-text {
+    color: hsl(var(--muted-foreground));
+}
+
+.sd-stretched-link {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 50px;
+    color: hsl(var(--foreground)) !important;
+    font-weight: 500 !important;
+    width: fit-content;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sd-stretched-link:hover {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background)) !important;
+}
+
+.sd-stretched-link::after {
+    content: "\f061";
+    font: var(--fa-font-solid);
+    align-content: center;
+    position: relative;
+    margin-left: 0.5rem;
+}
+
+.sd-card-img,
+.sd-card-img-top {
+    margin: 0 !important
 }

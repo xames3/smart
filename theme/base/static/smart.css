@@ -674,7 +674,6 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 
 .site-header__search .DocSearch-Button {
     width: 100%;
-    border-radius: var(--radius);
     font-size: 0.95rem
 }
 
@@ -825,7 +824,6 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 
 .site-author__timestamp {
     margin: 0;
-    font-size: 0.8rem;
     color: hsl(var(--muted-foreground))
 }
 
@@ -921,6 +919,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 .site-youtube-card__content {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
 }
 
 .site-youtube-card__title {
@@ -1228,6 +1227,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     .site-sidebar--visible {
         animation: site-sidebar-bounce-in calc(var(--duration-normal) * 1.15) var(--ease-out-back);
         animation-fill-mode: forwards;
+        width: 300px;
     }
 
     .container .literal-block-wrapper {
@@ -1406,7 +1406,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     font-weight: 600;
     line-height: 3.5rem;
     text-align: center;
-    color: hsl(var(--temp));
+    color: hsl(var(--foreground));
     letter-spacing: -3.36px;
     margin-bottom: 32px
 }
@@ -1665,15 +1665,12 @@ html[data-theme="dark"] .site-header {
 .site-header__inner {
     display: flex;
     align-items: center;
-    gap: 1rem;
     min-height: 3.5rem
 }
 
 .site-header__primary {
     display: none;
     align-items: center;
-    gap: 1.5rem;
-    margin-right: 1rem
 }
 
 @media (min-width: 768px) {
@@ -1883,16 +1880,10 @@ html[data-theme="dark"] .site-header__theme-toggle-icon--moon {
 
 .site-header__icon-link {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
     border: 1px solid hsl(var(--border)) !important;
-    border-radius: calc(var(--radius) * 0.9);
-    text-decoration: none;
-    height: 2rem;
+    border-radius: 0.5rem;
     padding: 0.3rem;
     background-color: hsl(var(--light-accent));
-    transition: background-color var(--duration-fast) var(--ease-in-out), color var(--duration-fast) var(--ease-in-out), box-shadow var(--duration-fast) var(--ease-in-out);
 }
 
 .is-active {
@@ -1901,6 +1892,8 @@ html[data-theme="dark"] .site-header__theme-toggle-icon--moon {
 
 .site-header__icon-link .fa-heart {
     color: hsl(324, 54%, 49%);
+    padding-left: 0.05rem;
+
 }
 
 .site-header__icon-link:hover .fa-heart,
@@ -2714,4 +2707,8 @@ a[data-tooltip].show-tooltip::after {
 
 .grayscale:hover {
     filter: grayscale(0%);
+}
+
+.mr-0 {
+    margin-right: 0 !important;
 }
