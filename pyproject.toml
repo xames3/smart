@@ -127,12 +127,14 @@ ignore = [
   "D107",     # Missing docstring in `__init__`
   "D205",     # 1 blank line required between summary line and description
   "D415",     # First line should end with a period, question mark, or exclamation point
+  "DTZ005",   # Datetime called without `tz` parameter
   "EM101",    # Exception must not use a string literal
   "EM102",    # Exception must not use an f-string literal
   "EXE002",   # Script file is executable but does not have a shebang
   "F403",     # Name may be undefined
   "F405",     # Name defined from star imports
   "FBT003",   # Boolean positional value in function call
+  "INP001",   # Part of implicit namespace package
   "ISC001",   # Implicitly concatenated string literals (conflicts with formatter)
   "N801",     # Class name should use CapWords convention
   "N806",     # Variable in function should be lowercase
@@ -278,7 +280,7 @@ min_version = "4.0"
 description = "Run linting with ruff"
 deps = [ "ruff>=0.12.7" ]
 commands = [
-  [ "ruff", "check", "theme", "--diff" ],
+  [ "ruff", "check", "theme", "docs/source/conf.py", "--diff" ],
 ]
 
 [tool.tox.env.format]
@@ -287,8 +289,8 @@ deps = [
   "ruff>=0.12.7",
 ]
 commands = [
-  [ "ruff", "format", "theme" ],
-  [ "ruff", "check", "theme", "--fix" ],
+  [ "ruff", "format", "theme", "docs/source/conf.py" ],
+  [ "ruff", "check", "theme", "docs/source/conf.py", "--fix" ],
 ]
 
 [tool.tox.env.typecheck]
@@ -304,7 +306,7 @@ deps = [
   "types-requests",
 ]
 commands = [
-  [ "mypy", "theme", "--config-file", "pyproject.toml", "--color-output", "--show-error-codes" ],
+  [ "mypy", "theme", "docs/source/conf.py", "--config-file", "pyproject.toml", "--color-output", "--show-error-codes" ],
 ]
 
 [tool.tox.env.html]
