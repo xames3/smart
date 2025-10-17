@@ -4,7 +4,7 @@ SMART Sphinx Theme Custom Roles
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 01 October, 2025
+Last updated on: 17 October, 2025
 
 This module provides custom roles for the SMART Sphinx Theme, that
 allows me, the author to add features to the documentation.
@@ -24,9 +24,6 @@ import typing as t
 import docutils.nodes as nodes
 
 
-# TODO (xames3): Add example usage of the role. Explain how this role
-# will be used in a reStructuredText document with some suitable
-# examples.
 def stylise(
     role: str,
     rawtext: str,
@@ -42,6 +39,12 @@ def stylise(
     within reStructuredText using a role syntax. The expected input
     format is `text <style>`. If the input format is invalid, an error
     is reported.
+
+    Example::
+
+        .. code-block:: rst
+
+            Text is normal, but now its in :style:`red <color: red;>`.
 
     :param role: The role name used in the source text.
     :param rawtext: The entire markup text representing the role.
@@ -77,3 +80,65 @@ def stylise(
         return [inliner.problematic(rawtext, rawtext, msg)], [msg]
     raw = f'<span style="{style}">{element}</span>'
     return [nodes.raw(text=raw, format="html")], []
+
+
+def email(
+    role: str,
+    rawtext: str,
+    text: str,
+    lineno: int,
+    inliner: t.Any,
+    options: dict[str, t.Any] | None = None,
+    content: list[t.Any] | None = None,
+) -> tuple[list[nodes.Node], list[nodes.system_message]]:
+    """Create a `mailto` link.
+
+    This function generates a `mailto` link. By default, it populates
+    the subject with the current page's title, but it can be overridden
+    these defaults directly in the role.
+
+    Example::
+
+        .. code-block:: rst
+
+            Send me an :email:`email <xa@mes3.dev>`.
+
+        .. code-block:: rst
+
+            Send me an :email:`email <xa@mes3.dev | Hello hello!!>`
+
+    :param role: The role name used in the source text.
+    :param rawtext: The entire markup text representing the role.
+    :param text: The text by the user, which becomes the link text.
+    :param lineno: The line number where the role was encountered in the
+        source text.
+    :param inliner: The inliner instance that called the role function.
+    :param options: Additional options passed to the role function,
+        defaults to `None`.
+    :param content: Content passed to the role function, defaults
+        to `None`.
+    :return: A tuple of list with a single `nodes.raw` object
+        representing the styled text and a list of system messages
+        generated during processing (typically empty if no errors).
+    :raises: None, but will report an error message if the input format
+        is invalid.
+    """
+    # NOTE(xames3): The parameters `role`, `options`, and `content` are
+    # currently unused but are included to match the expected signature
+    # for a Sphinx role function.
+    role = role or ""
+    options = options or {}
+    content = content or []
+    href, rest = text.split("<", 1)
+    href = href.strip()
+    if "|" in rest:
+        href, subject = (t.strip() for t in rest.split("|", 1))
+    else:
+        # XXX(xames3): The current approach for getting the page title,
+        # using `inliner.document[3][0][1][0].astext()`, is quite
+        # brittle. It relies on the internal structure of the document,
+        # which could change between Sphinx versions or with different
+        # extensions, causing the build to break.
+        subject = inliner.document[3][0][1][0].astext()
+    refuri = f"mailto:{rest.rstrip('>').strip()}?subject={subject}"
+    return [nodes.reference(rawtext, href, refuri=refuri, line=lineno)], []
