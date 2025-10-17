@@ -3,7 +3,7 @@
 # 
 # Author: Akshay Mestry <xa@mes3.dev>
 # Created on: 22 February, 2025
-# Last updated on: 13 October, 2025
+# Last updated on: 15 October, 2025
 # 
 # This Makefile provides a comprehensive set of commands (targets) for building
 # and testing the SMART website.
@@ -61,11 +61,12 @@ HTTP_SERVER_FLAGS := \
 .DEFAULT_GOAL := help
 .PHONY: help clean check html rebuild serve start stop
 
+# Improvement based on: https://stackoverflow.com/a/64394417
 help: ## Show this help and list available targets.
 	@echo "Usage:"
 	@echo "  $(COLOUR_GREEN)make$(COLOUR_RESET) $(COLOUR_YELLOW)<target>$(COLOUR_RESET)\n"
 	@echo "Targets:"
-	@grep -E '^[a-zA-Z_-]+:.*##' $(MAKEFILE_LIST) | \
+	@grep -E '^[a-zA-Z_-]+:.*##' $(firstword $(MAKEFILE_LIST)) | \
 		sort | \
 		awk 'BEGIN {FS = ":.*## *"} {printf "  $(COLOUR_BLUE)%-$(TARGET_PADDING)s$(COLOUR_RESET) %s\n", $$1, $$2}'
 	@echo "\n$(COLOUR_DIM)For executing a particular target, run 'make <target>'.$(COLOUR_RESET)"
@@ -78,6 +79,7 @@ clean: ## Remove build artifacts and temporary directories.
 		(printf "$(COLOUR_RED)FAILED!$(COLOUR_RESET)\n" && exit 1)
 
 check: ## Perform linting checks and report issues, if any.
+	@$(MAKE) loadenv --no-print-directory
 	@printf "$(COLOUR_ORANGE)[CHECK]$(COLOUR_RESET) Running linter... "
 	@$(SPHINX_LINT) $(SPHINX_LINT_FLAGS) $(SOURCE_DIR) >/dev/null && \
 		printf "$(COLOUR_GREEN)OK!$(COLOUR_RESET)\n" || \
@@ -95,11 +97,10 @@ rebuild: ## Rebuild HTML files after cleaning the build directory.
 	@$(MAKE) html --no-print-directory
 
 serve: ## Start a development web server, if not running already and serve.
-	@$(MAKE) loadenv --no-print-directory
 	@if ps -ef | grep "$(HTTP-SERVER)" | grep $(PORT) | grep -v grep | grep -v xargs | grep -v awk | grep -v make > /dev/null; then \
 		printf "$(COLOUR_GREEN)[EXIST]$(COLOUR_RESET) Development server already running at $(PROTOCOL)://$(HOST):$(PORT)... $(COLOUR_CYAN)SKIPPED!$(COLOUR_RESET)\n"; \
 	else \
-		$(MAKE) webserver --no-print-directory; \
+		$(MAKE) devserver --no-print-directory; \
 	fi
 
 start: ## Rebuild HTML files, start a development web server and serve.
@@ -112,7 +113,7 @@ stop: ## Stop the development web server.
 		printf "$(COLOUR_GREEN)OK!$(COLOUR_RESET)\n" || \
 		(printf "$(COLOUR_RED)FAILED!$(COLOUR_RESET)\n" && exit 1)
 
-webserver:
+devserver:
 	@printf "$(COLOUR_OLIVE)[START]$(COLOUR_RESET) Starting development server at $(PROTOCOL)://$(HOST):$(PORT)... "
 	@($(HTTP_SERVER) $(HTTP_SERVER_FLAGS) &) >/dev/null && \
 		sleep 1 && \
@@ -121,3 +122,10 @@ webserver:
 		echo "Open $(PROTOCOL)://$(HOST):$(PORT) in your browser.") && \
 		printf "$(COLOUR_GREEN)OK!$(COLOUR_RESET)\n" || \
 		(printf "$(COLOUR_RED)FAILED!$(COLOUR_RESET)\n" && exit 1)
+
+loadenv:
+	@printf "$(COLOUR_DIM)[VALUE]$(COLOUR_RESET) Loading environment variables... " && \
+		printf "$(COLOUR_GREEN)OK!$(COLOUR_RESET)\n" || \
+		(printf "$(COLOUR_RED)FAILED!$(COLOUR_RESET)\n" && exit 1)
+  -include ../env.bak
+  export
