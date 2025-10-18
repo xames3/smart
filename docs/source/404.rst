@@ -1,9 +1,9 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 21 August, 2025
-.. Last updated on: 21 August, 2025
+.. Last updated on: 18 October, 2025
 
 :orphan:
-:og:title: SMART 404!
+:og:title: Oops! Page Not Found
 :og:description: Not found? No problem, maybe?!
 :og:type: website
 
@@ -19,7 +19,8 @@ Oops! Page Not Found
         nav .mr-1,
         nav span,
         #left-sidebar nav,
-        #right-sidebar p{
+        #right-sidebar p,
+        .site-layout__meta {
             display: none
         }
     </style>

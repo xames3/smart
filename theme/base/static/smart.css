@@ -1882,7 +1882,7 @@ html[data-theme="dark"] .site-header__theme-toggle-icon--moon {
     display: inline-flex;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 0.5rem;
-    padding: 0.3rem;
+    padding: 0.2rem 0.3rem;
     background-color: hsl(var(--light-accent));
 }
 
@@ -1892,8 +1892,6 @@ html[data-theme="dark"] .site-header__theme-toggle-icon--moon {
 
 .site-header__icon-link .fa-heart {
     color: hsl(324, 54%, 49%);
-    padding-left: 0.05rem;
-
 }
 
 .site-header__icon-link:hover .fa-heart,

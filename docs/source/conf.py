@@ -117,6 +117,7 @@ website_options: dict[str, t.Any] = {
 }
 
 html_theme: t.Final[str] = "smart"
+html_extra_path: list[str] = ["CNAME", ".nojekyll"]
 html_static_path: list[str] = ["_static"]
 exclude_patterns: list[str] = ["_build"]
 templates_path: list[str] = ["_templates"]
@@ -164,4 +165,4 @@ linkcheck_timeout: int = 10
 linkcheck_retries: int = 2
 
 notfound_context = {"body": "<h1>Oops! Page Not Found</h1>"}
-notfound_urls_prefix = None
+notfound_urls_prefix = "/"
