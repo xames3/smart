@@ -4,7 +4,7 @@ SMART Sphinx Theme Base Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 05 October, 2025
+Last updated on: 18 October, 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
@@ -60,8 +60,18 @@ Last updated on: 05 October, 2025
             href="https://{{ docsearch_app_id }}-dsn.algolia.net"
             crossorigin="anonymous" />
     {% endif %}
-    {%- set _favicon_url = favicon_url | default(pathto('_static/' + (favicon or ""), 1)) %}
-    {%- if favicon_url or favicon %}<link rel="icon" href="{{ _favicon_url }}" />{%- endif %}
+    {%- set _favicon_ico_url = favicon_url | default(pathto('_static/' + (favicon or ""), 1)) %}
+    {%- set _favicon_16x16_url = pathto('_static/' + favicon_16x16, 1) %}
+    {%- set _favicon_32x32_url = pathto('_static/' + favicon_32x32, 1) %}
+    {%- set _favicon_180x180_url = pathto('_static/' + favicon_180x180, 1) %}
+    {%- set _favicon_manifest_url = pathto('_static/' + favicon_manifest, 1) %}
+    {%- if favicon_url or favicon %}
+      <link rel="icon" href="{{ _favicon_ico_url }}" />
+      <link rel="icon" type="image/png" sizes="16x16" href="{{ _favicon_16x16_url }}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{{ _favicon_32x32_url }}">
+      <link rel="apple-touch-icon" sizes="180x180" href="{{ _favicon_180x180_url }}">
+      <link rel="manifest" href="{{ _favicon_manifest_url }}">
+    {%- endif %}
     {%- block linktags %}
       {%- if hasdoc('search') and not docsearch %}
         <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />

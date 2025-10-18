@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 13 October, 2025
+Last updated on: 18 October, 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -124,6 +124,10 @@ locale_dirs: list[str] = ["../locale/"]
 gettext_compact: bool = False
 html_context: dict[str, t.Any] = {
     "docsearch": True,
+    "favicon_16x16": "favicon-16x16.png",
+    "favicon_32x32": "favicon-32x32.png",
+    "favicon_180x180": "apple-touch-icon.png",
+    "favicon_manifest": "site.webmanifest",
 }
 rst_epilog = ""
 with open("_static/extra/epilog.rst") as f:
@@ -158,3 +162,6 @@ copybutton_selector: str = "div:not(.no-copybutton) > div.highlight > pre"
 linkcheck_ignore: list[str] = [r"https://localhost:\d+/"]
 linkcheck_timeout: int = 10
 linkcheck_retries: int = 2
+
+notfound_context = {"body": "<h1>Oops! Page Not Found</h1>"}
+notfound_urls_prefix = None
