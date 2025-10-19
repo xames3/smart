@@ -42,8 +42,12 @@ dependencies = { file = "requirements.txt" }
 version = { attr = "theme.version" }
 
 [tool.djlint]
-indent = 2
-profile="jinja"
+profile = "jinja"
+indent = 4
+format_css = true
+format_js = true
+max_attribute_length = 1
+max_line_length = 79
 
 [tool.ruff]
 line-length = 80
@@ -268,7 +272,7 @@ disable_error_code = [
 requires = [ "tox>=4.11" ]
 env_list = [
   "py313",
-  "html",
+  "website",
   "lint",
   "format",
   "typecheck",
@@ -309,9 +313,10 @@ commands = [
   [ "mypy", "theme", "docs/source/conf.py", "--config-file", "pyproject.toml", "--color-output", "--show-error-codes" ],
 ]
 
-[tool.tox.env.html]
-description = "Run HTML linting with djlint"
+[tool.tox.env.website]
+description = "Run HTML, CSS, and JS linting with djlint"
 deps = [ "djlint==1.36.4" ]
 commands = [
-  [ "djlint", "theme/base/", "--reformat" ],
+  [ "djlint", "theme/", "docs/source/assets/html", "-e", "html", "--reformat" ],
+  [ "djlint", "theme/", "-e", "html.jinja", "--reformat" ],
 ]

@@ -4,7 +4,7 @@ SMART Sphinx Theme Base Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 18 October, 2025
+Last updated on: 19 October, 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
@@ -16,137 +16,150 @@ Last updated on: 18 October, 2025
       class="scroll-smooth"
       :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
       x-effect="document.documentElement.setAttribute('data-theme', darkMode)">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta name="theme-color"
-          media="(prefers-color-scheme: light)"
-          content="white" />
-    <meta name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="black" />
-    {{ metatags }}
-    <script>
-    document.documentElement.classList.add('no-transitions');
-    const userPreference = localStorage.getItem('darkMode');
-    const mode = userPreference || 'dark';
-    document.documentElement.setAttribute('data-theme', mode);
-    if (mode === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    if (!userPreference) { localStorage.setItem('darkMode', mode) }
-    </script>
-    {%- block htmltitle %}
-      <title>{{ title|striptags|e if title else docstitle }}</title>
-      <meta property="og:title"
-            content="{{ title|striptags|e if title else docstitle }}" />
-      <script src="https://kit.fontawesome.com/8bcdaaff4d.js"
-              crossorigin="anonymous"></script>
-      <script data-goatcounter="https://smart.goatcounter.com/count"
-              async
-              src="//gc.zgo.at/count.js"></script>
-    {%- endblock htmltitle %}
-    {%- for css in css_files %}
-      {%- if css|attr("filename") %}
-        {{ css_tag(css) }}
-      {%- else -%}
-        <link rel="stylesheet" href="{{ pathto(css, 1) |e }}" />
-      {%- endif %}
-    {%- endfor %}
-    {%- if docsearch %}
-      <link rel="preconnect"
-            href="https://{{ docsearch_app_id }}-dsn.algolia.net"
-            crossorigin="anonymous" />
-    {% endif %}
-    {%- set _favicon_ico_url = favicon_url | default(pathto('_static/' + (favicon or ""), 1)) %}
-    {%- set _favicon_16x16_url = pathto('_static/' + favicon_16x16, 1) %}
-    {%- set _favicon_32x32_url = pathto('_static/' + favicon_32x32, 1) %}
-    {%- set _favicon_180x180_url = pathto('_static/' + favicon_180x180, 1) %}
-    {%- set _favicon_manifest_url = pathto('_static/' + favicon_manifest, 1) %}
-    {%- if favicon_url or favicon %}
-      <link rel="icon" href="{{ _favicon_ico_url }}" />
-      <link rel="icon" type="image/png" sizes="16x16" href="{{ _favicon_16x16_url }}">
-      <link rel="icon" type="image/png" sizes="32x32" href="{{ _favicon_32x32_url }}">
-      <link rel="apple-touch-icon" sizes="180x180" href="{{ _favicon_180x180_url }}">
-      <link rel="manifest" href="{{ _favicon_manifest_url }}">
-    {%- endif %}
-    {%- block linktags %}
-      {%- if hasdoc('search') and not docsearch %}
-        <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
-      {%- endif %}
-      {%- if hasdoc('genindex') %}<link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />{%- endif %}
-      {%- if next %}
-        <link rel="next"
-              title="{{ next.title|striptags|e }}"
-              href="{{ next.link|e }}" />
-      {%- endif %}
-      {%- if prev %}
-        <link rel="prev"
-              title="{{ prev.title|striptags|e }}"
-              href="{{ prev.link|e }}" />
-      {%- endif %}
-    {%- endblock linktags %}
-    {%- block extrahead %}{%- endblock extrahead %}
-    </head>
-    <body x-data="{ showSidebar: false, showScrollTop: false, lastScroll: 0 }"
-          class="site-body"
-          :class="{ 'site-body--locked': showSidebar, 'site-body--sidebar-open': showSidebar }"
-          @scroll.window="const y=pageYOffset; const docH=document.documentElement.scrollHeight; const nearBottom=(y+innerHeight)>= (docH-200); const down=y>lastScroll; showScrollTop = down && (y>200 || nearBottom); lastScroll = y < 0 ? 0 : y;">
-      {%- if sidebars|length > 0 %}
-        <div x-cloak
-             x-show="showSidebar"
-             class="site-sidebar__backdrop"
-             @click.self="showSidebar = false"></div>
-      {%- endif %}
-      <div id="page" class="site-shell">
-        <a href="#content" class="site-shell__skip-link">Skip to content</a>
-        {%- block header %}
-          {%- include "header.html.jinja" %}
-        {%- endblock header %}
-        <div class="site-shell__main">
-          <div class="site-layout container site-layout--has-secondary">
-            {%- block sidebar %}
-              {%- if sidebars|length > 0 %}
-                {%- include "sidebar.html.jinja" %}
-              {%- endif %}
-            {%- endblock sidebar %}
-            {%- block main %}
-              <main class="site-layout__content">
-                {%- block body %}{%- endblock %}
-                  {%- set page_meta = meta | default({}, true) %}
-                  {%- set updated_on = page_meta.get('last_updated') or last_updated %}
-                  {%- if updated_on %}
-                    <p class="site-layout__meta">
-                      {%- trans updated_on=updated_on|e -%}
-                      Last updated on {{ updated_on }}
-                    {%- endtrans -%}
-                  </p>
-                {%- endif %}
-              </main>
-            {%- endblock main %}
-            {%- block right_sidebar %}
-              {%- include "toc.html.jinja" %}
-            {%- endblock right_sidebar %}
-          </div>
-        </div>
-        {%- if theme_show_previous_next_pages|tobool %}
-          {%- include "previous_next_pages.html.jinja" %}
+    <head>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta name="theme-color"
+              media="(prefers-color-scheme: light)"
+              content="white" />
+        <meta name="theme-color"
+              media="(prefers-color-scheme: dark)"
+              content="black" />
+        {{ metatags }}
+        <script>
+            document.documentElement.classList.add('no-transitions');
+            const userPreference = localStorage.getItem('darkMode');
+            const mode = userPreference || 'dark';
+            document.documentElement.setAttribute('data-theme', mode);
+            if (mode === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            if (!userPreference) {
+                localStorage.setItem('darkMode', mode)
+            }
+        </script>
+        {%- block htmltitle %}
+            <title>{{ title|striptags|e if title else docstitle }}</title>
+            <meta property="og:title"
+                  content="{{ title|striptags|e if title else docstitle }}" />
+            <script src="https://kit.fontawesome.com/8bcdaaff4d.js"
+                    crossorigin="anonymous"></script>
+            <script data-goatcounter="https://smart.goatcounter.com/count"
+                    async
+                    src="//gc.zgo.at/count.js"></script>
+        {%- endblock htmltitle %}
+        {%- for css in css_files %}
+            {%- if css|attr("filename") %}
+                {{ css_tag(css) }}
+            {%- else -%}
+                <link rel="stylesheet"
+                      href="{{ pathto(css, 1) |e }}" />
+            {%- endif %}
+        {%- endfor %}
+        {%- if docsearch %}
+            <link rel="preconnect"
+                  href="https://{{ docsearch_app_id }}-dsn.algolia.net"
+                  crossorigin="anonymous" />
+        {% endif %}
+        {%- set _favicon_ico_url = favicon_url | default(pathto('_static/' + (favicon or ""), 1)) %}
+        {%- set _favicon_16x16_url = pathto('_static/' + favicon_16x16, 1) %}
+        {%- set _favicon_32x32_url = pathto('_static/' + favicon_32x32, 1) %}
+        {%- set _favicon_180x180_url = pathto('_static/' + favicon_180x180, 1) %}
+        {%- set _favicon_manifest_url = pathto('_static/' + favicon_manifest, 1) %}
+        {%- if favicon_url or favicon %}
+            <link rel="icon"
+                  href="{{ _favicon_ico_url }}" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="{{ _favicon_16x16_url }}">
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="{{ _favicon_32x32_url }}">
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="{{ _favicon_180x180_url }}">
+            <link rel="manifest"
+                  href="{{ _favicon_manifest_url }}">
         {%- endif %}
-        {%- block footer %}
-          {%- include "footer.html.jinja" %}
-        {%- endblock footer %}
-      </div>
-      {% block scripts %}
-        {%- for js in script_files %}{{ js_tag(js) }}{%- endfor %}
-          <script>
-    window.addEventListener('load', function () {
-      requestAnimationFrame(function () {
-        document.documentElement.classList.remove('no-transitions');
-      });
-    });
-          </script>
-        {% endblock scripts %}
-      </body>
-    </html>
+        {%- block linktags %}
+            {%- if hasdoc('search') and not docsearch %}
+                <link rel="search"
+                      title="{{ _('Search') }}"
+                      href="{{ pathto('search') }}" />
+            {%- endif %}
+            {%- if hasdoc('genindex') %}
+                <link rel="index"
+                      title="{{ _('Index') }}"
+                      href="{{ pathto('genindex') }}" />
+            {%- endif %}
+            {%- if next %}
+                <link rel="next"
+                      title="{{ next.title|striptags|e }}"
+                      href="{{ next.link|e }}" />
+            {%- endif %}
+            {%- if prev %}
+                <link rel="prev"
+                      title="{{ prev.title|striptags|e }}"
+                      href="{{ prev.link|e }}" />
+            {%- endif %}
+        {%- endblock linktags %}
+        {%- block extrahead %}{%- endblock extrahead %}
+        </head>
+        <body x-data="{ showSidebar: false, showScrollTop: false, lastScroll: 0 }"
+              class="site-body"
+              :class="{ 'site-body--locked': showSidebar, 'site-body--sidebar-open': showSidebar }"
+              @scroll.window="const y=pageYOffset; const docH=document.documentElement.scrollHeight; const nearBottom=(y+innerHeight)>= (docH-200); const down=y>lastScroll; showScrollTop = down && (y>200 || nearBottom); lastScroll = y < 0 ? 0 : y;">
+            {%- if sidebars|length > 0 %}
+                <div x-cloak
+                     x-show="showSidebar"
+                     class="site-sidebar__backdrop"
+                     @click.self="showSidebar = false"></div>
+            {%- endif %}
+            <div id="page"
+                 class="site-shell">
+                <a href="#content"
+                   class="site-shell__skip-link">Skip to content</a>
+                {%- block header %}
+                    {%- include "header.html.jinja" %}
+                {%- endblock header %}
+                <div class="site-shell__main">
+                    <div class="site-layout container site-layout--has-secondary">
+                        {%- block sidebar %}
+                            {%- if sidebars|length > 0 %}
+                                {%- include "sidebar.html.jinja" %}
+                            {%- endif %}
+                        {%- endblock sidebar %}
+                        {%- block main %}
+                            <main class="site-layout__content">
+                                {%- block body %}{%- endblock %}
+                                </main>
+                            {%- endblock main %}
+                            {%- block right_sidebar %}
+                                {%- include "toc.html.jinja" %}
+                            {%- endblock right_sidebar %}
+                        </div>
+                    </div>
+                    {%- if theme_show_previous_next_pages|tobool %}
+                        {%- include "previous_next_pages.html.jinja" %}
+                    {%- endif %}
+                    {%- block footer %}
+                        {%- include "footer.html.jinja" %}
+                    {%- endblock footer %}
+                </div>
+                {% block scripts %}
+                    {%- for js in script_files %}{{ js_tag(js) }}{%- endfor %}
+                        <script>
+                            window.addEventListener('load', function() {
+                                requestAnimationFrame(function() {
+                                    document.documentElement.classList.remove('no-transitions');
+                                });
+                            });
+                        </script>
+                    {% endblock scripts %}
+                </body>
+            </html>
