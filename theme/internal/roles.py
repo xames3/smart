@@ -129,16 +129,12 @@ def email(
     role = role or ""
     options = options or {}
     content = content or []
+    titles = inliner.document.traverse(nodes.title)
     href, rest = text.split("<", 1)
     href = href.strip()
     if "|" in rest:
         href, subject = (t.strip() for t in rest.split("|", 1))
     else:
-        # XXX(xames3): The current approach for getting the page title,
-        # using `inliner.document[3][0][1][0].astext()`, is quite
-        # brittle. It relies on the internal structure of the document,
-        # which could change between Sphinx versions or with different
-        # extensions, causing the build to break.
-        subject = inliner.document[3][0][1][0].astext()
+        subject = titles[0].children[-1].astext().strip()
     refuri = f"mailto:{rest.rstrip('>').strip()}?subject={subject}"
     return [nodes.reference(rawtext, href, refuri=refuri, line=lineno)], []
