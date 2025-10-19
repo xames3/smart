@@ -90,7 +90,7 @@ extensions: list[str] = [
 nitpicky: bool = True
 
 website_author: t.Final[str] = author
-website_copyright: t.Final[str] = f"{website_author} © {dt.now().year}"
+website_copyright: t.Final[str] = f"© {dt.now().year} {website_author}."
 website_email: t.Final[str] = author_email
 website_github: str = source
 website_homepage: str = baseurl

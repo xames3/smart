@@ -7,85 +7,100 @@ Created on: 21 February, 2025
 Last updated on: 19 October, 2025
 -->
 <header class="site-header">
-  {%- block header_before %}{% endblock header_before -%}
-  <div class="site-header__inner container">
-    {%- block header_left %}
-    <div class="site-header__primary">
-      {%- block website_logo %}
-      <a href="{{ pathto(master_doc) }}" class="site-header__logo">
-        {%- if logo_url %}
-        <img height="16" width="16" class="site-header__logo-image site-header__logo-image--single" src="{{ logo_url }}"
-          alt="Logo" />
-        {%- endif -%}
-        {%- if dark_logo and not logo_url %}
-        <img width="16" height="16" class="site-header__logo-image site-header__logo-image--dark"
-          src="{{ pathto('_static/' + dark_logo, 1) }}" alt="Logo" />
-        {%- endif -%}
-        {%- if light_logo and not logo_url %}
-        <img width="16" height="16" class="site-header__logo-image site-header__logo-image--light"
-          src="{{ pathto('_static/' + light_logo, 1) }}" alt="Logo" />
-        {%- endif -%}
-        <span class="site-header__title">{{ docstitle }}</span>
-      </a>
-      {%- endblock website_logo %}
-      {%- block header_main_nav %}
-      {%- if theme_main_nav_links|tobool -%}
-      <nav class="site-header__nav" aria-label="Main navigation">
-        <ul class="site-header__nav-list">
-          {%- for text,url in theme_main_nav_links.items() %}
-          {%- set is_external = url.startswith('http') -%}
-          {%- set is_active = (not is_external) and (pagename in url) -%}
-          <li class="site-header__nav-item">
-            {%- if is_external %}
-            <a href="{{ url }}" class="site-header__nav-link" rel="noopener nofollow">{{ text }}</a>
-            {%- else %}
-            <a href="{{ pathto(url) }}"
-              class="site-header__nav-link{{ ' site-header__nav-link--active' if is_active else '' }}">{{ text }}</a>
-            {%- endif %}
-          </li>
-          {%- endfor %}
-        </ul>
-      </nav>
-      {%- endif %}
-      {%- endblock header_main_nav -%}
+    {%- block header_before %}
+    {% endblock header_before -%}
+    <div class="site-header__inner container">
+        {%- block header_left %}
+            <div class="site-header__primary">
+                {%- block website_logo %}
+                    <a href="{{ pathto(master_doc) }}"
+                       class="site-header__logo">
+                        {%- if logo_url %}
+                            <img height="16"
+                                 width="16"
+                                 class="site-header__logo-image site-header__logo-image--single"
+                                 src="{{ logo_url }}"
+                                 alt="Logo" />
+                        {%- endif -%}
+                        {%- if dark_logo and not logo_url %}
+                            <img width="16"
+                                 height="16"
+                                 class="site-header__logo-image site-header__logo-image--dark"
+                                 src="{{ pathto('_static/' + dark_logo, 1) }}"
+                                 alt="Logo" />
+                        {%- endif -%}
+                        {%- if light_logo and not logo_url %}
+                            <img width="16"
+                                 height="16"
+                                 class="site-header__logo-image site-header__logo-image--light"
+                                 src="{{ pathto('_static/' + light_logo, 1) }}"
+                                 alt="Logo" />
+                        {%- endif -%}
+                        <span class="site-header__title">{{ docstitle }}</span>
+                    </a>
+                {%- endblock website_logo %}
+                {%- block header_main_nav %}
+                    {%- if theme_main_nav_links|tobool -%}
+                        <nav class="site-header__nav"
+                             aria-label="Main navigation">
+                            <ul class="site-header__nav-list">
+                                {%- for text,url in theme_main_nav_links.items() %}
+                                    {%- set is_external = url.startswith('http') -%}
+                                    {%- set is_active = (not is_external) and (pagename in url) -%}
+                                    <li class="site-header__nav-item">
+                                        {%- if is_external %}
+                                            <a href="{{ url }}"
+                                               class="site-header__nav-link"
+                                               rel="noopener nofollow">{{ text }}</a>
+                                        {%- else %}
+                                            <a href="{{ pathto(url) }}"
+                                               class="site-header__nav-link{{ ' site-header__nav-link--active' if is_active else '' }}">{{ text }}</a>
+                                        {%- endif %}
+                                    </li>
+                                {%- endfor %}
+                            </ul>
+                        </nav>
+                    {%- endif %}
+                {%- endblock header_main_nav -%}
+            </div>
+        {%- endblock header_left %}
+        {%- block mobile_menu %}
+            {%- if sidebars|length >0 -%}
+                <button class="site-header__menu-toggle"
+                        type="button"
+                        @click="showSidebar = true"
+                        data-sidebar-toggle>
+                    <span class="site-header__title">{{ docstitle }}</span>
+                    <span class="sr-only">Toggle navigation menu</span>
+                </button>
+            {%- endif -%}
+        {%- endblock mobile_menu %}
+        {%- block header_right %}
+            <div class="site-header__utilities">
+                {%- if docsearch or hasdoc('search') %}
+                    <div class="site-header__search">{%- include "searchbox.html.jinja" %}</div>
+                {%- endif %}
+                {%- block extra_header_link_buttons %}
+                    {%- if extra_header_links|tobool %}
+                        <nav class="site-header__icon-list"
+                             aria-label="External links">
+                            {%- for text, url in extra_header_links.items() %}
+                                {%- if url is mapping %}
+                                    <a href="{{ url.link }}"
+                                       title="{{ text }}"
+                                       rel="noopener nofollow"
+                                       target="_blank"
+                                       class="site-header__icon-link">
+                                        {{ url.icon }}
+                                        <span class="sr-only">{{ text }}</span>
+                                    </a>
+                                {% endif %}
+                            {%- endfor %}
+                        </nav>
+                    {%- endif %}
+                {%- endblock extra_header_link_buttons %}
+            </div>
+        {%- endblock header_right %}
     </div>
-    {%- endblock header_left %}
-    {%- block mobile_menu %}
-    {%- if sidebars|length >0 -%}
-    <button class="site-header__menu-toggle" type="button" @click="showSidebar = true" data-sidebar-toggle>
-      <span class="site-header__title">{{ docstitle }}</span>
-      <span class="sr-only">Toggle navigation menu</span>
-    </button>
-    {%- endif -%}
-    {%- endblock mobile_menu %}
-    {%- block header_right %}
-    <div class="site-header__utilities">
-      {%- if docsearch or hasdoc('search') %}
-      <div class="site-header__search">
-        {%- include "searchbox.html.jinja" %}
-      </div>
-      {%- endif %}
-      {%- block extra_header_link_buttons %}
-      {%- if extra_header_links|tobool %}
-      <nav class="site-header__icon-list" aria-label="External links">
-        {%- for text, url in extra_header_links.items() %}
-        {%- if url is mapping %}
-        <a href="{{ url.link }}" title="{{ text }}" rel="noopener nofollow" target="_blank" class="site-header__icon-link">
-          {{ url.icon }}
-          <span class="sr-only">{{ text }}</span>
-        </a>
-        {% endif %}
-        {%- endfor %}
-        <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Colour theme switcher"
-          class="site-header__icon-link" style="display: none;" type="button">
-          <i class="fa-solid fa-moon-star site-header__theme-toggle-icon site-header__theme-toggle-icon--moon"></i>
-          <i class="fa-solid fa-sun-bright site-header__theme-toggle-icon site-header__theme-toggle-icon--sun"></i>
-        </button>
-      </nav>
-      {%- endif %}
-      {%- endblock extra_header_link_buttons %}
-    </div>
-    {%- endblock header_right %}
-  </div>
-  {%- block header_after %}{%- endblock header_after %}
-</header>
+    {%- block header_after %}{%- endblock header_after %}
+    </header>

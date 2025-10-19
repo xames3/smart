@@ -4,17 +4,20 @@ SMART Sphinx Theme YouTube Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 01 October, 2025
+Last updated on: 19 October, 2025
 -->
 {% block youtube %}
-<figure class="site-media site-media--youtube">
-  <div class="site-media__frame site-media__frame--ratio">
-    <iframe class="site-media__iframe" src="{{ url }}&controls=1&modestbranding=1&color=white" title="YouTube"
-      frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen></iframe>
-  </div>
-  {%- if caption %}
-  <figcaption class="site-media__caption">{{ caption }}</figcaption>
-  {%- endif -%}
-</figure>
+    <figure class="site-media site-media--youtube">
+        <div class="site-media__frame site-media__frame--ratio">
+            <iframe class="site-media__iframe"
+                    src="{{ url }}&controls=1&modestbranding=1&color=white"
+                    title="YouTube"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+        </div>
+        {%- if caption %}
+            <figcaption class="site-media__caption">{{ caption }}</figcaption>
+        {%- endif -%}
+    </figure>
 {% endblock youtube %}

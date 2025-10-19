@@ -1086,16 +1086,10 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     background-color: transparent;
 }
 
-@media (min-width: 768px) {
-    .site-footer {
-        padding-block: 0
-    }
-}
-
 .site-footer__inner {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     min-height: 6rem
 }
 
@@ -1109,10 +1103,21 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 }
 
 @media (min-width: 768px) {
+    .site-footer {
+        padding-block: 0
+    }
+
     .site-footer__content {
         flex-direction: row;
         gap: 0.5rem;
         text-align: left
+    }
+}
+
+@media (min-width: 1280px) {
+
+    .site-footer__inner {
+        justify-content: space-around;
     }
 }
 
