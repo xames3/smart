@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 18 October, 2025
+Last updated on: 19 October, 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -117,7 +117,6 @@ website_options: dict[str, t.Any] = {
 }
 
 html_theme: t.Final[str] = "smart"
-html_extra_path: list[str] = ["CNAME", ".nojekyll"]
 html_static_path: list[str] = ["_static"]
 exclude_patterns: list[str] = ["_build"]
 templates_path: list[str] = ["_templates"]
@@ -144,7 +143,7 @@ ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
 ogp_site_url: t.Final[str] = website_homepage
 ogp_social_cards: dict[str, str | bool] = {
     "site_url": website_homepage,
-    "enable": False,
+    "enable": True,
 }
 ogp_type: t.Final[str] = "website"
 ogp_enable_meta_description: bool = True
@@ -163,6 +162,3 @@ copybutton_selector: str = "div:not(.no-copybutton) > div.highlight > pre"
 linkcheck_ignore: list[str] = [r"https://localhost:\d+/"]
 linkcheck_timeout: int = 10
 linkcheck_retries: int = 2
-
-notfound_context = {"body": "<h1>Oops! Page Not Found</h1>"}
-notfound_urls_prefix = "/"
