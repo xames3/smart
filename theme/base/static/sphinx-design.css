@@ -220,7 +220,7 @@ nav a svg .sd-material-icon {
 }
 
 .sd-stretched-link {
-    padding: 0.3rem 0.75rem;
+    padding: 0.25rem 0.65rem;
     font-size: 0.8rem;
     border: 1px solid hsl(var(--border));
     border-radius: 50px;
@@ -242,6 +242,13 @@ nav a svg .sd-material-icon {
     align-content: center;
     position: relative;
     margin-left: 0.5rem;
+}
+
+@media (max-width: 640px) {
+
+    .sd-stretched-link {
+        padding: 0.15rem 0.65rem;
+    }
 }
 
 .sd-card-img,

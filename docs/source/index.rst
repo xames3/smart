@@ -4,7 +4,7 @@
 
 :orphan:
 :og:title: Akshay's Corner
-:og:description: Corner for studying, mentorship, and resourceful teaching
+:og:description: A corner for studying, mentorship, and resourceful teaching
 :og:type: website
 
 .. _home-page:
@@ -70,7 +70,7 @@ projects reflect both technical depth and a passion for education.
         :octicon:`flame` Writing PyTorch from Scratch
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         A maximally minimal auto-differentiation and tensor library written in
-        pure Python.
+        **pure** Python.
 
     .. grid-item-card:: Why write xsNumPy?
         :link: projects/xsnumpy
@@ -79,8 +79,8 @@ projects reflect both technical depth and a passion for education.
 
         :octicon:`beaker` Building NumPy in pure Python
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        A minimalist re-implementation of core NumPy features re-built in pure
-        Python.
+        A minimalist re-implementation of core NumPy features re-built in
+        **pure** Python.
 
 Beyond these, I've had the opportunity to speak at tech meetups and
 conferences, sharing insights on my projects, AI, Open Science, and the inner

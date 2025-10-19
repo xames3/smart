@@ -1845,30 +1845,27 @@ html[data-theme="dark"] .site-header__logo-image--light {
 }
 
 .site-header__theme-toggle-icon {
-    position: absolute;
     font-size: 1rem;
     transition: transform var(--duration-normal) var(--ease-in-out), opacity var(--duration-normal) var(--ease-in-out);
     transform-origin: center
 }
 
-.site-header__theme-toggle-icon--sun {
-    transform: rotate(90deg) scale(0);
-    opacity: 0
+html[data-theme="light"] .site-header__theme-toggle-icon--sun {
+    opacity: 0;
+    display: none;
 }
 
 .site-header__theme-toggle-icon--moon {
-    transform: rotate(0) scale(1);
     opacity: 1
 }
 
 html[data-theme="dark"] .site-header__theme-toggle-icon--sun {
-    transform: rotate(0) scale(1);
-    opacity: 1
+    opacity: 1;
 }
 
 html[data-theme="dark"] .site-header__theme-toggle-icon--moon {
-    transform: rotate(-90deg) scale(0);
-    opacity: 0
+    opacity: 0;
+    display: none;
 }
 
 .site-header__icon-list {

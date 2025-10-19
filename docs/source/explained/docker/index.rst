@@ -284,10 +284,10 @@ get started with Docker and quickly set up your development environment.
 
 Yet another reason why Docker is so popular among developers...
 
-.. _one-week-in:
+.. _one-week-in-a-recap:
 
 -------------------------------------------------------------------------------
-One week in
+One week in... A recap
 -------------------------------------------------------------------------------
 
 By now, I was a week into using Docker, and I was totally hooked! I had a basic
