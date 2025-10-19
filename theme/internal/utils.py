@@ -4,7 +4,7 @@ SMART Sphinx Theme Utilities
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 01 October, 2025
+Last updated on: 18 October, 2025
 
 This module defines a collection of utility functions used for
 customising the SMART Sphinx Theme. These utilities focus on enhancing
@@ -327,52 +327,6 @@ def env_before_read_docs(
     app.env.theme_htmls = docnames
 
 
-def build_finished(app: Sphinx, exc: Exception | None) -> None:
-    """Post-processes HTML documents after the Sphinx build, applying
-    final modifications to the output files.
-
-    This function is triggered after the build process is completed. It
-    checks if there are any errors, and if the builder is set to produce
-    `HTML` or `dirhtml` output. It then applies final transformations
-    to the list of modified documents stored in the environment, such as
-    collapsible navigation, and comment removal.
-
-    :param app: Sphinx application object.
-    :param exc: Any exception raised during the build process, or None
-        if no exceptions occurred.
-
-    Execute post-processing steps after the Sphinx build is complete.
-
-    Once the Sphinx build process concludes — and if no errors occurred
-    — this function processes each modified HTML file by applying the
-    necessary transformations (collapsible ToCs, link adjustments,
-    etc.). Only HTML or directory-style HTML (`dirhtml`) builds are
-    considered.
-
-    If an exception occurs during the build, post-processing is skipped
-    to avoid further complications.
-
-    :param app: The Sphinx application instance.
-    :param exc: An exception raised during the build process, or `None`
-        if the build was successful.
-    """
-    if exc or app.builder.name not in {"html", "dirhtml"}:
-        return
-    if app.builder is not None and app.builder.name not in ["html", "dirhtml"]:
-        return
-    htmls = [app.builder.get_outfilename(html) for html in app.env.theme_htmls]
-    if not htmls:
-        return
-    for html in status_iterator(
-        htmls,
-        "Postprocessing... ",
-        "darkgreen",
-        len(htmls),
-        app.verbosity,
-    ):
-        postprocess(html, app)
-
-
 def last_updated_date(app: Sphinx, docname: str, source: list[str]) -> None:
     """Inject the last updated date into the document's metadata.
 
@@ -427,3 +381,49 @@ def last_updated_date(app: Sphinx, docname: str, source: list[str]) -> None:
             on = ""
     if on:
         metadata["last_updated"] = on
+
+
+def build_finished(app: Sphinx, exc: Exception | None) -> None:
+    """Post-processes HTML documents after the Sphinx build, applying
+    final modifications to the output files.
+
+    This function is triggered after the build process is completed. It
+    checks if there are any errors, and if the builder is set to produce
+    `HTML` or `dirhtml` output. It then applies final transformations
+    to the list of modified documents stored in the environment, such as
+    collapsible navigation, and comment removal.
+
+    :param app: Sphinx application object.
+    :param exc: Any exception raised during the build process, or None
+        if no exceptions occurred.
+
+    Execute post-processing steps after the Sphinx build is complete.
+
+    Once the Sphinx build process concludes — and if no errors occurred
+    — this function processes each modified HTML file by applying the
+    necessary transformations (collapsible ToCs, link adjustments,
+    etc.). Only HTML or directory-style HTML (`dirhtml`) builds are
+    considered.
+
+    If an exception occurs during the build, post-processing is skipped
+    to avoid further complications.
+
+    :param app: The Sphinx application instance.
+    :param exc: An exception raised during the build process, or `None`
+        if the build was successful.
+    """
+    if exc or app.builder.name not in {"html", "dirhtml"}:
+        return
+    if app.builder is not None and app.builder.name not in ["html", "dirhtml"]:
+        return
+    htmls = [app.builder.get_outfilename(html) for html in app.env.theme_htmls]
+    if not htmls:
+        return
+    for html in status_iterator(
+        htmls,
+        "Postprocessing... ",
+        "darkgreen",
+        len(htmls),
+        app.verbosity,
+    ):
+        postprocess(html, app)
