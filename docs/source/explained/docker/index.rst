@@ -1,17 +1,17 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 04 September, 2025
+.. Last updated on: 19 October, 2025
 
-:og:title: Learning Docker
+:og:title: A Week Into Docker
 :og:description: Begineer's guide to Docker and containerisation
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
     assets/opengraph/it-works-on-my-machine-meme.jpg
 
-.. _explained-learning-docker:
+.. _explained-a-week-into-docker:
 
 ===============================================================================
-:octicon:`container` Learning Docker
+:octicon:`container` A Week Into Docker
 ===============================================================================
 
 .. author::
@@ -25,7 +25,7 @@
 
 .. rst-class:: lead
 
-    See... it works on my machine!
+    Look ma... it works on my machine!
 
 This is my story from September 2020, roughly five years ago as of writing this
 article. It is amidst the pandemic while I was switching jobs. I knew I would
@@ -45,18 +45,27 @@ I decided to give it a try.
 
 And here we are today...
 
+In this first chapter, I want to walk you through my initial experience into
+this whole containerisation business and explain the basic ideas that finally
+made sense to me. I'll cover the "what" and the "why" of Docker to build a
+solid foundation. In future articles, I'll dive into the practical side of
+things... how to write a Dockerfile, manage containers, and use it in your own
+projects.
+
+Think of this as the start of a journey we can take together.
+
 .. _but-what-is-docker:
 
 -------------------------------------------------------------------------------
 But what is Docker?
 -------------------------------------------------------------------------------
 
-Learning and exploring Docker wasn't initially on my bingo list, but I'm glad I
-did. Since then, it has made my hacky projects super duper manageable, and my
-local machine still thanks me for it! I don't want to get too technical or
-nerdy right now, but I want to make sure we're on the same page. Docker is a
-**platform** that allows you to develop, ship, and run code inside
-`containers`_.
+Honestly, learning and exploring Docker wasn't initially on my bingo list, but
+I'm glad I did. Since then, it has made my hacky projects super duper
+manageable, and my local machine still thanks me for it! I don't want to get
+too technical or nerdy right now, but I want to make sure we're on the same
+page. Docker is a **platform** that allows you to develop, ship, and run code
+inside `containers`_.
 
 Simply put, it's basically a service that allows you to ship your application
 or code in a container that has all the things it needs to run. This means your
@@ -275,10 +284,10 @@ get started with Docker and quickly set up your development environment.
 
 Yet another reason why Docker is so popular among developers...
 
-.. _a-week-into-docker:
+.. _one-week-in-a-recap:
 
 -------------------------------------------------------------------------------
-A week into Docker
+One week in... A recap
 -------------------------------------------------------------------------------
 
 By now, I was a week into using Docker, and I was totally hooked! I had a basic
@@ -295,6 +304,10 @@ realised that even containerisation isn't a new concept. It's been around and
 experimented with for decades within the Linux community. There are other
 containerisation implementations like `LXC`_ and `OpenVZ`_, but Docker made it
 easy and accessible for everyone.
+
+But I'd love to hear from you. What was the moment that made you realise you
+needed a tool like Docker? Or if you're new to this, what's the one thing
+you're hoping it'll solve for you? Do let me :email:`know <xa@mes3.dev>`.
 
 In the next chapter, I'll share my experiences of running my first container
 and how it changed the way I started working on my local machine.
