@@ -1,11 +1,10 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 04 October, 2025
+.. Last updated on: 16 October, 2025
 
 :orphan:
-:og:title: Studying, Mentorship, And Resourceful Teaching
-:og:description: Harnessing Studying, Mentorship, And Resourceful Teaching to
-    drive innovation!
+:og:title: Akshay's Corner
+:og:description: Corner for studying, mentorship, and resourceful teaching
 :og:type: website
 
 .. _home-page:
@@ -139,7 +138,7 @@ also passionate about films or want to share something funny, feel free to
 reach out or send a recommendation or two.
 
 I'm not on social media, but I'm always reachable via
-`email <mailto:xa@mes3.dev>`_ or via
+:email:`email <xa@mes3.dev>` or via
 `LinkedIn <https://www.linkedin.com/in/xames3>`_.
 
 .. _NASA's Open Science: https://science.nasa.gov/open-science/
