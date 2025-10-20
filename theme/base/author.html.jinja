@@ -12,12 +12,12 @@ Last updated on: 20 October, 2025
              id="author">
             <img class="site-author__avatar"
                  src="{{ avatar }}"
-                 alt="{{ name|d(project_author) }}'s photo">
+                 alt="{{ name|d(project.author) }}'s photo">
             <div class="site-author__details">
-                <a href="mailto:{{ email|d(project_email) }}?subject={{ subject }}"
+                <a href="mailto:{{ email|d(project.email) }}?subject={{ subject }}"
                    class="site-author__name"
                    data-index="0"
-                   aria-label="Ask {{ name|d(project_author) |safe }} via email">{{ name|d(project_author) |safe }}</a>
+                   aria-label="Ask {{ name|d(project.author) |safe }} via email">{{ name|d(project.author) |safe }}</a>
                 <p class="site-author__bio">{{ about }}</p>
             </div>
         </div>
@@ -26,15 +26,15 @@ Last updated on: 20 October, 2025
                target="_blank"
                rel="noopener noreferrer"
                class="site-author__social-link site-author__social-link--linkedin"
-               aria-label="Check out {{ name|d(project_author) |safe }} on LinkedIn">
+               aria-label="Check out {{ name|d(project.author) |safe }} on LinkedIn">
                 <i class="fa-brands fa-linkedin"
                    aria-hidden="true"></i>
             </a>
-            <a href="{{ github|d(project_source) }}"
+            <a href="{{ github|d(project.source) }}"
                target="_blank"
                rel="noopener noreferrer"
                class="site-author__social-link site-author__social-link--github"
-               aria-label="Check out {{ name|d(project_author) |safe }} on GitHub">
+               aria-label="Check out {{ name|d(project.author) |safe }} on GitHub">
                 <i class="fa-brands fa-github"
                    aria-hidden="true"></i>
             </a>

@@ -4,7 +4,7 @@ SMART Sphinx Theme
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 01 October, 2025
+Last updated on: 20 October, 2025
 
 This module serves as the primary entry point for the SMART Sphinx
 Theme. It is responsible for initialising the theme, configuring its
@@ -41,6 +41,13 @@ event hooks for post-processing and dynamic content handling.
         face tags on images.
     [2] Added native support for injecting `last_updated` date just above
         the footer.
+
+.. deprecated:: 19.10.2025
+
+    [1] Use of `website_options` in favour of `html_context`. This
+        removes the need of `register_website_options` function.
+    [2] Custom website options are now replaced by default Sphinx's
+        `html_theme_options`.
 """
 
 from __future__ import annotations
@@ -57,7 +64,6 @@ from theme.internal import roles
 from theme.internal.utils import build_finished
 from theme.internal.utils import env_before_read_docs
 from theme.internal.utils import last_updated_date
-from theme.internal.utils import register_website_options
 from theme.internal.utils import remove_title_from_scrollspy
 
 
@@ -69,7 +75,7 @@ if t.TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
-version: str = "27.8.2025"
+version: str = "19.10.2025"
 theme_name: t.Final[str] = "smart"
 theme_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "base")
 supported_extensions: t.Sequence[str] = (
@@ -77,15 +83,6 @@ supported_extensions: t.Sequence[str] = (
     "sphinx_design",
     "sphinxext.opengraph",
 )
-theme_mapping: dict[str, str] = {
-    "html_baseurl": "website_url",
-    "html_favicon": "website_favicon",
-    "html_logo": "website_logo",
-    "copyright": "website_copyright",
-    "html_permalinks_icon": "website_permalinks_icon",
-    "html_theme_options": "website_options",
-    "html_title": "website_title",
-}
 
 
 def fix(module: types.ModuleType) -> type[nodes.Element]:
@@ -115,43 +112,26 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
     following tasks::
 
         [1] Registers the theme's supported extensions.
-        [2] Defines user-configurable options for the theme.
-        [3] Maps standard Sphinx configuration options to the theme's
+        [2] Maps standard Sphinx configuration options to the theme's
             internal structure.
-        [4] Adds JavaScript and CSS assets to the HTML build.
-        [5] Registers custom roles and directives to extend Sphinx's
+        [3] Adds JavaScript and CSS assets to the HTML build.
+        [4] Registers custom roles and directives to extend Sphinx's
             default capabilities.
-        [6] Binds event hooks for pre-build and post-build processes,
+        [5] Binds event hooks for pre-build and post-build processes,
             enabling dynamic content transformations like collapsible
             toctrees and scrollspy.
 
     :param app: The Sphinx application instance.
     :return: A dictionary indicating the theme's version and its
         compatibility with parallel read and write processes.
+
+    .. deprecated:: 19.10.2025
+
+        Custom website options are now replaced by default Sphinx's
+        `html_theme_options`.
     """
     for extension in supported_extensions:
         app.setup_extension(extension)
-    config = app.config
-    configurations: dict[str, tuple[t.Any, ...]] = {
-        "website_author": (config.author, tuple),
-        "website_copyright": (config.copyright, str),
-        "website_email": ("", str),
-        "website_favicon": ("", str),
-        "website_github": ("", str),
-        "website_homepage": ("", str),
-        "website_license": ("", str),
-        "website_logo": ("", str),
-        "website_options": (config.html_theme_options, dict),
-        "website_permalinks_icon": ("", str),
-        "website_repository": ("", str),
-        "website_title": (config.html_title or config.project, tuple),
-        "website_url": (config.html_baseurl, str),
-        "website_version": (config.release, str),
-    }
-    for configuration, (default, dtype) in configurations.items():
-        app.add_config_value(configuration, default, "html", dtype)
-    for default_name, new_name in theme_mapping.items():
-        setattr(config, default_name, getattr(config, new_name))
     app.add_html_theme(theme_name, theme_path)
     app.add_css_file("sphinx-design.css", priority=900)
     app.add_css_file("doc-search.css", priority=900)
@@ -166,7 +146,6 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
             app.connect("html-page-context", directive.html_page_context)
     app.connect("env-before-read-docs", env_before_read_docs)
     app.connect("source-read", last_updated_date)
-    app.connect("html-page-context", register_website_options)
     app.connect("html-page-context", remove_title_from_scrollspy)
     app.connect("build-finished", build_finished)
     return {

@@ -4,7 +4,7 @@ SMART Sphinx Theme Base Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 19 October, 2025
+Last updated on: 20 October, 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
@@ -65,10 +65,10 @@ Last updated on: 19 October, 2025
                   crossorigin="anonymous" />
         {% endif %}
         {%- set _favicon_ico_url = favicon_url | default(pathto('_static/' + (favicon or ""), 1)) %}
-        {%- set _favicon_16x16_url = pathto('_static/' + favicon_16x16, 1) %}
-        {%- set _favicon_32x32_url = pathto('_static/' + favicon_32x32, 1) %}
-        {%- set _favicon_180x180_url = pathto('_static/' + favicon_180x180, 1) %}
-        {%- set _favicon_manifest_url = pathto('_static/' + favicon_manifest, 1) %}
+        {%- set _favicon_16x16_url = pathto('_static/' + favicons.size_16x16, 1) %}
+        {%- set _favicon_32x32_url = pathto('_static/' + favicons.size_32x32, 1) %}
+        {%- set _favicon_180x180_url = pathto('_static/' + favicons.size_180x180, 1) %}
+        {%- set _favicon_manifest_url = pathto('_static/' + favicons.manifest, 1) %}
         {%- if favicon_url or favicon %}
             <link rel="icon"
                   href="{{ _favicon_ico_url }}" />

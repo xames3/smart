@@ -2738,7 +2738,7 @@ a[data-tooltip].show-tooltip::after {
 .feedback-shell__subtitle {
     color: hsl(var(--muted-foreground));
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .feedback-shell__button {
