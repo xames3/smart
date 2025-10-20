@@ -4,7 +4,7 @@ SMART Sphinx Theme Header Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 19 October, 2025
+Last updated on: 20 October, 2025
 -->
 <header class="site-header">
     {%- block header_before %}
@@ -77,14 +77,14 @@ Last updated on: 19 October, 2025
         {%- endblock mobile_menu %}
         {%- block header_right %}
             <div class="site-header__utilities">
-                {%- if docsearch or hasdoc('search') %}
+                {%- if show_docsearch or hasdoc('search') %}
                     <div class="site-header__search">{%- include "searchbox.html.jinja" %}</div>
                 {%- endif %}
-                {%- block extra_header_link_buttons %}
-                    {%- if extra_header_links|tobool %}
+                {%- block header_buttons %}
+                    {%- if header_buttons|tobool %}
                         <nav class="site-header__icon-list"
                              aria-label="External links">
-                            {%- for text, url in extra_header_links.items() %}
+                            {%- for text, url in header_buttons.items() %}
                                 {%- if url is mapping %}
                                     <a href="{{ url.link }}"
                                        title="{{ text }}"
@@ -98,7 +98,7 @@ Last updated on: 19 October, 2025
                             {%- endfor %}
                         </nav>
                     {%- endif %}
-                {%- endblock extra_header_link_buttons %}
+                {%- endblock header_buttons %}
             </div>
         {%- endblock header_right %}
     </div>

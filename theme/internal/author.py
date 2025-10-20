@@ -4,12 +4,12 @@ SMART Sphinx Theme Author Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 01 October, 2025
+Last updated on: 20 October, 2025
 
 This module defines a custom `author` directive for the SMART Sphinx
 Theme. The directive allows authors to embed their personal or
 project-specific information—such as their name, email, avatar, and a
-brief bio—directly within their documentation.
+brief bio, directly within their documentation.
 
 The `author` directive is designed to extend reStructuredText (rST)
 capabilities by injecting structured metadata about the content author,
@@ -39,6 +39,15 @@ in the final HTML output.
     switch to a different theme, the behavior or availability of this
     directive may change. Please refer to the specific theme's
     documentation for further information.
+
+.. versionchanged:: 19.10.2025
+
+    The options `author`, `email`, and `github` are now optional and can
+    default to project's details specified in `conf.py`.
+
+.. deprecated:: 19.10.2025
+
+    Removed the custom subject header in favour of page title.
 """
 
 from __future__ import annotations
@@ -89,17 +98,22 @@ class directive(rst.Directive):
         - `linkedin`: Link to the author's LinkedIn profile.
         - `timestamp`: An optional timestamp indicating when the
           document was last updated.
+
+    .. versionchanged:: 19.10.2025
+
+        The options `author`, `email`, and `github` are now optional
+        and can default to project's details specified in `conf.py`.
     """
 
     has_content = False
     option_spec = {  # noqa: RUF012
-        "name": rst.directives.unchanged_required,
-        "email": rst.directives.unchanged_required,
+        "name": rst.directives.unchanged,
+        "email": rst.directives.unchanged,
+        "github": rst.directives.unchanged,
         "avatar": rst.directives.unchanged_required,
         "about": rst.directives.unchanged_required,
-        "github": rst.directives.unchanged_required,
         "linkedin": rst.directives.unchanged_required,
-        "timestamp": rst.directives.unchanged,
+        "timestamp": rst.directives.unchanged_required,
     }
 
     def run(self) -> list[nodes.Node]:
@@ -114,7 +128,19 @@ class directive(rst.Directive):
         into HTML or other formats.
 
         :return: A list containing a single `node` element.
+
+        .. versionchanged:: 19.10.2025
+
+            Added support for default context variables picked from
+            the `html_context` object in `conf.py`.
+
+        .. note::
+
+            The `option_spec` will take precedence over the
+            `html_context` values.
         """
+        ctx = self.state.document.settings.env.config.html_context
+        self.options.update(ctx)
         element = node("\n".join(self.content), **self.options)
         return [element]
 
@@ -135,14 +161,17 @@ def visit(self: HTMLTranslator, node: node) -> None:
     :param self: The HTML translator instance responsible for rendering
         nodes into HTML.
     :param node: The `author` node containing parsed attributes.
+
+    .. deprecated:: 19.10.2025
+
+        Removed the custom subject header in favour of page title.
     """
     title = (
         dom.asdom().getElementsByTagName("title")
         if (dom := node.document)
         else ["Article"]
     )
-    article = title[0].firstChild.nodeValue
-    node.attributes["subject"] = f"[{self.config.website_title}] {article}"
+    node.attributes["subject"] = title[0].firstChild.nodeValue
     self.body.append(template.render(**node.attributes))
 
 

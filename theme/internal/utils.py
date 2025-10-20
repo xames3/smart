@@ -4,7 +4,7 @@ SMART Sphinx Theme Utilities
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 18 October, 2025
+Last updated on: 20 October, 2025
 
 This module defines a collection of utility functions used for
 customising the SMART Sphinx Theme. These utilities focus on enhancing
@@ -18,6 +18,11 @@ features.
 The goal of this module is to ensure that the SMART Sphinx Theme
 produces clean, efficient, and interactive HTML documentation by
 leveraging Sphinx's internal APIs and dynamic JavaScript bindings.
+
+.. deprecated:: 19.10.2025
+
+    Use of `website_options` in favour of `html_context`. This removes
+    the need of `register_website_options` function.
 """
 
 from __future__ import annotations
@@ -215,33 +220,6 @@ def remove_comments(tree: bs4.BeautifulSoup) -> None:
     """
     for comment in tree.find_all(string=lambda c: isinstance(c, bs4.Comment)):
         comment.extract()
-
-
-def register_website_options(
-    app: Sphinx,
-    pagename: str,
-    templatename: str,
-    context: dict[str, t.Any],
-    doctree: nodes.Node,
-) -> None:
-    """Register custom website options and inject them into the Sphinx
-    HTML context.
-
-    This function updates the HTML context with any theme-specific
-    options stored in the Sphinx application's configuration. The options
-    are expected to be defined under the `website_options` key in the
-    Sphinx config file (conf.py). These options can control various
-    aspects of the theme's dynamic behavior, like enabling scrollspy,
-    collapsible toctrees, or copying header links.
-    """
-    # NOTE(xames3): The parameters `pagename`, `templatename`,
-    # `context`, and `doctree` are currently unused but are included to
-    # match the expected signature for a Sphinx event handler.
-    pagename = pagename or ""
-    templatename = templatename or ""
-    context = context or {}
-    doctree = doctree or new_document("<partial node>")
-    context.update(app.config.website_options)
 
 
 def add_copy_to_headerlinks(tree: bs4.BeautifulSoup) -> None:
