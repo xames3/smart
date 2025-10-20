@@ -4,7 +4,7 @@ Studying, Mentorship, And Resourceful Teaching Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 19 October, 2025
+Last updated on: 20 October, 2025
 
 This file contains the configuration settings for building SMART,
 Study, Mentorship, And Resourceful Teaching website using Sphinx, a
@@ -28,7 +28,7 @@ teaching and learning platform.
 
 .. versionchanged:: 5.3.2025
 
-    [1] Customized the CSS of the copy button extension and fixed a bug
+    [1] Customised the CSS of the copy button extension and fixed a bug
         caused by default copy button element.
 
 .. versionchanged:: 19.4.2025
@@ -59,6 +59,14 @@ teaching and learning platform.
     [3] Show the "Built with Sphinx" footer note by enabling the
         `show_sphinx` option in `website_options`.
     [4] Added support for `sponsor` button in the right sidebar.
+
+.. versionchanged:: 19.10.2025
+
+    [1] The theme will now support and use the native sphinx theme
+        options instead of custom `website_options`.
+    [2] The theme now heavily relies on using `html_context` for passing
+        elements through it making them accessible for all pages.
+
 """
 
 from __future__ import annotations
@@ -69,80 +77,99 @@ from datetime import datetime as dt
 
 from markupsafe import Markup
 
-from theme import version
+from theme import version as theme_version
 
 
-project: t.Final[str] = "MES"
+if t.TYPE_CHECKING:
+    from collections.abc import Sequence
+
+project: t.Final[str] = "Akshay's Corner"
 author: t.Final[str] = "Akshay Mestry"
-author_email: t.Final[str] = "xa@mes3.dev"
-baseurl: t.Final[str] = "https://smart.mes3.dev/"
+project_copyright: str = f"© {dt.now().year} {author}."
 source: t.Final[str] = "https://github.com/xames3/smart"
+email: t.Final[str] = "xa@mes3.dev"
+version: str = theme_version
 
 extensions: list[str] = [
+    "notfound.extension",
     "sphinx.ext.autodoc",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
     "sphinx_docsearch",
-    "notfound.extension",
 ]
+
+gettext_compact: bool = False
+rst_epilog = ""
+with open("_static/extra/epilog.rst") as f:
+    rst_epilog += f.read()
+
 nitpicky: bool = True
+exclude_patterns: Sequence[str] = ["_build"]
+smartquotes: bool = False
 
-website_author: t.Final[str] = author
-website_copyright: t.Final[str] = f"© {dt.now().year} {website_author}."
-website_email: t.Final[str] = author_email
-website_github: str = source
-website_homepage: str = baseurl
-website_license: str = f"{source}/blob/main/LICENSE"
-website_repository: str = source
-website_title: t.Final[str] = project
-website_version: t.Final[str] = version
-website_hide_index_toctree: bool = True
-website_documentation: str = source
-website_favicon: str = "_static/favicon.ico"
-
-website_options: dict[str, t.Any] = {
+html_theme: t.Final[str] = "smart"
+html_title: str = "MES"
+html_baseurl: t.Final[str] = "https://smart.mes3.dev/"
+html_context: dict[str, t.Any] = {
     "add_copy_to_headerlinks": True,
-    "open_links_in_new_tab": True,
-    "show_sphinx": False,
-    "extra_header_links": {
+    "header_buttons": {
         "Sponsor on GitHub": {
             "link": "https://github.com/sponsors/xames3",
             "icon": Markup(
                 "<i class='fa-regular fa-heart' aria-hidden='true'></i>"
             ),
-        },
+        }
     },
+    "fa_icons": {
+        "breadcrumb_home": "fa-regular fa-house",
+        "breadcrumb_separator_child": "fa-solid fa-angle-right",
+        "breadcrumb_separator_parent": "fa-solid fa-angles-right",
+        "dark_mode": "fa-solid fa-moon-star",
+        "light_mode": "fa-solid fa-sun-bright",
+        "next_button": "fa-solid fa-arrow-right",
+        "previous_button": "fa-solid fa-arrow-left",
+    },
+    "favicons": {
+        "manifest": "site.webmanifest",
+        "size_16x16": "favicon-16x16.png",
+        "size_180x180": "apple-touch-icon.png",
+        "size_32x32": "favicon-32x32.png",
+    },
+    "open_links_in_new_tab": True,
+    "project": {
+        "author": author,
+        "source": source,
+        "email": email,
+    },
+    "secondary_toctree_title": "On this page",
+    "show_breadcrumbs": True,
+    "show_docsearch": True,
+    "show_feedback": True,
+    "show_last_updated_on": True,
+    "show_previous_next_pages": True,
+    "show_scrolltop": False,
+    "show_sphinx": False,
+    "show_toctree": True,
 }
-
-html_theme: t.Final[str] = "smart"
+html_favicon: t.Final[str] = "_static/favicon.ico"
 html_static_path: list[str] = ["_static"]
-exclude_patterns: list[str] = ["_build"]
+html_extra_path: list[str] = ["docutils.conf"]
+html_permalinks_icon: t.Final[str] = ""
 templates_path: list[str] = ["_templates"]
-locale_dirs: list[str] = ["../locale/"]
-gettext_compact: bool = False
-html_context: dict[str, t.Any] = {
-    "docsearch": True,
-    "favicon_16x16": "favicon-16x16.png",
-    "favicon_32x32": "favicon-32x32.png",
-    "favicon_180x180": "apple-touch-icon.png",
-    "favicon_manifest": "site.webmanifest",
-}
-rst_epilog = ""
-with open("_static/extra/epilog.rst") as f:
-    rst_epilog += f.read()
-intersphinx_mapping: dict[str, tuple[str, t.Any]] = {
+
+intersphinx_mapping: dict[str, tuple[str, None]] = {
+    "numpy": ("https://numpy.org/doc/stable/", None),
     "python": ("https://docs.python.org/3/", None),
     "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
-    "numpy": ("https://numpy.org/doc/stable/", None),
     "torch": ("https://pytorch.org/docs/stable/", None),
 }
 
 ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
-ogp_site_url: t.Final[str] = website_homepage
+ogp_site_url: t.Final[str] = html_baseurl
 ogp_social_cards: dict[str, str | bool] = {
-    "site_url": website_homepage,
+    "site_url": html_baseurl,
     "enable": True,
 }
 ogp_type: t.Final[str] = "website"
