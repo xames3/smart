@@ -252,7 +252,8 @@ samp {
 }
 
 .site-layout__meta {
-    margin-top: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
     font-size: 0.875rem;
     color: hsl(var(--muted-foreground))
 }
@@ -953,7 +954,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     align-items: center;
     gap: 0.5rem;
     padding-top: 1.5rem;
-    margin-top: 3rem
+    margin-top: 1rem
 }
 
 .site-pagination__link {
@@ -1065,7 +1066,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     background-color: hsl(var(--muted));
     color: hsl(var(--accent-foreground));
     cursor: pointer;
-    transition: opacity var(--duration-fast) var(--ease-in-out);
+    transition: opacity var(--duration-slow) var(--ease-in-out);
 }
 
 .site-scrolltop--hidden {
@@ -1855,20 +1856,20 @@ html[data-theme="dark"] .site-header__logo-image--light {
     transform-origin: center
 }
 
-html[data-theme="light"] .site-header__theme-toggle-icon--sun {
+html[data-theme="light"] .site-header__theme-toggle-icon--light {
     opacity: 0;
     display: none;
 }
 
-.site-header__theme-toggle-icon--moon {
+.site-header__theme-toggle-icon--dark {
     opacity: 1
 }
 
-html[data-theme="dark"] .site-header__theme-toggle-icon--sun {
+html[data-theme="dark"] .site-header__theme-toggle-icon--light {
     opacity: 1;
 }
 
-html[data-theme="dark"] .site-header__theme-toggle-icon--moon {
+html[data-theme="dark"] .site-header__theme-toggle-icon--dark {
     opacity: 0;
     display: none;
 }
@@ -2711,4 +2712,45 @@ a[data-tooltip].show-tooltip::after {
 
 .mr-0 {
     margin-right: 0 !important;
+}
+
+/* Feedback shell */
+.feedback-shell {
+    background-color: hsl(var(--muted));
+    border-radius: var(--radius);
+    margin-top: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-shell__inner {
+    margin-bottom: 1rem;
+}
+
+.feedback-shell__title {
+    color: hsl(var(--accent-foreground));
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.feedback-shell__subtitle {
+    color: hsl(var(--muted-foreground));
+    text-align: center;
+    font-size: 1rem;
+}
+
+.feedback-shell__button {
+    color: hsl(var(--accent-foreground));
+    background-color: hsl(var(--background));
+    border-radius: calc(var(--radius) * 0.75);
+    padding: 0.5rem 1rem;
+    max-width: fit-content;
+    margin-inline: auto;
+}
+
+.feedback-shell__button:hover {
+    color: hsl(var(--background));
+    background-color: hsl(var(--foreground));
 }

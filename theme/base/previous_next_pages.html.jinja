@@ -11,7 +11,7 @@ Last updated on: 19 October, 2025
     {%- if prev %}
         <a href="{{ prev.link|e }}"
            class="site-pagination__link site-pagination__link--prev">
-            <i class="fa-solid fa-arrow-left"
+            <i class="{{ fa_icon.previous_button }}"
                aria-hidden="true"></i>
             <span class="sr-only">{{ _("Previous page") }}</span>
         </a>
@@ -19,7 +19,7 @@ Last updated on: 19 October, 2025
     {%- if next %}
         <a href="{{ next.link|e }}"
            class="site-pagination__link site-pagination__link--next">
-            <i class="fa-solid fa-arrow-right"
+            <i class="{{ fa_icon.next_button }}"
                aria-hidden="true"></i>
             <span class="sr-only">{{ _("Next page") }}</span>
         </a>

@@ -1,5 +1,5 @@
 <!--
-SMART Sphinx Theme Scrollspy ToC Template
+SMART Sphinx Theme Secondary ToC Template
 =========================================
 
 Author: Akshay Mestry <xa@mes3.dev>
@@ -10,7 +10,7 @@ Last updated on: 19 October, 2025
        class="site-layout__sidebar site-sidebar site-sidebar--secondary">
     {%- block toc_before %}{%- endblock -%}
         {% if toc.strip() %}
-            <p class="site-sidebar__title">On this page</p>
+            <p class="site-sidebar__title">{{ secondary_toctree_title }}</p>
             {{ toc }}
         {% endif %}
         {%- block toc_after %}{%- endblock -%}

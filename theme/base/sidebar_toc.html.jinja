@@ -1,6 +1,6 @@
 <!--
-SMART Sphinx Theme Secondary ToC Template
-=========================================
+SMART Sphinx Theme Primary ToC Template
+=======================================
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
@@ -8,7 +8,7 @@ Last updated on: 19 October, 2025
 -->
 <nav class="site-sidebar__toc"
      aria-label="{{ _('Table of contents') }}">
-    {%- if theme_globaltoc_includehidden|tobool %}
+    {%- if show_toctree|tobool %}
         {{ toctree(titles_only=false, collapse=false, includehidden=true) }}
     {%- else %}
         {{ toctree(titles_only=true, collapse=false) }}

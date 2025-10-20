@@ -39,8 +39,8 @@ Last updated on: 19 October, 2025
 <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'"
         aria-label="Colour theme switcher"
         type="button">
-    <i class="fa-solid fa-moon-star site-header__theme-toggle-icon site-header__theme-toggle-icon--moon"></i>
-    <i class="fa-solid fa-sun-bright site-header__theme-toggle-icon site-header__theme-toggle-icon--sun"></i>
+    <i class="{{ fa_icon.dark_mode }} site-header__theme-toggle-icon site-header__theme-toggle-icon--dark"></i>
+    <i class="{{ fa_icon.light_mode }} site-header__theme-toggle-icon site-header__theme-toggle-icon--light"></i>
 </button>
 </div>
 {%- block footer_after %}{%- endblock footer_after %}
