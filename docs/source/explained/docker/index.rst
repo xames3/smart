@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 19 October, 2025
+.. Last updated on: 20 October, 2025
 
 :og:title: A Week Into Docker
 :og:description: Begineer's guide to Docker and containerisation
@@ -47,10 +47,9 @@ And here we are today...
 
 In this first chapter, I want to walk you through my initial experience into
 this whole containerisation business and explain the basic ideas that finally
-made sense to me. I'll cover the "what" and the "why" of Docker to build a
-solid foundation. In future articles, I'll dive into the practical side of
-things... how to write a Dockerfile, manage containers, and use it in your own
-projects.
+made sense to me. In future articles, I'll dive into the practical side of
+things like how to write a Dockerfile, manage containers, and use it in your
+own projects.
 
 Think of this as the start of a journey we can take together.
 
