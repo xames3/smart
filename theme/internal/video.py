@@ -4,15 +4,15 @@ SMART Sphinx Theme Video Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 01 October, 2025
+Last updated on: 22 October, 2025
 
 This module defines a custom `video` directive for the SMART Sphinx
-Theme. The directive allows authors to embed a video—directly within
+Theme. The directive allows authors to embed a video directly within
 their documentation.
 
 The `video` directive is designed to extend reStructuredText (rST)
-capabilities by injecting structured metadata about the content video,
-which can be styled or processed further using Jinja2 templates.
+capabilities by injecting structured metadata about the content, which
+can be styled or processed further using Jinja2 templates.
 
 The `video` directive can be used in reStructuredText documents as
 follows::
@@ -22,8 +22,7 @@ follows::
         .. video:: https://www.w3schools.com/tags/movie.mp4
 
 The above snippet will be processed and rendered according to the
-theme's Jinja2 template, producing a consistent author card or section
-in the final HTML output.
+theme's Jinja2 template, producing a final HTML output.
 
 .. note::
 
@@ -86,9 +85,9 @@ class directive(rst.Directive):
     def run(self) -> list[nodes.Node]:
         """Parse directive options and create an `video` node.
 
-        This method gathers all options provided by the user in the
-        `video` directive, constructs a new `node` instance, and returns
-        it wrapped in a list.
+        This method gathers all options provided by the user (if any) in
+        the `video` directive, constructs a new `node` instance, and
+        returns it wrapped in a list.
 
         The returned node is then placed into the document tree at the
         directive's location. Further processing will convert the node
@@ -110,10 +109,9 @@ def visit(self: HTMLTranslator, node: node) -> None:
 
     This method is called when the HTML translator encounters the
     `video` node in the document tree. It retrieves the relevant
-    attributes from the node (like autoplay and caption) and uses Jinja2
-    templating to produce the final HTML output. Since the `video` node
-    does not require any actions, the method currently acts as a
-    placeholder.
+    attributes from the node (if any) and uses Jinja2 templating to
+    produce the final HTML output. Since the `video` node does not
+    require any actions, the method currently acts as a placeholder.
 
     :param self: The HTML translator instance.
     :param node: The `video` node being processed.

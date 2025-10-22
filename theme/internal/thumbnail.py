@@ -4,7 +4,7 @@ SMART Sphinx Theme YouTube Thumbnail Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 06 September, 2025
-Last updated on: 01 October, 2025
+Last updated on: 22 October, 2025
 
 This module defines a custom `thumbnail` directive for the SMART Sphinx
 Theme. The directive allows authors to embed a YouTube video thumbnail
@@ -22,8 +22,7 @@ follows::
         :channel: Rick Astley
 
 The above snippet will be processed and rendered according to the
-theme's Jinja2 template, producing a consistent thumbnail card in the
-final HTML output.
+theme's Jinja2 template, producing a final HTML output.
 
 .. note::
 
@@ -58,9 +57,9 @@ class node(nodes.Element):
     """Class to represent a custom node in the document tree.
 
     This class extends the `nodes.Element` from `docutils`, serving as
-    the container for the parsed information. The node will
-    ultimately be transformed into HTML or other output formats by the
-    relevant Sphinx translators.
+    the container for the parsed information. The node will ultimately
+    be transformed into HTML or other output formats by the relevant
+    Sphinx translators.
     """
 
 
@@ -68,22 +67,24 @@ class directive(rst.Directive):
     """Custom `thumbnail` directive for reStructuredText.
 
     This class defines the behavior of the `thumbnail` directive,
-    including how it processes arguments and options, fetches video
-    metadata, and generates nodes to be inserted into the document tree.
+    including how it processes options and content, and how it generates
+    nodes to be inserted into the document tree.
     """
 
     has_content = True
 
     def run(self) -> list[nodes.Node]:
-        """Parse the directive content, fetch metadata, and create a
-        node tree.
+        """Parse directive options and create an `thumbnail` node.
 
-        This method processes the YouTube URL from the directive's
-        content, fetches metadata, and constructs a `thumbnail.node`
-        containing parsed `docutils` nodes for the title and caption.
-        This allows Sphinx to render them correctly.
+        This method gathers all options provided by the user (if any) in
+        the `thumbnail` directive, constructs a new `node` instance, and
+        returns it wrapped in a list.
 
-        :return: A list containing a single `thumbnail.node` element.
+        The returned node is then placed into the document tree at the
+        directive's location. Further processing will convert the node
+        into HTML or other formats.
+
+        :return: A list containing a single `node` element.
 
         .. deprecated:: 8.9.2025
 
@@ -119,10 +120,9 @@ def visit(self: HTMLTranslator, node: node) -> None:
 
     This method is called when the HTML translator encounters the
     `thumbnail` node in the document tree. It retrieves the relevant
-    attributes from the node (like title and channel) and uses Jinja2
-    templating to produce the final HTML output. Since the `thumbnail`
-    node does not require any actions, the method currently acts as a
-    placeholder.
+    attributes from the node (if any) and uses Jinja2 templating to
+    produce the final HTML output. Since the `thumbnail` node does not
+    require any actions, the method currently acts as a placeholder.
 
     :param self: The HTML translator instance.
     :param node: The `thumbnail` node being processed.

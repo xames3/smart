@@ -443,7 +443,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     font-size: 1.125rem;
     color: hsl(var(--foreground));
     cursor: pointer;
-    transition: color var(--duration-fast) var(--ease-in-out)
+    transition: color var(--duration-fast) var(--ease-in-out);
 }
 
 .site-sidebar__close:focus-visible {
@@ -453,7 +453,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 
 .site-sidebar__close:hover,
 .site-sidebar__close:focus-visible {
-    color: hsl(var(--accent-foreground))
+    color: hsl(var(--accent-foreground));
 }
 
 @media (min-width: 768px) {
@@ -495,7 +495,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    transition: color var(--duration-fast) var(--ease-in-out)
+    transition: color var(--duration-fast) var(--ease-in-out);
 }
 
 .site-sidebar--primary a,
@@ -504,13 +504,13 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 .site-sidebar__toc a,
 .site-sidebar__mobile-link,
 .site-sidebar__alphabet-link {
-    text-decoration: none
+    text-decoration: none;
 }
 
 .site-sidebar__toc a:hover,
 .site-sidebar__toc a:focus-visible,
 .site-sidebar--secondary a.toc-active {
-    color: hsl(var(--foreground))
+    color: hsl(var(--foreground));
 }
 
 .site-sidebar__cta {
@@ -534,18 +534,18 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 .site-sidebar__cta span {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem
+    gap: 0.25rem;
 }
 
 .site-sidebar--alpha {
-    padding-top: 0
+    padding-top: 0;
 }
 
 .site-sidebar__alphabet {
     display: flex;
     flex-wrap: wrap;
     gap: 0.35rem;
-    margin-top: 1rem
+    margin-top: 1rem;
 }
 
 .site-sidebar__alphabet-link {
@@ -558,30 +558,30 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     text-decoration: none;
     font-weight: 600;
     color: hsl(var(--muted-foreground));
-    transition: background-color var(--duration-fast) var(--ease-in-out), color var(--duration-fast) var(--ease-in-out)
+    transition: background-color var(--duration-fast) var(--ease-in-out), color var(--duration-fast) var(--ease-in-out);
 }
 
 .site-sidebar__alphabet-link:hover,
 .site-sidebar__alphabet-link:focus-visible {
     color: hsl(var(--foreground));
-    background-color: color-mix(in srgb, hsl(var(--accent)) 20%, transparent)
+    background-color: color-mix(in srgb, hsl(var(--accent)) 20%, transparent);
 }
 
 .site-sidebar__alphabet-link:focus-visible {
     outline: 2px solid hsl(var(--accent));
-    outline-offset: 2px
+    outline-offset: 2px;
 }
 
 .site-sidebar__mobile-links {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    font-weight: 500
+    font-weight: 500;
 }
 
 @media (min-width: 768px) {
     .site-sidebar__mobile-links {
-        display: none
+        display: none;
     }
 }
 
@@ -591,7 +591,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem
+    gap: 0.75rem;
 }
 
 .site-sidebar__mobile-link {
@@ -599,17 +599,17 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     align-items: center;
     color: hsl(var(--foreground));
     text-decoration: none;
-    transition: color var(--duration-fast) var(--ease-in-out)
+    transition: color var(--duration-fast) var(--ease-in-out);
 }
 
 .site-sidebar__mobile-link:hover,
 .site-sidebar__mobile-link:focus-visible {
-    color: hsl(var(--accent-foreground))
+    color: hsl(var(--accent-foreground));
 }
 
 .site-sidebar__mobile-link:focus-visible {
     outline: 2px solid hsl(var(--accent));
-    outline-offset: 2px
+    outline-offset: 2px;
 }
 
 /* Search */
@@ -619,12 +619,12 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     align-items: center;
     gap: 0.75rem;
     width: 100%;
-    max-width: 38rem
+    max-width: 38rem;
 }
 
 .site-search__label {
     flex: 1 1 auto;
-    width: 100%
+    width: 100%;
 }
 
 .site-search__input {
@@ -635,17 +635,17 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     color: hsl(var(--foreground));
     font-size: 0.95rem;
     padding: 0.55rem 0.85rem;
-    transition: border-color var(--duration-fast) var(--ease-in-out), box-shadow var(--duration-fast) var(--ease-in-out)
+    transition: border-color var(--duration-fast) var(--ease-in-out), box-shadow var(--duration-fast) var(--ease-in-out);
 }
 
 .site-search__input::placeholder {
-    color: hsl(var(--muted-foreground))
+    color: hsl(var(--muted-foreground));
 }
 
 .site-search__input:focus {
     outline: none;
     border-color: hsl(var(--accent));
-    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--accent)) 28%, transparent)
+    box-shadow: 0 0 0 3px color-mix(in srgb, hsl(var(--accent)) 28%, transparent);
 }
 
 .site-search__submit {
@@ -659,7 +659,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     background-color: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
     cursor: pointer;
-    transition: background-color var(--duration-fast) var(--ease-in-out), color var(--duration-fast) var(--ease-in-out)
+    transition: background-color var(--duration-fast) var(--ease-in-out), color var(--duration-fast) var(--ease-in-out);
 }
 
 .site-search__submit:focus-visible {
@@ -752,7 +752,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     display: flex;
     min-width: 0;
     align-items: flex-start;
-    text-align: left
+    text-align: left;
 }
 
 .site-author__name {
@@ -764,12 +764,12 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 
 .site-author__name:hover,
 .site-author__name:focus-visible {
-    color: hsl(var(--accent-foreground))
+    color: hsl(var(--accent-foreground));
 }
 
 .site-author__name:focus-visible {
     outline: 2px solid hsl(var(--accent));
-    outline-offset: 2px
+    outline-offset: 2px;
 }
 
 .site-author__bio {
@@ -1142,7 +1142,6 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     font-size: 0.875rem;
     color: hsl(var(--muted-foreground));
     padding-top: 4rem;
-    flex-wrap: wrap
 }
 
 .site-breadcrumbs__link {
@@ -1157,7 +1156,8 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 
 .site-breadcrumbs__link:hover,
 .site-breadcrumbs__link:focus-visible {
-    color: hsl(var(--foreground))
+    color: hsl(var(--foreground));
+    transition: color var(--duration-slow) var(--ease-out);
 }
 
 .site-breadcrumbs__link:focus-visible {
@@ -1300,11 +1300,6 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 
     .admonition {
         max-width: 100% !important
-    }
-
-    .DocSearch-Button-Keys,
-    .DocSearch-Button-Placeholder {
-        display: flex !important
     }
 
     .site-sidebar--primary a {
@@ -1833,7 +1828,6 @@ html[data-theme="dark"] .site-header__logo-image--light {
 .site-header__search {
     flex: 1 1 320px;
     align-items: center;
-    width: 10rem;
 }
 
 .site-header__theme-toggle {
@@ -2006,14 +2000,11 @@ button.copybtn::before {
 /* Blockquote */
 blockquote {
     border: none;
-    max-width: 90%;
     margin-inline: auto;
     font-style: normal;
-    padding: 82px 0;
-    margin: 0;
+    padding: 5rem 0;
     font-size: 20px;
     line-height: 24px;
-    padding-left: 0;
     text-align: center
 }
 
@@ -2503,7 +2494,8 @@ i {
 .site-sidebar--primary li.has-children>button.nav-toggle:hover::before,
 .site-sidebar--primary li.has-children.current>button.nav-toggle::before,
 .site-sidebar--primary li.has-children[aria-expanded="true"]>button.nav-toggle::before {
-    color: hsl(var(--bold))
+    color: hsl(var(--bold));
+    transition: color var(--duration-slow) var(--ease-out);
 }
 
 /* Badges */
@@ -2748,9 +2740,11 @@ a[data-tooltip].show-tooltip::after {
     padding: 0.5rem 1rem;
     max-width: fit-content;
     margin-inline: auto;
+    transition: background-color var(--duration-normal) var(--ease-out), color var(--duration-normal) var(--ease-out);
 }
 
-.feedback-shell__button:hover {
+.feedback-shell__button:hover,
+.feedback-shell__button:focus-visible {
     color: hsl(var(--background));
     background-color: hsl(var(--foreground));
 }
