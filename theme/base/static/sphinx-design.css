@@ -8,8 +8,8 @@
 }
 
 .sd-row {
-    --sd-gutter-x: 0.75rem;
-    --sd-gutter-y: 1rem
+    --sd-gutter-x: 0.35rem;
+    --sd-gutter-y: 0.5rem;
 }
 
 .sd-card {
@@ -26,7 +26,7 @@
 
 .sd-card .sd-card-body:hover,
 .sd-dropdown .sd-card-body:hover {
-    box-shadow: none
+    box-shadow: none;
 }
 
 .sd-container-fluid {
@@ -211,8 +211,6 @@ nav a svg .sd-material-icon {
 
 .sd-card .sd-card-body .sd-card-title {
     font-weight: 600 !important;
-    font-size: 1.5rem;
-    letter-spacing: -0.86px;
 }
 
 .sd-card .sd-card-body .sd-card-text {
@@ -229,6 +227,8 @@ nav a svg .sd-material-icon {
     width: fit-content;
     margin-left: 1rem;
     margin-bottom: 1rem;
+    background: hsl(var(--background));
+    transition: background var(--duration-normal) var(--ease-out), color var(--duration-normal) var(--ease-out);
 }
 
 .sd-stretched-link:hover {

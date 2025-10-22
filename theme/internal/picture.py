@@ -4,15 +4,15 @@ SMART Sphinx Theme Picture Directive
 
 picture: Akshay Mestry <xa@mes3.dev>
 Created on: 02 September, 2025
-Last updated on: 01 October, 2025
+Last updated on: 22 October, 2025
 
 This module defines a custom `picture` directive for the SMART Sphinx
-Theme. The directive allows a theme specific picture (image or figure) on
-their documentation.
+Theme. The directive allows a theme specific picture on their
+documentation.
 
 The `picture` directive is designed to extend reStructuredText (rST)
-capabilities by injecting structured metadata about the colour scheme,
-which can be styled or processed further using Jinja2 templates.
+capabilities by injecting structured metadata about the content, which
+can be styled or processed further using Jinja2 templates.
 
 The `picture` directive can be used in reStructuredText documents as
 follows::
@@ -23,8 +23,7 @@ follows::
             :alt: Docker Internals
 
 The above snippet will be processed and rendered according to the
-theme's Jinja2 template, producing a theme specific picture in the final
-HTML output.
+theme's Jinja2 template, producing a final HTML output.
 
 .. note::
 
@@ -63,7 +62,13 @@ id_counter: int = 0
 
 
 class node(nodes.Element):
-    """Container node storing resolved light/dark image variant URIs."""
+    """Class to represent a custom node in the document tree.
+
+    This class extends the `nodes.Element` from `docutils`, serving as
+    the container for the parsed information. The node will ultimately
+    be transformed into HTML or other output formats by the relevant
+    Sphinx translators.
+    """
 
 
 class directive(images.Figure):

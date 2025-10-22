@@ -4,19 +4,24 @@ SMART Sphinx Theme Previous and Next Page Buttons Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 20 October, 2025
+Last updated on: 22 October, 2025
 -->
-<nav class="site-pagination" aria-label="Pagination">
+<nav class="site-pagination"
+     aria-label="Pagination">
     {%- if prev %}
-    <a href="{{ prev.link|e }}" class="site-pagination__link site-pagination__link--prev">
-        <i class="{{ fa_icons.previous_button }}" aria-hidden="true"></i>
-        <span class="sr-only">{{ _("Previous page") }}</span>
-    </a>
+        <a href="{{ prev.link|e }}"
+           class="site-pagination__link site-pagination__link--prev">
+            <i class="{{ fa_icons.previous_button }}"
+               aria-hidden="true"></i>
+            <span class="sr-only">{{ _("Previous page") }}</span>
+        </a>
     {%- endif %}
     {%- if next %}
-    <a href="{{ next.link|e }}" class="site-pagination__link site-pagination__link--next">
-        <i class="{{ fa_icons.next_button }}" aria-hidden="true"></i>
-        <span class="sr-only">{{ _("Next page") }}</span>
-    </a>
+        <a href="{{ next.link|e }}"
+           class="site-pagination__link site-pagination__link--next">
+            <i class="{{ fa_icons.next_button }}"
+               aria-hidden="true"></i>
+            <span class="sr-only">{{ _("Next page") }}</span>
+        </a>
     {%- endif %}
 </nav>

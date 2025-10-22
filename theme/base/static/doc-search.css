@@ -27,10 +27,6 @@
     cursor: pointer
 }
 
-.DocSearch-Button-Container {
-    width: 83%
-}
-
 .DocSearch-Button svg {
     height: 1rem;
     width: 1rem;
@@ -101,7 +97,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     opacity: 0.4;
-    width: 80%;
     text-align: left;
     text-decoration-line: none !important
 }
@@ -118,7 +113,6 @@
     font: var(--fa-font-regular);
     font-size: 0.8rem;
     line-height: 1;
-    padding-left: 0.15rem;
     opacity: 1;
     display: inline-block
 }

@@ -4,16 +4,15 @@ SMART Sphinx Theme Author Directive
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 20 October, 2025
+Last updated on: 22 October, 2025
 
 This module defines a custom `author` directive for the SMART Sphinx
-Theme. The directive allows authors to embed their personal or
-project-specific information—such as their name, email, avatar, and a
-brief bio, directly within their documentation.
+Theme. The directive allows authors to embed their details directly
+within their documentation.
 
 The `author` directive is designed to extend reStructuredText (rST)
-capabilities by injecting structured metadata about the content author,
-which can be styled or processed further using Jinja2 templates.
+capabilities by injecting structured metadata about the content, which
+can be styled or processed further using Jinja2 templates.
 
 The `author` directive can be used in reStructuredText documents as
 follows::
@@ -30,8 +29,7 @@ follows::
             :timestamp: 2025-02-22
 
 The above snippet will be processed and rendered according to the
-theme's Jinja2 template, producing a consistent author card or section
-in the final HTML output.
+theme's Jinja2 template, producing a final HTML output.
 
 .. note::
 
@@ -75,9 +73,9 @@ class node(nodes.Element):
     """Class to represent a custom node in the document tree.
 
     This class extends the `nodes.Element` from `docutils`, serving as
-    the container for the parsed author information. The node will
-    ultimately be transformed into HTML or other output formats by the
-    relevant Sphinx translators.
+    the container for the parsed information. The node will ultimately
+    be transformed into HTML or other output formats by the relevant
+    Sphinx translators.
     """
 
 
@@ -119,8 +117,8 @@ class directive(rst.Directive):
     def run(self) -> list[nodes.Node]:
         """Parse directive options and create an `author` node.
 
-        This method gathers all options provided by the user in the
-        `author` directive, constructs a new `node` instance, and
+        This method gathers all options provided by the user (if any) in
+        the `author` directive, constructs a new `node` instance, and
         returns it wrapped in a list.
 
         The returned node is then placed into the document tree at the
@@ -150,13 +148,10 @@ def visit(self: HTMLTranslator, node: node) -> None:
     generation.
 
     This method is called when the HTML translator encounters the
-    `author` node in the document tree. It retrieves the relevant
-    attributes from the node (like name, email, and avatar) and uses
-    Jinja2 templating to produce the final HTML output.
-
-    If the document has a title, the node's `subject` attribute will be
-    prefixed with the website title and document title for better
-    context.
+    `video` node in the document tree. It retrieves the relevant
+    attributes from the node (if any) and uses Jinja2 templating to
+    produce the final HTML output. Since the `video` node does not
+    require any actions, the method currently acts as a placeholder.
 
     :param self: The HTML translator instance responsible for rendering
         nodes into HTML.
