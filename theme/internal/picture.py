@@ -4,11 +4,11 @@ SMART Sphinx Theme Picture Directive
 
 picture: Akshay Mestry <xa@mes3.dev>
 Created on: 02 September, 2025
-Last updated on: 22 October, 2025
+Last updated on: 24 October, 2025
 
 This module defines a custom `picture` directive for the SMART Sphinx
-Theme. The directive allows a theme specific picture on their
-documentation.
+Theme. The directive allows authors to embed and render images specific
+to the current colour mode of their documentation.
 
 The `picture` directive is designed to extend reStructuredText (rST)
 capabilities by injecting structured metadata about the content, which
@@ -19,7 +19,9 @@ follows::
 
     .. code-block:: rst
 
-        .. picture:: ../assets/docker-internals
+        .. picture::
+            :light: ../assets/docker-internals/light-docker.jpg
+            :dark: ../assets/docker-internals/dark-docker.jpg
             :alt: Docker Internals
 
 The above snippet will be processed and rendered according to the
@@ -31,18 +33,23 @@ theme's Jinja2 template, producing a final HTML output.
     switch to a different theme, the behavior or availability of this
     directive may change. Please refer to the specific theme's
     documentation for further information.
+
+.. versionchanged:: 19.10.2025
+
+    Simplified the directive to render images according to the theme's
+    colour scheme using the `img` tag instead of fancy Javascript.
 """
 
 from __future__ import annotations
 
 import os
 import os.path as p
-import re
 import shutil
 import typing as t
 
 import docutils.nodes as nodes
 import jinja2
+from docutils.parsers import rst
 from docutils.parsers.rst.directives import images
 
 
@@ -53,12 +60,8 @@ name: t.Final[str] = "picture"
 here: str = p.dirname(__file__)
 html = p.join(p.abspath(p.join(here, "../base")), "picture.html.jinja")
 
-relpath_re: t.Pattern[str] = re.compile(r"^(\.|\/)*")
-
 with open(html) as f:
     template = jinja2.Template(f.read())
-
-id_counter: int = 0
 
 
 class node(nodes.Element):
@@ -78,7 +81,33 @@ class directive(images.Figure):
     theming-aware images that switch based on the current colour scheme.
     It inherits all the standard figure functionality while adding
     theme-specific image handling.
+
+    The directive supports the following options::
+
+        - `light`: Relative path of the image to render in light mode.
+        - `dark`: Relative path of the image to render in dark mode.
+        - `alt`: Alternate text for the image.
+        - `align`: Alignment options for the image, available options
+          are `left`, `center`, `right`, `top`, `middle`, `bottom`.
+        - `figclass`: CSS class name.
+        - `class`: CSS class name.
+
+    .. versionchanged:: 19.10.2025
+
+        Simplified the directive to render images according to the
+        theme's colour scheme using the `img` tag instead of fancy
+        Javascript.
     """
+
+    required_arguments = 0
+    option_spec = {  # noqa: RUF012
+        "light": rst.directives.unchanged_required,
+        "dark": rst.directives.unchanged_required,
+        "alt": rst.directives.unchanged,
+        "align": rst.directives.unchanged,
+        "figclass": rst.directives.class_option,
+        "class": rst.directives.class_option,
+    }
 
     def run(self) -> list[nodes.Node]:
         """Parse directive options and create an `picture` node.
@@ -93,49 +122,25 @@ class directive(images.Figure):
         :return: A list containing a single `node` element.
         """
         env = self.state.document.settings.env
-        app = env.app
+        depth = env.docname.count("/")
         doc_dir = p.dirname(env.doc2path(env.docname))
-        build_dir = app.builder.outdir
-        source_dir = env.srcdir
-        content = self.arguments[0].strip()
-        if content.startswith("/"):
-            content = content.lstrip("/")
-        if not p.isabs(content):
-            candidate = p.normpath(p.join(doc_dir, content))
-        else:
-            candidate = content
-        base, ext = p.splitext(candidate)
-        if ext == "":
-            ext = ".svg"
-        for suffix in ("-light", "-dark"):
-            base = base.removesuffix(suffix)
-        light_src_rel = f"{base}-light{ext}"
-        dark_src_rel = f"{base}-dark{ext}"
-        light_src_abs = p.normpath(p.join(source_dir, light_src_rel))
-        dark_src_abs = p.normpath(p.join(source_dir, dark_src_rel))
-        missing: list[str] = []
-        if not p.exists(light_src_abs):
-            missing.append(light_src_rel)
-        if not p.exists(dark_src_abs):
-            missing.append(dark_src_rel)
-        if missing:
-            raise self.error(
-                "picture directive could not find required "
-                f"variant(s): {', '.join(missing)}"
-            )
-        env.note_dependency(light_src_abs)
-        env.note_dependency(dark_src_abs)
-        images_out_dir = p.join(build_dir, "_images")
-        os.makedirs(images_out_dir, exist_ok=True)
-        light_name = p.basename(light_src_rel)
-        dark_name = p.basename(dark_src_rel)
-        light_dest = p.join(images_out_dir, light_name)
-        dark_dest = p.join(images_out_dir, dark_name)
+        images_dir = p.join(env.app.builder.outdir, "_images")
+        os.makedirs(images_dir, exist_ok=True)
+        allowed = (
+            "left",
+            "center",
+            "right",
+            "top",
+            "middle",
+            "bottom",
+            "default",
+        )
 
-        def _copy(src: str, dest: str) -> None:
+        def _copy(src: str) -> None:
             """Copy the source image to the destination if it doesn't
             already exist or is outdated.
             """
+            dest = p.join(images_dir, p.basename(src))
             try:
                 if (
                     not p.exists(dest)
@@ -147,30 +152,26 @@ class directive(images.Figure):
                     f"Failed to copy {src!r} to {dest!r}: {exc}"
                 ) from exc
 
-        _copy(light_src_abs, light_dest)
-        _copy(dark_src_abs, dark_dest)
-        depth = env.docname.count("/")
-        rel_prefix = "../" * depth if depth else ""
+        light = p.normpath(p.join(doc_dir, self.options["light"]))
+        dark = p.normpath(p.join(doc_dir, self.options["dark"]))
+        for mode in [light, dark]:
+            _copy(mode)
+        prefix = "../" * depth if depth else ""
+        klass = self.options.get("class", "")
+        align = self.options.get("align", "default")
+        assert align in allowed, (
+            f"Available align options are {', '.join(allowed)}"
+        )
         attributes = {
-            "light": f"{rel_prefix}_images/{light_name}",
-            "dark": f"{rel_prefix}_images/{dark_name}",
+            "light": f"{prefix}_images/{p.basename(light)}",
+            "dark": f"{prefix}_images/{p.basename(dark)}",
             "alt": self.options.get("alt", ""),
-            "width": self.options.get("width", ""),
-            "height": self.options.get("height", ""),
-            "align": self.options.get("align", ""),
-            "figclass": self.options.get("figclass", ""),
+            "align": align,
+            "figclass": self.options.get("figclass", klass),
             "caption": "\n".join(self.content) if self.content else "",
-            "pid": self._next_id(),
         }
         element = node("", **attributes)
         return [element]
-
-    @staticmethod
-    def _next_id() -> str:
-        """Generate a unique ID for each `picture` node instance."""
-        global id_counter
-        id_counter += 1
-        return f"tp-{id_counter}"
 
 
 def visit(self: HTMLTranslator, node: node) -> None:
