@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 20 October, 2025
+.. Last updated on: 25 October, 2025
 
 :og:title: A Week Into Docker
 :og:description: Begineer's guide to Docker and containerisation
@@ -201,7 +201,9 @@ dedicated resources like CPU, memory, storage, and processing power. It's
 thorough, but it's also heavy. Very heavy... I mean, you're running multiple
 OSes at the same time!
 
-.. picture:: ../../assets/coloured/vm-on-host
+.. picture::
+    :light: ../../assets/coloured/vm-on-host-light.svg
+    :dark: ../../assets/coloured/vm-on-host-dark.svg
     :alt: Virtual Machine on a host MacBook Pro
 
     Virtualisation using Virtual Machines. Here, the MacBook Pro represents the
@@ -221,7 +223,9 @@ makes containers ideal for deploying applications in a microservices
 architecture where you have multiple small, independent services running
 together.
 
-.. picture:: ../../assets/coloured/container-on-host
+.. picture::
+    :light: ../../assets/coloured/container-on-host-light.svg
+    :dark: ../../assets/coloured/container-on-host-dark.svg
     :alt: Container on a host MacBook Pro
 
     Containerisation using Docker. Here, the MacBook Pro represents the

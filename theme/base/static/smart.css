@@ -1141,7 +1141,6 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     margin-bottom: 1.5rem;
     font-size: 0.875rem;
     color: hsl(var(--muted-foreground));
-    padding-top: 4rem;
 }
 
 .site-breadcrumbs__link {
