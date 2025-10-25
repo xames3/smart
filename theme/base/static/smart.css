@@ -1183,7 +1183,11 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 }
 
 .site-breadcrumbs__current svg,
-.site-breadcrumbs__link svg {
+.site-breadcrumbs__link svg,
+.site-breadcrumbs__current .fab,
+.site-breadcrumbs__link .fab,
+.site-breadcrumbs__current .fas,
+.site-breadcrumbs__link .fas {
     display: none;
 }
 
