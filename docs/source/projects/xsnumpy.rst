@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 01 March, 2025
-.. Last updated on: 04 October, 2025
+.. Last updated on: 29 October, 2025
 
 :og:title: Building xsNumPy
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -8,6 +8,11 @@
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
     assets/opengraph/matmul-confusion-meme.jpg
+:fb:title: Have you rebuilt a tool just to learn?
+:fb:description: Building xsNumPy taught me more than reading a hundred
+    manuals. If you've cracked open an industry standard to truly master it,
+    I'm keen to hear about your experience.
+:fb:submit: Share your "aha" moment
 
 .. _project-building-xsnumpy:
 
