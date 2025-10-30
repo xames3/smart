@@ -2,9 +2,9 @@
 SMART Sphinx Theme Picture Directive
 ====================================
 
-picture: Akshay Mestry <xa@mes3.dev>
+Author: Akshay Mestry <xa@mes3.dev>
 Created on: 02 September, 2025
-Last updated on: 24 October, 2025
+Last updated on: 29 October, 2025
 
 This module defines a custom `picture` directive for the SMART Sphinx
 Theme. The directive allows authors to embed and render images specific

@@ -2125,10 +2125,6 @@ i {
     display: inline-block
 }
 
-.admonition p:not(.admonition-title) {
-    margin-top: 0
-}
-
 /* Admonitions */
 .admonition {
     background-color: hsl(var(--light-accent), 0.5);
@@ -2139,6 +2135,10 @@ i {
     max-width: 90%;
     margin-inline: auto;
     padding: 1rem 1.5rem
+}
+
+.admonition p:not(.admonition-title) {
+    margin-top: 0
 }
 
 .admonition code {
@@ -2708,7 +2708,7 @@ a[data-tooltip].show-tooltip::after {
 }
 
 /* Feedback shell */
-.feedback-shell {
+.site-feedback-shell {
     background-color: hsl(var(--muted));
     border-radius: var(--radius);
     margin-top: 1.5rem;
@@ -2717,24 +2717,24 @@ a[data-tooltip].show-tooltip::after {
     flex-direction: column;
 }
 
-.feedback-shell__inner {
+.site-feedback-shell__inner {
     margin-bottom: 1rem;
 }
 
-.feedback-shell__title {
+.site-feedback-shell__title {
     color: hsl(var(--accent-foreground));
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
 }
 
-.feedback-shell__subtitle {
+.site-feedback-shell__subtitle {
     color: hsl(var(--muted-foreground));
     text-align: center;
     font-size: 0.9rem;
 }
 
-.feedback-shell__button {
+.site-feedback-shell__button {
     color: hsl(var(--accent-foreground));
     background-color: hsl(var(--background));
     border-radius: calc(var(--radius) * 0.75);
@@ -2744,8 +2744,52 @@ a[data-tooltip].show-tooltip::after {
     transition: background-color var(--duration-normal) var(--ease-out), color var(--duration-normal) var(--ease-out);
 }
 
-.feedback-shell__button:hover,
-.feedback-shell__button:focus-visible {
+.site-feedback-shell__button:hover,
+.site-feedback-shell__button:focus-visible {
     color: hsl(var(--background));
     background-color: hsl(var(--foreground));
+}
+
+/* GitHub Repository Details */
+.site-github-repository {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.site-github-repository__details {
+    display: flex;
+    gap: 1rem;
+}
+
+.site-github-repository__name {
+    color: hsl(var(--muted-foreground)) !important;
+}
+
+.site-github-repository__name::before {
+    content: "\f09b";
+    text-rendering: auto;
+    color: hsl(var(--muted-foreground)) !important;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-brands);
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.site-github-repository__stars::before {
+    content: "\f005";
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-regular);
+    margin-right: 0.5rem;
+}
+
+.site-github-repository__issues::before {
+    content: "\e3f9";
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-regular);
+    margin-right: 0.5rem;
 }
