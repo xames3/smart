@@ -158,7 +158,6 @@ I'm not on social media, but I'm always reachable via
     :titlesonly:
 
     explained/docker/index
-    explained/eli5
 
 .. toctree::
     :caption: Development
