@@ -1,11 +1,16 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 16 October, 2025
+.. Last updated on: 29 October, 2025
 
 :orphan:
 :og:title: Akshay's Corner
 :og:description: A corner for studying, mentorship, and resourceful teaching
 :og:type: website
+:fb:title: What do you think?
+:fb:description: I'd genuinely love to hear your suggestions and takes,
+    whether it's about AI, open source, or even a recommendation for a great
+    film!
+:fb:submit: Share your thoughts
 
 .. _home-page:
 
@@ -60,7 +65,7 @@ I've worked on a diverse range of projects, from building performant machine
 learning models to crafting efficient numerical computing libraries. My
 projects reflect both technical depth and a passion for education.
 
-.. grid:: 2 2 2 2
+.. grid:: 2
 
     .. grid-item-card:: PyTorch... but much slower
         :link: projects/slowtorch

@@ -1,11 +1,15 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 24 February, 2025
-.. Last updated on: 03 October, 2025
+.. Last updated on: 29 October, 2025
 
 :og:title: Guiding Stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
     path in life, learning, and beyond...
 :og:type: article
+:fb:title: What are the guiding stars in your life?
+:fb:description: We all have mentors and friends who guide us. Reading this,
+    did anyone come to your mind? I'd be honoured to hear about them.
+:fb:submit: Share your reflections
 
 .. _miscellany-guiding-stars:
 

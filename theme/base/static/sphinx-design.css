@@ -231,6 +231,10 @@ nav a svg .sd-material-icon {
     transition: background var(--duration-normal) var(--ease-out), color var(--duration-normal) var(--ease-out);
 }
 
+.sd-stretched-link span.doc {
+    vertical-align: middle;
+}
+
 .sd-stretched-link:hover {
     background: hsl(var(--foreground));
     color: hsl(var(--background)) !important;
@@ -242,13 +246,7 @@ nav a svg .sd-material-icon {
     align-content: center;
     position: relative;
     margin-left: 0.5rem;
-}
-
-@media (max-width: 640px) {
-
-    .sd-stretched-link {
-        padding: 0.15rem 0.65rem;
-    }
+    vertical-align: middle;
 }
 
 .sd-card-img,

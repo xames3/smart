@@ -1,12 +1,17 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 25 October, 2025
+.. Last updated on: 29 October, 2025
 
 :og:title: A Week Into Docker
 :og:description: Begineer's guide to Docker and containerisation
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
     assets/opengraph/it-works-on-my-machine-meme.jpg
+:fb:title: I'd love to hear from you
+:fb:description: What was the moment that made you realise you needed a tool
+    like Docker? Or if you're new to this, what's the one thing you're hoping
+    it'll solve for you?
+:fb:submit: Let me know
 
 .. _explained-a-week-into-docker:
 
@@ -307,10 +312,6 @@ realised that even containerisation isn't a new concept. It's been around and
 experimented with for decades within the Linux community. There are other
 containerisation implementations like `LXC`_ and `OpenVZ`_, but Docker made it
 easy and accessible for everyone.
-
-But I'd love to hear from you. What was the moment that made you realise you
-needed a tool like Docker? Or if you're new to this, what's the one thing
-you're hoping it'll solve for you? Do let me :email:`know <xa@mes3.dev>`.
 
 In the next chapter, I'll share my experiences of running my first container
 and how it changed the way I started working on my local machine.

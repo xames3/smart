@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 18 April, 2025
-.. Last updated on: 03 October, 2025
+.. Last updated on: 29 October, 2025
 
 :og:title: PyTorch... But Slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -8,6 +8,11 @@
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
     assets/media/slowtorch-meme.jpg
+:fb:title: Is slow learning the "key"?
+:fb:description: I wrote SlowTorch to truly understand the magic behind
+    PyTorch. Did this explanation help you? Do you have any questions about
+    autograd or building from scratch?
+:fb:submit: Tell me your story
 
 .. _project-slow-burning-torch:
 

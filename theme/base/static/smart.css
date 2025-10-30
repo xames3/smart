@@ -890,8 +890,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
 /* YouTube cards */
 .site-youtube-card {
     display: block;
-    text-decoration: none;
-    color: inherit
+    padding-inline: 0.15rem;
 }
 
 .site-youtube-card__body {
@@ -914,7 +913,6 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     height: 100%;
     object-fit: cover;
     margin: 0 !important;
-    border-radius: 0 !important;
 }
 
 .site-youtube-card__content {

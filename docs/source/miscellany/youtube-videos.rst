@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 05 September, 2025
-.. Last updated on: 05 October, 2025
+.. Last updated on: 29 October, 2025
 
 :og:title: The best YouTube has to Offer
 :og:description: A curated list of my favourite YouTube videos that I've found
@@ -8,6 +8,10 @@
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
     assets/opengraph/best-of-youtube.jpg
+:fb:title: Got a cracking video recommendation?
+:fb:description: Did you enjoy any of them? Or better yet, do you have a
+    must-see video I should add to my list?
+:fb:submit: Send a recommendation
 
 .. _miscellany-youtube-videos:
 
@@ -83,7 +87,6 @@ engineering journey and I've used and experimented with the concepts discussed
 in these videos.
 
 .. dropdown:: Some of my favourite programming tutorials, tips & tricks
-    :animate: fade-in-slide-down
 
     .. grid:: 2
 
@@ -421,7 +424,6 @@ of the most influential people in the tech industry. They've been super duper
 inspirational and have helped me navigate and understand the industry better.
 
 .. dropdown:: Some of my favourite programming talks & interviews
-    :animate: fade-in-slide-down
 
     .. grid:: 2
 
@@ -545,7 +547,6 @@ understand various scientific phenomena or sometimes just marvel how amazing
 mathematics can be.
 
 .. dropdown:: Some of my favourite science & education videos
-    :animate: fade-in-slide-down
 
     .. grid:: 2
 
@@ -707,7 +708,6 @@ sketches, parodies, and of course, Family Guy. They never fail to make me laugh
 and cringe.
 
 .. dropdown:: Some of my favourite comedy videos and Family Guy clips
-    :animate: fade-in-slide-down
 
     .. grid:: 2
 
@@ -848,7 +848,6 @@ weird stuff. They never fail to cease to amuse.
     They're paired with dark-edgy humour. Viewer discretion is advised.
 
 .. dropdown:: Some of the legit weirdest videos on YouTube
-    :animate: fade-in-slide-down
 
     .. grid:: 2
 
@@ -960,7 +959,6 @@ making of these masterpieces and the hard work that goes into creating them.
 These videos dive into the nitty-gritty of how movies are made.
 
 .. dropdown:: Some of my favourite behind-the-scenes videos
-    :animate: fade-in-slide-down
 
     .. grid:: 2
 
@@ -1006,7 +1004,6 @@ explorations, and VSauce that are perfect for when your curiosity gets the
 better of your sleep schedule.
 
 .. dropdown:: Some of my favourite late-night bored out of your mind videos
-    :animate: fade-in-slide-down
 
     .. grid:: 2
 
