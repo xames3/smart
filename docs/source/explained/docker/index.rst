@@ -1,8 +1,8 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 29 October, 2025
+.. Last updated on: 30 October, 2025
 
-:og:title: A Week Into Docker
+:og:title: A week into Docker
 :og:description: Begineer's guide to Docker and containerisation
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
@@ -16,7 +16,7 @@
 .. _explained-a-week-into-docker:
 
 ===============================================================================
-:octicon:`container` A Week Into Docker
+:octicon:`container` A week into Docker
 ===============================================================================
 
 .. author::

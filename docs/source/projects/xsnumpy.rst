@@ -1,8 +1,8 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 01 March, 2025
-.. Last updated on: 29 October, 2025
+.. Last updated on: 30 October, 2025
 
-:og:title: Building xsNumPy
+:og:title: Why write xsNumPy?
 :og:description: Journey of building a lightweight, pure-python implementation
     of NumPy's core features
 :og:type: article
@@ -17,7 +17,7 @@
 .. _project-building-xsnumpy:
 
 ===============================================================================
-:octicon:`beaker` Why Write xsNumPy?
+:octicon:`beaker` Why write xsNumPy?
 ===============================================================================
 
 .. author::

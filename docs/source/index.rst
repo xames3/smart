@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 29 October, 2025
+.. Last updated on: 30 October, 2025
 
 :orphan:
 :og:title: Akshay's Corner
@@ -26,10 +26,6 @@ Akshay's Corner
     :github: https://github.com/xames3
     :linkedin: https://linkedin.com/in/xames3
     :timestamp: 08 August, 2025
-
-.. rst-class:: lead
-
-    A journey of studying, mentorship, and resourceful teaching
 
 Hello hello!
 
@@ -116,7 +112,7 @@ And I absolutely fell in love with this idea. Soon I realised you really can't
 call yourself an SME (`Subject-matter expert`_) until you can teach it to
 those who likely know nothing about it (or very little), and are willing to
 entertain questions from people learning at that initial frame of reference.
-Thus began my journey into teaching. Although my approach of teaching has
+Thus began my journey into teaching. Although my approach of mentoring has
 evolved over the past few years, adapting to the needs of my environment,
 students, and time.
 
