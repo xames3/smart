@@ -72,10 +72,12 @@ projects reflect both technical depth and a passion for education.
         :link-type: doc
         :link-alt: Read
 
-        :octicon:`flame` Writing PyTorch from Scratch
+        :octicon:`flame` Writing PyTorch from scratch
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        A maximally minimal auto-differentiation and tensor library written in
-        **pure** Python.
+        A subset of core PyTorch features and behaviours re-implemented in
+        pure Python.
+
+        .. repository:: xames3/slowtorch
 
     .. grid-item-card:: Why write xsNumPy?
         :link: projects/xsnumpy
@@ -84,8 +86,10 @@ projects reflect both technical depth and a passion for education.
 
         :octicon:`beaker` Building NumPy in pure Python
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        A minimalist re-implementation of core NumPy features re-built in
-        **pure** Python.
+        An experimental re-implementation of a few NumPy features in pure
+        Python.
+
+        .. repository:: xames3/xsnumpy
 
 Beyond these, I've had the opportunity to speak at tech meetups and
 conferences, sharing insights on my projects, AI, Open Science, and the inner
