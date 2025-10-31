@@ -7,7 +7,7 @@
 :og:type: article
 :og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
     assets/opengraph/it-works-on-my-machine-meme.jpg
-:fb:title: I'd love to hear from you
+:fb:title: But, I'd love to hear from you
 :fb:description: What was the moment that made you realise you needed a tool
     like Docker? Or if you're new to this, what's the one thing you're hoping
     it'll solve for you?
@@ -28,35 +28,33 @@
     :linkedin: https://linkedin.com/in/xames3
     :timestamp: 30 August, 2025
 
-.. rst-class:: lead
-
-    Look ma... it works on my machine!
-
 This is my story from September 2020, roughly five years ago as of writing this
 article. It is amidst the pandemic while I was switching jobs. I knew I would
-get a new machine from my next employer, but I had no idea when. The pandemic
-was still at its peak, and I had to make the most of what I had. With how
-things were going, I knew I wouldn't get a new machine anytime soon, so I had
-to improvise and make my work machine last me a while longer.
+get a new machine from my next employer, but I had no idea when.
+
+The pandemic was still at its peak, and I had to make the most of what I had.
+With how things were going, I knew I wouldn't get a new machine anytime soon,
+so I had to improvise and make my work machine last me a while longer.
 
 As some of you know, I love writing code. It's what I do for the most part, and
 during lockdown, I wrote a lot! I tried to keep myself busy with work and other
 side projects, and while doing that, I got my machine messy really quick. I had
 multiple versions of Python, Rust, various dependencies, configs, tools, and
-frameworks that I won't be using after my *"experimentation"* phase. I knew
-`Docker`_ was a thing, but I never really got around to using it. I personally
-thought it was too much of a hassle to set up until I had no other option. So,
-I decided to give it a try.
+frameworks that I won't be using after my *"experimentation"* phase.
 
-And here we are today...
+I knew `Docker`_ was a thing, but I never really got around to using it. I
+personally thought it was too much of a hassle to set up until I had no other
+option. So, I decided to give it a try.
+
+.. rubric:: And here I'm today, talking about Docker.
+.. rubric:: Think of this as the start of a journey we can take together.
+    :class: subtitle-text
 
 In this first chapter, I want to walk you through my initial experience into
 this whole containerisation business and explain the basic ideas that finally
 made sense to me. In future articles, I'll dive into the practical side of
 things like how to write a Dockerfile, manage containers, and use it in your
 own projects.
-
-Think of this as the start of a journey we can take together.
 
 .. _but-what-is-docker:
 
@@ -68,8 +66,10 @@ Honestly, learning and exploring Docker wasn't initially on my bingo list, but
 I'm glad I did. Since then, it has made my hacky projects super duper
 manageable, and my local machine still thanks me for it! I don't want to get
 too technical or nerdy right now, but I want to make sure we're on the same
-page. Docker is a **platform** that allows you to develop, ship, and run code
-inside `containers`_.
+page.
+
+Docker is a **platform** that allows you to develop, ship, and run code inside
+:ref:`containers <idea-behind-containers>`.
 
 Simply put, it's basically a service that allows you to ship your application
 or code in a container that has all the things it needs to run. This means your
@@ -295,7 +295,7 @@ Yet another reason why Docker is so popular among developers...
 .. _one-week-in-a-recap:
 
 -------------------------------------------------------------------------------
-One week in... A recap
+One week in... a recap
 -------------------------------------------------------------------------------
 
 By now, I was a week into using Docker, and I was totally hooked! I had a basic

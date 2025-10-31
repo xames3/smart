@@ -39,6 +39,18 @@ understanding the mysteries of arrays, memory buffers, and `broadcasting`_.
 Like I mentioned in :doc:`that story <./xsnumpy>`, it felt like baking a cake
 from scratch, where every ingredient and step mattered.
 
+.. card:: Why write xsNumPy?
+    :link: xsnumpy
+    :link-type: doc
+    :link-alt: Read story
+
+    :octicon:`beaker` Building NumPy in pure Python
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    An experimental re-implementation of a few NumPy features in pure
+    Python.
+
+    .. repository:: xames3/xsnumpy
+
 And yet, as I sat back gloating over my freshly baked xsNumPy, I found myself
 hungry for something more. I wanted to feel that high again and explore
 something new. Why not another library that had been a staple in my toolkit

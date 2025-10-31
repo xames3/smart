@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 01 March, 2025
-.. Last updated on: 30 October, 2025
+.. Last updated on: 31 October, 2025
 
 :og:title: Why write xsNumPy?
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -71,7 +71,7 @@ these libraries as black boxes and truly understand the *whys* and *hows*.
 
 This realisation hit me so hard that I challenged myself. Could I build a dinky
 version of NumPy from scratch? Because if I'm going to teach these concepts
-one day, I had to go deeper...
+one day, I had to go **deeper**...
 
 .. image:: ../assets/media/need-to-go-deeper-meme.jpg
     :alt: We need to go deeper meme from Inception
@@ -323,9 +323,10 @@ journey was about to get even more challenging.
 
 Basic arithmetic operations like addition, subtraction, and scalar
 multiplication seemed straightforward. I figured I could just iterate through
-my flattened data and perform operations element-wise. And it worked... for the
-first few test cases. But, as always, the system collapsed almost immediately
-for higher-dimensional vectors.
+my flattened data and perform operations element-wise.
+
+And it worked... for the first few test cases. But, as always, the system
+collapsed almost immediately for higher-dimensional vectors.
 
 .. code-block:: python
     :linenos:
@@ -362,13 +363,14 @@ multiplying numbers, but learning and recreating NumPy's broadcasting rules.
 Matrix multiplication was another beast entirely. I thought it would be just a
 matter of looping through rows and columns, summing them element-wise, classic
 high school mathematics, if you ask me. And it worked as well... until I tried
-with higher-dimensional arrays. This is where I realised that matrix
-multiplication isn't just about rows and columns, but about correctly handling
-batch dimensions for higher-order tensors. I found myself diving into NVIDIA's
-documentation, reading about the `Generalised Matrix Multiplication (GEMM)
-<https://docs.nvidia.com/deeplearning/performance/
-dl-performance-matrix-multiplication/index.html>`_ routines and how
-broadcasting affects the output shapes.
+with higher-dimensional arrays.
+
+This is where I realised that matrix multiplication isn't just about rows and
+columns, but about correctly handling batch dimensions for higher-order
+tensors. I found myself diving into NVIDIA's documentation, reading about the
+`Generalised Matrix Multiplication (GEMM) <https://docs.nvidia.com/
+deeplearning/performance/dl-performance-matrix-multiplication/index.html>`_
+routines and how broadcasting affects the output shapes.
 
 .. seealso::
 
@@ -400,14 +402,15 @@ redundant calculations.
 Every bug, every unexpected result, and every small achievement taught me
 something new about NumPy. I started speculating about the magic behind the
 scenes. As time went by, xsNumPy became more than just a project and a scrappy
-experiment. It became a mindset, a belief that the best way to learn is by
-rolling up your sleeves, breaking it, and then putting it back together, piece
-by piece.
+experiment.
 
-.. _what-can-xsnumpy-do:
+It became a mindset, a belief that the best way to learn is by rolling up your
+sleeves, breaking it, and then putting it back together, piece by piece.
+
+.. _so-what-can-xsnumpy-do:
 
 -------------------------------------------------------------------------------
-What can xsNumPy do?
+So, what can xsNumPy do?
 -------------------------------------------------------------------------------
 
 xsNumPy started off as a learning exercise and has since grown into a small but
