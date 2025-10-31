@@ -19,6 +19,9 @@ Last updated on: 20 October, 2025
             {%- if show_scrolltop|tobool %}
                 {%- include "scrolltop.html.jinja" %}
             {%- endif %}
+            {%- if show_feedback|tobool %}
+                {%- include "feedback.html.jinja" %}
+            {%- endif %}
             {%- set page_meta = meta | default({}, true) %}
             {%- set updated_on = page_meta.get('last_updated') %}
             {%- if show_last_updated_on %}
@@ -27,9 +30,6 @@ Last updated on: 20 October, 2025
                     Last updated on {{ updated_on }}
                 {%- endtrans -%}
             </p>
-        {%- endif %}
-        {%- if show_feedback|tobool %}
-            {%- include "feedback.html.jinja" %}
         {%- endif %}
         {%- block body_after %}{%- endblock body_after -%}
         </div>

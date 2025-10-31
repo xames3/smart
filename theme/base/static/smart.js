@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.style.lineHeight = '0';
         wrapper.style.display = 'block';
 
-        wrapper.style.margin = window.getComputedStyle(img).margin || '60px auto';
+        wrapper.style.margin = '4rem auto';
 
         img.style.margin = '0';
         img.style.borderRadius = '0';
