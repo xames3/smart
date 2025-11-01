@@ -33,19 +33,6 @@ contributor. This corner on the internet is my space to explore the fascinating
 intersection of technology, learning, and storytelling, and I hope it can be a
 useful place for you too.
 
-.. grid:: 1
-
-    .. grid-item-card:: PyTorch... but much slower
-        :link: projects/slowtorch
-        :link-type: doc
-        :link-alt: Checkout
-
-        :octicon:`flame` Writing PyTorch from scratch
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        A subset of core PyTorch features re-built in pure Python.
-
-        .. repository:: xames3/slowtorch
-
 Here, I intend to share my work, my "aha!" moments, and my journey through the
 worlds of AI, Software Development, and Open Source. I've a special interest
 in natural language processing and reinforcement learning.
