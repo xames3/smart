@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 31 October, 2025
+.. Last updated on: 01 November, 2025
 
 :og:title: A week into Docker
 :og:description: Begineer's guide to Docker and containerisation
@@ -37,7 +37,7 @@ With how things were going, I knew I wouldn't get a new machine anytime soon,
 so I had to improvise and make my work machine last me a while longer.
 
 As some of you know, I love writing code. It's what I do for the most part, and
-during lockdown, I wrote a lot! I tried to keep myself busy with work and other
+during lockdown, I wrote a lot. I tried to keep myself busy with work and other
 side projects, and while doing that, I got my machine messy really quick. I had
 multiple versions of Python, Rust, various dependencies, configs, tools, and
 frameworks that I won't be using after my *"experimentation"* phase.
@@ -66,7 +66,7 @@ Docker enters the chat
 
 Honestly, learning and exploring Docker wasn't initially on my bingo list, but
 I'm glad I did. Since then, it has made my hacky projects super duper
-manageable, and my local machine still thanks me for it! I don't want to get
+manageable, and my local machine still thanks me for it. I don't want to get
 too technical or nerdy right now, but I want to make sure we're on the same
 page.
 
@@ -87,7 +87,7 @@ server in the cloud.
 
 .. rubric:: But what did Docker do?
 .. rubric:: Docker was introduced in 2013 and has evolved since then. It solved
-    the classic "it works on my machine" problem.
+    the classic **"it works on my machine"** problem.
     :class: subtitle-text
 
 In the spirit of keeping things simple, I'd say there are two main components
@@ -126,7 +126,7 @@ what was going on. Almost every tutorial I watched started with using
 auto-magically, I'm dropped in an isolated environment where I can run my code
 or do whatever I want without messing up my local machine.
 
-It was like having a personal sandbox to play in, and I was immeditately sold!
+It was like having a personal sandbox to play in, and I was immeditately sold.
 
 But as I started using it more, I realised that there's a lot more to it, and
 Docker Engine is doing some really fancy stuff behind the scenes. Remember how
@@ -274,7 +274,7 @@ from where.
 
 .. rubric:: That's when I discovered Docker Hub
 .. rubric:: Docker Hub is a cloud-based registry service where you can find
-    and share container images, not containers!
+    and share **container images**, not containers.
     :class: subtitle-text
 .. button-link:: https://hub.docker.com/
     :color: primary
@@ -320,7 +320,7 @@ Yet another reason why Docker is so popular among developers.
 One week into Docker
 -------------------------------------------------------------------------------
 
-By now, I was a week into using Docker, and I was totally hooked! I had a basic
+By now, I was a week into using Docker, and I was totally hooked. I had a basic
 understanding of what Docker and containerisation are and roughly how the whole
 ecosystem works. I was excited to explore and experiment even more.
 

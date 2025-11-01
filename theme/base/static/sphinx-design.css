@@ -96,6 +96,10 @@ details.sd-dropdown .sd-summary-chevron-right::before {
     will-change: transform;
 }
 
+details .sd-tab-content .sd-card-text {
+    color: unset !important;
+    font-size: unset !important;
+}
 
 details.sd-dropdown[open] .sd-summary-chevron-right::before {
     transform: rotateX(180deg) !important;
@@ -203,7 +207,6 @@ nav a svg .sd-material-icon {
     color: hsl(var(--muted-foreground));
     padding: 0 1rem;
     border: none;
-    margin-top: 1rem;
 }
 
 .sd-card .sd-card-header:first-child {
@@ -217,7 +220,12 @@ nav a svg .sd-material-icon {
     line-height: 1.5rem !important;
 }
 
-.sd-card .sd-card-body .sd-card-text {
+.sd-card-title {
+    margin-bottom: -0.5rem;
+}
+
+.sd-card .sd-card-text:last-of-type {
+    margin-top: 1rem !important;
     color: hsl(var(--muted-foreground));
     font-size: 0.9rem;
 }
@@ -274,22 +282,23 @@ nav a svg .sd-material-icon {
     .sd-btn {
         padding: 0.5rem 0.85rem;
     }
+
     details .sd-card-header {
-    margin-top: 0 !important;
-}
+        margin-top: 0 !important;
+    }
 }
 
 .sd-btn-primary,
-.sd-btn-primary:hover,
-.sd-btn-primary:focus {
+.sd-btn-secondary:hover,
+.sd-btn-secondary:focus {
     background-color: hsl(var(--foreground)) !important;
     color: hsl(var(--background)) !important;
-    border: none !important;
+    border: 1px solid hsl(var(--border)) !important;
 }
 
 .sd-btn-secondary,
-.sd-btn-secondary:hover,
-.sd-btn-secondary:focus {
+.sd-btn-primary:hover,
+.sd-btn-primary:focus {
     background-color: hsl(var(--code-background)) !important;
     color: hsl(var(--foreground)) !important;
     border: 1px solid hsl(var(--border)) !important;

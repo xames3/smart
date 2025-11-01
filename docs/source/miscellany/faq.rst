@@ -1,10 +1,13 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 October, 2025
-.. Last updated on: 31 October, 2025
+.. Last updated on: 01 November, 2025
 
 :og:title: FAQs
 :og:description: Frequently Asked Questions about me and this website
 :og:type: article
+:fb:title: Do you've any question for me?
+:fb:description: Feel free to ask me about things that you're curious about.
+:fb:submit: Send in your question
 
 .. _miscellany-faq:
 
@@ -26,7 +29,7 @@ conversations that follow. I've had loads of interesting chats in person and a
 few over email, and I've noticed a pattern. A lot of the same questions pop up,
 some are esoteric about a topic while others are simply "why?".
 
-But all of them are great questions!
+But all of them are great questions.
 
 .. _reasons-behind-faq-page:
 
@@ -40,7 +43,7 @@ have even questioned why even I built projects like
 :doc:`xsNumPy <../projects/xsnumpy>` and
 :doc:`SlowTorch <../projects/slowtorch>` which seems like reinventing the
 wheel. And then there are the questions about what my favourite films are and
-what I am currently watching... all of which are, again, great questions!
+what I am currently watching, all of which are, again, great questions.
 
 Ever since I met Charlotte, and I've mentioned this several times, I've
 realised that you only need to be curious to learn something. Now, on this
@@ -57,24 +60,22 @@ Think of it as some Easter eggs.
 .. dropdown:: What does XAMES3 mean, and why you use it everywhere?
     :class-container: site-faq
 
-    So, XAMES3 is my alias and username for online profiles. The first part,
-    **XA**, represents my first name, Akshay. The letter *X* is a sound-alike
-    for the first syllable, "**Aksh**". Think of the letter "X" on its own, it
-    sound similar to "Aksh".
+    So, *XAMES3* is my alias and username for online profiles. The first part,
+    "*XA*", represents my first name, Akshay. The letter X is a sound-alike for
+    the first syllable, "**Aksh**". Think of the letter "X" on its own; it
+    sounds similar to "*Aksh*".
 
-    *A* is a sound-alike for the second syllable, "**ay**" (as in "day").
+    A is a sound-alike for the second syllable, "**ay**" (as in "day").
 
     So, "**Aksh**" + "**ay**" becomes **X-A**.
 
-    The second part, **MES3**, is a subtle play on my surname, Mestry. *MES* is
+    The second part, "*MES3*", is a subtle play on my surname, Mestry. MES is
     a straightforward representation of the first syllable, "**Mes**". And the
-    number **3** represents "**try**". It is not "*try*" as we say in English
-    but more like "*tree*".
+    number 3 represents "**try**". It is not "try" as we say in English but
+    more like "tree".
 
-    So, XAMES3 is just my name spelled out in short. This is called as
-    `Gramogram`_ in English. You've used gramograms in your conversations too!
-    For example, "c u" is a gramogram for "see you", "JL" is a gramogram for
-    "jail", etc.
+    So, *XAMES3* is just my name spelled out in short. This is called a `gramogram`_ in English. For example, "*c u*" is a gramogram for "see you",
+    "*JL*" is a gramogram for "jail", etc.
 
 .. dropdown:: How do you pronounce XAMES3 or XA?
     :class-container: site-faq

@@ -78,7 +78,7 @@ html[data-theme="dark"] {
     --hint-admonition-background: 285.39, 73.16%, 19.06%;
     --hint-admonition-foreground: 296.58, 100%, 73.25%;
     --tip-admonition-background: 141.89, 55.64%, 21.2%;
-    --tip-admonition-foreground: 123.11, 63.58%, 62.93%;
+    --tip-admonition-foreground: 123.11, 65.98%, 42.78%;
     --warning-admonition-background: 28.89, 100%, 10.59%;
     --warning-admonition-foreground: 34.59, 100%, 50%;
     --seealso-admonition-background: 213.21, 94%, 15%;
@@ -2762,9 +2762,13 @@ a[data-tooltip].show-tooltip::after {
 .site-github-repository {
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
     font-size: 0.9rem;
     color: hsl(var(--muted-foreground));
+    cursor: pointer;
+}
+
+.sd-card-text + .site-github-repository {
+    margin-top: 1rem;
 }
 
 .site-github-repository__details {
@@ -2809,7 +2813,7 @@ a[data-tooltip].show-tooltip::after {
 }
 
 .site-faq .sd-summary-text {
-    font-size: 1.25rem !important;
+    font-size: 1.15rem !important;
     font-weight: 600 !important;
     letter-spacing: -0.36px !important;
     line-height: 1.5rem !important;

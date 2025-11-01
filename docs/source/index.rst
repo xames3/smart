@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 31 October, 2025
+.. Last updated on: 01 November, 2025
 
 :orphan:
 :og:title: Akshay's Corner
@@ -43,7 +43,7 @@ in natural language processing and reinforcement learning.
 Open source
 -------------------------------------------------------------------------------
 
-I :octicon:`heart-fill;1em;red mr-0` Open Source!
+I :octicon:`heart-fill;1em;red mr-0` Open Source.
 
 For me, it is more than a philosophy. It is my personal reminder to make my
 learnings, experiences, and knowledge free and accessible, breaking down
@@ -62,27 +62,17 @@ both technical depth and a passion for education.
 
 .. grid:: 2
 
-    .. grid-item-card:: PyTorch... but much slower
-        :link: projects/slowtorch
-        :link-type: doc
-        :link-alt: Checkout
-
-        :octicon:`flame` Writing PyTorch from scratch
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        A subset of core PyTorch features re-built in pure Python.
+    .. grid-item-card::
 
         .. repository:: xames3/slowtorch
 
-    .. grid-item-card:: Why write xsNumPy?
-        :link: projects/xsnumpy
-        :link-type: doc
-        :link-alt: Checkout
+        A subset of core PyTorch features re-built in pure Python.
 
-        :octicon:`beaker` Building NumPy in pure Python
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        An experimental re-implementation of a few NumPy features in Python.
+    .. grid-item-card::
 
         .. repository:: xames3/xsnumpy
+
+        An experimental re-implementation of a few NumPy features in Python.
 
 Beyond these, I've had the opportunity to speak at tech meetups and
 conferences, sharing insights on my projects, AI, Open Science, and the inner
@@ -99,7 +89,7 @@ Whether it is breaking down complex machine learning algorithms or explaining
 the nuances of software design, I find joy in making technical concepts
 relatable and easy to grasp.
 
-Early in my software engineering career, I heard a quote from Richard Feynman
+Early in my software engineering career, I heard a quote from Richard Feynman.
 
 .. epigraph::
 
@@ -132,7 +122,7 @@ I'm not on social media, but I'm always open to conversations about AI,
 teaching, open source, or just a casual chat about life. I'd love to hear from
 you. It doesn't need to be just about the tech either.
 
-Also, I'm a huge film nerd and I enjoy memes!
+Also, I'm a huge film nerd and I enjoy memes.
 
 .. _NumPy: https://numpy.org/
 .. _PyTorch: https://pytorch.org/
