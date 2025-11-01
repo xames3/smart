@@ -211,7 +211,6 @@ nav a svg .sd-material-icon {
     color: hsl(var(--muted-foreground));
     padding: 0 1rem;
     border: none;
-    margin-top: 1rem;
 }
 
 .sd-card-header:first-child {
@@ -227,6 +226,7 @@ nav a svg .sd-material-icon {
 }
 
 .sd-card-text {
+    margin-top: 1rem !important;
     color: hsl(var(--muted-foreground));
     font-size: 0.9rem;
 }
