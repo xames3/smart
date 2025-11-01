@@ -106,10 +106,19 @@ PyTorch's. I needed to implement a way to save the node and operation history
 for autodiff, which was a new concept for me. I also had to learn how to track
 operations, gradients, and compute them efficiently.
 
-`PyTorch's docs`_ and `community boards`_ were super helpful in understanding
-the various properties and methods of the :py:class:`tensor <torch.Tensor>`
-class. I started off with creating various :py:class:`dtypes <torch.dtype>`
-like ``float64``, ``float32``, ``int64``, etc. alongside a simple
+.. rubric:: Read the f*cking docs!
+.. rubric:: PyTorch documentation were super duper helpful in understanding the
+    various implementation details of the :py:class:`tensor <torch.Tensor>`
+    class.
+    :class: subtitle-text
+
+.. button-link:: https://docs.pytorch.org/docs/stable/
+    :color: primary
+
+    Checkout docs
+
+I started off with creating various :py:class:`dtypes <torch.dtype>` like
+``float64``, ``float32``, ``int64``, etc. alongside a simple
 :py:attr:`device <torch.Tensor.device>`.
 
 But my devices were just strings, like "cpu" or "gpu", with no actual hardware
@@ -543,10 +552,9 @@ wrapped around classes much like PyTorch.
     Lucas derived the gradients for Softmax and
     :download:`shared <../assets/docs/softmax_jacobian_lucas.pdf>` them via
     email, while Sameer helped me implement a crude version of second-order
-    derivatives.
-
-    Both were game-changers for me, helping me understand the core concepts of
-    autodiff in a way that no documentation or blog post ever could.
+    derivatives. Both were game-changers for me, helping me understand the core
+    concepts of autodiff in a way that no documentation or blog post ever
+    could.
 
 Recreating neural networks from first principles reminded me of learning to
 ride a bicycle without training wheels. I fell off a ton. But each time I
@@ -631,7 +639,6 @@ For me, personally, SlowTorch serves as a reminder that true understanding and
 mastery come not from speed but from experience, attention, and care. It taught
 me that sometimes, the slowest path is the fastest way to learn.
 
-.. _xsNumPy: https://github.com/xames3/xsnumpy
 .. _PyTorch: https://pytorch.org/
 .. _broadcasting: https://numpy.org/doc/stable/user/basics.broadcasting.html
 .. _automatic differentiation: https://www.reddit.com/r/learnprogramming/

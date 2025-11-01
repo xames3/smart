@@ -44,7 +44,7 @@ So, I found myself experimenting with a simple code, nothing fancy.
 
 The result popped out instantly. But this time, instead of accepting the
 answer, I asked myself a bunch of questions. Like why was I even using
-:func:`np(a, b).dot <numpy.dot>` when I could've used
+:func:`np.dot(a, b) <numpy.dot>` when I could've used
 :py:data:`np.matmul(a, b) <numpy.matmul>`, which feels more appropriate?
 
 And if :func:`np.dot(a, b) <numpy.dot>` indeed performs matrix multiplication,
@@ -170,10 +170,15 @@ It wasn't pretty, but it worked.
             else:
                 self._data = Buffer.from_buffer(buffer)
 
-.. attention::
+.. rubric:: Keeping things simple
+.. rubric:: I've intentionally removed a lot of details to keep things simple.
+    Check out the complete implementation of **ndarray** on GitHub.
+    :class: subtitle-text
 
-    I've intentionally removed a lot of details to keep things simple. Check
-    out the complete implementation of |xp.ndarray|_ on GitHub.
+.. button-link:: https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py
+    :color: primary
+
+    See full implementation
 
 .. _making-sense-of-shapes:
 

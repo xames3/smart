@@ -87,4 +87,4 @@ Think of it as some Easter eggs.
 
     I'm an Adjunct Faculty at National Louis University in CSIS Department.
 
-.. _Gramogram: https://en.wikipedia.org/wiki/Gramogram
+.. _gramogram: https://en.wikipedia.org/wiki/Gramogram
