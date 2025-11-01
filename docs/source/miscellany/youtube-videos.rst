@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 05 September, 2025
-.. Last updated on: 29 October, 2025
+.. Last updated on: 01 November, 2025
 
 :og:title: The best YouTube has to Offer
 :og:description: A curated list of my favourite YouTube videos that I've found
@@ -28,17 +28,14 @@
     :linkedin: https://linkedin.com/in/xames3
     :timestamp: 05 September, 2025
 
-.. rst-class:: lead
-
-    Hand-picked collection of the finest videos I've stumbled upon
-
 Recently, out of nowhere, I was looking at my phone's screen time stats and I
 realised that I spend a significant amount of time on YouTube. As I got into
 software engineering back in 2017, it has been my go-to platform for learning
 new things, staying updated with tech trends, and unwinding with some
-light-hearted or borderline weird content. Over the last few years, I've
-curated a personal playlist of videos that have either taught me something
-valuable or simply made my day better.
+light-hearted or borderline weird content.
+
+Over the last few years, I've curated a personal playlist of videos that have
+either taught me something valuable or simply made my day better.
 
 .. image:: ../assets/media/best-of-youtube-banner.jpg
     :alt: Best of YouTube
@@ -46,15 +43,10 @@ valuable or simply made my day better.
 This page is a collection of those gems. Think of it as my personal watchlist,
 shared with you, so you don't have to sift through the endless noise of the
 algorithm. These videos span a range of topics, from tutorials and programming
-stuff to motivational talks and fun skits. Whether you're a fellow developer,
-a student, or just someone looking for quality content, I hope you find
-something here that resonates with you.
+stuff to motivational talks and fun skits.
 
-If you have any recommendations or if there's a video that you think I should
-add to this list, please feel free to reach out to send it my way either via
-`email <mailto:xa@mes3.dev>`_ or
-`LinkedIn <https://www.linkedin.com/in/xames3>`_. I'm always on the lookout for
-great content!
+Whether you're a fellow developer, a student, or just someone looking for
+quality content, I hope you find something here that resonates with you.
 
 .. note::
 
@@ -63,624 +55,615 @@ great content!
     creators. Please support them by subscribing to their channels if you like
     their content.
 
-.. _programming-technology:
+.. _technology:
 
 -------------------------------------------------------------------------------
-Programming & Technology
+Technology
 -------------------------------------------------------------------------------
 
 This section features some of my go-to videos and channels related to
 programming, science, and technology. Here, the videos are related to
 programming tutorials, tips and tricks, tech talks, education, concepts of
-computer science, and more. Basically, these are some videos that I often watch
-whenever I want to learn something new or just want to refresh my knowledge on
-a particular topic.
+computer science, and more.
 
-.. _tutorials-tips-tricks:
+.. dropdown:: These are some videos that I often watch whenever I want to
+    learn something new or just want to refresh my knowledge on a particular
+    topic
 
-Tutorials, Tips & Tricks
-===============================================================================
+    .. tab-set::
 
-Collection of my favourite videos related to general programming or software
-engineering concepts. These videos have been instrumental in my software
-engineering journey and I've used and experimented with the concepts discussed
-in these videos.
+        .. tab-item:: Programming
 
-.. dropdown:: Some of my favourite programming tutorials, tips & tricks
+            Collection of my favourite videos related to general programming or
+            software engineering concepts. These videos have been instrumental
+            in my software engineering journey and I've used and experimented
+            with the concepts discussed in these videos.
 
-    .. grid:: 2
+            .. grid:: 2
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=kCc8FmEb1nY
+                    .. thumbnail:: https://www.youtube.com/watch?v=kCc8FmEb1nY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=VMj-3S1tku0
+                    .. thumbnail:: https://www.youtube.com/watch?v=VMj-3S1tku0
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=l8pRSuU81PU
+                    .. thumbnail:: https://www.youtube.com/watch?v=l8pRSuU81PU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=PaCmpygFfXo
+                    .. thumbnail:: https://www.youtube.com/watch?v=PaCmpygFfXo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=_QXlbwRmqgI
+                    .. thumbnail:: https://www.youtube.com/watch?v=_QXlbwRmqgI
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=sthNf213Zc0
+                    .. thumbnail:: https://www.youtube.com/watch?v=sthNf213Zc0
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=QOW1IN8i8J8
+                    .. thumbnail:: https://www.youtube.com/watch?v=QOW1IN8i8J8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=qz4JZ7OfPNU
+                    .. thumbnail:: https://www.youtube.com/watch?v=qz4JZ7OfPNU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=jH39c5-y6kg
+                    .. thumbnail:: https://www.youtube.com/watch?v=jH39c5-y6kg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=Jy4wM2X21u0
+                    .. thumbnail:: https://www.youtube.com/watch?v=Jy4wM2X21u0
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=N5Fj3YVok6U
+                    .. thumbnail:: https://www.youtube.com/watch?v=N5Fj3YVok6U
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=rxBGu9br38M
+                    .. thumbnail:: https://www.youtube.com/watch?v=rxBGu9br38M
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=np3dZ0pzHi8
+                    .. thumbnail:: https://www.youtube.com/watch?v=np3dZ0pzHi8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=vAmKB7iPkWw
+                    .. thumbnail:: https://www.youtube.com/watch?v=vAmKB7iPkWw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=euwN5DHfLEo
+                    .. thumbnail:: https://www.youtube.com/watch?v=euwN5DHfLEo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=EcciszFDpn8
+                    .. thumbnail:: https://www.youtube.com/watch?v=EcciszFDpn8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=oXfL0UCO9F4
+                    .. thumbnail:: https://www.youtube.com/watch?v=oXfL0UCO9F4
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=8V4UowjLIMc
+                    .. thumbnail:: https://www.youtube.com/watch?v=8V4UowjLIMc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=kL0q-7alfQA
+                    .. thumbnail:: https://www.youtube.com/watch?v=kL0q-7alfQA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=pDysRzgLpgM
+                    .. thumbnail:: https://www.youtube.com/watch?v=pDysRzgLpgM
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=TSjZrubRfXo
+                    .. thumbnail:: https://www.youtube.com/watch?v=TSjZrubRfXo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=NZGu-9KQVsE
+                    .. thumbnail:: https://www.youtube.com/watch?v=NZGu-9KQVsE
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=gcfB8iIPtbY
+                    .. thumbnail:: https://www.youtube.com/watch?v=gcfB8iIPtbY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=hnyDDfo8e9Q
+                    .. thumbnail:: https://www.youtube.com/watch?v=hnyDDfo8e9Q
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=3JW732GrMdg
+                    .. thumbnail:: https://www.youtube.com/watch?v=3JW732GrMdg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=341Rb8fJxY0
+                    .. thumbnail:: https://www.youtube.com/watch?v=341Rb8fJxY0
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=gMc90bqHMSM
+                    .. thumbnail:: https://www.youtube.com/watch?v=gMc90bqHMSM
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=DcYLT37ImBY
+                    .. thumbnail:: https://www.youtube.com/watch?v=DcYLT37ImBY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=J-52av6H-VY
+                    .. thumbnail:: https://www.youtube.com/watch?v=J-52av6H-VY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=ECqUrT7IdqQ
+                    .. thumbnail:: https://www.youtube.com/watch?v=ECqUrT7IdqQ
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=HrEzCI3jIHw
+                    .. thumbnail:: https://www.youtube.com/watch?v=HrEzCI3jIHw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=_7EXU9cjBkg
+                    .. thumbnail:: https://www.youtube.com/watch?v=_7EXU9cjBkg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=ThATVufmTz8
+                    .. thumbnail:: https://www.youtube.com/watch?v=ThATVufmTz8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=wlU4Os_GleU
+                    .. thumbnail:: https://www.youtube.com/watch?v=wlU4Os_GleU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=TKlGjrcmo5g
+                    .. thumbnail:: https://www.youtube.com/watch?v=TKlGjrcmo5g
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=r2G0rbm7XJk
+                    .. thumbnail:: https://www.youtube.com/watch?v=r2G0rbm7XJk
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=JcGwgNMZc_E
+                    .. thumbnail:: https://www.youtube.com/watch?v=JcGwgNMZc_E
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=X9Ioj6BUT38
+                    .. thumbnail:: https://www.youtube.com/watch?v=X9Ioj6BUT38
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=VuaQKtygva4
+                    .. thumbnail:: https://www.youtube.com/watch?v=VuaQKtygva4
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=FQ-IhRHZ_fA
+                    .. thumbnail:: https://www.youtube.com/watch?v=FQ-IhRHZ_fA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=y17LnFeUKqo
+                    .. thumbnail:: https://www.youtube.com/watch?v=y17LnFeUKqo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=aK6sJDOn2Hc
+                    .. thumbnail:: https://www.youtube.com/watch?v=aK6sJDOn2Hc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=0vxIyXgkihA
+                    .. thumbnail:: https://www.youtube.com/watch?v=0vxIyXgkihA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=BdxdRlTnPEE
+                    .. thumbnail:: https://www.youtube.com/watch?v=BdxdRlTnPEE
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=DGOeyJjq80g
+                    .. thumbnail:: https://www.youtube.com/watch?v=DGOeyJjq80g
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=noLED7kKBF4
+                    .. thumbnail:: https://www.youtube.com/watch?v=noLED7kKBF4
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=XLuD7KJLMwE
+                    .. thumbnail:: https://www.youtube.com/watch?v=XLuD7KJLMwE
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=f-92I_gxgjA
+                    .. thumbnail:: https://www.youtube.com/watch?v=f-92I_gxgjA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=yfBtjLxn_6k
+                    .. thumbnail:: https://www.youtube.com/watch?v=yfBtjLxn_6k
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=2Mt_ThRj9Lc
+                    .. thumbnail:: https://www.youtube.com/watch?v=2Mt_ThRj9Lc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=Eb9w1QaM8yQ
+                    .. thumbnail:: https://www.youtube.com/watch?v=Eb9w1QaM8yQ
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=E28rUsSZUyA
+                    .. thumbnail:: https://www.youtube.com/watch?v=E28rUsSZUyA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=g5acOSfAu3w
+                    .. thumbnail:: https://www.youtube.com/watch?v=g5acOSfAu3w
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=KKJL8bM4cis
+                    .. thumbnail:: https://www.youtube.com/watch?v=KKJL8bM4cis
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=9ofxaIWoF3I
+                    .. thumbnail:: https://www.youtube.com/watch?v=9ofxaIWoF3I
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=SN0kqrx7Hgc
+                    .. thumbnail:: https://www.youtube.com/watch?v=SN0kqrx7Hgc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=2qlH3Wrtcp0
+                    .. thumbnail:: https://www.youtube.com/watch?v=2qlH3Wrtcp0
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=uPbOzbcQafg
+                    .. thumbnail:: https://www.youtube.com/watch?v=uPbOzbcQafg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=429l0nkaayg
+                    .. thumbnail:: https://www.youtube.com/watch?v=429l0nkaayg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=BZmbrvc9heU
+                    .. thumbnail:: https://www.youtube.com/watch?v=BZmbrvc9heU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=QxafxYNiI3A
+                    .. thumbnail:: https://www.youtube.com/watch?v=QxafxYNiI3A
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=0FqY5JkEaVc
+                    .. thumbnail:: https://www.youtube.com/watch?v=0FqY5JkEaVc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=tcqEUSNCn8I
+                    .. thumbnail:: https://www.youtube.com/watch?v=tcqEUSNCn8I
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=N_dd1IQY8qY
+                    .. thumbnail:: https://www.youtube.com/watch?v=N_dd1IQY8qY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=hJ5LT4AGf3Y
+                    .. thumbnail:: https://www.youtube.com/watch?v=hJ5LT4AGf3Y
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=N0TFxl7A5Hw
+                    .. thumbnail:: https://www.youtube.com/watch?v=N0TFxl7A5Hw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=O390_abzo08
+                    .. thumbnail:: https://www.youtube.com/watch?v=O390_abzo08
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=_qCzcB80fAY
+                    .. thumbnail:: https://www.youtube.com/watch?v=_qCzcB80fAY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=OXmYKh0eTQ8
+                    .. thumbnail:: https://www.youtube.com/watch?v=OXmYKh0eTQ8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=ZAoK8O9oBGo
+                    .. thumbnail:: https://www.youtube.com/watch?v=ZAoK8O9oBGo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=LEanL5rfdAA
+                    .. thumbnail:: https://www.youtube.com/watch?v=LEanL5rfdAA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=onkNf1AKSgg
+                    .. thumbnail:: https://www.youtube.com/watch?v=onkNf1AKSgg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=U4CzyBXyOms
+                    .. thumbnail:: https://www.youtube.com/watch?v=U4CzyBXyOms
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=ViNc-g60br8
+                    .. thumbnail:: https://www.youtube.com/watch?v=ViNc-g60br8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=p4Sn6UcFTOU
+                    .. thumbnail:: https://www.youtube.com/watch?v=p4Sn6UcFTOU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=OJqUWvmf4gg
+                    .. thumbnail:: https://www.youtube.com/watch?v=OJqUWvmf4gg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=hoDLj0IzZMU
+                    .. thumbnail:: https://www.youtube.com/watch?v=hoDLj0IzZMU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=pEfrdAtAmqk
+                    .. thumbnail:: https://www.youtube.com/watch?v=pEfrdAtAmqk
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=HX6vkP-QD7U
+                    .. thumbnail:: https://www.youtube.com/watch?v=HX6vkP-QD7U
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=1SZocGaCAr8
+                    .. thumbnail:: https://www.youtube.com/watch?v=1SZocGaCAr8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=xFkqOdAluJ0
+                    .. thumbnail:: https://www.youtube.com/watch?v=xFkqOdAluJ0
 
-.. _talks-interviews:
+        .. tab-item:: Talks & Interviews
 
-Talks & Interviews
-===============================================================================
+            The below collections are some of my favourite talks and interviews
+            with some of the most influential people in the tech industry.
+            They've been super duper inspirational and have helped me navigate
+            and understand the industry better.
 
-The below collections are some of my favourite talks and interviews with some
-of the most influential people in the tech industry. They've been super duper
-inspirational and have helped me navigate and understand the industry better.
+            .. grid:: 2
 
-.. dropdown:: Some of my favourite programming talks & interviews
+                .. grid-item::
 
-    .. grid:: 2
+                    .. thumbnail:: https://www.youtube.com/watch?v=QWWgr2rN45o
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=QWWgr2rN45o
+                    .. thumbnail:: https://www.youtube.com/watch?v=qyH3NxFz3Aw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=qyH3NxFz3Aw
+                    .. thumbnail:: https://www.youtube.com/watch?v=K9anz4aB0S0
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=K9anz4aB0S0
+                    .. thumbnail:: https://www.youtube.com/watch?v=LCEmiRjPEtQ
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=LCEmiRjPEtQ
+                    .. thumbnail:: https://www.youtube.com/watch?v=I326bpbdvJo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=I326bpbdvJo
+                    .. thumbnail:: https://www.youtube.com/watch?v=r-A78RgMhZU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=r-A78RgMhZU
+                    .. thumbnail:: https://www.youtube.com/watch?v=FnFksQo-yEY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=FnFksQo-yEY
+                    .. thumbnail:: https://www.youtube.com/watch?v=aSiJ4YTKxfM
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=aSiJ4YTKxfM
+                    .. thumbnail:: https://www.youtube.com/watch?v=CfInPYkbTZE
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=CfInPYkbTZE
+                    .. thumbnail:: https://www.youtube.com/watch?v=8fi7uSYlOdc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=8fi7uSYlOdc
+                    .. thumbnail:: https://www.youtube.com/watch?v=D1twn9kLmYg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=D1twn9kLmYg
+                    .. thumbnail:: https://www.youtube.com/watch?v=8jixaYxo6kA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=8jixaYxo6kA
+                    .. thumbnail:: https://www.youtube.com/watch?v=0ahRkhrOePo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=0ahRkhrOePo
+                    .. thumbnail:: https://www.youtube.com/watch?v=PJwhZUB0lEw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=PJwhZUB0lEw
+                    .. thumbnail:: https://www.youtube.com/watch?v=QwbCQhLSXxk
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=QwbCQhLSXxk
+                    .. thumbnail:: https://www.youtube.com/watch?v=MYzOum-7VGo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=MYzOum-7VGo
+                    .. thumbnail:: https://www.youtube.com/watch?v=2O7yj-Nh6AY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=2O7yj-Nh6AY
+                    .. thumbnail:: https://www.youtube.com/watch?v=eNjth6MkJ98
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=eNjth6MkJ98
+                    .. thumbnail:: https://www.youtube.com/watch?v=js_0wjzuMfc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=js_0wjzuMfc
+                    .. thumbnail:: https://www.youtube.com/watch?v=MCs5OvhV9S4
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=MCs5OvhV9S4
+                    .. thumbnail:: https://www.youtube.com/watch?v=bGYZEKstQuQ
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=bGYZEKstQuQ
+                    .. thumbnail:: https://www.youtube.com/watch?v=sPiWg5jSoZI
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=sPiWg5jSoZI
+                    .. thumbnail:: https://www.youtube.com/watch?v=opR44Tu9p1I
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=opR44Tu9p1I
+                    .. thumbnail:: https://www.youtube.com/watch?v=fhqE7aS6cj8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=fhqE7aS6cj8
+                    .. thumbnail:: https://www.youtube.com/watch?v=n9_JjmHRtys
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=n9_JjmHRtys
+                    .. thumbnail:: https://www.youtube.com/watch?v=NRynSD6MCLE
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=NRynSD6MCLE
+                    .. thumbnail:: https://www.youtube.com/watch?v=d40tBcqopAI
 
-        .. grid-item::
+        .. tab-item:: Science & Education
 
-            .. thumbnail:: https://www.youtube.com/watch?v=d40tBcqopAI
+            Here, the videos are related to general science concepts, physics,
+            mathematics, space, and more. I've always been fascinated by
+            science and love learning how some things just work. These videos
+            have been a great way for me to explore and understand various
+            scientific phenomena or sometimes just marvel how amazing
+            mathematics can be.
 
-.. _science-education:
+            .. grid:: 2
 
-Science & Education
-===============================================================================
+                .. grid-item::
 
-Here, the videos are related to general science concepts, mathematics, physics,
-space, and more. I've always been fascinated by science and love learning how
-some things just work. These videos have been a great way for me to explore and
-understand various scientific phenomena or sometimes just marvel how amazing
-mathematics can be.
+                    .. thumbnail:: https://www.youtube.com/watch?v=IvLpN1G1Ncg
 
-.. dropdown:: Some of my favourite science & education videos
+                .. grid-item::
 
-    .. grid:: 2
+                    .. thumbnail:: https://www.youtube.com/watch?v=BahJGwmX730
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=IvLpN1G1Ncg
+                    .. thumbnail:: https://www.youtube.com/watch?v=boUqlyYfUuo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=BahJGwmX730
+                    .. thumbnail:: https://www.youtube.com/watch?v=O35KGzkS4VA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=boUqlyYfUuo
+                    .. thumbnail:: https://www.youtube.com/watch?v=WUvTyaaNkzM
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=O35KGzkS4VA
+                    .. thumbnail:: https://www.youtube.com/watch?v=EK32jo7i5LQ
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=WUvTyaaNkzM
+                    .. thumbnail:: https://www.youtube.com/watch?v=sMxx_NfWmfE
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=EK32jo7i5LQ
+                    .. thumbnail:: https://www.youtube.com/watch?v=f5liqUk0ZTw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=sMxx_NfWmfE
+                    .. thumbnail:: https://www.youtube.com/watch?v=TQvxWaQnrqI
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=f5liqUk0ZTw
+                    .. thumbnail:: https://www.youtube.com/watch?v=bY1EQ6HD-ao
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=TQvxWaQnrqI
+                    .. thumbnail:: https://www.youtube.com/watch?v=r0_mi8ngNnM
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=bY1EQ6HD-ao
+                    .. thumbnail:: https://www.youtube.com/watch?v=_IgyaD7vOOA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=r0_mi8ngNnM
+                    .. thumbnail:: https://www.youtube.com/watch?v=ppRgvfIJsgU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=_IgyaD7vOOA
+                    .. thumbnail:: https://www.youtube.com/watch?v=AuA2EAgAegE
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=ppRgvfIJsgU
+                    .. thumbnail:: https://www.youtube.com/watch?v=pg827uDPFqA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=AuA2EAgAegE
+                    .. thumbnail:: https://www.youtube.com/watch?v=UnURElCzGc0
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=pg827uDPFqA
+                    .. thumbnail:: https://www.youtube.com/watch?v=SgKE8ZJ7OjM
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=UnURElCzGc0
+                    .. thumbnail:: https://www.youtube.com/watch?v=mG3EOg02NUg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=SgKE8ZJ7OjM
+                    .. thumbnail:: https://www.youtube.com/watch?v=baUSaFx8M1o
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=mG3EOg02NUg
+                    .. thumbnail:: https://www.youtube.com/watch?v=1BCkSYQ0NRQ
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=baUSaFx8M1o
+                    .. thumbnail:: https://www.youtube.com/watch?v=Rc3ul6RRANU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=1BCkSYQ0NRQ
+                    .. thumbnail:: https://www.youtube.com/watch?v=OgiVHMgorkg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=Rc3ul6RRANU
+                    .. thumbnail:: https://www.youtube.com/watch?v=YPenDUY68rM
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=OgiVHMgorkg
+                    .. thumbnail:: https://www.youtube.com/watch?v=MnGfA2uO6C8
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=YPenDUY68rM
+                    .. thumbnail:: https://www.youtube.com/watch?v=wieRZoJSVtw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=MnGfA2uO6C8
+                    .. thumbnail:: https://www.youtube.com/watch?v=1yftY_QPj3k
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=wieRZoJSVtw
+                    .. thumbnail:: https://www.youtube.com/watch?v=J2z5uzqxJNU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=1yftY_QPj3k
+                    .. thumbnail:: https://www.youtube.com/watch?v=xlxaa9YhT6A
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=J2z5uzqxJNU
+                    .. thumbnail:: https://www.youtube.com/watch?v=fNk_zzaMoSs
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=xlxaa9YhT6A
+                    .. thumbnail:: https://www.youtube.com/watch?v=keiFzYJbfdw
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=fNk_zzaMoSs
+                    .. thumbnail:: https://www.youtube.com/watch?v=OmJ-4B-mS-Y
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=keiFzYJbfdw
+                    .. thumbnail:: https://www.youtube.com/watch?v=QUGmwPwtbpg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=OmJ-4B-mS-Y
-
-        .. grid-item::
-
-            .. thumbnail:: https://www.youtube.com/watch?v=QUGmwPwtbpg
-
-        .. grid-item::
-
-            .. thumbnail:: https://www.youtube.com/watch?v=Ft2_QtXAnh8
+                    .. thumbnail:: https://www.youtube.com/watch?v=Ft2_QtXAnh8
 
 .. _comic-relief:
 
@@ -694,248 +677,243 @@ I'm not saying these are the funniest videos out there, but they sure do the
 trick for me. Some are downright silly, some are clever, and some are just
 plain weird and cringe.
 
-This section features some of my favourite funny videos that I watch and have
-come across using YouTube as a platform for taking my mind off things.
+.. dropdown:: Some of my favourite funny videos that I watch and have come
+    across using YouTube as a platform for taking my mind off things
 
-.. _light-hearted-comedy:
+    .. tab-set::
 
-Light-hearted Comedy
-===============================================================================
+        .. tab-item:: Light-hearted
 
-An ever-growing collection of some of my favourite light-hearted comedy videos
-that I've found over the years. These videos are a mix of stand-up comedy,
-sketches, parodies, and of course, Family Guy. They never fail to make me laugh
-and cringe.
+            An ever-growing collection of some of my favourite light-hearted
+            comedy videos that I've found over the years. These videos are a
+            mix of stand-up comedy, sketches, parodies, and of course, Family
+            Guy. They never fail to make me laugh and cringe.
 
-.. dropdown:: Some of my favourite comedy videos and Family Guy clips
+            .. grid:: 2
 
-    .. grid:: 2
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=lxaRV4SyOc8
 
-            .. thumbnail:: https://www.youtube.com/watch?v=lxaRV4SyOc8
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=ohsAqbYmXKk
 
-            .. thumbnail:: https://www.youtube.com/watch?v=ohsAqbYmXKk
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=GCZsVvYhZVw
 
-            .. thumbnail:: https://www.youtube.com/watch?v=GCZsVvYhZVw
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=YhIYXGo-5hQ
 
-            .. thumbnail:: https://www.youtube.com/watch?v=YhIYXGo-5hQ
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=ShIHGQ89RXI
 
-            .. thumbnail:: https://www.youtube.com/watch?v=ShIHGQ89RXI
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=w1HwxoPynn4
 
-            .. thumbnail:: https://www.youtube.com/watch?v=w1HwxoPynn4
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=9AxI-kdwlfg
 
-            .. thumbnail:: https://www.youtube.com/watch?v=9AxI-kdwlfg
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=JlyQZQt5RHk
 
-            .. thumbnail:: https://www.youtube.com/watch?v=JlyQZQt5RHk
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=EL4UdaLTVWc
 
-            .. thumbnail:: https://www.youtube.com/watch?v=EL4UdaLTVWc
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=m1Mg8FIn0Go
 
-            .. thumbnail:: https://www.youtube.com/watch?v=m1Mg8FIn0Go
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=6D3tVfqzYis
 
-            .. thumbnail:: https://www.youtube.com/watch?v=6D3tVfqzYis
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=tLZmQsY7UCE
 
-            .. thumbnail:: https://www.youtube.com/watch?v=tLZmQsY7UCE
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=_E9VYge1VFQ
 
-            .. thumbnail:: https://www.youtube.com/watch?v=_E9VYge1VFQ
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=T8dVdye559E
 
-            .. thumbnail:: https://www.youtube.com/watch?v=T8dVdye559E
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=--M4I6o8fLo
 
-            .. thumbnail:: https://www.youtube.com/watch?v=--M4I6o8fLo
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=5oNQZM3JVTE
 
-            .. thumbnail:: https://www.youtube.com/watch?v=5oNQZM3JVTE
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=0stEzx7LRLo
 
-            .. thumbnail:: https://www.youtube.com/watch?v=0stEzx7LRLo
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=W19zTOzzSa0
 
-            .. thumbnail:: https://www.youtube.com/watch?v=W19zTOzzSa0
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=LtyLzb98agw
 
-            .. thumbnail:: https://www.youtube.com/watch?v=LtyLzb98agw
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=vxAC_LjyFos
 
-            .. thumbnail:: https://www.youtube.com/watch?v=vxAC_LjyFos
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=M123NeSH26A
 
-            .. thumbnail:: https://www.youtube.com/watch?v=M123NeSH26A
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=xYIi4by8-y8
 
-            .. thumbnail:: https://www.youtube.com/watch?v=xYIi4by8-y8
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=D2LwAIaOCiM
 
-            .. thumbnail:: https://www.youtube.com/watch?v=D2LwAIaOCiM
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=xZQvXmyfmjM
 
-            .. thumbnail:: https://www.youtube.com/watch?v=xZQvXmyfmjM
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=L6Ptie2RWPw
 
-            .. thumbnail:: https://www.youtube.com/watch?v=L6Ptie2RWPw
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=WUj56Jit5CQ
 
-            .. thumbnail:: https://www.youtube.com/watch?v=WUj56Jit5CQ
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=szkmPcleUZI
 
-            .. thumbnail:: https://www.youtube.com/watch?v=szkmPcleUZI
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=wsgyNh3ZRuc
 
-            .. thumbnail:: https://www.youtube.com/watch?v=wsgyNh3ZRuc
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=hDGg4VeemE0
 
-            .. thumbnail:: https://www.youtube.com/watch?v=hDGg4VeemE0
+                .. grid-item::
 
-        .. grid-item::
+                    .. thumbnail:: https://www.youtube.com/watch?v=Y1IjX5TsKv8
 
-            .. thumbnail:: https://www.youtube.com/watch?v=Y1IjX5TsKv8
+        .. tab-item:: Diabolical & Dark
 
-.. _diabolical-weird-dark-humour:
+            And there's this side of YouTube that I absolutely love the
+            absolutely weird, the delightfully strange, the content that makes
+            you tilt your head and think, "how did I even get here?". This is
+            a collection of those "gems".
 
-Diabolical & Weird Dark Humour
-===============================================================================
+            These videos are a mix of surreal comedy, absurdist sketches, and
+            just plain weird stuff. They never fail to cease to amuse.
 
-And there's this side of YouTube that I absolutely love... the absolutely
-weird, the delightfully strange, the content that makes you tilt your head and
-think, "how did I even get here?". This is a collection of those "gems"...
-These videos are a mix of surreal comedy, absurdist sketches, and just plain
-weird stuff. They never fail to cease to amuse.
+            .. danger::
 
-.. danger::
+                These videos are a bit out there and might not be everyone's
+                cup of tea. They're paired with dark-edgy humour. Viewer
+                discretion is advised.
 
-    These videos are a bit out there and might not be everyone's cup of tea.
-    They're paired with dark-edgy humour. Viewer discretion is advised.
+            .. grid:: 2
 
-.. dropdown:: Some of the legit weirdest videos on YouTube
+                .. grid-item::
 
-    .. grid:: 2
+                    .. thumbnail:: https://www.youtube.com/watch?v=Avp4Mt3iCDU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=Avp4Mt3iCDU
+                    .. thumbnail:: https://www.youtube.com/watch?v=RglUQ_Bv34w
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=RglUQ_Bv34w
+                    .. thumbnail:: https://www.youtube.com/watch?v=DYhzv0bOsPo
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=DYhzv0bOsPo
+                    .. thumbnail:: https://www.youtube.com/watch?v=NaASnkteL0U
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=NaASnkteL0U
+                    .. thumbnail:: https://www.youtube.com/watch?v=MkAFeuX0r1k
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=MkAFeuX0r1k
+                    .. thumbnail:: https://www.youtube.com/watch?v=sbnf5f9ShmA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=sbnf5f9ShmA
+                    .. thumbnail:: https://www.youtube.com/watch?v=9DWfq0Z5hOs
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=9DWfq0Z5hOs
+                    .. thumbnail:: https://www.youtube.com/watch?v=TywmpMQYojs
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=TywmpMQYojs
+                    .. thumbnail:: https://www.youtube.com/watch?v=RgvihRmyd5o
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=RgvihRmyd5o
+                    .. thumbnail:: https://www.youtube.com/watch?v=zF7jQfgy2js
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=zF7jQfgy2js
+                    .. thumbnail:: https://www.youtube.com/watch?v=lCdQkpFaZxA
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=lCdQkpFaZxA
+                    .. thumbnail:: https://www.youtube.com/watch?v=6QUw1LOgHuk
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=6QUw1LOgHuk
+                    .. thumbnail:: https://www.youtube.com/watch?v=tbyI6cz7wDU
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=tbyI6cz7wDU
+                    .. thumbnail:: https://www.youtube.com/watch?v=bZ_Qfcc0jmY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=bZ_Qfcc0jmY
+                    .. thumbnail:: https://www.youtube.com/watch?v=YvTtsf4vMVg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=YvTtsf4vMVg
+                    .. thumbnail:: https://www.youtube.com/watch?v=zcF-d3vvhrQ
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=zcF-d3vvhrQ
+                    .. thumbnail:: https://www.youtube.com/watch?v=Ai4LK6Q-OzI
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=Ai4LK6Q-OzI
+                    .. thumbnail:: https://www.youtube.com/watch?v=Hy4x3iZrN1g
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=Hy4x3iZrN1g
+                    .. thumbnail:: https://www.youtube.com/watch?v=NTWsUMDSqcg
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=NTWsUMDSqcg
+                    .. thumbnail:: https://www.youtube.com/watch?v=eoqd3FQMI8Q
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=eoqd3FQMI8Q
+                    .. thumbnail:: https://www.youtube.com/watch?v=HawdQRiqw38
 
-        .. grid-item::
-
-            .. thumbnail:: https://www.youtube.com/watch?v=HawdQRiqw38
-
-.. _movies-tv-shows-scene-by-scene:
+.. _scene-by-scene:
 
 -------------------------------------------------------------------------------
 Scene-by-Scene
@@ -943,52 +921,51 @@ Scene-by-Scene
 
 I've always been fascinated by the art of storytelling, whether it's in a block
 of code or on the silver screen. This section is for the fellow film lovers out
-there. It's a collection of videos that peel back the curtain on filmmaking,
-from breathtaking behind-the-scenes moments to meticulous scene breakdowns. For
-me, understanding how a story is built visually makes the experience of
-watching it all the more magical.
+there. For me, understanding how a story is built visually makes the experience
+of watching it all the more magical.
 
-.. _movie-magic:
+.. dropdown:: Collection of videos that peel back the curtain on filmmaking,
+    from breathtaking behind-the-scenes moments to meticulous scene breakdowns
 
-Movie Magic
-===============================================================================
+    .. tab-set::
 
-A collection of some of my favourite behind-the-scenes videos from some of the
-most iconic movies and TV shows. These videos give you a glimpse into the
-making of these masterpieces and the hard work that goes into creating them.
-These videos dive into the nitty-gritty of how movies are made.
+        .. tab-item:: Movie magic
 
-.. dropdown:: Some of my favourite behind-the-scenes videos
+            A collection of some of my favourite behind-the-scenes videos from
+            some of the most iconic movies and TV shows. These videos give you
+            a glimpse into the making of these masterpieces and the hard work
+            that goes into creating them. These videos dive into the
+            nitty-gritty of how movies are made.
 
-    .. grid:: 2
+            .. grid:: 2
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=KitmA_NleAc
+                    .. thumbnail:: https://www.youtube.com/watch?v=KitmA_NleAc
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=tvYkkwiQ5DY
+                    .. thumbnail:: https://www.youtube.com/watch?v=tvYkkwiQ5DY
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=e0h0NaMrPis
+                    .. thumbnail:: https://www.youtube.com/watch?v=e0h0NaMrPis
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=6PJH9RrJ9zk
+                    .. thumbnail:: https://www.youtube.com/watch?v=6PJH9RrJ9zk
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=arhyFJ7PIik
+                    .. thumbnail:: https://www.youtube.com/watch?v=arhyFJ7PIik
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=LWvm1xHucN4
+                    .. thumbnail:: https://www.youtube.com/watch?v=LWvm1xHucN4
 
-        .. grid-item::
+                .. grid-item::
 
-            .. thumbnail:: https://www.youtube.com/watch?v=WrRB-8eLfsA
+                    .. thumbnail:: https://www.youtube.com/watch?v=WrRB-8eLfsA
 
 .. _3am-rabbit-hole:
 
@@ -997,11 +974,11 @@ These videos dive into the nitty-gritty of how movies are made.
 -------------------------------------------------------------------------------
 
 We've all been there. It's late, you should be sleeping, but you've stumbled
-upon a video that leads to another, and another... This section is a tribute
-to those late-night YouTube journeys. It's a random, eclectic mix of
-fascinating documentaries, unsolved mysteries, and thought-provoking
-explorations, and VSauce that are perfect for when your curiosity gets the
-better of your sleep schedule.
+upon a video that leads to another, and another. This section is a tribute to
+those late-night YouTube journeys. It's a random, eclectic mix of fascinating
+documentaries, unsolved mysteries, and thought-provoking explorations, and
+VSauce that are perfect for when your curiosity gets the better of your sleep
+schedule.
 
 .. dropdown:: Some of my favourite late-night bored out of your mind videos
 

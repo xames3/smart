@@ -1,15 +1,14 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 29 October, 2025
+.. Last updated on: 01 November, 2025
 
 :orphan:
 :og:title: Akshay's Corner
 :og:description: A corner for studying, mentorship, and resourceful teaching
 :og:type: website
 :fb:title: What do you think?
-:fb:description: I'd genuinely love to hear your suggestions and takes,
-    whether it's about AI, open source, or even a recommendation for a great
-    film!
+:fb:description: I'd genuinely love to hear your suggestions and takes, or
+    even a recommendation for a great film!
 :fb:submit: Share your thoughts
 
 .. _home-page:
@@ -27,22 +26,16 @@ Akshay's Corner
     :linkedin: https://linkedin.com/in/xames3
     :timestamp: 08 August, 2025
 
-.. rst-class:: lead
-
-    A journey of studying, mentorship, and resourceful teaching
-
 Hello hello!
 
 I'm **Akshay**, an Adjunct Professor, AI Engineer, and passionate open-source
-contributor. This corner of the internet is my space to explore the fascinating
+contributor. This corner on the internet is my space to explore the fascinating
 intersection of technology, learning, and storytelling, and I hope it can be a
-useful place for you, too. Here. I share my work, my "aha!" moments, and my
-journey through the worlds of AI, Software Development, and Open Source.
+useful place for you too.
 
-I've a special interest in natural language processing, reinforcement
-learning, and numerical computing, which I've explored through my personal
-projects. I'm also committed to contributing to the `NASA's Open Science`_
-mission, promoting transparent, reproducible, and inclusive research.
+Here, I intend to share my work, my "aha!" moments, and my journey through the
+worlds of AI, Software Development, and Open Source. I've a special interest
+in natural language processing and reinforcement learning.
 
 .. _open-source:
 
@@ -50,46 +43,36 @@ mission, promoting transparent, reproducible, and inclusive research.
 Open source
 -------------------------------------------------------------------------------
 
-I :octicon:`heart-fill;1em;sd-text-danger mr-0` Open Source!
+I :octicon:`heart-fill;1em;red mr-0` Open Source.
 
 For me, it is more than a philosophy. It is my personal reminder to make my
 learnings, experiences, and knowledge free and accessible, breaking down
 cultural and digital barriers and inviting collaboration across disciplines and
-borders. My belief in open collaboration has led me to contribute and work at
-some amazing research labs.
+borders.
+
+My belief in open collaboration has led me to contribute and work at some
+amazing research labs.
 
 .. raw:: html
     :file: ./assets/html/contributed.html
 
 I've worked on a diverse range of projects, from building performant machine
-learning models to crafting efficient numerical computing libraries. My
-projects reflect both technical depth and a passion for education.
+learning models to crafting numerical computing libraries. My projects reflect
+both technical depth and a passion for education.
 
 .. grid:: 2
 
-    .. grid-item-card:: PyTorch... but much slower
-        :link: projects/slowtorch
-        :link-type: doc
-        :link-alt: Read
-
-        :octicon:`flame` Writing PyTorch from scratch
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        A subset of core PyTorch features and behaviours re-implemented in
-        pure Python.
+    .. grid-item-card::
 
         .. repository:: xames3/slowtorch
 
-    .. grid-item-card:: Why write xsNumPy?
-        :link: projects/xsnumpy
-        :link-type: doc
-        :link-alt: Read
+        A subset of core PyTorch features re-built in pure Python.
 
-        :octicon:`beaker` Building NumPy in pure Python
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        An experimental re-implementation of a few NumPy features in pure
-        Python.
+    .. grid-item-card::
 
         .. repository:: xames3/xsnumpy
+
+        An experimental re-implementation of a few NumPy features in Python.
 
 Beyond these, I've had the opportunity to speak at tech meetups and
 conferences, sharing insights on my projects, AI, Open Science, and the inner
@@ -103,8 +86,10 @@ Teaching philosophy
 
 I wholeheartedly believe that true mastery comes from sharing knowledge.
 Whether it is breaking down complex machine learning algorithms or explaining
-the nuances of AI, I find joy in making technical concepts relatable and easy
-to grasp. Early in my Software Engineering career, I heard a quote...
+the nuances of software design, I find joy in making technical concepts
+relatable and easy to grasp.
+
+Early in my software engineering career, I heard a quote from Richard Feynman.
 
 .. epigraph::
 
@@ -116,23 +101,16 @@ And I absolutely fell in love with this idea. Soon I realised you really can't
 call yourself an SME (`Subject-matter expert`_) until you can teach it to
 those who likely know nothing about it (or very little), and are willing to
 entertain questions from people learning at that initial frame of reference.
-Thus began my journey into teaching. Although my approach of teaching has
-evolved over the past few years, adapting to the needs of my environment,
-students, and time.
 
-.. _purpose-and-vision:
+Thus began my journey into teaching.
 
--------------------------------------------------------------------------------
-Purpose and vision
--------------------------------------------------------------------------------
+Although my approach of mentoring has evolved over the past few years, adapting
+to the needs of my environment, students/mentees, and time which is why I've
+this website. This website is more than my portfolio; it's a living project
+where I'd like the technology and education to grow together.
 
-This website is more than my portfolio; it's a living project where I'd like
-the technology and education to grow together. Through this website, I hope to
-build a community where curiosity is the only prerequisite. A place where we
-can learn, teach, and grow alongside each other.
-
-Ultimately, my goal is to use this corner on the internet to bridge the gap
-between collaboration and education, building tools, and sharing ideas.
+Ultimately, my goal is to use this corner to bridge the gap between
+collaboration and education, building tools, and sharing ideas.
 
 .. _lets-connect:
 
@@ -140,17 +118,12 @@ between collaboration and education, building tools, and sharing ideas.
 Let's connect
 -------------------------------------------------------------------------------
 
-I'm always open to conversations about AI, teaching, open source, or just a
-casual chat about life. I'd love to hear from you. It doesn't need to be just
-about the tech either; I'm a huge film nerd and I enjoy memes!! If you are
-also passionate about films or want to share something funny, feel free to
-reach out or send a recommendation or two.
+I'm not on social media, but I'm always open to conversations about AI,
+teaching, open source, or just a casual chat about life. I'd love to hear from
+you. It doesn't need to be just about the tech either.
 
-I'm not on social media, but I'm always reachable via
-:email:`email <xa@mes3.dev>` or via
-`LinkedIn <https://www.linkedin.com/in/xames3>`_.
+Also, I'm a huge film nerd and I enjoy memes.
 
-.. _NASA's Open Science: https://science.nasa.gov/open-science/
 .. _NumPy: https://numpy.org/
 .. _PyTorch: https://pytorch.org/
 .. _Pygame: https://pygame.org/
@@ -167,8 +140,8 @@ I'm not on social media, but I'm always reachable via
     :caption: Development
     :hidden:
 
-    projects/slowtorch
     projects/xsnumpy
+    projects/slowtorch
 
 .. toctree::
     :caption: Miscellany
@@ -177,3 +150,4 @@ I'm not on social media, but I'm always reachable via
 
     miscellany/guiding-stars
     miscellany/youtube-videos
+    miscellany/faq
