@@ -29,13 +29,13 @@ Akshay's Corner
 Hello hello!
 
 I'm **Akshay**, an Adjunct Professor, AI Engineer, and passionate open-source
-contributor. This corner of the internet is my space to explore the fascinating
+contributor. This corner on the internet is my space to explore the fascinating
 intersection of technology, learning, and storytelling, and I hope it can be a
-useful place for you, too.
+useful place for you too.
 
-Here, I share my work, my "aha!" moments, and my journey through the worlds of
-AI, Software Development, and Open Source. I've a special interest in natural
-language processing and reinforcement learning.
+Here, I intend to share my work, my "aha!" moments, and my journey through the
+worlds of AI, Software Development, and Open Source. I've a special interest
+in natural language processing and reinforcement learning.
 
 .. _open-source:
 
@@ -43,13 +43,15 @@ language processing and reinforcement learning.
 Open source
 -------------------------------------------------------------------------------
 
-I :octicon:`heart-fill;1em;sd-text-danger mr-0` Open Source!
+I :octicon:`heart-fill;1em;red mr-0` Open Source!
 
 For me, it is more than a philosophy. It is my personal reminder to make my
 learnings, experiences, and knowledge free and accessible, breaking down
 cultural and digital barriers and inviting collaboration across disciplines and
-borders. My belief in open collaboration has led me to contribute and work at
-some amazing research labs.
+borders.
+
+My belief in open collaboration has led me to contribute and work at some
+amazing research labs.
 
 .. raw:: html
     :file: ./assets/html/contributed.html
@@ -63,18 +65,18 @@ both technical depth and a passion for education.
     .. grid-item-card:: PyTorch... but much slower
         :link: projects/slowtorch
         :link-type: doc
-        :link-alt: Read
+        :link-alt: Checkout
 
         :octicon:`flame` Writing PyTorch from scratch
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        A subset of core PyTorch features re-implemented in Python.
+        A subset of core PyTorch features re-built in pure Python.
 
         .. repository:: xames3/slowtorch
 
     .. grid-item-card:: Why write xsNumPy?
         :link: projects/xsnumpy
         :link-type: doc
-        :link-alt: Read
+        :link-alt: Checkout
 
         :octicon:`beaker` Building NumPy in pure Python
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,7 +99,7 @@ Whether it is breaking down complex machine learning algorithms or explaining
 the nuances of software design, I find joy in making technical concepts
 relatable and easy to grasp.
 
-Early in my Software Engineering career, I heard a quote...
+Early in my software engineering career, I heard a quote from Richard Feynman
 
 .. epigraph::
 
@@ -109,15 +111,16 @@ And I absolutely fell in love with this idea. Soon I realised you really can't
 call yourself an SME (`Subject-matter expert`_) until you can teach it to
 those who likely know nothing about it (or very little), and are willing to
 entertain questions from people learning at that initial frame of reference.
+
 Thus began my journey into teaching.
 
 Although my approach of mentoring has evolved over the past few years, adapting
-to the needs of my environment, students, and time which is why I've this
-website. This website is more than my portfolio; it's a living project where
-I'd like the technology and education to grow together.
+to the needs of my environment, students/mentees, and time which is why I've
+this website. This website is more than my portfolio; it's a living project
+where I'd like the technology and education to grow together.
 
-Ultimately, my goal is to use this corner on the internet to bridge the gap
-between collaboration and education, building tools, and sharing ideas.
+Ultimately, my goal is to use this corner to bridge the gap between
+collaboration and education, building tools, and sharing ideas.
 
 .. _lets-connect:
 

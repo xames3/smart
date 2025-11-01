@@ -1749,9 +1749,6 @@ html[data-theme="dark"] .site-header__logo-image--light {
 .site-sidebar__brand-title,
 .site-header__title {
     font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .site-sidebar__brand-title::after,
@@ -2378,7 +2375,7 @@ i {
 }
 
 .admonition.unusual-one p:not(.admonition-title) {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }
 
 .admonition.unusual-one>.admonition-title {
@@ -2387,6 +2384,8 @@ i {
     height: auto !important;
     clip: auto;
     border: 0;
+    margin-bottom: 0.5rem;
+    position: relative;
 }
 
 /* ToC vertical guide line */
@@ -2719,9 +2718,10 @@ a[data-tooltip].show-tooltip::after {
     color: hsl(var(--muted-foreground));
     font-size: 1.05rem;
     font-weight: 400;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     line-height: 1.5rem;
-    width: 90%;
+    letter-spacing: initial !important;
+    width: 95%;
 }
 
 @media (max-width: 768px) {
@@ -2729,6 +2729,7 @@ a[data-tooltip].show-tooltip::after {
     .subtitle-text,
     .site-feedback-shell__subtitle {
         width: 100% !important;
+        letter-spacing: -0.36px !important;
     }
 
     #content .rubric {
@@ -2911,4 +2912,19 @@ a[data-tooltip].show-tooltip::after {
     margin: 2rem 0;
     padding-inline: 0;
     gap: 0.5rem;
+}
+
+.green,
+.green>p {
+    color: hsl(var(--green-color));
+}
+
+.yellow,
+.yellow>p {
+    color: hsl(var(--yellow-color));
+}
+
+.red,
+.red>p {
+    color: hsl(var(--red-color));
 }

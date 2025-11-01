@@ -117,10 +117,6 @@ details.sd-dropdown summary.sd-summary-title {
     font-weight: 400;
 }
 
-details.sd-card .sd-card-body .sd-card-text {
-    color: hsl(var(--foreground));
-}
-
 details.sd-dropdown summary.sd-summary-title .fas,
 details.sd-dropdown summary.sd-summary-title .sd-octicon,
 details.sd-dropdown summary.sd-summary-title .sd-material-icon {
@@ -216,10 +212,14 @@ nav a svg .sd-material-icon {
 
 .sd-card .sd-card-body .sd-card-title {
     font-weight: 600 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: -0.86px !important;
+    line-height: 1.5rem !important;
 }
 
 .sd-card .sd-card-body .sd-card-text {
     color: hsl(var(--muted-foreground));
+    font-size: 0.9rem;
 }
 
 .sd-stretched-link {
