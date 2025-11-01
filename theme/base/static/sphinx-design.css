@@ -19,6 +19,10 @@
     margin: 2rem 0;
 }
 
+.sd-card-body {
+    padding-inline: 1rem;
+}
+
 .sd-card-hover:hover,
 .sd-card-body:hover {
     border-color: hsl(var(--border));
@@ -51,7 +55,7 @@ details.sd-dropdown summary.sd-summary-title svg {
 
 .sd-tab-set {
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 2.5rem;
 }
 
 .sd-tab-content {
@@ -132,7 +136,7 @@ details.sd-dropdown summary:focus {
 }
 
 div.sd-summary-content.sd-card-body {
-    padding: 1rem 0;
+    padding: 2rem 0;
 }
 
 .sd-shadow-sm {
@@ -203,31 +207,32 @@ nav a svg .sd-material-icon {
     border-bottom: none;
 }
 
-.sd-card .sd-card-header {
+.sd-card-header {
     color: hsl(var(--muted-foreground));
     padding: 0 1rem;
     border: none;
+    margin-top: 1rem;
 }
 
-.sd-card .sd-card-header:first-child {
+.sd-card-header:first-child {
     border-radius: 0;
 }
 
-.sd-card .sd-card-body .sd-card-title {
+.sd-card-title {
     font-weight: 600 !important;
     font-size: 1.25rem !important;
     letter-spacing: -0.86px !important;
     line-height: 1.5rem !important;
-}
-
-.sd-card-title {
     margin-bottom: -0.5rem;
 }
 
-.sd-card .sd-card-text:last-of-type {
-    margin-top: 1rem !important;
+.sd-card-text {
     color: hsl(var(--muted-foreground));
     font-size: 0.9rem;
+}
+
+.sd-card-title + .sd-card-text {
+    margin-top: 1rem;
 }
 
 .sd-stretched-link {

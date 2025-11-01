@@ -124,9 +124,6 @@ you. It doesn't need to be just about the tech either.
 
 Also, I'm a huge film nerd and I enjoy memes.
 
-.. _NumPy: https://numpy.org/
-.. _PyTorch: https://pytorch.org/
-.. _Pygame: https://pygame.org/
 .. _Subject-matter expert: https://en.wikipedia.org/wiki/Subject-matter_expert
 
 .. toctree::
