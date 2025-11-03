@@ -1,17 +1,17 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 05 September, 2025
-.. Last updated on: 01 November, 2025
+.. Last updated on: 02 November, 2025
 
 :og:title: The best YouTube has to Offer
 :og:description: A curated list of my favourite YouTube videos that I've found
     over the years, good, bad, and weird!
 :og:type: article
-:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+:og:image: https://raw.githubusercontent.com/xames3/xa/main/docs/source/
     assets/opengraph/best-of-youtube.jpg
-:fb:title: Got a cracking video recommendation?
-:fb:description: Did you enjoy any of them? Or better yet, do you have a
+:prompt: Got a cracking video recommendation?
+:promptdesc: Did you enjoy any of them? Or better yet, do you have a
     must-see video I should add to my list?
-:fb:submit: Send a recommendation
+:submitbtn: Send a recommendation
 
 .. _miscellany-youtube-videos:
 
@@ -79,7 +79,7 @@ computer science, and more.
             in my software engineering journey and I've used and experimented
             with the concepts discussed in these videos.
 
-            .. grid:: 2
+            .. grid:: 3
 
                 .. grid-item::
 
@@ -412,7 +412,7 @@ computer science, and more.
             They've been super duper inspirational and have helped me navigate
             and understand the industry better.
 
-            .. grid:: 2
+            .. grid:: 3
 
                 .. grid-item::
 
@@ -531,7 +531,7 @@ computer science, and more.
             scientific phenomena or sometimes just marvel how amazing
             mathematics can be.
 
-            .. grid:: 2
+            .. grid:: 3
 
                 .. grid-item::
 
@@ -689,7 +689,7 @@ plain weird and cringe.
             mix of stand-up comedy, sketches, parodies, and of course, Family
             Guy. They never fail to make me laugh and cringe.
 
-            .. grid:: 2
+            .. grid:: 3
 
                 .. grid-item::
 
@@ -827,7 +827,7 @@ plain weird and cringe.
                 cup of tea. They're paired with dark-edgy humour. Viewer
                 discretion is advised.
 
-            .. grid:: 2
+            .. grid:: 3
 
                 .. grid-item::
 
@@ -937,7 +937,7 @@ of watching it all the more magical.
             that goes into creating them. These videos dive into the
             nitty-gritty of how movies are made.
 
-            .. grid:: 2
+            .. grid:: 3
 
                 .. grid-item::
 

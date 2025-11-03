@@ -1,15 +1,15 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 01 November, 2025
+.. Last updated on: 02 November, 2025
 
 :orphan:
 :og:title: Akshay's Corner
-:og:description: A corner for studying, mentorship, and resourceful teaching
+:og:description: A corner on the internet.
 :og:type: website
-:fb:title: What do you think?
-:fb:description: I'd genuinely love to hear your suggestions and takes, or
-    even a recommendation for a great film!
-:fb:submit: Share your thoughts
+:prompt: What do you think?
+:promptdesc: I'd genuinely love to hear your suggestions and takes, or even a
+    recommendation for a great film!
+:submitbtn: Share your thoughts
 
 .. _home-page:
 

@@ -1,17 +1,17 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 01 March, 2025
-.. Last updated on: 01 November, 2025
+.. Last updated on: 02 November, 2025
 
 :og:title: Why write xsNumPy?
 :og:description: Journey of building a lightweight, pure-python implementation
     of NumPy's core features
 :og:type: article
-:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+:og:image: https://raw.githubusercontent.com/xames3/xa/main/docs/source/
     assets/opengraph/matmul-confusion-meme.jpg
-:fb:title: Have you rebuilt something just to learn?
-:fb:description: If you've cracked open an industry standard to truly master
+:prompt: Have you rebuilt something just to learn?
+:promptdesc: If you've cracked open an industry standard to truly master
     it, I'd love to hear your experiences.
-:fb:submit: Share your "aha" moment
+:submitbtn: Share your "aha" moment
 
 .. _project-building-xsnumpy:
 
