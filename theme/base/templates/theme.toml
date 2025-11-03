@@ -1,0 +1,8 @@
+[theme]
+inherit = "basic"
+stylesheets = [ "theme.css" ]
+pygments_style = { default = "default" }
+
+[options]
+dark_logo = ""
+light_logo = ""

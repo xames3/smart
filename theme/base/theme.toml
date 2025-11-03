@@ -1,9 +1,0 @@
-[theme]
-inherit = "basic"
-stylesheets = [ "smart.css" ]
-pygments_style = { default = "default" }
-sidebars = [ "sidebar_urls.html.jinja", "sidebar_toc.html.jinja" ]
-
-[options]
-dark_logo = ""
-light_logo = ""

@@ -1,17 +1,16 @@
 """\
-Studying, Mentorship, And Resourceful Teaching Configuration
-===========================================================
+Akshay's Corner Configuration
+=============================
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 20 October, 2025
+Last updated on: 02 November, 2025
 
-This file contains the configuration settings for building SMART,
-Study, Mentorship, And Resourceful Teaching website using Sphinx, a
-popular Python documentation tool. Sphinx is a powerful documentation
-generator that makes it easy to create high quality technical
-documentation for technical projects. I, however will be using it as
-teaching and learning platform.
+This file contains the configuration settings for building my static
+website using Sphinx, a popular Python documentation tool. Sphinx is a
+powerful documentation generator that makes it easy to create high
+quality technical documentation for technical projects. I, however will
+be using it as teaching and learning platform.
 
 .. versionadded:: 22.2.2025
 
@@ -66,7 +65,6 @@ teaching and learning platform.
         options instead of custom `website_options`.
     [2] The theme now heavily relies on using `html_context` for passing
         elements through it making them accessible for all pages.
-
 """
 
 from __future__ import annotations
@@ -74,8 +72,6 @@ from __future__ import annotations
 import os
 import typing as t
 from datetime import datetime as dt
-
-from markupsafe import Markup
 
 from theme import version as theme_version
 
@@ -86,7 +82,7 @@ if t.TYPE_CHECKING:
 project: t.Final[str] = "Akshay's Corner"
 author: t.Final[str] = "Akshay Mestry"
 project_copyright: str = f"© {dt.now().year} {author}."
-source: t.Final[str] = "https://github.com/xames3/smart"
+source: t.Final[str] = "https://github.com/xames3/xa"
 email: t.Final[str] = "xa@mes3.dev"
 version: str = theme_version
 
@@ -109,19 +105,11 @@ nitpicky: bool = True
 exclude_patterns: Sequence[str] = ["_build"]
 smartquotes: bool = False
 
-html_theme: t.Final[str] = "smart"
+html_theme: t.Final[str] = "theme"
 html_title: str = "MES"
-html_baseurl: t.Final[str] = "https://smart.mes3.dev/"
+html_baseurl: t.Final[str] = "https://xa.mes3.dev/"
 html_context: dict[str, t.Any] = {
     "add_copy_to_headerlinks": True,
-    "header_buttons": {
-        "Sponsor on GitHub": {
-            "link": "https://github.com/sponsors/xames3",
-            "icon": Markup(
-                "<i class='fa-regular fa-heart' aria-hidden='true'></i>"
-            ),
-        }
-    },
     "fa_icons": {
         "breadcrumb_home": "fa-regular fa-house",
         "breadcrumb_separator_child": "fa-solid fa-angle-right",
@@ -166,7 +154,7 @@ intersphinx_mapping: dict[str, tuple[str, None]] = {
     "torch": ("https://pytorch.org/docs/stable/", None),
 }
 
-ogp_site_name: t.Final[str] = "Studying, Mentorship, And Resourceful Teaching"
+ogp_site_name: str = project
 ogp_site_url: t.Final[str] = html_baseurl
 ogp_social_cards: dict[str, str | bool] = {
     "site_url": html_baseurl,
@@ -178,7 +166,7 @@ ogp_enable_meta_description: bool = True
 docsearch_app_id: str = os.getenv("DOCSEARCH_APP_ID", "")
 docsearch_api_key: str = os.getenv("DOCSEARCH_API_KEY", "")
 docsearch_index_name: str = os.getenv("DOCSEARCH_INDEX_NAME", "")
-docsearch_container: t.Final[str] = "#smart-search"
+docsearch_container: t.Final[str] = "#xa-search"
 docsearch_placeholder: t.Final[str] = "Search"
 docsearch_missing_results_url: str = source + "/issues/new?title=${query}"
 

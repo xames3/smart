@@ -1,12 +1,12 @@
 # =============================================================================
-# SMART Makefile
+# Custom Makefile
 # 
 # Author: Akshay Mestry <xa@mes3.dev>
 # Created on: 22 February, 2025
-# Last updated on: 15 October, 2025
+# Last updated on: 02 November, 2025
 # 
 # This Makefile provides a comprehensive set of commands (targets) for building
-# and testing the SMART website.
+# and testing my website.
 # =============================================================================
 
 # === CONFIGURATIONS ==========================================================
@@ -70,7 +70,7 @@ help: ## Show this help and list available targets.
 		sort | \
 		awk 'BEGIN {FS = ":.*## *"} {printf "  $(COLOUR_BLUE)%-$(TARGET_PADDING)s$(COLOUR_RESET) %s\n", $$1, $$2}'
 	@echo "\n$(COLOUR_DIM)For executing a particular target, run 'make <target>'.$(COLOUR_RESET)"
-	@echo "$(COLOUR_DIM)Read complete documentation at: https://github.com/xames3/smart.$(COLOUR_RESET)"
+	@echo "$(COLOUR_DIM)Read complete documentation at: https://github.com/xames3/xa.$(COLOUR_RESET)"
 
 clean: ## Remove build artifacts and temporary directories.
 	@printf "$(COLOUR_YELLOW)[CLEAN]$(COLOUR_RESET) Removing $(OUTPUT_DIR) directory... "

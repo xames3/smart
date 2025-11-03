@@ -3,15 +3,15 @@ requires = [ "setuptools", "setuptools-scm" ]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "smart"
+name = "theme"
 dynamic = [ "dependencies", "version" ]
 authors = [
     { name = "Akshay Mestry", email = "xa@mes3.dev" }
 ]
-description = "Studying, Mentorship, And Resourceful Teaching"
+description = "Akshay's corner on the internet."
 readme = "README.rst"
 requires-python = ">=3.13"
-keywords = [ "smart", "education", "learning", "sphinx", "python" ]
+keywords = [ "theme", "education", "learning", "sphinx", "python" ]
 license.file = "LICENSE"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -26,13 +26,13 @@ classifiers = [
 ]
 
 [project.urls]
-homepage = "https://github.com/xames3/smart/"
-documentation = "https://github.com/xames3/smart/"
-repository = "https://github.com/xames3/smart"
-issues = "https://github.com/xames3/smart/issues"
+homepage = "https://github.com/xames3/xa/"
+documentation = "https://github.com/xames3/xa/"
+repository = "https://github.com/xames3/xa"
+issues = "https://github.com/xames3/xa/issues"
 
 [project.entry-points."sphinx.html_themes"]
-smart = "theme"
+theme = "theme"
 
 [tool.setuptools]
 packages = ["theme"]
@@ -284,7 +284,7 @@ min_version = "4.0"
 description = "Run linting with ruff"
 deps = [ "ruff>=0.12.7" ]
 commands = [
-  [ "ruff", "check", "theme", "docs/source/conf.py", "--diff" ],
+  [ "ruff", "check", ".", "--diff" ],
 ]
 
 [tool.tox.env.format]
@@ -293,8 +293,8 @@ deps = [
   "ruff>=0.12.7",
 ]
 commands = [
-  [ "ruff", "format", "theme", "docs/source/conf.py" ],
-  [ "ruff", "check", "theme", "docs/source/conf.py", "--fix" ],
+  [ "ruff", "format", "." ],
+  [ "ruff", "check", ".", "--fix" ],
 ]
 
 [tool.tox.env.typecheck]
@@ -310,13 +310,13 @@ deps = [
   "types-requests",
 ]
 commands = [
-  [ "mypy", "theme", "docs/source/conf.py", "--config-file", "pyproject.toml", "--color-output", "--show-error-codes" ],
+  [ "mypy", "theme/", "docs/source/conf.py", "--config-file", "pyproject.toml", "--color-output", "--show-error-codes" ],
 ]
 
 [tool.tox.env.website]
 description = "Run HTML, CSS, and JS linting with djlint"
 deps = [ "djlint==1.36.4" ]
 commands = [
-  [ "djlint", "theme/", "docs/source/assets/html", "-e", "html", "--reformat" ],
-  [ "djlint", "theme/", "-e", "html.jinja", "--reformat" ],
+  [ "djlint", "theme/base/templates", "docs/source/assets/html", "-e", "html", "--reformat" ],
+  [ "djlint", "theme/base/templates", "-e", "html.jinja", "--reformat" ],
 ]
