@@ -372,6 +372,7 @@ samp {
 .site-sidebar__brand {
     display: flex;
     align-items: center;
+    margin-top: -0.4rem;
     gap: 0.75rem;
     text-decoration: none;
     padding-top: 0rem !important;
@@ -1245,7 +1246,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     .site-sidebar--visible {
         animation: site-sidebar-bounce-in calc(var(--duration-normal) * 1.15) var(--ease-out-back);
         animation-fill-mode: forwards;
-        width: 300px;
+        width: 100%;
     }
 
     .container .literal-block-wrapper {
@@ -1745,6 +1746,7 @@ html[data-theme="dark"] .site-header__logo-image--light {
 .site-sidebar__brand-title,
 .site-header__title {
     font-weight: 600;
+    margin-top: 0.3rem;
 }
 
 .site-sidebar__brand-title::after,
@@ -2777,6 +2779,10 @@ a[data-tooltip].show-tooltip::after {
 
 .site-github-repository__name {
     color: hsl(var(--muted-foreground)) !important;
+}
+
+.site-github-repository__name:hover {
+    color: hsl(var(--foreground)) !important;
 }
 
 .site-github-repository__name::before {
