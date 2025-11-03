@@ -1,14 +1,13 @@
 """\
-SMART Sphinx Theme Video Directive
-==================================
+Video Directive
+===============
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 22 October, 2025
+Last updated on: 02 November, 2025
 
-This module defines a custom `video` directive for the SMART Sphinx
-Theme. The directive allows authors to embed a video directly within
-their documentation.
+This module defines a custom `video` directive for this sphinx theme. The
+directive allows embedding a video directly within the document.
 
 The `video` directive is designed to extend reStructuredText (rST)
 capabilities by injecting structured metadata about the content, which
@@ -23,13 +22,6 @@ follows::
 
 The above snippet will be processed and rendered according to the
 theme's Jinja2 template, producing a final HTML output.
-
-.. note::
-
-    This directive is exclusive to the SMART Sphinx Theme. If you
-    switch to a different theme, the behavior or availability of this
-    directive may change. Please refer to the specific theme's
-    documentation for further information.
 """
 
 from __future__ import annotations
@@ -47,7 +39,8 @@ if t.TYPE_CHECKING:
 
 name: t.Final[str] = "video"
 here: str = p.dirname(__file__)
-html = p.join(p.abspath(p.join(here, "../base")), "video.html.jinja")
+templates: str = "../base/templates"
+html = p.join(p.abspath(p.join(here, templates)), "video.html.jinja")
 
 with open(html) as f:
     template = jinja2.Template(f.read())

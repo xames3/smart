@@ -1,10 +1,10 @@
 <!--
-SMART Sphinx Theme Base Template
-================================
+Base Layout Template
+====================
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 22 October, 2025
+Last updated on: 02 November, 2025
 -->
 {%- set lang_attr = "en" if language == None else (language|replace('_','-')) -%}
 <!DOCTYPE html>
@@ -129,11 +129,9 @@ Last updated on: 22 October, 2025
                 {%- endblock header %}
                 <div class="site-shell__main">
                     <div class="site-layout container site-layout--has-secondary">
-                        {%- block sidebar %}
-                            {%- if sidebars|length > 0 %}
-                                {%- include "sidebar.html.jinja" %}
-                            {%- endif %}
-                        {%- endblock sidebar %}
+                        {%- block left_sidebar %}
+                            {%- include "left_sidebar.html.jinja" %}
+                        {%- endblock left_sidebar %}
                         {%- block main %}
                             <main class="site-layout__content">
                                 {%- block body %}{%- endblock %}
@@ -143,7 +141,7 @@ Last updated on: 22 October, 2025
                                 </main>
                             {%- endblock main %}
                             {%- block right_sidebar %}
-                                {%- include "toc.html.jinja" %}
+                                {%- include "right_sidebar.html.jinja" %}
                             {%- endblock right_sidebar %}
                         </div>
                     </div>

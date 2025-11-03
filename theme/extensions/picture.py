@@ -1,14 +1,14 @@
 """\
-SMART Sphinx Theme Picture Directive
-====================================
+Picture Directive
+=================
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 02 September, 2025
-Last updated on: 29 October, 2025
+Last updated on: 02 November, 2025
 
-This module defines a custom `picture` directive for the SMART Sphinx
-Theme. The directive allows authors to embed and render images specific
-to the current colour mode of their documentation.
+This module defines a custom `picture` directive for this sphinx theme.
+The directive allows embedding and rendering images specific to the
+document's current colour mode.
 
 The `picture` directive is designed to extend reStructuredText (rST)
 capabilities by injecting structured metadata about the content, which
@@ -26,13 +26,6 @@ follows::
 
 The above snippet will be processed and rendered according to the
 theme's Jinja2 template, producing a final HTML output.
-
-.. note::
-
-    This directive is exclusive to the SMART Sphinx Theme. If you
-    switch to a different theme, the behavior or availability of this
-    directive may change. Please refer to the specific theme's
-    documentation for further information.
 
 .. versionchanged:: 19.10.2025
 
@@ -58,7 +51,8 @@ if t.TYPE_CHECKING:
 
 name: t.Final[str] = "picture"
 here: str = p.dirname(__file__)
-html = p.join(p.abspath(p.join(here, "../base")), "picture.html.jinja")
+templates: str = "../base/templates"
+html = p.join(p.abspath(p.join(here, templates)), "picture.html.jinja")
 
 with open(html) as f:
     template = jinja2.Template(f.read())

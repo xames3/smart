@@ -577,26 +577,18 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     outline-offset: 2px;
 }
 
-.site-sidebar__mobile-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    font-weight: 500;
-}
-
-@media (min-width: 768px) {
-    .site-sidebar__mobile-links {
-        display: none;
-    }
-}
-
 .site-sidebar__mobile-list {
     list-style: none;
-    margin: 0;
+    margin-top: 1.5rem !important;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+}
+
+.site-sidebar__mobile-item {
+    color: hsl(var(--muted-foreground));
+    transition: color var(--duration-normal) var(--ease-in-out);
 }
 
 .site-sidebar__mobile-link {
@@ -607,6 +599,8 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     transition: color var(--duration-fast) var(--ease-in-out);
 }
 
+.site-sidebar__mobile-item:hover,
+.site-sidebar__mobile-item:focus-visible,
 .site-sidebar__mobile-link:hover,
 .site-sidebar__mobile-link:focus-visible {
     color: hsl(var(--accent-foreground));
@@ -924,24 +918,26 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
+    letter-spacing: -0.5px;
+    font-family: "Geist Mono", monospace;
 }
 
 .site-youtube-card__title {
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     line-clamp: 1;
-    color: hsl(var(--foreground));
+    color: hsl(var(--muted-foreground));
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .site-youtube-card__channel {
-    color: hsl(var(--muted-foreground));
-    font-size: .875rem;
+    color: hsl(var(--foreground));
+    font-size: .8rem;
     line-height: 1.25rem;
     margin: 0 1rem 1.25rem 0 !important;
 }
@@ -1756,11 +1752,12 @@ html[data-theme="dark"] .site-header__logo-image--light {
     content: "3";
     font-size: x-small;
     padding: 0rem 0.15rem;
-    vertical-align: super;
-    margin-left: 0.15rem;
+    margin-left: 0.05rem;
     border: 1px solid hsl(var(--foreground));
     border-radius: 0.25rem;
     color: inherit;
+    position: relative;
+    bottom: 0.15rem;
 }
 
 @media (min-width: 640px) {
@@ -1849,7 +1846,6 @@ html[data-theme="dark"] .site-header__logo-image--light {
 }
 
 .site-header__search {
-    flex: 1 1 320px;
     align-items: center;
 }
 
@@ -1902,21 +1898,24 @@ html[data-theme="dark"] .site-header__theme-toggle-icon--dark {
     display: inline-flex;
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 0.5rem;
-    padding: 0.2rem 0.3rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
     background-color: hsl(var(--light-accent));
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    color: hsl(var(--muted-foreground));
+    transition: background-color var(--duration-normal) var(--ease-in-out), color var(--duration-normal) var(--ease-in-out), box-shadow var(--duration-normal) var(--ease-in-out), transform var(--duration-normal) var(--ease-in-out);
+}
+
+.site-header__icon-link:hover,
+.site-header__icon-link:focus-visible {
+    color: hsl(var(--accent-foreground));
 }
 
 .is-active {
     transform: translateY(0);
-}
-
-.site-header__icon-link .fa-heart {
-    color: hsl(324, 54%, 49%);
-}
-
-.site-header__icon-link:hover .fa-heart,
-.site-header__icon-link:focus-visible .fa-heart {
-    font: var(--fa-font-solid);
 }
 
 /* Inline code */
@@ -2767,7 +2766,7 @@ a[data-tooltip].show-tooltip::after {
     cursor: pointer;
 }
 
-.sd-card-text + .site-github-repository {
+.sd-card-text+.site-github-repository {
     margin-top: 1rem;
 }
 

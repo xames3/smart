@@ -1,23 +1,24 @@
 """\
-SMART Sphinx Theme Utilities
-============================
+Theme Utilities
+===============
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 20 October, 2025
+Last updated on: 02 November, 2025
 
 This module defines a collection of utility functions used for
-customising the SMART Sphinx Theme. These utilities focus on enhancing
-the post-processing of the generated HTML output, as well as providing
+customising this sphinx theme. These utilities focus on enhancing the
+post-processing of the generated HTML output, as well as providing
 additional support for interactive elements, theme options, and other
-dynamic behaviors. The functionality provided includes handling
-collapsible table of contents (ToC), scrollspy support, removal of
-unnecessary elements, and custom event handling for theme-specific
-features.
+dynamic behaviors.
 
-The goal of this module is to ensure that the SMART Sphinx Theme
-produces clean, efficient, and interactive HTML documentation by
-leveraging Sphinx's internal APIs and dynamic JavaScript bindings.
+The functionality provided includes handling collapsible table of
+contents (ToC), scrollspy support, removal of unnecessary elements, and
+custom event handling for theme-specific features.
+
+The goal of this module is to ensure that this theme produces clean,
+efficient, and interactive HTML documentation by leveraging Sphinx's
+internal APIs and dynamic JavaScript bindings.
 
 .. deprecated:: 19.10.2025
 

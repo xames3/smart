@@ -1,14 +1,14 @@
 """\
-SMART Sphinx Theme GitHub Repository Directive
-==============================================
+GitHub Repository Directive
+===========================
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 29 October, 2025
-Last updated on: 29 October, 2025
+Last updated on: 02 November, 2025
 
-This module defines a custom `repository` directive for the SMART Sphinx
-Theme. The directive allows authors to provide details of their GitHub
-repository in their documentation.
+This module defines a custom `repository` directive for this sphinx
+theme. The directive allows embedding GitHub repository details on the
+document.
 
 The `repository` directive is designed to extend reStructuredText (rST)
 capabilities by injecting structured metadata about the content, which
@@ -20,18 +20,9 @@ follows::
     .. code-block:: rst
 
         .. repository:: xames3/smart
-            :stars:
-            :issues:
 
 The above snippet will be processed and rendered according to the
 theme's Jinja2 template, producing a final HTML output.
-
-.. note::
-
-    This directive is exclusive to the SMART Sphinx Theme. If you
-    switch to a different theme, the behavior or availability of this
-    directive may change. Please refer to the specific theme's
-    documentation for further information.
 """
 
 from __future__ import annotations
@@ -49,7 +40,8 @@ if t.TYPE_CHECKING:
 
 name: t.Final[str] = "repository"
 here: str = p.dirname(__file__)
-html = p.join(p.abspath(p.join(here, "../base")), "repository.html.jinja")
+templates: str = "../base/templates"
+html = p.join(p.abspath(p.join(here, templates)), "repository.html.jinja")
 
 with open(html) as f:
     template = jinja2.Template(f.read())

@@ -1,12 +1,12 @@
 """\
-SMART Sphinx Theme Extension Manager
-====================================
+Theme Extension Manager
+=======================
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 29 October, 2025
+Last updated on: 02 November, 2025
 
-This module manages SMART Sphinx Theme's custom directive and roles.
+This module manages this theme's custom directive and roles.
 
 .. deprecated:: 19.10.2025
 

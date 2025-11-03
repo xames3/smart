@@ -1,20 +1,13 @@
 """\
-SMART Sphinx Theme Custom Roles
-===============================
+Custom Roles
+============
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 17 October, 2025
+Last updated on: 02 November, 2025
 
-This module provides custom roles for the SMART Sphinx Theme, that
-allows me, the author to add features to the documentation.
-
-.. note::
-
-    This module is designed specifically for the SMART Sphinx Theme,
-    hence the role may not be available or may be implemented
-    differently for different themes. Please consult the documentation
-    for more information.
+This module provides custom roles for this sphinx theme that provides a
+way to add features to the document.
 """
 
 from __future__ import annotations
