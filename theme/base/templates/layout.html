@@ -12,7 +12,7 @@ Last updated on: 02 November, 2025
       {% if sphinx_version_tuple>= (7, 2) %}data-content_root="{{ content_root }}"{% endif %}
       :data-theme="darkMode"
       x-data="{darkMode: localStorage.getItem('darkMode') ?? 'dark'}"
-      x-init="if (!localStorage.getItem('darkMode')) localStorage.setItem('darkMode', darkMode); $watch('darkMode', val => { if (window.smartApplyTheme) smartApplyTheme(val); else { document.documentElement.classList.add('theme-transition'); requestAnimationFrame(()=>{ document.documentElement.setAttribute('data-theme', val); setTimeout(()=>document.documentElement.classList.remove('theme-transition'), 700); }); } localStorage.setItem('darkMode', val); })"
+      x-init="if (!localStorage.getItem('darkMode')) localStorage.setItem('darkMode', darkMode); $watch('darkMode', val => { if (window.simpleApplyTheme) simpleApplyTheme(val); else { document.documentElement.classList.add('theme-transition'); requestAnimationFrame(()=>{ document.documentElement.setAttribute('data-theme', val); setTimeout(()=>document.documentElement.classList.remove('theme-transition'), 700); }); } localStorage.setItem('darkMode', val); })"
       class="scroll-smooth"
       :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
       x-effect="document.documentElement.setAttribute('data-theme', darkMode)">

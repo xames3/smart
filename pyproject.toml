@@ -3,15 +3,15 @@ requires = [ "setuptools", "setuptools-scm" ]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "smart"
+name = "theme"
 dynamic = [ "dependencies", "version" ]
 authors = [
     { name = "Akshay Mestry", email = "xa@mes3.dev" }
 ]
-description = "Studying, Mentorship, And Resourceful Teaching"
+description = "Akshay's corner on the internet."
 readme = "README.rst"
 requires-python = ">=3.13"
-keywords = [ "smart", "education", "learning", "sphinx", "python" ]
+keywords = [ "theme", "education", "learning", "sphinx", "python" ]
 license.file = "LICENSE"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -26,13 +26,13 @@ classifiers = [
 ]
 
 [project.urls]
-homepage = "https://github.com/xames3/smart/"
-documentation = "https://github.com/xames3/smart/"
-repository = "https://github.com/xames3/smart"
-issues = "https://github.com/xames3/smart/issues"
+homepage = "https://github.com/xames3/xa/"
+documentation = "https://github.com/xames3/xa/"
+repository = "https://github.com/xames3/xa"
+issues = "https://github.com/xames3/xa/issues"
 
 [project.entry-points."sphinx.html_themes"]
-smart = "theme"
+theme = "theme"
 
 [tool.setuptools]
 packages = ["theme"]

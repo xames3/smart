@@ -84,7 +84,7 @@ if t.TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 version: str = "02.11.2025"
-theme_name: t.Final[str] = "smart"
+theme_name: t.Final[str] = "theme"
 theme_path = p.join(p.abspath(p.dirname(__file__)), "base", "templates")
 supported_extensions: t.Sequence[str] = (
     "sphinx_carousel.carousel",
@@ -181,8 +181,8 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
     app.add_html_theme(theme_name, theme_path)
     app.add_css_file("sphinx-design.css", priority=800)
     app.add_css_file("doc-search.css", priority=800)
+    app.add_js_file("base.js", loading_method="defer")
     app.add_js_file("theme.js", loading_method="defer")
-    app.add_js_file("smart.js", loading_method="defer")
     for role in inspect.getmembers(roles, inspect.isfunction):
         rst.roles.register_local_role(*role)
     for directive in directives:

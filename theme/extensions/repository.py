@@ -19,7 +19,7 @@ follows::
 
     .. code-block:: rst
 
-        .. repository:: xames3/smart
+        .. repository:: xames3/xa
 
 The above snippet will be processed and rendered according to the
 theme's Jinja2 template, producing a final HTML output.
