@@ -1,17 +1,17 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 18 April, 2025
-.. Last updated on: 01 November, 2025
+.. Last updated on: 02 November, 2025
 
 :og:title: PyTorch... but much slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
     it's built!
 :og:type: article
-:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+:og:image: https://raw.githubusercontent.com/xames3/xa/main/docs/source/
     assets/media/slowtorch-meme.jpg
-:fb:title: Is slow learning the "key"?
-:fb:description: I wrote SlowTorch to truly understand the magic behind
+:prompt: Is slow learning the "key"?
+:promptdesc: I wrote SlowTorch to truly understand the magic behind
     PyTorch. Have you done anything similar?
-:fb:submit: Tell me your story
+:submitbtn: Tell me your story
 
 .. _project-slow-burning-torch:
 

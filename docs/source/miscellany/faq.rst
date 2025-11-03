@@ -1,13 +1,13 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 October, 2025
-.. Last updated on: 01 November, 2025
+.. Last updated on: 02 November, 2025
 
 :og:title: FAQs
 :og:description: Frequently Asked Questions about me and this website
 :og:type: article
-:fb:title: Do you've any question for me?
-:fb:description: Feel free to ask me about things that you're curious about.
-:fb:submit: Send in your question
+:prompt: Do you've any question for me?
+:promptdesc: Feel free to ask me about things that you're curious about.
+:submitbtn: Send in your question
 
 .. _miscellany-faq:
 

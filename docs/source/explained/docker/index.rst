@@ -1,17 +1,17 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 01 November, 2025
+.. Last updated on: 02 November, 2025
 
 :og:title: A week into Docker
 :og:description: Begineer's guide to Docker and containerisation
 :og:type: article
-:og:image: https://raw.githubusercontent.com/xames3/smart/main/docs/source/
+:og:image: https://raw.githubusercontent.com/xames3/xa/main/docs/source/
     assets/opengraph/it-works-on-my-machine-meme.jpg
-:fb:title: But, I'd love to hear from you
-:fb:description: What was the moment that made you realise you needed a tool
+:prompt: But, I'd love to hear from you
+:promptdesc: What was the moment that made you realise you needed a tool
     like Docker? Or if you're new to this, what's the one thing you're hoping
     it'll solve for you?
-:fb:submit: Let me know
+:submitbtn: Let me know
 
 .. _explained-a-week-into-docker:
 
