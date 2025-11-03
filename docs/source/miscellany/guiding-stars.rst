@@ -237,7 +237,7 @@ you've always believed and encouraged me to pursue my dream of earning a PhD
 from Stanford and for that, I'm very grateful.
 
 I know I give you hard time, Fatemeh, but I just have one thing to say...
-**Wowwwwwwwwww**
+Wowwwwwwww
 
 .. _john-komarnicki:
 
