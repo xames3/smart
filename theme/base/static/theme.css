@@ -370,13 +370,9 @@ samp {
 }
 
 .site-sidebar__brand {
-    display: flex;
-    align-items: center;
     margin-top: -0.4rem;
-    gap: 0.75rem;
-    text-decoration: none;
     padding-top: 0rem !important;
-    color: hsl(var(--foreground));
+    padding-left: 0rem !important;
 }
 
 .site-sidebar__brand-image {
@@ -708,7 +704,7 @@ html[data-theme="dark"] .site-sidebar__brand-image--light {
     }
 
     .site-header__search .DocSearch-Button {
-        padding: 0.5rem;
+        padding: 0.65rem;
         justify-content: center;
     }
 
@@ -1705,10 +1701,10 @@ html[data-theme="dark"] .site-header {
 
 .site-header__logo {
     display: inline-flex;
-    align-items: center;
-    column-gap: 0.75rem;
-    text-decoration: none;
-    color: inherit;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.4rem 0.5rem;
 }
 
 .site-header__logo-image {
@@ -1745,21 +1741,34 @@ html[data-theme="dark"] .site-header__logo-image--light {
 
 .site-sidebar__brand-title,
 .site-header__title {
-    font-weight: 600;
-    margin-top: 0.3rem;
+    color: hsl(var(--foreground));
+    font-size: 0.85rem;
+    font-family: "Geist Mono", monospace;
 }
 
-.site-sidebar__brand-title::after,
-.site-header__title::after {
-    content: "3";
-    font-size: x-small;
-    padding: 0rem 0.15rem;
-    margin-left: 0.05rem;
-    border: 1px solid hsl(var(--foreground));
-    border-radius: 0.25rem;
-    color: inherit;
-    position: relative;
-    bottom: 0.15rem;
+.site-sidebar__brand-title::before,
+.site-header__title::before {
+    content: "\f015";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    visibility: visible;
+    font: var(--fa-font-regular);
+}
+
+@media (max-width: 768px) {
+
+    .site-sidebar__brand-title::before,
+    .site-header__title::before {
+        font: var(--fa-font-regular);
+        padding: 0.65rem;
+        font-size: 0.9rem;
+    }
+
+    .site-header__title {
+        display: inline-block;
+        font-size: 0;
+    }
 }
 
 @media (min-width: 640px) {
@@ -1818,13 +1827,12 @@ html[data-theme="dark"] .site-header__logo-image--light {
 
 .site-header__menu-toggle {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.125rem;
     border: none;
-    background: transparent;
-    color: hsl(var(--foreground));
-    transition: background-color var(--duration-fast) var(--ease-in-out), color var(--duration-fast) var(--ease-in-out);
+    background-color: transparent;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    margin: 0;
+    cursor: pointer;
     cursor: pointer;
 }
 
@@ -2803,8 +2811,8 @@ a[data-tooltip].show-tooltip::after {
     margin-right: 0.5rem;
 }
 
-.site-github-repository__issues::before {
-    content: "\e3f9";
+.site-github-repository__forks::before {
+    content: "\e13b";
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     font: var(--fa-font-regular);
