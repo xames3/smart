@@ -4,7 +4,7 @@ Akshay's Corner Configuration
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 22 February, 2025
-Last updated on: 05 November, 2025
+Last updated on: 06 November, 2025
 
 This file contains the configuration settings for building my static
 website using Sphinx, a popular Python documentation tool. Sphinx is a
@@ -73,6 +73,8 @@ import os
 import typing as t
 from datetime import datetime as dt
 
+from markupsafe import Markup
+
 from theme import version as theme_version
 
 
@@ -120,10 +122,10 @@ html_context: dict[str, t.Any] = {
         "previous_button": "fa-solid fa-arrow-left",
     },
     "favicons": {
-        "manifest": "site.webmanifest",
-        "size_16x16": "favicon-16x16.png",
-        "size_180x180": "apple-touch-icon.png",
-        "size_32x32": "favicon-32x32.png",
+        "manifest": "favicons/site.webmanifest",
+        "size_16": "favicons/favicon-16x16.png",
+        "size_32": "favicons/favicon-32x32.png",
+        "size_180": "favicons/apple-touch-icon.png",
     },
     "open_links_in_new_tab": True,
     "project": {
@@ -140,8 +142,23 @@ html_context: dict[str, t.Any] = {
     "show_scrolltop": False,
     "show_sphinx": False,
     "show_toctree": True,
+    "sidebar_buttons": {
+        "Quick chat via Zoom": {
+            "link": "#",
+            "icon": Markup('<i class="fas far fa-video"></i>'),
+            "extras": Markup(
+                'data-cal-link="xames3/quick-chat"'
+                'data-cal-namespace="quick-chat" '
+                'data-cal-config=\'{"layout":"month_view"}\''
+            ),
+        },
+        "Sponsor on GitHub": {
+            "link": "https://github.com/sponsors/xames3",
+            "icon": Markup('<i class="fas far fa-heart"></i>'),
+        },
+    },
 }
-html_favicon: t.Final[str] = "_static/favicon.ico"
+html_favicon: t.Final[str] = "_static/favicons/favicon.ico"
 html_static_path: list[str] = ["_static"]
 html_extra_path: list[str] = ["docutils.conf"]
 html_permalinks_icon: t.Final[str] = ""
