@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 02 November, 2025
+.. Last updated on: 06 November, 2025
 
 :og:title: A week into Docker
 :og:description: Begineer's guide to Docker and containerisation
@@ -16,7 +16,7 @@
 .. _explained-a-week-into-docker:
 
 ===============================================================================
-:octicon:`container` A week into Docker
+:fas:`box-isometric-tape far` A week into Docker
 ===============================================================================
 
 .. author::
@@ -233,26 +233,26 @@ together.
       - Containers
       - Virtual Machines (VMs)
     * - Isolation
-      - :octicon:`check-circle;1em;yellow` Shared OS resources
-      - :octicon:`check-circle-fill;1em;green` Full isolation
+      - :fas:`circle-check far yellow` Shared OS resources
+      - :fas:`circle-check green` Full isolation
     * - Storage
-      - :octicon:`check-circle;1em;yellow` Volatile
-      - :octicon:`check-circle-fill;1em;green` Persistent
+      - :fas:`circle-check far yellow` Volatile
+      - :fas:`circle-check green` Persistent
     * - Resource usage
-      - :octicon:`check-circle-fill;1em;green` Low (efficient)
-      - :octicon:`alert-fill;1em;red` High (CPU, RAM, Storage)
+      - :fas:`circle-check green` Low (efficient)
+      - :fas:`triangle-exclamation red` High (CPU, RAM, Storage)
     * - Size
-      - :octicon:`check-circle-fill;1em;green` Lightweight (MBs)
-      - :octicon:`alert-fill;1em;red` Heavyweight (GBs)
+      - :fas:`circle-check green` Lightweight (MBs)
+      - :fas:`triangle-exclamation red` Heavyweight (GBs)
     * - Startup speed
-      - :octicon:`check-circle-fill;1em;green` Fast (seconds)
-      - :octicon:`check-circle;1em;yellow` Slow (minutes)
+      - :fas:`circle-check green` Fast (seconds)
+      - :fas:`circle-check far yellow` Slow (minutes)
     * - Flexibiltiy
-      - :octicon:`check-circle-fill;1em;green` More flexible migrations
-      - :octicon:`check-circle;1em;yellow` Limited in comparison
+      - :fas:`circle-check green` More flexible migrations
+      - :fas:`circle-check far yellow` Limited in comparison
     * - Scalability
-      - :octicon:`check-circle-fill;1em;green` Inexpensive
-      - :octicon:`alert-fill;1em;red` Costly
+      - :fas:`circle-check green` Inexpensive
+      - :fas:`triangle-exclamation red` Costly
 
 .. _pulling-images-from-the-internet:
 

@@ -146,6 +146,11 @@ div.sd-summary-content.sd-card-body {
 }
 
 .fas,
+.fab {
+    margin-left: -0.15rem;
+    margin-right: 0.15rem;
+}
+
 .sd-octicon,
 .sd-material-icon {
     vertical-align: unset;
@@ -160,10 +165,10 @@ nav a svg .sd-material-icon {
     vertical-align: text-bottom;
 }
 
-.admonition-title .fas,
-.admonition-title .sd-octicon,
-.admonition-title .sd-material-icon {
-    vertical-align: text-top;
+.admonition-title .fas {
+    vertical-align: baseline;
+    margin-inline: 0 !important;
+    margin-right: 0.25rem !important;
 }
 
 .caption-text .fas,
@@ -231,7 +236,7 @@ nav a svg .sd-material-icon {
     font-size: 0.9rem;
 }
 
-.sd-card-title + .sd-card-text {
+.sd-card-title+.sd-card-text {
     margin-top: 1rem;
 }
 

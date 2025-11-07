@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 24 February, 2025
-.. Last updated on: 02 November, 2025
+.. Last updated on: 06 November, 2025
 
 :og:title: Guiding stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -14,7 +14,7 @@
 .. _miscellany-guiding-stars:
 
 ===============================================================================
-:octicon:`star` Guiding stars
+:fas:`sparkles far` Guiding stars
 ===============================================================================
 
 .. author::
@@ -36,7 +36,7 @@ teacher, mentor, and a lifelong learner. Each person mentioned here has left a
 significant mark, and it is through their collective influence that I continue
 to strive, share, and inspire.
 
-.. admonition:: :octicon:`heart-fill` A note of gratitude
+.. admonition:: :fas:`heart mrl-0` A note of gratitude
     :class: unusual-one danger
 
     These reflections aren't exhaustive, nor could they ever be. I've shared
@@ -104,7 +104,7 @@ In every student I guide, I see your spirit reminding me of our last chat...
 
     -- Charlotte Parks, *14 Apr 2020*
 
-Charlotte, thank you for being my Uma. :octicon:`heart-fill;1em;red`
+Charlotte, thank you for being my Uma. :fas:`heart mrl-0 red`
 
 .. _sajith-malayath:
 

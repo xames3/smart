@@ -4,7 +4,7 @@ Left Sidebar Template
 
 Author: Akshay Mestry <xa@mes3.dev>
 Created on: 21 February, 2025
-Last updated on: 02 November, 2025
+Last updated on: 06 November, 2025
 -->
 <aside id="left-sidebar"
        class="site-layout__sidebar site-sidebar site-sidebar--primary"
@@ -45,28 +45,24 @@ Last updated on: 02 November, 2025
                     {{ toctree(titles_only=true, collapse=false) }}
                 {%- endif %}
                 {%- if sidebar_buttons|tobool -%}
+                    <p class="caption"
+                       role="heading">
+                        <span class="caption-text">External Links</span>
+                    </p>
                     <ul class="site-sidebar__mobile-list">
                         {%- for text, url in sidebar_buttons.items() %}
                             {%- if url is mapping %}
                                 <a href="{{ url.link }}"
                                    title="{{ text }}"
                                    rel="noopener nofollow"
-                                   target="_blank"
+                                   target="{{ '' if url.link == '#' else '_blank' }}"
                                    class="site-sidebar__mobile-item">
                                     {% if url.icon %}
                                         {{ url.icon }}
                                     {% else %}
-                                        <svg aria-hidden="true"
-                                             class="sd-octicon sd-octicon-link-external"
-                                             height="1.0em"
-                                             version="1.1"
-                                             viewBox="0 0 16 16"
-                                             width="1.0em">
-                                            <path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z">
-                                            </path>
-                                        </svg>
+                                        <i class="fas fa-arrow-up-right-from-square"></i>
                                     {% endif %}
-                                    <span>{{ text }}</span>
+                                    <span {{ url.extras if url.extras else '' }}>{{ text }}</span>
                                 </a>
                             {% endif %}
                         {%- endfor %}

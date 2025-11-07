@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 01 March, 2025
-.. Last updated on: 02 November, 2025
+.. Last updated on: 06 November, 2025
 
 :og:title: Why write xsNumPy?
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -16,7 +16,7 @@
 .. _project-building-xsnumpy:
 
 ===============================================================================
-:octicon:`beaker` Why write xsNumPy?
+:fas:`flask far` Why write xsNumPy?
 ===============================================================================
 
 .. author::
@@ -120,7 +120,7 @@ using Python's built-in :py:mod:`ctypes` module.
 It wasn't pretty, but it worked.
 
 .. code-block:: python
-    :caption: :octicon:`file-code` `xsnumpy/_core.py`_
+    :caption: :fas:`file-code far` `xsnumpy/_core.py`_
     :linenos:
 
     class ndarray:
