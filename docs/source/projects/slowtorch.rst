@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 18 April, 2025
-.. Last updated on: 02 November, 2025
+.. Last updated on: 06 November, 2025
 
 :og:title: PyTorch... but much slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -16,7 +16,7 @@
 .. _project-slow-burning-torch:
 
 ===============================================================================
-:octicon:`flame` PyTorch... but much slower
+:fas:`fire-flame-curved far` PyTorch... but much slower
 ===============================================================================
 
 .. author::
@@ -34,7 +34,7 @@ understanding the mysteries of arrays, memory buffers, and `broadcasting`_.
 Like I mentioned in :doc:`that story <./xsnumpy>`, it felt like baking a cake
 from scratch, where every ingredient and step mattered.
 
-.. card:: :octicon:`beaker` Why write xsNumPy?
+.. card:: :fas:`flask far` Why write xsNumPy?
     :link: xsnumpy
     :link-type: doc
     :link-alt: Read story
@@ -181,7 +181,7 @@ tensor would have a reference to its parent nodes. This way, I could traverse
 the graph and compute gradients in a more structured way.
 
 .. code-block:: python
-    :caption: :octicon:`file-code` `slowtorch/internal/tensor.py`_
+    :caption: :fas:`file-code far` `slowtorch/internal/tensor.py`_
     :emphasize-lines: 19-21
     :linenos:
 
@@ -223,7 +223,7 @@ tensors with respect to a loss function, and it felt like I had finally
 understood the magic behind PyTorch's autodiff and my small autograd engine was
 working.
 
-.. admonition:: :octicon:`heart-fill` Special shoutout
+.. admonition:: :fas:`heart red mrl-0` Special shoutout
     :class: unusual-one danger
 
     I want to give a special shoutout to my colleague,
@@ -286,7 +286,7 @@ wrapped around classes much like PyTorch.
         its functional form with its backward pass.
 
         .. code-block:: python
-            :caption: :octicon:`file-code` `slowtorch/nn/functional/layer.py`_
+            :caption: :fas:`file-code far` `slowtorch/nn/functional/layer.py`_
             :emphasize-lines: 2,9-10
             :linenos:
 
@@ -354,7 +354,7 @@ wrapped around classes much like PyTorch.
         with its backward pass.
 
         .. code-block:: python
-            :caption: :octicon:`file-code`
+            :caption: :fas:`file-code far`
                 `slowtorch/nn/functional/pointwise.py`_
             :emphasize-lines: 10,13,19
             :linenos:
@@ -426,7 +426,7 @@ wrapped around classes much like PyTorch.
         error (MSE) loss function with its backward pass.
 
         .. code-block:: python
-            :caption: :octicon:`file-code` `slowtorch/nn/functional/loss.py`_
+            :caption: :fas:`file-code far` `slowtorch/nn/functional/loss.py`_
             :emphasize-lines: 2,14-16
             :linenos:
 
@@ -479,19 +479,19 @@ wrapped around classes much like PyTorch.
                 \text{for } x[j], j \neq dim_0, dim_1 \end{cases}`
             * - Reshape (View)
               - :math:`f(x) = x.reshape(shape)`
-              - :octicon:`alert-fill;1em;red` N/A (no backward pass)
+              - :fas:`triangle-exclamation red` N/A (no backward pass)
             * - Unsqueeze
               - :math:`f(x) = x.unsqueeze(dim)`
-              - :octicon:`alert-fill;1em;red` N/A (no backward pass)
+              - :fas:`triangle-exclamation red` N/A (no backward pass)
             * - One Hot Encoding
               - :math:`f(x) = \text{one_hot}(x, classes)`
-              - :octicon:`alert-fill;1em;red` N/A (no backward pass)
+              - :fas:`triangle-exclamation red` N/A (no backward pass)
 
         For example, below is a minimal implementation of the ravel (flatten)
         function with its backward pass.
 
         .. code-block:: python
-            :caption: :octicon:`file-code`
+            :caption: :fas:`file-code far`
                 `slowtorch/nn/functional/mutation.py`_
             :emphasize-lines: 3,7
             :linenos:
@@ -515,7 +515,7 @@ wrapped around classes much like PyTorch.
         SlowTorch parameter.
 
         .. code-block:: python
-            :caption: :octicon:`file-code` `slowtorch/nn/modules/parameter.py`_
+            :caption: :fas:`file-code far` `slowtorch/nn/modules/parameter.py`_
             :linenos:
 
             class Parameter(Tensor):
@@ -542,7 +542,7 @@ wrapped around classes much like PyTorch.
                         raise TypeError("Parameter data must be a tensor")
                     self.storage[:] = value.storage
 
-.. admonition:: :octicon:`heart-fill` Massive thanks
+.. admonition:: :fas:`heart red mrl-0` Massive thanks
     :class: unusual-one danger
 
     I want to thank my friends, :ref:`Sameer <sameer-g-mathad>` and
@@ -577,7 +577,7 @@ class that took a list of parameters and a learning rate, and it had an
 :python:`.step()` method that updated the parameters based on their gradients.
 
 .. code-block:: python
-    :caption: :octicon:`file-code` `slowtorch/optim/optimiser.py`_
+    :caption: :fas:`file-code far` `slowtorch/optim/optimiser.py`_
     :linenos:
 
     class Optimiser:

@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 05 September, 2025
-.. Last updated on: 02 November, 2025
+.. Last updated on: 06 November, 2025
 
 :og:title: The best YouTube has to Offer
 :og:description: A curated list of my favourite YouTube videos that I've found
@@ -16,7 +16,7 @@
 .. _miscellany-youtube-videos:
 
 ===============================================================================
-:octicon:`video` Best of YouTube
+:fas:`tv far` Best of YouTube
 ===============================================================================
 
 .. author::

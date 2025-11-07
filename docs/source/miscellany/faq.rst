@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 October, 2025
-.. Last updated on: 02 November, 2025
+.. Last updated on: 06 November, 2025
 
 :og:title: FAQs
 :og:description: Frequently Asked Questions about me and this website
@@ -12,7 +12,7 @@
 .. _miscellany-faq:
 
 ===============================================================================
-:octicon:`question` FAQs
+:fas:`seal-question far` FAQs
 ===============================================================================
 
 .. author::

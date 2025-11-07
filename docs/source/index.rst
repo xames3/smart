@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 02 November, 2025
+.. Last updated on: 06 November, 2025
 
 :orphan:
 :og:title: Akshay's Corner
@@ -43,7 +43,7 @@ in natural language processing and reinforcement learning.
 Open source
 -------------------------------------------------------------------------------
 
-I :octicon:`heart-fill;1em;red mr-0` Open Source.
+I :fas:`heart mrl-0 red` Open Source.
 
 For me, it is more than a philosophy. It is my personal reminder to make my
 learnings, experiences, and knowledge free and accessible, breaking down
