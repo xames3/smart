@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 18 April, 2025
-.. Last updated on: 06 November, 2025
+.. Last updated on: 08 November, 2025
 
 :og:title: PyTorch... but much slower
 :og:description: PyTorch taught me how to build while SlowTorch taught me how
@@ -107,9 +107,9 @@ for autodiff, which was a new concept for me. I also had to learn how to track
 operations, gradients, and compute them efficiently.
 
 .. rubric:: Read the f*cking docs!
-.. rubric:: PyTorch documentation were super duper helpful in understanding the
-    various implementation details of the :py:class:`tensor <torch.Tensor>`
-    class.
+.. rubric::
+    PyTorch documentation were super duper helpful in understanding the various
+    implementation details of the :py:class:`tensor <torch.Tensor>` class.
     :class: subtitle-text
 
 .. button-link:: https://docs.pytorch.org/docs/stable/

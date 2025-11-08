@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 30 August, 2025
-.. Last updated on: 06 November, 2025
+.. Last updated on: 08 November, 2025
 
 :og:title: A week into Docker
 :og:description: Begineer's guide to Docker and containerisation
@@ -86,8 +86,9 @@ You'll get the same results on your local machine, your friend's machine, or a
 server in the cloud.
 
 .. rubric:: But what did Docker do?
-.. rubric:: Docker was introduced in 2013 and has evolved since then. It solved
-    the classic **"it works on my machine"** problem.
+.. rubric::
+    Docker was introduced in 2013 and has evolved since then. It solved the
+    classic **"it works on my machine"** problem.
     :class: subtitle-text
 
 In the spirit of keeping things simple, I'd say there are two main components
@@ -222,8 +223,9 @@ architecture where you have multiple small, independent services running
 together.
 
 .. rubric:: Containers and VMs, summarised
-.. rubric:: The below table can paint a rough picture why containers are better
-    in some scenarios.
+.. rubric::
+    The below table can paint a rough picture why containers are better in some
+    scenarios.
     :class: subtitle-text
 
 .. list-table::
@@ -273,9 +275,11 @@ I knew I was pulling these containers\* from the internet, but I had no idea
 from where.
 
 .. rubric:: That's when I discovered Docker Hub
-.. rubric:: Docker Hub is a cloud-based registry service where you can find
-    and share **container images**, not containers.
+.. rubric::
+    Docker Hub is a cloud-based registry service where you can find and share
+    **container images**, not containers.
     :class: subtitle-text
+
 .. button-link:: https://hub.docker.com/
     :color: primary
 

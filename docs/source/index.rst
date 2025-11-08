@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 22 February, 2025
-.. Last updated on: 06 November, 2025
+.. Last updated on: 08 November, 2025
 
 :orphan:
 :og:title: Akshay's Corner
@@ -89,13 +89,13 @@ Whether it is breaking down complex machine learning algorithms or explaining
 the nuances of software design, I find joy in making technical concepts
 relatable and easy to grasp.
 
-Early in my software engineering career, I heard a quote from Richard Feynman.
+Early in my software engineering career, I heard a quote:
 
 .. epigraph::
 
     If you want to master something, teach it.
 
-    -- Richard Feynman
+    -- Dr. Richard Feynman
 
 And I absolutely fell in love with this idea. Soon I realised you really can't
 call yourself an SME (`Subject-matter expert`_) until you can teach it to
@@ -132,10 +132,12 @@ Also, I'm a huge film nerd and I enjoy memes.
     :titlesonly:
 
     explained/docker/index
+    explained/eli5/index
 
 .. toctree::
     :caption: Development
     :hidden:
+    :titlesonly:
 
     projects/xsnumpy
     projects/slowtorch
