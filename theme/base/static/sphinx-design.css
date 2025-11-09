@@ -149,7 +149,7 @@ div.sd-summary-content.sd-card-body {
 .fab {
     margin-left: -0.15rem;
     margin-right: 0.15rem;
-    margin-top: 0.15rem;
+    margin-top: 0.1rem;
 }
 
 .sd-octicon,
@@ -296,6 +296,11 @@ nav a svg .sd-material-icon {
 
     details .sd-card-header {
         margin-top: 0 !important;
+    }
+
+    .fas,
+    .fab {
+        margin-top: 0;
     }
 }
 

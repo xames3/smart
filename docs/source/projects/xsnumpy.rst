@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 01 March, 2025
-.. Last updated on: 06 November, 2025
+.. Last updated on: 08 November, 2025
 
 :og:title: Why write xsNumPy?
 :og:description: Journey of building a lightweight, pure-python implementation
@@ -61,7 +61,7 @@ Building with a purpose
 Once I was motivated enough to learn the implementation details of NumPy, I was
 ready to build my own scrappy version. I didn't set out to create something
 that'll rival NumPy; I mean, NumPy's a bloody powerhouse, built over decades of
-work by incredible minds in math and science, plus tons of optimisations. I
+work by incredible minds in maths and science, plus tons of optimisations. I
 couldn't possibly compete with that.
 
 I just wanted to break free from treating these libraries as black boxes and
@@ -171,8 +171,9 @@ It wasn't pretty, but it worked.
                 self._data = Buffer.from_buffer(buffer)
 
 .. rubric:: Keeping things simple
-.. rubric:: I've intentionally removed a lot of details to keep things simple.
-    Check out the complete implementation of **ndarray** on GitHub.
+.. rubric::
+    I've intentionally removed a lot of details to keep things simple. Check
+    out the complete implementation of **ndarray** on GitHub.
     :class: subtitle-text
 
 .. button-link:: https://github.com/xames3/xsnumpy/blob/main/xsnumpy/_core.py
@@ -387,7 +388,7 @@ Small victories, big lessons
 
 Here comes December. I was in my winter break. I was fully committed to this
 project because I didn't have to attend uni. After days of debugging, I
-realised that my vector operations weren't just about getting the math right.
+realised that my vector operations weren't just about getting the maths right.
 
 They were about thinking like NumPy:
 

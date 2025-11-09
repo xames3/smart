@@ -1,6 +1,6 @@
 .. Author: Akshay Mestry <xa@mes3.dev>
 .. Created on: 24 February, 2025
-.. Last updated on: 06 November, 2025
+.. Last updated on: 08 November, 2025
 
 :og:title: Guiding stars
 :og:description: Expressing heartfelt gratitude to the heros who shaped my
@@ -133,9 +133,9 @@ Your words have still stayed with me, shaping my approach to both work and
 life. Saj, you've been more than a mentor; you've been my guide, my `Mimir`_.
 
 .. rubric:: Roll credits, my supporting cast
-.. rubric:: I'm a big cinephile and I believe life, much like cinema, is never
-    a solo act, but in the collective effort of those who work behind the
-    scenes.
+.. rubric::
+    I'm a big cinephile and I believe life, much like cinema, is never a solo
+    act, but in the collective effort of those who work behind the scenes.
     :class: subtitle-text
 
 My journey has always been shaped by an extraordinary cast of mentors,
